@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../../jquery_Bootstrap_SweetAlert/jQuery/compressed/jquery-3.3.1.min.js"></script>
+    <link href="../../jquery_Bootstrap_SweetAlert/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../jquery_Bootstrap_SweetAlert/Bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../jquery_Bootstrap_SweetAlert/SweetAlert/sweetalert.min.js"></script>
+</head>
+<body>
+    <div class="container" style="margin-top:10px">
+        <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-4 hidden-sm">
+                <div class="thumbnail">
+                    <a href="../../image/HIM_1338.jpg">
+                        <img src="../../image/HIM_1338.jpg" style="height:200px" />
+                    </a>
+
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4 visible-lg visible-md">
+                <div class="thumbnail">
+                    <a href="../../image/IMG_20180517_022534-1.jpg">
+                        <img src="../../image/IMG_20180517_022534-1.jpg" style="height:200px" />
+                    </a>
+
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <div class="thumbnail">
+                    <a href="../../image/next upload pic.jpg">
+                        <img src="../../image/next upload pic.jpg" style="height:200px" />
+                    </a>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
+                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <abbr class="h1" title="redwan is a good boy"> riagd </abbr>
+
+    <pre class="pre-scrollable">
+    <!--<pre class="pre-scrollable" style="height:100px">-->
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace jQuery_ASP_Bootstrap_Tutorial.ASP_Tutorial.ASP_1_To_10
+{
+    public partial class ApplicationState_1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                if (Application["count"] == null)
+                {
+                    Application["count"] = 0;
+                }
+
+                TextBox1.Text = Application["count"].ToString();
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (Application["count"] != null)
+            {
+                TextBox1.Text = (Convert.ToInt32(Application["count"]) + 1).ToString();
+                Application["count"] = TextBox1.Text;
+            }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(@"~\ASP_Tutorial\ASP_1_To_10\ApplicationState_2.aspx");
+        }
+    }
+}
+</pre>
+</body>
+</html>

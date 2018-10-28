@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EA39164D-F2AA-4991-A4D8-F9991C50B35D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Programming</RootNamespace>
+    <AssemblyName>Programming</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Programming.Collections_STL.Dictionary_D.Basic</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Array_All\Array1D.cs" />
+    <Compile Include="Array_All\Array2D\Char1D.cs" />
+    <Compile Include="Array_All\Array2D\JaggedArray2D_1.cs" />
+    <Compile Include="Array_All\Array2D\JaggedArray2D_2.cs" />
+    <Compile Include="Array_All\Array2D\JaggedArray2D_3.cs" />
+    <Compile Include="Array_All\Array2D\MultidimensionalArray.cs" />
+    <Compile Include="Array_All\Binary_Search.cs" />
+    <Compile Include="Array_All\Clear_Clone.cs" />
+    <Compile Include="Array_All\Copy_CopyTo.cs" />
+    <Compile Include="Array_All\ParamsArray.cs" />
+    <Compile Include="Array_All\Reverse_Sort_IndexOf.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\Basic.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\DifferentTypeOfPrint.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\SortByValue_InList.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\Descending_Ascending_SortByValue.cs" />
+    <Compile Include="Collections_STL\HashSet_HS\Insert.cs" />
+    <Compile Include="Collections_STL\LinkedList_LL\Descending_Ascending_Sort.cs" />
+    <Compile Include="Collections_STL\LinkedList_LL\First_Last_AddLast_AddFirst_RemoveFirst_RemoveLast.cs" />
+    <Compile Include="Collections_STL\List_L\Add_Insert_AddRange_InsertRange.cs" />
+    <Compile Include="Collections_STL\List_L\AdjacencyList.cs" />
+    <Compile Include="Collections_STL\List_L\Besic.cs" />
+    <Compile Include="Collections_STL\List_L\Count_GetRange_Clear_Contains.cs" />
+    <Compile Include="Collections_STL\List_L\Find_FindAll_FindIndex_Exists_Equals.cs" />
+    <Compile Include="Collections_STL\List_L\KeyValuePair_Demo.cs" />
+    <Compile Include="Collections_STL\List_L\ReferenceTypeSort.cs" />
+    <Compile Include="Collections_STL\List_L\Remove_RemoveAll_RemoveAt_RemoveRange.cs" />
+    <Compile Include="Collections_STL\List_L\ToArray_CopyTo_ConvertAll.cs" />
+    <Compile Include="Collections_STL\List_L\Tuple_Sort_Reverse.cs" />
+    <Compile Include="Collections_STL\Queue_Q\Enqueue_Dequeue_Peek.cs" />
+    <Compile Include="Collections_STL\SortedList_SL\Basic.cs" />
+    <Compile Include="Collections_STL\SortedSet_SS\Basic.cs" />
+    <Compile Include="Collections_STL\Stack_S\Push_Pop_Peek.cs" />
+    <Compile Include="Control_Statement\SwitchCase.cs" />
+    <Compile Include="Delegate_Anonymous\Delegate_Besic.cs" />
+    <Compile Include="Function\CallByOut.cs" />
+    <Compile Include="Function\CallByRef.cs" />
+    <Compile Include="Function\CallByValue.cs" />
+    <Compile Include="Object_Oriented\Abstract_Interface\Abstract1.cs" />
+    <Compile Include="Object_Oriented\Abstract_Interface\Interface1.cs" />
+    <Compile Include="Object_Oriented\Abstract_Interface\InterfaceRealLife.cs" />
+    <Compile Include="Object_Oriented\Basekeyword\BaseKeyword1.cs" />
+    <Compile Include="Object_Oriented\Constructor\Constructor1.cs" />
+    <Compile Include="Object_Oriented\Constructor\StaticConstructor.cs" />
+    <Compile Include="Object_Oriented\Destructor\Destructor1.cs" />
+    <Compile Include="Object_Oriented\GetSet\GetterSetter1.cs" />
+    <Compile Include="Object_Oriented\GetSet\GetterSetter2.cs" />
+    <Compile Include="Object_Oriented\GetSet\GetterSetter3.cs" />
+    <Compile Include="Object_Oriented\GetSet\GetterSetter4_Joss.cs" />
+    <Compile Include="Object_Oriented\Inheritance\Inheritance1.cs" />
+    <Compile Include="Object_Oriented\ObjectCopy\Difference.cs" />
+    <Compile Include="Object_Oriented\ObjectCopy\ShallowCopy.cs" />
+    <Compile Include="Object_Oriented\Others\Difference_IEnumerator_And_IEnumerable.cs" />
+    <Compile Include="Object_Oriented\Others\GetType_typeof.cs" />
+    <Compile Include="Object_Oriented\Others\ObjectCopy.cs" />
+    <Compile Include="Object_Oriented\Polymorphism\Downcasting.cs" />
+    <Compile Include="Object_Oriented\Polymorphism\UpCasting.cs" />
+    <Compile Include="Object_Oriented\Others\ReadonlyConst.cs" />
+    <Compile Include="Object_Oriented\This_Keyword\ThisKeyword.cs" />
+    <Compile Include="Others\DuplicateOperation_veryImportant.cs" />
+    <Compile Include="Others\EOF.cs" />
+    <Compile Include="Others\Fillup.cs" />
+    <Compile Include="Others\Input_neoya.cs" />
+    <Compile Include="Others\NullCoalescing.cs" />
+    <Compile Include="Others\ParseAndTryParse.cs" />
+    <Compile Include="Others\RemoveDuplicateValue.cs" />
+    <Compile Include="Others\StringToDouble.cs" />
+    <Compile Include="Others\Structure.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="String_All\Clone_C.cs" />
+    <Compile Include="String_All\Contains_Substring.cs" />
+    <Compile Include="String_All\EndsWith_E.cs" />
+    <Compile Include="String_All\GetEnumerator_GE.cs" />
+    <Compile Include="String_All\IntToBinary_BinaryToInt.cs" />
+    <Compile Include="String_All\Reverse_Sort_IEnumerator.cs" />
+    <Compile Include="String_All\Split_S.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Anonymous_LambdaExpression\" />
+    <Folder Include="Collections_STL\SortedDictionary_SD\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

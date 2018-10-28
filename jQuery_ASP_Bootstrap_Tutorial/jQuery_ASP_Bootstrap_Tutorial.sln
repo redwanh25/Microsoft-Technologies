@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jQuery_ASP_Bootstrap_Tutorial", "jQuery_ASP_Bootstrap_Tutorial\jQuery_ASP_Bootstrap_Tutorial.csproj", "{1AB78D16-9338-4B0E-A896-32B69A8262D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1AB78D16-9338-4B0E-A896-32B69A8262D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB78D16-9338-4B0E-A896-32B69A8262D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB78D16-9338-4B0E-A896-32B69A8262D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB78D16-9338-4B0E-A896-32B69A8262D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D809A0DB-D5F8-4F3B-9040-EEAF3B80EB56}
+	EndGlobalSection
+EndGlobal

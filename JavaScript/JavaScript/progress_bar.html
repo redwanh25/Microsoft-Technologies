@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--<meta charset="utf-8" />-->
+    <title></title>
+</head>
+<body>
+    <progress></progress>
+    <script>
+        var gvalue = 1;
+        function abc() {
+            var progressExample = document.getElementById('progress-javascript-example');
+            setInterval(function () {
+                if (gvalue < 100) {
+                    gvalue++;
+                    progressExample.value = gvalue;
+                }
+                //  abc();
+            }, 100);
+
+            //function proc() {
+            //    if (gvalue < 100) {
+            //        gvalue++;
+            //        document.getElementById('progress-javascript-example').value = gvalue;
+            //    }
+            //}
+            //setInterval(proc(), 100);       // joto bar button a click korbo toto bar barbe.
+
+        }
+    </script>
+    <progress id="progress-javascript-example" min="1" max="100"></progress>
+    <br /><br />
+    <button onclick="abc()">click me</button>
+</body>
+</html>

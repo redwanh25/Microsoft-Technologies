@@ -1,0 +1,13 @@
+﻿.customDiv {
+    margin-bottom: 3px;
+    min-height: 100px;
+    background-color: silver;
+    text-align: center;
+    font-size: large;
+}
+.mainContext {
+    min-height: 203px;
+    background-color: silver;
+    text-align: center;
+    font-size: large;
+}

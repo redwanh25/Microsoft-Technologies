@@ -1,0 +1,29 @@
+﻿@using Microsoft.AspNet.Identity;
+@using BusinessLayer
+
+@*@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+@{
+    string str = User.Identity.GetUserId();
+    int id = -1;
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        id = aspNetUsersBusinessLayer.UserLoginId(str);
+    }
+    if (id == 0)
+    {
+        Layout = "~/Views/Shared/AnotherView1.cshtml";
+    }
+
+    else if (id == 1)
+    {
+        Layout = "~/Views/Shared/AnotherView2.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}

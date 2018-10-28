@@ -1,0 +1,324 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1AB78D16-9338-4B0E-A896-32B69A8262D3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>jQuery_ASP_Bootstrap_Tutorial</RootNamespace>
+    <AssemblyName>jQuery_ASP_Bootstrap_Tutorial</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_1.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_2.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\DataRetriveFromDatabase.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\IsPostBack_Example.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\PageLifeCycle.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\SessionState_1.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\SessionState_2.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\ViewState_1.aspx" />
+    <Content Include="ASP_Tutorial\ASP_1_To_10\ViewState_2.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_10_To_20\list_group.html" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_10_To_20\table_Button_Webform.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_1_To_10\customStyle.css" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_1_To_10\col_md_something.html" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_1_To_10\image_thumbnail.html" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.html" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormValidation.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar_Top.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Accordion_Joss.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Collapse_plugin.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Modal_Popup.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Tabs_Plugin.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="image\HIM_1338.jpg" />
+    <Content Include="image\icons8-lock-50.png" />
+    <Content Include="image\IMG_20180517_022534-1.jpg" />
+    <Content Include="image\next upload pic.jpg" />
+    <Content Include="image\redwan_enan.jpg" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\npm.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\jQuery\compressed\jquery-3.3.1.min.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\jQuery\uncompressed\jquery-3.3.1.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\SweetAlert\sweetalert.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_1.aspx.cs">
+      <DependentUpon>ApplicationState_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_1.aspx.designer.cs">
+      <DependentUpon>ApplicationState_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_2.aspx.cs">
+      <DependentUpon>ApplicationState_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ApplicationState_2.aspx.designer.cs">
+      <DependentUpon>ApplicationState_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\DataRetriveFromDatabase.aspx.cs">
+      <DependentUpon>DataRetriveFromDatabase.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\DataRetriveFromDatabase.aspx.designer.cs">
+      <DependentUpon>DataRetriveFromDatabase.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\IsPostBack_Example.aspx.cs">
+      <DependentUpon>IsPostBack_Example.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\IsPostBack_Example.aspx.designer.cs">
+      <DependentUpon>IsPostBack_Example.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\PageLifeCycle.aspx.cs">
+      <DependentUpon>PageLifeCycle.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\PageLifeCycle.aspx.designer.cs">
+      <DependentUpon>PageLifeCycle.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\SessionState_1.aspx.cs">
+      <DependentUpon>SessionState_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\SessionState_1.aspx.designer.cs">
+      <DependentUpon>SessionState_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\SessionState_2.aspx.cs">
+      <DependentUpon>SessionState_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\SessionState_2.aspx.designer.cs">
+      <DependentUpon>SessionState_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ViewState_1.aspx.cs">
+      <DependentUpon>ViewState_1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ViewState_1.aspx.designer.cs">
+      <DependentUpon>ViewState_1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ViewState_2.aspx.cs">
+      <DependentUpon>ViewState_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ASP_Tutorial\ASP_1_To_10\ViewState_2.aspx.designer.cs">
+      <DependentUpon>ViewState_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_10_To_20\table_Button_Webform.aspx.cs">
+      <DependentUpon>table_Button_Webform.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_10_To_20\table_Button_Webform.aspx.designer.cs">
+      <DependentUpon>table_Button_Webform.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.aspx.cs">
+      <DependentUpon>FormControl.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.aspx.designer.cs">
+      <DependentUpon>FormControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormValidation.aspx.cs">
+      <DependentUpon>FormValidation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormValidation.aspx.designer.cs">
+      <DependentUpon>FormValidation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar.aspx.cs">
+      <DependentUpon>Navigation_Bar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar.aspx.designer.cs">
+      <DependentUpon>Navigation_Bar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar_Top.aspx.cs">
+      <DependentUpon>Navigation_Bar_Top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar_Top.aspx.designer.cs">
+      <DependentUpon>Navigation_Bar_Top.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Accordion_Joss.aspx.cs">
+      <DependentUpon>Accordion_Joss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Accordion_Joss.aspx.designer.cs">
+      <DependentUpon>Accordion_Joss.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Collapse_plugin.aspx.cs">
+      <DependentUpon>Collapse_plugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Collapse_plugin.aspx.designer.cs">
+      <DependentUpon>Collapse_plugin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Modal_Popup.aspx.cs">
+      <DependentUpon>Modal_Popup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Modal_Popup.aspx.designer.cs">
+      <DependentUpon>Modal_Popup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Tabs_Plugin.aspx.cs">
+      <DependentUpon>Tabs_Plugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Tabs_Plugin.aspx.designer.cs">
+      <DependentUpon>Tabs_Plugin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ASP_Tutorial\ASP_10_To_20\" />
+    <Folder Include="ASP_Tutorial\ASP_20_To_30\" />
+    <Folder Include="ASP_Tutorial\ASP_30_To_40\" />
+    <Folder Include="ASP_Tutorial\ASP_40_To_50\" />
+    <Folder Include="ASP_Tutorial\ASP_50_To_60\" />
+    <Folder Include="ASP_Tutorial\ASP_60_To_70\" />
+    <Folder Include="ASP_Tutorial\ASP_70_To_80\" />
+    <Folder Include="ASP_Tutorial\ASP_80_To_90\" />
+    <Folder Include="ASP_Tutorial\ASP_90_To_100\" />
+    <Folder Include="jQuery_Tutorial\jQuery_10_To_20\" />
+    <Folder Include="jQuery_Tutorial\jQuery_1_To_10\" />
+    <Folder Include="jQuery_Tutorial\jQuery_20_To_30\" />
+    <Folder Include="jQuery_Tutorial\jQuery_30_To_40\" />
+    <Folder Include="jQuery_Tutorial\jQuery_40_To_50\" />
+    <Folder Include="jQuery_Tutorial\jQuery_50_To_60\" />
+    <Folder Include="jQuery_Tutorial\jQuery_60_To_70\" />
+    <Folder Include="jQuery_Tutorial\jQuery_70_To_80\" />
+    <Folder Include="jQuery_Tutorial\jQuery_80_To_90\" />
+    <Folder Include="jQuery_Tutorial\jQuery_90_To_100\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61335</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:61335/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

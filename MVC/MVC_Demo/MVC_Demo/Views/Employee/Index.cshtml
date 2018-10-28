@@ -1,0 +1,55 @@
+﻿
+@model IEnumerable<MVC_Demo.Models.Employee>
+
+@using MVC_Demo.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+<div class="container">
+    <h2>Index</h2>
+    <div class="row">
+        <div class="col-xs-3">
+            <table class="table table-striped table-bordered table-hover table-responsive">
+                <thead>
+                    <tr class="success">
+                        <td>Employee Name</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Employee employee in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(employee.Name, "Details", new { id = employee.EmployeeId })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <input id="Button" type="button" value="button" class="btn btn-primary" />
+    <br /> <br />
+    <img id="image" src="~/Image/Romantic pic.jpg" />
+    <br />
+    <div id="write"> </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Button').click(() => {         // ai khane function na likhle o kono problem hobe na.
+                alert('redwan');
+            });
+
+
+        });
+
+        $('#image').ready(function () {
+            $('#write').html("H: " + $('#image').height() + "<br/>" + "W: " + $('#image').width() + "<br/>");
+        });
+    </script>
+</div>
+

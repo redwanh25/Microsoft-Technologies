@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BusinessLayer.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/SweetAlert/sweetalert.min.js"></script>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9">
+            <table class="table table-bordered table-hover table-responsive table-responsive table-striped text-center">
+                <tr class="success" style="font-weight: bold">
+                    <td>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.City)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                    </td>
+                    <td>Action</td>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    using (Html.BeginForm("Delete", "Employee", new { id = item.Id }))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.City)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DateOfBirth)
+                            </td>
+                            <td>
+                                <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Employee", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                                <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "Employee", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>
+                                <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+
+                                @*<input class="deleteID" type="submit" value="Delete" />*@     @*id dile hoy na. class dile hoy. keno ta bujhlam na.*@
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+
+            @Html.TextBox("input", "For Testing purpose", new { @class = "form-control", style = "color:red" })
+        </div>
+    </div>
+</div>
+

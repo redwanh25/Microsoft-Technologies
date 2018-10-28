@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AnotherLayout2</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div>
+        <p>AnotherLayout2</p>
+        <input id="btnLogoff" class="btn btn-success pull-right"
+               type="button" value="Log Off" />
+        @RenderBody();
+        <script type="text/javascript">
+            $(document).ready(function () {
+                if (localStorage.getItem('accessToken') == null) {
+                    window.location.href = "http://localhost:57557/Login.aspx";
+                }
+
+                $('#btnLogoff').click(function () {
+                    localStorage.removeItem('accessToken');
+                    window.location.href = "http://localhost:57557/Login.aspx";
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>

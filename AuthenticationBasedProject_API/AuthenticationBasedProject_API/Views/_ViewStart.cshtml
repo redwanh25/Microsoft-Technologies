@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNet.Identity;
+@using BusinessLayer;
+
+@*@using AuthenticationBasedProject_API.Models;
+@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.EntityFramework;*@
+
+
+@*@{
+            //Layout = "~/Views/Shared/_Layout.cshtml";
+            //Layout = "~/Views/Shared/_Layout_User_One.cshtml";
+    }*@
+
+@{
+    //ApplicationDbContext context = new ApplicationDbContext();
+    //var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+    //ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+    //string ID = currentUser.Id;
+    //string Email = currentUser.Email;
+    //string Username = currentUser.UserName;
+
+    string str = "";
+    str = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        str = aspNetUsersBusinessLayer.UserLoginId(str);
+        //Response.Write("UserId = X ");
+        //Response.Write("UserId = x" + ID + " " + Email + " " + Username);
+    }
+
+    if (str == "User_One")
+    {
+        //Response.Write("UserId = 1 ");
+        Layout = "~/Views/Shared/_Layout_User_One.cshtml";
+    }
+
+    else if (str == "User_Two")
+    {
+        //Response.Write("UserId = 2 ");
+        Layout = "~/Views/Shared/_Layout_User_Two.cshtml";
+    }
+    else if (str == "User_Three")
+    {
+        //Response.Write("UserId = 3 ");
+        Layout = "~/Views/Shared/_Layout_User_Three.cshtml";
+    }
+    else if (str == null)
+    {
+        //Response.Write("UserId = 0");
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    //if (!Request.IsAuthenticated)
+    //{
+    //    Layout = "~/Views/Shared/_Layout.cshtml";
+    //}
+}

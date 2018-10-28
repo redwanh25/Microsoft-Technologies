@@ -1,0 +1,118 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <title> redwan's web </title>
+    <script src="subtruct.js"></script>
+    <link rel="stylesheet" type="text/css" href="styleSheet1.css" />
+    <style>
+        table, th, td {
+            border: 1px dashed red;
+
+        }
+    </style>
+</head>
+    
+<body>
+    <script type="text/javascript">
+        var res = sub(10, 5);
+        document.write(res + "<hr/>");
+        document.write(res + "<hr>" + "<hr>" + "<hr>");
+        document.write("redwan");
+    </script>
+
+    <p class="design_2"> redwan hossain </p>
+
+    <h1>Write Your First Heading</h1>
+    <p class="design_1"> Write Your First Paragraph. </p>
+
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th colspan="2">Mobile No.</th>
+        </tr>
+        <tr>
+            <td>Ajeet Maurya</td>
+            <td>7503520801</td>
+            <td>9555879135</td>
+            <td>7503520801</td>
+            <td>9555879135</td>
+        </tr>
+    </table>
+
+    <form>
+        First Name: <input type="text" name="firstname" /> <br />
+        Last Name:  <input type="text" name="lastname" /> <br />
+    </form>
+    <form>
+        <label for="firstname">First Name: </label>
+        <input type="text" id="firstname" name="firstname" /> <br />
+        <label for="lastname">Last Name: </label>
+        <input type="text" id="lastname" name="lastname" /> <br />
+    </form>
+    <form>
+        <label for="password">Password: </label>
+        <input type="password" id="password" name="password" /> <br />
+    </form>
+    <form>
+        <label for="gender">Gender: </label>
+        <input type="radio" id="gender" name="gender" value="male" />Male
+        <input type="radio" id="gender" name="gender" value="female" />Female <br />
+    </form>
+    <form>
+        Hobby:<br>
+        <input type="checkbox" id="cricket" name="cricket" value="cricket" />
+        <label for="cricket">Cricket</label>
+        <input type="checkbox" id="football" name="football" value="football" />
+        <label for="football">Football</label>
+        <input type="checkbox" id="hockey" name="hockey" value="hockey" />
+        <label for="hockey">Hockey</label>
+    </form>
+    <form action="#">
+        <table>
+            <tr>
+                <td class="tdLabel"><label for="register_name" class="label">Enter name:</label></td>
+                <td><input type="text" name="name" value="" id="register_name" style="width:160px" /></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="register_password" class="label">Enter password:</label></td>
+                <td><input type="password" name="password" id="register_password" style="width:160px" /></td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="register_email" class="label">Enter Email:</label></td>
+                <td>
+                    <input type="email" name="email" value="" id="register_email" style="width:160px" />
+                </td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="register_gender" class="label">Enter Gender:</label></td>
+                <td>
+                    <input type="radio" name="gender" id="register_gendermale" value="male" />
+                    <label for="register_gendermale">male</label>
+                    <input type="radio" name="gender" id="register_genderfemale" value="female" />
+                    <label for="register_genderfemale">female</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdLabel"><label for="register_country" class="label">Select Country:</label></td>
+                <td>
+                    <select name="country" id="register_country" style="width:160px">
+                        <option value="india">india</option>
+                        <option value="pakistan">pakistan</option>
+                        <option value="africa">africa</option>
+                        <option value="china">china</option>
+                        <option value="other">other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div align="right">
+                        <input type="submit" id="register_0" value="register" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>  

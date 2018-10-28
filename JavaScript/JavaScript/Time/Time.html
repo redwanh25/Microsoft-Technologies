@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<body>
+    Current Time: <marquee width="100%" behavior="alternate" bgcolor="pink">
+        <h1 id="txt">  </h1>
+    </marquee>
+    <hr>
+    <marquee width="100%" behavior="alternate" bgcolor="green">
+        <h1> Redwan is a good boy </h1>
+    </marquee>
+    <script>
+
+        function getTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            // add a zero in front of numbers<10
+            h = checkTime(h);
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+
+        }
+        setInterval("getTime()", 1000);//another way
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    </script>
+</body>
+</html>
+</html>

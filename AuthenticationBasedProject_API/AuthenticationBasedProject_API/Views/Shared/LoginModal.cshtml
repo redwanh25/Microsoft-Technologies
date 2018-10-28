@@ -1,0 +1,36 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="modal fade" id="loginModal" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                <div class="modal-dialog" style="width: 380px">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Login </h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>User Name </label>
+                                <input class="form-control" type="text" id="txtUserName" placeholder="User Name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Password </label>
+                                <input class="form-control" type="password" id="txtPassword" placeholder="Password" />
+                            </div>
+                            <!--Bootstrap alert to display error message if the login fails-->
+                            <div id="divError" class="alert alert-danger collapse">
+                                <a id="linkClose" href="#" class="close">&times;</a>
+                                <div id="divErrorText"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input id="btnLogin" type="button" value="Login" class="btn btn-primary btn-sm" />
+                            <input id="btnHideModal" type="button" value="Close" class="btn btn-primary btn-sm" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
