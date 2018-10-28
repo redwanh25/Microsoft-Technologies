@@ -26,6 +26,8 @@ namespace Programming.Collections_STL.List_L
             }
             Console.WriteLine();
 
+            list = list.OrderBy(it => it.Value).ToList();
+
             foreach (KeyValuePair<int, string> it in list)
             {
                 Console.WriteLine(it.Key + " " + it.Value);

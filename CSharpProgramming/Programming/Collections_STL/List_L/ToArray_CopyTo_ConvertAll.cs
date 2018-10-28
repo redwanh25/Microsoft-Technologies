@@ -14,7 +14,7 @@ namespace Programming.Collections_STL.List_L
             //String-typed list
             List<string> words = new List<string>();
 
-            words.Add("A");
+            words.Add("A"); 
             words.Add("B");
             words.Add("C");
             words.Add("D");
@@ -25,7 +25,7 @@ namespace Programming.Collections_STL.List_L
 
             // Copy first two elements to the end of an existing array:
             string[] existing = new string[7];
-            words.CopyTo(1, existing, 2, 4);    // CopyTo(int index, T[] array, int arrayIndex, int count);
+            words.CopyTo(0, existing, 2, 4);    // CopyTo(int index, T[] array, int arrayIndex, int count);
        //   words.CopyTo(existing, 1);
        //   words.CopyTo(existing);
 
