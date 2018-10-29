@@ -17,6 +17,7 @@ namespace Programming.Object_Oriented.Constructor
 
         public StaticConstructor(int a, string str, long ln, double lf)
         {
+            Console.WriteLine("constructor");
             this.a = a;
             this.str = str;
             this.ln = ln;
@@ -25,6 +26,7 @@ namespace Programming.Object_Oriented.Constructor
 
         static StaticConstructor()  // a static constructor must be parameter less. parameter dile hobe na. 
         {                           // static constructor er kono object toiri kora jay na. automatic call hoy.
+            Console.WriteLine("static constructor");
             f = 5.6f;            // by default aita double a thake. tai aita k float a conver korte hole 5.6f
                                  //  f = (float) 5.6;     // likhte hobe. na hole (float) 5.6 likhe type casting kore dite hobe.
                                  // static theke non static k daka jay na. ai jonno "f" k static hote hobe.
@@ -32,7 +34,7 @@ namespace Programming.Object_Oriented.Constructor
 
         public static void Main()
         {
-            //   StaticConstructor sc = new StaticConstructor();   ai vabe StaticConstructor er object toiri kora jabe na. 
+             //  StaticConstructor sc = new StaticConstructor();   ai vabe StaticConstructor er object toiri kora jabe na. 
             //   just value assign kora jabe.
             StaticConstructor sc = new StaticConstructor(1, "redwan", 2, 4.5);
             Console.WriteLine("{0} {1} {2} {3}", sc.a, sc.str, sc.ln, sc.lf);

@@ -50,6 +50,9 @@ namespace Programming.Object_Oriented.Polymorphism
             Coffee coffee = new Coffee();
             Milk milk = new Milk();
 
+            milk.swirl();
+            coffee.swirl();
+
             CoffeeCup cup = new CoffeeCup();
 
             cup.addLiquid(liquid);

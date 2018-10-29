@@ -90,11 +90,11 @@ namespace Programming.Object_Oriented.Abstract_Interface
 
     class N : M, L, K, I, G     // ai line er mane N class , "M" ke inherit kore L K I G ke implements (inherit) kore.
     {                                
-        public void boy()
+        public new void boy()
         {
             Console.WriteLine("obj3 \"N\" boy");
         }
-        public void girl()
+        public new void girl()
         {
             Console.WriteLine("obj3 \"N\" girl");
         }
