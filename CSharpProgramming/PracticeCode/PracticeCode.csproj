@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PracticeCode.NewFolder2.SingleDoubleAndOr</StartupObject>
+    <StartupObject>PracticeCode.NewFolder2.Class1</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -49,6 +49,7 @@
     <Compile Include="NewFolder1\EngineFailure.cs" />
     <Compile Include="NewFolder1\SecondLargestNumber.cs" />
     <Compile Include="NewFolder1\Uri.cs" />
+    <Compile Include="NewFolder2\Class1.cs" />
     <Compile Include="NewFolder2\SingleDoubleAndOr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

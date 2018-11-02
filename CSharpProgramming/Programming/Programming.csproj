@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Object_Oriented.Abstract_Interface.Interface1</StartupObject>
+    <StartupObject>Programming.Others.Comment</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -95,12 +95,19 @@
     <Compile Include="Collections_STL\Stack_S\Push_Pop_Peek.cs" />
     <Compile Include="Control_Statement\SwitchCase.cs" />
     <Compile Include="Delegate_Anonymous\Delegate_Besic.cs" />
+    <Compile Include="Enums\BasicEnum.cs" />
+    <Compile Include="ExceptionHandling\Basic.cs" />
+    <Compile Include="ExceptionHandling\CustomException.cs" />
+    <Compile Include="ExceptionHandling\ExceptionHandlingAbuse.cs" />
+    <Compile Include="ExceptionHandling\InnerException.cs" />
+    <Compile Include="ExceptionHandling\PreventingExceptionHandlingabuse.cs" />
     <Compile Include="Function\CallByOut.cs" />
     <Compile Include="Function\CallByRef.cs" />
     <Compile Include="Function\CallByValue.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\Abstract1.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\Interface1.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\InterfaceRealLife.cs" />
+    <Compile Include="Object_Oriented\AccessModifier\ProtectedAccessModifier.cs" />
     <Compile Include="Object_Oriented\Basekeyword\BaseKeyword1.cs" />
     <Compile Include="Object_Oriented\Constructor\Constructor1.cs" />
     <Compile Include="Object_Oriented\Constructor\StaticConstructor.cs" />
@@ -125,6 +132,7 @@
     <Compile Include="Others\Input_neoya.cs" />
     <Compile Include="Others\NullCoalescing.cs" />
     <Compile Include="Others\ParseAndTryParse.cs" />
+    <Compile Include="Others\RegionAndCommentCode.cs" />
     <Compile Include="Others\RemoveDuplicateValue.cs" />
     <Compile Include="Others\StringToDouble.cs" />
     <Compile Include="Others\Structure.cs" />
