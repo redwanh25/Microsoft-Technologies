@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Others.Comment</StartupObject>
+    <StartupObject>Programming.Partial_Class.MainClass3</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -112,6 +112,7 @@
     <Compile Include="Object_Oriented\Constructor\Constructor1.cs" />
     <Compile Include="Object_Oriented\Constructor\StaticConstructor.cs" />
     <Compile Include="Object_Oriented\Destructor\Destructor1.cs" />
+    <Compile Include="Object_Oriented\Generics\MainClass.cs" />
     <Compile Include="Object_Oriented\GetSet\GetterSetter1.cs" />
     <Compile Include="Object_Oriented\GetSet\GetterSetter2.cs" />
     <Compile Include="Object_Oriented\GetSet\GetterSetter3.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Object_Oriented\Others\Difference_IEnumerator_And_IEnumerable.cs" />
     <Compile Include="Object_Oriented\Others\GetType_typeof.cs" />
     <Compile Include="Object_Oriented\Others\ObjectCopy.cs" />
+    <Compile Include="Object_Oriented\Others\ObsoleteAttributeDemo.cs" />
     <Compile Include="Object_Oriented\Polymorphism\Downcasting.cs" />
     <Compile Include="Object_Oriented\Polymorphism\UpCasting.cs" />
     <Compile Include="Object_Oriented\Others\ReadonlyConst.cs" />
@@ -132,16 +134,29 @@
     <Compile Include="Others\Input_neoya.cs" />
     <Compile Include="Others\NullCoalescing.cs" />
     <Compile Include="Others\ParseAndTryParse.cs" />
+    <Compile Include="Others\ReflectionDemo.cs" />
     <Compile Include="Others\RegionAndCommentCode.cs" />
     <Compile Include="Others\RemoveDuplicateValue.cs" />
     <Compile Include="Others\StringToDouble.cs" />
     <Compile Include="Others\Structure.cs" />
+    <Compile Include="Partial_Class\Customer1.cs" />
+    <Compile Include="Partial_Class\MainClass1.cs" />
+    <Compile Include="Partial_Class\MainClass2.cs" />
+    <Compile Include="Partial_Class\MainClass3.cs" />
+    <Compile Include="Partial_Class\PartialCustomerTwo1.cs" />
+    <Compile Include="Partial_Class\PartialCustomerOne1.cs" />
+    <Compile Include="Partial_Class\PartialInterfaceOne3.cs" />
+    <Compile Include="Partial_Class\PartialInterfaceTwo3.cs" />
+    <Compile Include="Partial_Class\SamplePartialClassOne2.cs" />
+    <Compile Include="Partial_Class\SamplePartialClassTwo2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="String_All\Clone_C.cs" />
     <Compile Include="String_All\Contains_Substring.cs" />
+    <Compile Include="String_All\DifferenceBetweenConvertToStringAndToString.cs" />
     <Compile Include="String_All\EndsWith_E.cs" />
     <Compile Include="String_All\GetEnumerator_GE.cs" />
     <Compile Include="String_All\IntToBinary_BinaryToInt.cs" />
+    <Compile Include="String_All\OverrideToStringMethod.cs" />
     <Compile Include="String_All\Reverse_Sort_IEnumerator.cs" />
     <Compile Include="String_All\Split_S.cs" />
   </ItemGroup>
