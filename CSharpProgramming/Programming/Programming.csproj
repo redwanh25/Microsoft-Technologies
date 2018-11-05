@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Partial_Class.MainClass3</StartupObject>
+    <StartupObject>Programming.Indexer.MainClass</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -67,6 +67,7 @@
     <Compile Include="Array_All\Array2D\JaggedArray2D_2.cs" />
     <Compile Include="Array_All\Array2D\JaggedArray2D_3.cs" />
     <Compile Include="Array_All\Array2D\MultidimensionalArray.cs" />
+    <Compile Include="Array_All\OptionalParamerers.cs" />
     <Compile Include="Array_All\Binary_Search.cs" />
     <Compile Include="Array_All\Clear_Clone.cs" />
     <Compile Include="Array_All\Copy_CopyTo.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Function\CallByOut.cs" />
     <Compile Include="Function\CallByRef.cs" />
     <Compile Include="Function\CallByValue.cs" />
+    <Compile Include="Indexer\Company.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\Abstract1.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\Interface1.cs" />
     <Compile Include="Object_Oriented\Abstract_Interface\InterfaceRealLife.cs" />
