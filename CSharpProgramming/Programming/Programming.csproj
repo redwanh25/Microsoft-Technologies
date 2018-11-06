@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Indexer.MainClass</StartupObject>
+    <StartupObject>Programming.Collections_STL.List_L.AsReadOnly_Method</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -73,15 +73,19 @@
     <Compile Include="Array_All\Copy_CopyTo.cs" />
     <Compile Include="Array_All\ParamsArray.cs" />
     <Compile Include="Array_All\Reverse_Sort_IndexOf.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\ArrayToDictionary_ListToDictionary.cs" />
     <Compile Include="Collections_STL\Dictionary_D\Basic.cs" />
+    <Compile Include="Collections_STL\Dictionary_D\ContainsKey_TryGetValue_Count_Remove_Clear.cs" />
     <Compile Include="Collections_STL\Dictionary_D\DifferentTypeOfPrint.cs" />
     <Compile Include="Collections_STL\Dictionary_D\SortByValue_InList.cs" />
     <Compile Include="Collections_STL\Dictionary_D\Descending_Ascending_SortByValue.cs" />
     <Compile Include="Collections_STL\HashSet_HS\Insert.cs" />
     <Compile Include="Collections_STL\LinkedList_LL\Descending_Ascending_Sort.cs" />
     <Compile Include="Collections_STL\LinkedList_LL\First_Last_AddLast_AddFirst_RemoveFirst_RemoveLast.cs" />
+    <Compile Include="Collections_STL\List_L\AddSubClass.cs" />
     <Compile Include="Collections_STL\List_L\Add_Insert_AddRange_InsertRange.cs" />
     <Compile Include="Collections_STL\List_L\AdjacencyList.cs" />
+    <Compile Include="Collections_STL\List_L\AsReadOnly_Method.cs" />
     <Compile Include="Collections_STL\List_L\Besic.cs" />
     <Compile Include="Collections_STL\List_L\Count_GetRange_Clear_Contains.cs" />
     <Compile Include="Collections_STL\List_L\Find_FindAll_FindIndex_Exists_Equals.cs" />

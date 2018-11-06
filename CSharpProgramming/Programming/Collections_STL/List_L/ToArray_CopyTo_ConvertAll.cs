@@ -12,6 +12,16 @@ namespace Programming.Collections_STL.List_L
         {
             //Create a List of Strings
             //String-typed list
+            int[] arr = new int[3];
+            arr[0] = 0;
+            arr[1] = 1;
+            arr[2] = 2;
+            List<int> list = arr.ToList();
+            foreach(var i in list)
+            {
+                Console.WriteLine(i);
+            }
+
             List<string> words = new List<string>();
 
             words.Add("A"); 
