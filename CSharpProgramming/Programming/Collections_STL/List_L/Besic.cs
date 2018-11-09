@@ -21,6 +21,7 @@ namespace Programming.Collections_STL.List_L
             list.Add("ratna");
             list.Add("belal");
 
+
             IEnumerator<string> it1 = list.GetEnumerator();
             while (it1.MoveNext())
             {

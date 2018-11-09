@@ -53,11 +53,11 @@
             <div class="col-md-4 col-sm-4 col-xs-4">
                 
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-4"> 
+            <div class="col-md-4 col-sm-4 col-xs-4">
                 <asp:ListBox ID="listTokens" runat="server" Width="100%" Rows="6" Font-Size="Large"></asp:ListBox>
                 <asp:Button ID="btnPrintToken" runat="server" Text="Print Token" CssClass="padddingStyle btn btn-danger btn-sm" OnClick="btnPrintToken_Click" />
             </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
+                <div class="col-md-4 col-sm-4 col-xs-4">
             </div>
         </div>
         <br />

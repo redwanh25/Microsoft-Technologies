@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Collections_STL.List_L.AsReadOnly_Method</StartupObject>
+    <StartupObject>Programming.Collections_STL.List_L.Besic</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
