@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Linq_All_Code_DB" Class="LinqToSqlClass_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Linq_All_Code_DB;Integrated Security=True" SettingsObjectName="Linq_All_Code_Web.Properties.Settings" SettingsPropertyName="Linq_All_Code_DBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblPerson" Member="tblPersons">
+    <Type Name="tblPerson">
+      <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
