@@ -11,10 +11,10 @@ namespace Linq_All_Code_Console.LinqDemo
         public static void Main(string[] args)
         {
             int[] arr = {1, 2, 3, 4, 5 };
-            int fact = arr.Aggregate((a, b) => a * b);      // (1)*1*2*3*4*5
+            int fact = arr.Aggregate((a, b) => a * b);      // (1)*1*2*3*4*5 = 120
             Console.WriteLine(fact);
 
-            fact = arr.Aggregate(10, (a, b) => a * b);      // (10)*1*2*3*4*5
+            fact = arr.Aggregate(10, (a, b) => a * b);      // (10)*1*2*3*4*5 = 1200
             Console.WriteLine(fact);
 
             string[] country = { "india", "bangladesh", "usa" };
