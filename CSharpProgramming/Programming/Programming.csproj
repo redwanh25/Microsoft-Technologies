@@ -61,7 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array_All\Array1D.cs" />
+    <Compile Include="Array_All\ForEachArray.cs" />
     <Compile Include="Array_All\Array2D\Char1D.cs" />
     <Compile Include="Array_All\Array2D\JaggedArray2D_1.cs" />
     <Compile Include="Array_All\Array2D\JaggedArray2D_2.cs" />

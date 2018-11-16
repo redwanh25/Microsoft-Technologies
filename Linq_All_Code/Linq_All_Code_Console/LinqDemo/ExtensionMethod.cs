@@ -18,10 +18,12 @@ namespace Linq_All_Code_Console.LinqDemo
 
             List<int> number = new List<int> { 1, 2, 3, 4, 5 };
             IEnumerable<int> it = number.Where(n => n % 2 == 0);
-            foreach(int i in it)
+            number.Add(6);      // ai 6 tao add hoye jabe.
+            foreach(int i in it)        // output hobe 2 4 6  ... obakkor. aitar nam deferred or lazy operators.
             {
                 Console.Write(i + " ");
             }
+            number.Add(8);      // ai 8 ashbe na. print er age jekono jaygay dile e oi ta calculate kore nibe.
             Console.WriteLine();
 
             List<int> number1 = new List<int>() { 1, 2, 3, 4, 5 };
@@ -35,10 +37,10 @@ namespace Linq_All_Code_Console.LinqDemo
 
     }
 
-    public static class StringHelper        // ai class k static korte hobe.
+    public static class StringHelper        // ai class k static korte hobe. jekono class er nam dile e hobe.
     {
         public static string ChangeFirstLetterCase(this string inputString)     // parameter er age this dite hobe.
-        {                                           // and "this string inputString" ai ta first paramert hobe hobe.
+        {                                           // and "this string inputString" ai ta first paramert hote hobe.
             if (inputString.Length > 0)
             {
                 char[] charArray = inputString.ToCharArray();

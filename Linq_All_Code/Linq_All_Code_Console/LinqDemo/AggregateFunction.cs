@@ -17,14 +17,26 @@ namespace Linq_All_Code_Console.LinqDemo
             fact = arr.Aggregate(10, (a, b) => a * b);      // (10)*1*2*3*4*5 = 1200
             Console.WriteLine(fact);
 
-            string[] country = { "india", "bangladesh", "usa" };
+            List<string> country = new List<string> { "india", "bangladesh", "usa" };
             string print = country.Aggregate((a, b) => a + ", " + b);
             Console.WriteLine(print);
+            //deferred or lazy operation (Where, Select, Take, Skip)
+            IEnumerable<string> MaxString = country.Where(l => l.Length == country.Max(c => c.Length));
+            // output a "united kingdom" show korbe.
 
+            // immediate or greedy operations (Count, Average, Min, Max, ToList)
             string MaxlengthString = country.Where(l => l.Length == country.Max(c => c.Length)).Max();
-            int length = country.Max(c => c.Length);
+            int lengthBefore = country.Max(c => c.Length);
             string diff = country.Max();        // look at the output "usa" u > i > b
-            Console.WriteLine(MaxlengthString + " " + length + " " + diff);
+
+            country.Add("united kingdom");
+            int lengthAfter = country.Max(c => c.Length);
+
+            Console.WriteLine("# " + MaxlengthString + " " + lengthBefore + " " + lengthAfter + " " + diff);
+            foreach(string str in MaxString)
+            {
+                Console.WriteLine("* " + str);
+            }
 
             int[] Numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
@@ -59,4 +71,18 @@ namespace Linq_All_Code_Console.LinqDemo
             Console.WriteLine("Average of All Even Numbers = " + averageOfAllEvenNumbers);
         }
     }
+
+    /// <Summery>
+    /// deferred or lazy operation (Where, Select, Take, Skip)
+    /// IEnumerable<string> MaxString = country.Where(l => l.Length == country.Max(c => c.Length)); ai statement hosse lazy
+    /// mane kono kisu list a age add korle or pore add korle she thik e calculate kore nibe. ai khane r oi logic ta khatbe na j code
+    /// line by line kaj kore. but, obosshoi list a add korle print korar age add korte hobe. cs, print korar pore add kore lav ki
+    /// print to kore e dise.
+    /// 
+    /// immediate or greedy operations (Count, Average, Min, Max, ToList)
+    /// string MaxlengthString = country.Where(l => l.Length == country.Max(c => c.Length)).Max(); ai statement ta hosse greedy.
+    /// mane ai khane oi logic ta khatbe j code line by line kaj kore. oi statement paoyar pore kono kisu list a add korle she r oi ta calculate
+    /// korbe na. 
+    /// </Summery>
+
 }

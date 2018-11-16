@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Programming.Array_All
 {
-    class Array1D
+    class ForEachArray
     {
         public static void Main(String[] arg)
         {

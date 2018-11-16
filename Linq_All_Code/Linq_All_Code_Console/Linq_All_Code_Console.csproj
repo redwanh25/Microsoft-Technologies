@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Linq_All_Code_Console.RestrictionOperationDatabase.RestrictionOperation</StartupObject>
+    <StartupObject>Linq_All_Code_Console.LinqDemo.Lookup_Demo</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -56,8 +56,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinqDemo\AggregateFunction.cs" />
+    <Compile Include="LinqDemo\DifferenceBetweenSelectAndSelectMany.cs" />
     <Compile Include="LinqDemo\ExtensionMethod.cs" />
+    <Compile Include="LinqDemo\Lookup_Demo.cs" />
+    <Compile Include="LinqDemo\Paging_Take_Skip.cs" />
+    <Compile Include="LinqDemo\Partitioning_Operators.cs" />
+    <Compile Include="LinqDemo\Reverse_OrderBy_ThenBy_OrderByDescending_ThenByDescending.cs" />
     <Compile Include="LinqDemo\RestrictionOperation.cs" />
+    <Compile Include="LinqDemo\SelectMany_Example.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RestrictionOperationDatabase\Department.cs">
       <DependentUpon>EmployeeModel.tt</DependentUpon>
