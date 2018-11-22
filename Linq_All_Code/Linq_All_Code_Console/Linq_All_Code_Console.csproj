@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Linq_All_Code_Console.LinqDemo.Lookup_Demo</StartupObject>
+    <StartupObject>Linq_All_Code_Console.RestrictionOperationDatabase.RestrictionOperation</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinqDemo\AggregateFunction.cs" />
+    <Compile Include="LinqDemo\Cast_OfType.cs" />
     <Compile Include="LinqDemo\DifferenceBetweenSelectAndSelectMany.cs" />
     <Compile Include="LinqDemo\ExtensionMethod.cs" />
     <Compile Include="LinqDemo\Lookup_Demo.cs" />
