@@ -7,9 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Software_Company {
+namespace Software_Company.WebForm
+{
     
     
-    public partial class WebForm2 {
+    public partial class MainPage {
     }
 }

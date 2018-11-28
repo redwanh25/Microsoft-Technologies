@@ -68,64 +68,80 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Image\facebook.png" />
+    <Content Include="Image\google.png" />
+    <Content Include="Image\RedwanPic.jpg" />
+    <Content Include="Image\instagram.png" />
+    <Content Include="Image\linkedin.png" />
     <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\mountain-3.jpg" />
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-4.jpg" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.css" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.min.css" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.js" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.min.js" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\npm.js" />
-    <Content Include="jquery_Bootstrap_SweetAlert\jQuery\compressed\jquery-3.3.1.min.js" />
-    <Content Include="jquery_Bootstrap_SweetAlert\jQuery\uncompressed\jquery-3.3.1.js" />
-    <Content Include="jquery_Bootstrap_SweetAlert\SweetAlert\sweetalert.min.js" />
+    <Content Include="Image\redwan.jpg" />
+    <Content Include="Image\twitter.png" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\npm.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\ihover.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\jquery-3.3.1.min.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\jquery-3.3.1.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\sweetalert.min.js" />
     <Content Include="Web.config" />
-    <Content Include="MainPage.aspx" />
-    <Content Include="Home.aspx" />
+    <Content Include="WebForm\MainPage.aspx" />
+    <Content Include="WebForm\WebDevelopment.aspx" />
+    <Content Include="WebForm\OurTeam.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site.Master.cs">
+    <Compile Include="WebForm\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site.Master.designer.cs">
+    <Compile Include="WebForm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="MainPage.aspx.cs">
+    <Compile Include="WebForm\MainPage.aspx.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MainPage.aspx.designer.cs">
+    <Compile Include="WebForm\MainPage.aspx.designer.cs">
       <DependentUpon>MainPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="WebForm\WebDevelopment.aspx.cs">
+      <DependentUpon>WebDevelopment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="WebForm\WebDevelopment.aspx.designer.cs">
+      <DependentUpon>WebDevelopment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\OurTeam.aspx.cs">
+      <DependentUpon>OurTeam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\OurTeam.aspx.designer.cs">
+      <DependentUpon>OurTeam.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\desktop.ini" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="packages.config" />
-    <Content Include="Site.Master" />
+    <Content Include="WebForm\Site.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -135,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="JavaScriptFile\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
