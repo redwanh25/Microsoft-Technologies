@@ -10,7 +10,6 @@
 namespace Software_Company.WebForm {
     
     
-    public partial class OurTeam
-    {
+    public partial class OurTeam {
     }
 }

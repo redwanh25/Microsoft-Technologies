@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="OurTeam.aspx.cs" Inherits="Software_Company.WebForm.OurTeam" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+<%--be carefull ClientIDMode="Static" aita na dile aishob page a jquery id selector kaj korbe na.
+jegula page master page theke add content page create kora hoyese--%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
     <link href="../jquery_Bootstrap_SweetAlert_IHover/IHover/ihover.css" rel="stylesheet" />
     <link href="../jquery_Bootstrap_SweetAlert_IHover/GalleryGrid/gallery-grid.css" rel="stylesheet" />
     <style>

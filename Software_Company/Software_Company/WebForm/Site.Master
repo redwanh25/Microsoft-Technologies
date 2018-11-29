@@ -266,10 +266,12 @@
     </form>
 
     <script type="text/javascript">
+
         $('#Send').click(function () {
             if ($('#Name').val().trim() !== '' && $('#Phone').val().trim() !== '' && $('#Email').val().trim() !== ''
                 && $('#Address').val().trim() !== '' && $('#Message').val().trim() !== '') {
                 $('#ContactModal').modal('hide');
+                //alert('Thank You! For Sending Message. We Will Contact With You.');
             }
             else {
                 var str = '';
@@ -290,13 +292,14 @@
                 }
                 $('#divErrorText').text(str);
                 $('#divError').show('fade');
-                return false;
+                return false;   // return false na dile hobe na. return false er jonno button ta kaj korbe na.
             }
         });
 
         $('#linkClose').click(function () {
             $('#divError').hide('fade');
-            return false;
+            return false;   // return false na dile hobe na. return false er jonno crose button a click korle
+                            // popup modal chole jay na.
         });
     </script>
 

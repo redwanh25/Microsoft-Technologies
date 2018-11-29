@@ -116,5 +116,12 @@
         <asp:LinkButton ID="LinkButton3" runat="server" CssClass="btn btn-primary">
         search <span class="glyphicon glyphicon-search"></span></asp:LinkButton>
     </form>
+    <script>
+        $(document).ready(function () {
+            $('#Button1').click(function () {
+                alert('Thank You!\nNext Time We Will Contact With You...');
+            });
+        });
+    </script>
 </body>
 </html>

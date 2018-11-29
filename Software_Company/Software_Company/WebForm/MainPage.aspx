@@ -1,12 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="MainPage.aspx.cs" Inherits="Software_Company.WebForm.MainPage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+<%--be carefull ClientIDMode="Static" aita na dile aishob page a jquery id selector kaj korbe na.
+jegula page master page theke add content page create kora hoyese--%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
+
     <div class="container">
         <div class="row">
             <div align="center">
+                
                 <h1>Shrinking Bootstrap navbar</h1>
                 <h1>Use this document as a way to quickly start any new project. 
-            All you get is this text and a mostly barebones HTML document.
+                    All you get is this text and a mostly barebones HTML document.
                 </h1>
                 <h1>Shrinking Bootstrap navbar</h1>
                 <h1>Use this document as a way to quickly start any new project. 
@@ -84,4 +89,5 @@
             </div>
         </div>
     </div>
+    
 </asp:Content>

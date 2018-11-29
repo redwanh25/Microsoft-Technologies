@@ -1,7 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="Software_Company.WebForm.ContactUs" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+<%--be carefull ClientIDMode="Static" aita na dile aishob page a jquery id selector kaj korbe na.
+jegula page master page theke add content page create kora hoyese--%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
     <style>
+        /*well k override kora hoise.*/
         .well {
             min-height: 10px;
             padding: 5px;
@@ -17,56 +21,77 @@
                 <br />
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label>Name</label>
-                            <asp:TextBox ID="Name" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
-
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </span>
+                                <asp:TextBox ID="Name1" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label>Phone Number</label>
-                            <asp:TextBox ID="Phone" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-phone-alt"></span>
+                                </span>
+                                <asp:TextBox ID="Phone1" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label>Email</label>
-                            <asp:TextBox ID="Email" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <asp:TextBox ID="Email1" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label>Address</label>
-                            <asp:TextBox ID="Address" runat="server" CssClass="form-control" placeholder="Address"></asp:TextBox>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon glyphicon-home"></span>
+                                </span>
+                                <asp:TextBox ID="Address1" runat="server" CssClass="form-control" placeholder="Address"></asp:TextBox>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group">
+                        <div class="form-group has-success">
                             <label>Message </label>
-                            <asp:TextBox ID="Message" runat="server" CssClass="form-control" placeholder="Write here..." TextMode="MultiLine" Rows="4"></asp:TextBox>
+                            <asp:TextBox ID="Message1" runat="server" CssClass="form-control" placeholder="Write here..." TextMode="MultiLine" Rows="4"></asp:TextBox>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div id="divError" class="alert alert-danger collapse">
-                            <button id="linkClose" class="close">&times;</button>
-                            <div id="divErrorText"></div>
+                        <div id="divError1" class="alert alert-danger collapse">
+                            <button id="linkClose1" class="close">&times;</button>
+                            <div id="divErrorText1" runat="server"></div>
                         </div>
                     </div>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <asp:Button ID="Send" runat="server" Text="Send Message" CssClass="btn btn-danger btn-block" />
+                        <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
+                        <asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="btn btn-info btn-block" OnClick="Send_Click" />
                     </div>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <br /><br />
+                <br />
+                <br />
                 <div>
                     <div class="well">
                         <h4>Address:</h4>
@@ -90,4 +115,41 @@
         </div>
     </div>
     <br />
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#Send1').click(function () {
+                if ($('#Name1').val().trim() === '' || $('#Phone1').val().trim() === '' || $('#Email1').val().trim() === ''
+                    || $('#Address1').val().trim() === '' || $('#Message1').val().trim() === '') {
+                    var str = '';
+                    if ($('#Name1').val().trim() === '') {
+                        str += "Name is missing ** ";
+                    }
+                    if ($('#Phone1').val().trim() === '') {
+                        str += "Phone is missing ** ";
+                    }
+                    if ($('#Email1').val().trim() === '') {
+                        str += "Email is missing ** ";
+                    }
+                    if ($('#Address1').val().trim() === '') {
+                        str += "Address is missing ** ";
+                    }
+                    if ($('#Message1').val().trim() === '') {
+                        str += "Message is missing ** ";
+                    }
+                    $('#divErrorText1').text(str);
+                    $('#divError1').show('fade');
+                    return false;       // return false na dile hobe na. return false er jonno button ta kaj korbe na.
+                }
+                else {
+                    alert('Thank You!\nNext Time We Will Contact With You...');
+                }
+            });
+            $('#linkClose1').click(function () {
+                $('#divError1').hide('fade');
+                return false;
+            });
+        });
+    </script>
+
 </asp:Content>
