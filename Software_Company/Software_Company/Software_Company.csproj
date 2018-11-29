@@ -68,8 +68,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Image\benches.jpg" />
+    <Content Include="Image\bridge.jpg" />
+    <Content Include="Image\coast.jpg" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
+    <Content Include="Image\park.jpg" />
+    <Content Include="Image\rails.jpg" />
     <Content Include="Image\RedwanPic.jpg" />
     <Content Include="Image\instagram.png" />
     <Content Include="Image\linkedin.png" />
@@ -78,6 +83,9 @@
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-4.jpg" />
     <Content Include="Image\redwan.jpg" />
+    <Content Include="Image\rocks.jpg" />
+    <Content Include="Image\sky.jpg" />
+    <Content Include="Image\tunnel.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css" />
@@ -87,14 +95,19 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\npm.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\GalleryGrid\gallery-grid.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\ihover.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\jquery-3.3.1.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\sweetalert.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebForm\MainPage.aspx" />
     <Content Include="WebForm\WebDevelopment.aspx" />
     <Content Include="WebForm\OurTeam.aspx" />
+    <Content Include="WebForm\Gallery.aspx" />
+    <Content Include="WebForm\ContactUs.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -128,6 +141,20 @@
     </Compile>
     <Compile Include="WebForm\OurTeam.aspx.designer.cs">
       <DependentUpon>OurTeam.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

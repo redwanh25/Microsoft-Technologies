@@ -10,7 +10,11 @@
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="../jquery_Bootstrap_SweetAlert_IHover/IHover/ihover.css" rel="stylesheet" />
+    <script>
+        function alertMe() {
+            swal("Thank You!", "For Sending Message. We Will Contact With You.", "success");
+        }
+    </script>
     <style>
         body {
             padding-top: 50px;
@@ -48,7 +52,7 @@
                     </button>
                     <a class="navbar-brand" style="font-size: 30px" href="MainPage.aspx">Logo</a>
                 </div>
-                <div class="collapse navbar-collapse" style="font-size: 17px">
+                <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">IT Solutions
@@ -84,7 +88,8 @@
                                 <li><a href="#">Clients </a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="Gallery.aspx">Gallery</a></li>
+                        <li><a href="ContactUs.aspx">Contact Us</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
                 </div>
@@ -205,13 +210,12 @@
                 </div>
             </div>
         </footer>
-
         <div class="modal fade" id="ContactModal" tabindex="-1" data-keyboard="false">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Contact With Us</h4>
+                        <h4 class="modal-title h3" align="center" style="color: darkslateblue">Contact With Us</h4>
                     </div>
                     <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -249,14 +253,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <%--<input id="Send" type="submit" value="Send" class="btn btn-primary btn-sm" runat="server" onserverclick="sendClick"/>--%>
                         <asp:Button ID="Send" runat="server" Text="Send" class="btn btn-primary btn-sm" OnClick="sendClick" />
-                        <%-- bal asp button dile sweet alert kaj kore na. --%>
                         <asp:Button ID="btnHideModal" runat="server" Text="Close" class="btn btn-primary btn-sm" data-dismiss="modal" />
                     </div>
                 </div>
             </div>
         </div>
-
         <div style="float: right">
             <input id="ContactPopUp" type="button" value="Contact With Us" class="btn btn-success sideBanner" data-target="#ContactModal" data-toggle="modal" />
         </div>
@@ -264,25 +267,25 @@
 
     <script type="text/javascript">
         $('#Send').click(function () {
-            if ($('#Name').val() !== '' && $('#Phone').val() !== '' && $('#Email').val() !== ''
-                && $('#Address').val() !== '' && $('#Message').val() !== '') {
+            if ($('#Name').val().trim() !== '' && $('#Phone').val().trim() !== '' && $('#Email').val().trim() !== ''
+                && $('#Address').val().trim() !== '' && $('#Message').val().trim() !== '') {
                 $('#ContactModal').modal('hide');
             }
             else {
                 var str = '';
-                if ($('#Name').val() === '') {
+                if ($('#Name').val().trim() === '') {
                     str += "Name is missing ** ";
                 }
-                if ($('#Phone').val() === '') {
+                if ($('#Phone').val().trim() === '') {
                     str += "Phone is missing ** ";
                 }
-                if ($('#Email').val() === '') {
+                if ($('#Email').val().trim() === '') {
                     str += "Email is missing ** ";
                 }
-                if ($('#Address').val() === '') {
+                if ($('#Address').val().trim() === '') {
                     str += "Address is missing ** ";
                 }
-                if ($('#Message').val() === '') {
+                if ($('#Message').val().trim() === '') {
                     str += "Message is missing ** ";
                 }
                 $('#divErrorText').text(str);
@@ -295,7 +298,6 @@
             $('#divError').hide('fade');
             return false;
         });
-
     </script>
 
 </body>

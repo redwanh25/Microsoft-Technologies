@@ -13,12 +13,11 @@ namespace Software_Company.WebForm
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
         protected void sendClick(object sender, EventArgs e)
         {
             string str = ConfigurationManager.ConnectionStrings["DBMS"].ConnectionString;
-            using(SqlConnection con = new SqlConnection(str))
+            using (SqlConnection con = new SqlConnection(str))
             {
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
@@ -42,8 +41,14 @@ namespace Software_Company.WebForm
                     cmd.Parameters.AddWithValue("@Address", address);
                     cmd.Parameters.AddWithValue("@Message", message);
                     cmd.ExecuteNonQuery();
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertMe()", true);
+
+                    //get current url (Preventing form resubmission)
+                    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+                    Response.Redirect(url);
                 }
             }
+            
         }
     }
 }
