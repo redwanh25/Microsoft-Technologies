@@ -115,6 +115,40 @@ jegula page master page theke add content page create kora hoyese--%>
         </div>
     </div>
     <br />
+    <hr style="border: 5px solid; color: #F5F3F1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+                <h3><b>Sweden</b></h3>
+                <p>Abcdefghijklmn 00, Abcde ABC</p>
+                <p>123 34 Dhaka</p>
+                <p>Bangladesh</p>
+                <p style="color:orange">Tel: +12 34 567 89 10</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+                <h3><b>USA</b></h3>
+                <p>Abcdefghijklmn 00, Abcde ABC</p>
+                <p>123 34 Dhaka</p>
+                <p>Bangladesh</p>
+                <p style="color:orange">Tel: +12 34 567 89 10</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+                <h3><b>India</b></h3>
+                <p>Abcdefghijklmn 00, Abcde ABC</p>
+                <p>123 34 Dhaka</p>
+                <p>Bangladesh</p>
+                <p style="color:orange">Tel: +12 34 567 89 10</p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+                <h3><b>Germany</b></h3>
+                <p>Abcdefghijklmn 00, Abcde ABC</p>
+                <p>123 34 Dhaka</p>
+                <p>Bangladesh</p>
+                <p style="color:orange">Tel: +12 34 567 89 10</p>
+            </div>
+        </div>
+    </div>
+    <br />
     <script type="text/javascript">
         $(document).ready(function () {
 

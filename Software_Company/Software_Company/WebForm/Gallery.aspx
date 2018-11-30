@@ -14,7 +14,8 @@
         <div class="container gallery-container">
 
             <h1 class="text-center">Image Gallery</h1>
-            <p class="page-description text-center">Grid Layout With Zoom Effect</p>
+            <p class="page-description text-center">Our employees are our most valuable assets.
+                Indpro has over 80 employees, skilled in various technologies and platforms.</p>
 
             <div class="tz-gallery">
                 <div class="row">
