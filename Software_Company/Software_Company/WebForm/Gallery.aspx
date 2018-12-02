@@ -13,8 +13,8 @@
     <div class="container">
         <div class="container gallery-container">
 
-            <h1 class="text-center">Image Gallery</h1>
-            <p class="page-description text-center">Our employees are our most valuable assets.
+            <h1 class="text-center shadow_T">Image Gallery</h1>
+            <p class="page-description text-center shadow_T">Our employees are our most valuable assets.
                 Indpro has over 80 employees, skilled in various technologies and platforms.</p>
 
             <div class="tz-gallery">

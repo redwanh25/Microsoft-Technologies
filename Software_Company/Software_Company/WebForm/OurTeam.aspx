@@ -16,7 +16,7 @@ jegula page master page theke add content page create kora hoyese--%>
             <br />
             <div class="row">
                 <div class="col-xs-12">
-                    <img class="img-responsive" src="../Image/redwan.jpg" />
+                    <img class="img-responsive shadow_B" src="../Image/redwan.jpg" style="border-radius:15px"/>
                     <br />
                     <div class="jumbotron">
                         <h1>Global skills with local touch</h1>
@@ -32,14 +32,14 @@ jegula page master page theke add content page create kora hoyese--%>
         </div>
         <br />
         <div class="container gallery-container">
-            <h1 class="text-center">Our Employees</h1>
-            <p class="page-description text-center">Our employees are our most valuable assets. Indpro has over 80 employees,
+            <h1 class="text-center shadow_T">Our Employees</h1>
+            <p class="page-description text-center shadow_T">Our employees are our most valuable assets. Indpro has over 80 employees,
                             skilled in various technologies and platforms.</p>
             <br />
             <div class="row">
                 <div class="col-xs-12">
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -64,7 +64,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -89,7 +89,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -116,7 +116,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -141,7 +141,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -166,7 +166,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -193,7 +193,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -218,7 +218,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -243,7 +243,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -270,7 +270,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -295,7 +295,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />
@@ -320,7 +320,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             </a>
                         </div>
                         <br />
-                        <div class="ih-item circle effect3 left_to_right">
+                        <div class="ih-item circle effect3 left_to_right shadow_B">
                             <a href="#">
                                 <div class="img">
                                     <img src="../Image/RedwanPic.jpg" alt="img" />

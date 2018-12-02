@@ -17,25 +17,17 @@ jegula page master page theke add content page create kora hoyese--%>
             border-radius: 60px;
         }
 
-        .shadow_B {
-            box-shadow: -2px 4px 22px #000
-        }
-
-        .shadow_T {
-            text-shadow: 6px 7px 19px;
-        }
-
         .inner {
             overflow: hidden;
         }
 
-            .inner img {
-                transition: all 1.0s ease;
-            }
+        .inner img {
+            transition: all 1.0s ease;
+        }
 
-            .inner:hover img {
-                transform: scale(1.5);
-            }
+        .inner:hover img {
+            transform: scale(1.5);
+        }
 
         /*remove shadow from glyphicons in bootstrap carousel*/
         /*.titelButton .carousel-control.left, .titelButton .carousel-control.right {

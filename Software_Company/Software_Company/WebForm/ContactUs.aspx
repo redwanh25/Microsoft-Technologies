@@ -85,7 +85,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
-                        <asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="btn btn-info btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none"/>
+                        <asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>
                     </div>
                 </div>
             </div>
