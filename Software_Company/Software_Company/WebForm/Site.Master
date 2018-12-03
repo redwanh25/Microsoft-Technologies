@@ -5,6 +5,8 @@
 <html>
 <head runat="server">
     <title></title>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/ParticlesBackground/app.js"></script>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/ParticlesBackground/particles.js"></script>
     <script src="../jquery_Bootstrap_SweetAlert_IHover/jQuery/compressed/jquery-3.3.1.min.js"></script>
     <script src="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/js/bootstrap.min.js"></script>
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -17,6 +19,7 @@
         }
     </script>
     <style>
+        /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect{
             transition: transform .1s;
             cursor: url('http://csscursor.info/source/santahand.png'), default;
@@ -29,6 +32,7 @@
         }
     </style>
     <style>
+        /*aita na dile jump ta kaj korbe na.*/
         @keyframes bounce {
             0%, 20%, 60%, 100% {
                 -webkit-transform: translateY(0);
@@ -46,9 +50,9 @@
             }
         }
 
-        .btn:hover {
+        /*.btn:hover {
             animation: bounce .8s;
-        }
+        }*/
     </style>
     <style>
         body {
@@ -61,6 +65,8 @@
         /*.dropdown:hover > .dropdown-menu{
             display: block;
         }*/
+
+        /*for possition fixed(side button (Contact with us))*/ 
         .sideBanner {
             position: fixed;
             /*left:0;*/
@@ -82,6 +88,7 @@
             text-shadow: 6px 7px 19px;
         }
     </style>
+
 </head>
 <body data-spy="scroll" data-target="#mainNavbar" data-offset="60">
     <form id="form1" runat="server">
@@ -131,7 +138,7 @@
                                 <li><a href="#">Clients </a></li>
                             </ul>
                         </li>
-                        <li><a class="zoom-effect" href="Gallery.aspx">Gallery</a></li>
+                        <li><a class="zoom-effect" href="Gallery.aspx"> Gallery</a></li>
                         <li><a class="zoom-effect" href="ContactUs.aspx">Contact Us</a></li>
                         <li><a class="zoom-effect" href="#">Blog</a></li>
                     </ul>
@@ -189,9 +196,10 @@
         </div>
 
         <br />
-
-        <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
-        </asp:ContentPlaceHolder>
+        <div id="particles-js">
+            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
 
         <br />
         <footer id="footer" style="background-color: #3A3A3D; margin-bottom: -60px">
@@ -258,7 +266,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title h3" align="center" style="color: darkslateblue">Contact With Us</h4>
+                        <h4 class="modal-title h3 text-center" style="color: darkslateblue">Contact With Us</h4>
                     </div>
                     <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -305,7 +313,7 @@
         </div>
 
         <div style="float: right">
-            <input id="ContactPopUp" type="button" value="Contact With Us" class="btn btn-success sideBanner" data-target="#ContactModal" data-toggle="modal" />
+            <input id="ContactPopUp" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
         </div>
     </form>
 

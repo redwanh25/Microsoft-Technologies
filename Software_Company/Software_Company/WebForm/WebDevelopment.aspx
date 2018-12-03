@@ -40,6 +40,7 @@
                             <li class="col-md-12 col-sm-6 col-xs-6 h4">
                                 <b>You want to know more? </b>
                                 <br />
+                                <%--<a href="OurTeam.aspx#abc" class="btn btn-default">GoingOn</a>--%>
                                 <asp:Button Style="margin-top: 10px" ID="Button1" runat="server" Text="Click here" class="btn btn-danger btn-sm" />
                             </li>
                         </ul>
@@ -209,6 +210,7 @@
     </div>
     <%--Smooth Scroll with jQuery--%>
     <script type="text/javascript">
+
         //$(document).ready(function () {
         //    $('#scrl').scrollspy({
         //        target: '#mainNavbar',

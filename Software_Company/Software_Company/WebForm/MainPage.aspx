@@ -11,6 +11,7 @@ jegula page master page theke add content page create kora hoyese--%>
             height: 220px;
             border-radius: 60px;
         }
+
         #imageCarousel2 .carousel-inner .item .well {
             /*padding: 10px;*/
             height: 250px;
@@ -21,22 +22,164 @@ jegula page master page theke add content page create kora hoyese--%>
             overflow: hidden;
         }
 
-        .inner img {
-            transition: all 1.0s ease;
-        }
+            .inner img {
+                transition: all 1.0s ease;
+            }
 
-        .inner:hover img {
-            transform: scale(1.5);
-        }
+            .inner:hover img {
+                transform: scale(1.5);
+            }
 
         /*remove shadow from glyphicons in bootstrap carousel*/
         /*.titelButton .carousel-control.left, .titelButton .carousel-control.right {
             background-image: none !important;
             filter: none !important;
         }*/
-    </style>
 
+        .thumbnail .caption .btn:hover {
+            animation: bounce .8s;
+        }
+
+        .imgHover:hover {
+            background-color: #F5F3F1;
+            transition: .3s;
+        }
+        .logoBounce:hover{
+            animation: bounce .8s;
+        }
+    </style>
+    <br />
+    <br />
     <div class="container">
+        <%--    <div class="row text-center">
+        <div class="col-xs-5">
+            <div class="row">
+                <div class="col-xs-6 column">Column 1</div>
+                <div class="col-xs-6 column">Column 2</div>
+            </div>
+        </div>
+        <div class="col-xs-7">
+            <div class="row">
+                <div class="col-xs-4 column">Column 3</div>
+                <div class="col-xs-4 column">Column 4</div>
+                <div class="col-xs-4 column">Column 5</div>
+            </div>
+        </div>
+    </div>--%>
+        <div class="row text-center shadow_T">
+            <h1>Over 250 satisfied customers globally</h1>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2 col-xs-offset-2 hidden-lg hidden-md hidden-sm">
+                <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" />
+                <br />
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-lg hidden-md hidden-sm">
+                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <br />
+            </div>
+        </div>
+    </div>
+    <hr style="border: 5px solid; color: #F5F3F1">
+    <br />
+    <div class="container">
+        <div class="row text-center">
+            <div>
+                <h1>
+                    Indigenous IT consulting company with global deliveries
+                </h1>
+            </div>
+        </div>
+    </div>
+    <br />
+    <hr style="border: 5px solid; color: #F5F3F1">
+    <div class="container">
+        <div class="row text-center shadow_T">
+            <h1>How does it happen?</h1>
+            <br />
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-comments-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-idea-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-in-transit-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-increase-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-laptop-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4">
+                <img class="logoBounce" src="../Image/icons8-windows-client-64.png" />
+                <h4><b>Needs analysis</b></h4>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+                <a href="#" id="btn-read" class="btn btn-block btn-default shadow_B" style="border-radius: 20px; font-size: 17px">READ MORE ABOUT THIS</a>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
         <div class="row">
             <br />
             <div class="text-center">
