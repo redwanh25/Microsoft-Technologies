@@ -27,8 +27,7 @@
 
         .zoom-effect:hover {
             /*transform: translateY(-20px) scale(2) rotate(10deg);*/
-            transform:translateY(-4px) scale(1.1);
-            z-index: 1;
+            transform:translateY(-4px) scale(1.03);
         }
     </style>
     <style>

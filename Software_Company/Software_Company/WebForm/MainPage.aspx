@@ -22,13 +22,13 @@ jegula page master page theke add content page create kora hoyese--%>
             overflow: hidden;
         }
 
-            .inner img {
-                transition: all 1.0s ease;
-            }
+        .inner img {
+            transition: all 1.0s ease;
+        }
 
-            .inner:hover img {
-                transform: scale(1.5);
-            }
+        .inner:hover img {
+            transform: scale(1.5);
+        }
 
         /*remove shadow from glyphicons in bootstrap carousel*/
         /*.titelButton .carousel-control.left, .titelButton .carousel-control.right {
@@ -44,8 +44,16 @@ jegula page master page theke add content page create kora hoyese--%>
             background-color: #F5F3F1;
             transition: .3s;
         }
-        .logoBounce:hover{
+
+        .logoBounce:hover {
             animation: bounce .8s;
+        }
+
+        .space {
+            word-spacing: 30px
+        }
+        .innerShadow{
+            box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1);
         }
     </style>
     <br />
@@ -72,49 +80,60 @@ jegula page master page theke add content page create kora hoyese--%>
         <br />
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 col-xs-offset-2 hidden-lg hidden-md hidden-sm">
@@ -122,49 +141,157 @@ jegula page master page theke add content page create kora hoyese--%>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-lg hidden-md hidden-sm">
-                <a href="#"><img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                <a href="#">
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
         </div>
     </div>
-    <hr style="border: 5px solid; color: #F5F3F1">
+    <br />
+    <br />
     <br />
     <div class="container">
-        <div class="row text-center">
-            <div>
-                <h1>
-                    Indigenous IT consulting company with global deliveries
-                </h1>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading shadow_B">
+                    <%--<asp:Button ID="toggleButton" runat="server" Text="Toggle Button" class="btn btn-primary" />--%>
+                    <%--<input id="toggleButton" type="button" class="btn btn-default btn-block innerShadow" style="outline: none; height: 45px; font-size: 20px" />--%>
+                        
+                    <a id="toggleButton" class="btn btn-default btn-block innerShadow" style="outline: none; height: 45px; font-size: 20px">
+                        <marquee behavior="alternate" scrollamount="8">Watch video of how it works here</marquee>
+                    </a>
+                </div>
+                <div class="panel-body collapse" id="video">
+                    <div class="col-sm-6">
+                        <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
+                        <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
+                        <%--<embed width="300" height="180" src="https://www.youtube.com/v/aPw1M_Ehg94"/>--%>
+                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/748BFvqYHG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nD7uDivzMiA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <br />
     <br />
     <hr style="border: 5px solid; color: #F5F3F1">
+    <br />
     <div class="container">
-        <div class="row text-center shadow_T">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center shadow_T">Indigenous IT consulting company with global deliveries</h1>
+                <br />
+                <br />
+                <div class="shadow_B" style="border-radius:10px">
+                    <div class="pre-scrollable" style="min-height:250px">
+                        <ul class="nav nav-tabs h4">
+                            <li class="active"><a href="#Customer" data-toggle="tab" style="color:orange">CUSTOMER ENGAGEMENT</a></li>
+                            <li><a href="#CAPACITY" data-toggle="tab" style="color:orange">CAPACITY </a></li>
+                            <li><a href="#QUALITY" data-toggle="tab" style="color:orange">QUALITY </a></li>
+                            <li><a href="#COMPETENCE" data-toggle="tab" style="color:orange">COMPETENCE </a></li>
+                        </ul>
+                        <br />
+                        <div class="tab-content text-center">                          
+                           <div id="Customer" class="tab-pane active">
+                                <h4><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
+                                    <br />
+                                    <br />
+                                    Our customers often talk about our commitment. We do not work with IT, we work with people.
+                                    <br />
+                                    Our team of developers is working agile against customers according to
+                                    <br />
+                                    proven SCRUM methodology, and we know what is
+                                    <br />
+                                    needed for communication between customer and development team to work<br />
+                                    seamlessly at a distance.
+                                </h4>
+                            </div>
+                            <div id="CAPACITY" class="tab-pane">
+                                <h4><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
+                                    <br />
+                                    <br />
+                                    We work purposefully to attract the best skills. At Indpro you stay for a long time. No matter where 
+                                    <br />
+                                    Our team of developers is working agile against customers according to
+                                    <br />
+                                    and we listen to our employees' career development needs.
+                                    <br />
+                                    needed for communication between customer and development team to work<br />
+                                    seamlessly at a distance.
+                                </h4>
+                            </div>
+                            <div id="QUALITY" class="tab-pane">
+                                <h4><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
+                                    <br />
+                                    <br />
+                                    We have nearly 100 employees, which enables us to quickly find the right developer to our .
+                                    <br />
+                                    Our team of developers is working agile against customers according to
+                                    <br />
+                                    proven SCRUM methodology, and we know what is
+                                    <br />
+                                    needed for communication between customer and development team to work<br />
+                                    seamlessly at a distance.
+                                </h4>
+                            </div>
+                            <div id="COMPETENCE" class="tab-pane">
+                                <h4><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
+                                    <br />
+                                    <br />
+                                    such as communication problems and contextual misunderstandings. We work with mixed teams 
+                                    <br />
+                                    Our team of developers is working agile against customers according to
+                                    <br />
+                                    between customers and developers.
+                                    <br />
+                                    needed for communication between customer and development team to work<br />
+                                    seamlessly at a distance.
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <div class="container">
+        <div class="row text-center">
             <h1>How does it happen?</h1>
             <br />
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-comments-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-idea-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-in-transit-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-increase-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-laptop-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4">
+            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
                 <img class="logoBounce" src="../Image/icons8-windows-client-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
@@ -400,5 +527,16 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var el = document.getElementById('toggleButton');
+            // space deoyar jonno \xa0 aita use korte hoy
+            //el.value = "Watch video of how it works here" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Watch video of how it works here";
+            //el.innerHTML = "Watch video of how it works here" + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0||\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + "Watch video of how it works here";
+            $('#toggleButton').click(function () {
+                $('#video').collapse('toggle');
+            });
 
+        });
+    </script>
 </asp:Content>

@@ -113,6 +113,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </a>
                         </div>
+                        <br />
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -190,6 +191,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </a>
                         </div>
+                        <br />
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
@@ -267,6 +269,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </a>
                         </div>
+                        <br />
                     </div>
 
                     <div class="col-lg-3 col-md-6 col-sm-6">
