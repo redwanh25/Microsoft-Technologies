@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Software_Company_WebApplication.DifferentLayout_Database;
+@{
+
+    string str = "";
+    str = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+    }
+
+    if (str == "1234_U1")
+    {
+        Layout = "~/Views/Shared/_Layout_User_One.cshtml";
+    }
+    else if (str == "1234_U2")
+    {
+        Layout = "~/Views/Shared/_Layout_User_Two.cshtml";
+    }
+}

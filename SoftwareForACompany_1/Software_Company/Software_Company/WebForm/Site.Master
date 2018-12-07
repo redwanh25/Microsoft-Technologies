@@ -1,0 +1,358 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Software_Company.WebForm.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/ParticlesBackground/app.js"></script>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/ParticlesBackground/particles.js"></script>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/jQuery/compressed/jquery-3.3.1.min.js"></script>
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
+    <link href="../jquery_Bootstrap_SweetAlert_IHover/Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <script>
+        function alertMe() {
+            swal("Thank You!", "For Sending Message. We Will Contact With You.", "success");
+        }
+    </script>
+    <style>
+        /*navigation bar er upor er effect ta aikhane kora ase.*/
+        .zoom-effect{
+            transition: transform .1s;
+            cursor: url('http://csscursor.info/source/santahand.png'), default;
+        }
+
+        .zoom-effect:hover {
+            /*transform: translateY(-20px) scale(2) rotate(10deg);*/
+            transform:translateY(-4px) scale(1.03);
+        }
+    </style>
+    <style>
+        /*aita na dile jump ta kaj korbe na.*/
+        @keyframes bounce {
+            0%, 20%, 60%, 100% {
+                -webkit-transform: translateY(0);
+                transform: translateY(0);
+            }
+
+            40% {
+                -webkit-transform: translateY(-10px);
+                transform: translateY(-10px);
+            }
+
+            80% {
+                -webkit-transform: translateY(-5px);
+                transform: translateY(-5px);
+            }
+        }
+
+        /*.btn:hover {
+            animation: bounce .8s;
+        }*/
+    </style>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        a, a:hover, a:active, a:visited, a:focus {
+            text-decoration: none;
+        }
+        /*.dropdown:hover > .dropdown-menu{
+            display: block;
+        }*/
+
+        /*for possition fixed(side button (Contact with us))*/ 
+        .sideBanner {
+            position: fixed;
+            /*left:0;*/
+            top: 20%;
+            margin-top: 150px; /* is 50% of width */
+            transform: rotate(90deg);
+            transform-origin: 0% 0%; /* set to the upper-left corner */
+            -ms-transform: rotate(90deg); /* IE 9 */
+            -ms-transform-origin: 0% 0%; /* IE 9 */
+            -webkit-transform: rotate(90deg); /* Safari and Chrome */
+            -webkit-transform-origin: 0% 0%; /* Safari and Chrome */
+        }
+
+        .shadow_B {
+            box-shadow: -2px 4px 22px #000
+        }
+
+        .shadow_T {
+            text-shadow: 6px 7px 19px;
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target="#mainNavbar" data-offset="60">
+    <form id="form1" runat="server">
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B" style="font-size:16px">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand zoom-effect" style="font-size: 30px" href="MainPage.aspx">Logo</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">IT Solutions
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">E-commerce Solution </a></li>
+                                <li><a href="#">Mobile Development </a></li>
+                                <li><a href="WebDevelopment.aspx">Web Development </a></li>
+                                <li><a href="#">IOS Development </a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">Our Offer
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">IT Consultants</a></li>
+                                <li><a href="#">Dedicated Team</a></li>
+                                <li><a href="#">Project Development</a></li>
+                                <li><a href="#">How does it work</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">About Company
+                            <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="OurTeam.aspx">Our Team </a></li>
+                                <li><a href="#">Career </a></li>
+                                <li><a href="#">Clients </a></li>
+                            </ul>
+                        </li>
+                        <li><a class="zoom-effect" href="Gallery.aspx"> Gallery</a></li>
+                        <li><a class="zoom-effect" href="ContactUs.aspx">Contact Us</a></li>
+                        <li><a class="zoom-effect" href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="row shadow_B">
+            <div id="imageCarousel" class="carousel slide" data-interval="2500"
+                data-ride="carousel" data-pause="false" data-wrap="true">
+
+                <ol class="carousel-indicators">
+                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                    <li data-target="#imageCarousel" data-slide-to="2"></li>
+                    <li data-target="#imageCarousel" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img style="width: 100%; min-height: 150px" src="../Image/mountain-1.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <h3>Desert</h3>
+                            <p>Desert Image Description</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img style="width: 100%; min-height: 150px" src="../Image/mountain-2.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <h3>Jellyfish</h3>
+                            <p>Jellyfish Image Description</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img style="width: 100%; min-height: 150px" src="../Image/mountain-3.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <h3>Lighthouse</h3>
+                            <p>Lighthouse Image Description</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img style="width: 100%; min-height: 150px" src="../Image/mountain-4.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <h3>Penguins</h3>
+                            <p>Penguins Image Description</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+        </div>
+
+        <br />
+        <div id="particles-js">
+            <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+
+        <br />
+        <footer id="footer" style="background-color: #3A3A3D; margin-bottom: -60px">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row" style="color: white">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Website Name</h3>
+                            <hr />
+                            <p style="color: gainsboro">
+                                Use this document as a way to quickly start any new project.
+                                All you get is this text and a mostly barebones HTML document.
+                                Cras mattis consectetur purus sit amet fermentum.
+                                Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                                ut fermentum massa justo sit amet risus.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Usefull link</h3>
+                            <table class="table" style="margin-top: 20px">
+                                <tr>
+                                    <td><a style="color: orange" href="#">IT solutions</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">Mobile development</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">Web development</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">Angular and React developers</a> </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Follow Us</h3>
+                            <hr />
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/facebook.png" Style="width: 40px; height: 40px" />
+                            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Image/twitter.png" Style="width: 40px; height: 40px" />
+                            <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Image/instagram.png" Style="width: 40px; height: 40px" />
+                            <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Image/google.png" Style="width: 40px; height: 40px" />
+                            <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Address</h3>
+                            <hr />
+                            <div style="color: orange">
+                                <p>46/1 Shukrabad, Dhanmondi.</p>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <p class="pull-right" style="color: white">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                </div>
+            </div>
+        </footer>
+
+        <div class="modal fade" id="ContactModal" tabindex="-1" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title h3 text-center" style="color: darkslateblue">Contact With Us</h4>
+                    </div>
+                    <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <asp:TextBox ID="Name" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <asp:TextBox ID="Email" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <asp:TextBox ID="Phone" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <asp:TextBox ID="Address" runat="server" CssClass="form-control" placeholder="Address"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <label>Message </label>
+                                <asp:TextBox ID="Message" runat="server" CssClass="form-control" placeholder="Write here..." TextMode="MultiLine" Rows="4"></asp:TextBox>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div id="divError" class="alert alert-danger collapse">
+                                <button id="linkClose" class="close">&times;</button>
+                                <div id="divErrorText"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <%--<input id="Send" type="submit" value="Send" class="btn btn-primary btn-sm" runat="server" onserverclick="sendClick"/>--%>
+                        <asp:Button ID="Send" runat="server" Text="Send Message" class="btn btn-primary btn-sm" OnClick="sendClick" />
+                        <asp:Button ID="btnHideModal" runat="server" Text="Close" class="btn btn-primary btn-sm" data-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="float: right">
+            <input id="ContactPopUp" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
+        </div>
+    </form>
+
+    <script type="text/javascript">
+
+        $('#Send').click(function () {
+            if ($('#Name').val().trim() !== '' && $('#Phone').val().trim() !== '' && $('#Email').val().trim() !== ''
+                && $('#Address').val().trim() !== '' && $('#Message').val().trim() !== '') {
+                $('#ContactModal').modal('hide');
+                //alert('Thank You! For Sending Message. We Will Contact With You.');
+            }
+            else {
+                var str = '';
+                if ($('#Name').val().trim() === '') {
+                    str += "Name is missing ** ";
+                }
+                if ($('#Phone').val().trim() === '') {
+                    str += "Phone is missing ** ";
+                }
+                if ($('#Email').val().trim() === '') {
+                    str += "Email is missing ** ";
+                }
+                if ($('#Address').val().trim() === '') {
+                    str += "Address is missing ** ";
+                }
+                if ($('#Message').val().trim() === '') {
+                    str += "Message is missing ** ";
+                }
+                $('#divErrorText').text(str);
+                $('#divError').show('fade');
+                return false;   // return false na dile hobe na. return false er jonno button ta kaj korbe na.
+            }
+        });
+
+        $('#linkClose').click(function () {
+            $('#divError').hide('fade');
+            return false;   // return false na dile hobe na. return false er jonno crose button a click korle
+            // popup modal chole jay na.
+        });
+    </script>
+
+</body>
+</html>
