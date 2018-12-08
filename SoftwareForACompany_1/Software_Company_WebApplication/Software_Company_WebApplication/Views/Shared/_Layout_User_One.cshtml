@@ -29,10 +29,13 @@
             /*transform: translateY(-20px) scale(2) rotate(10deg);*/
             transform: translateY(-4px) scale(1.03);
         }
+        .shadow_B {
+            box-shadow: -2px 4px 22px #000
+        }
     </style>
 </head>
 <body style="padding-top:60px">
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B" style="font-size:16px">
+    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:16px">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -58,10 +61,10 @@
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
                     <li><a class="zoom-effect" href="@Url.Action("View2", "Home")"> View2 </a></li>
-                    <li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li> 
+                    <li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a id="spanUserName" class="text-muted" style="color:aqua;"></a></li>
+                    <li><a><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
                     <li><a class="zoom-effect" href="#" id="btnLogoff"> Log Off </a></li>
                 </ul>
             </div>
@@ -73,55 +76,64 @@
         <br /> <br />
     </div>
 
-    <footer id="footer" style="background-color: #3A3A3D;">
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row" style="color: white">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h3>Website Name</h3>
-                        <hr>
-                        <p style="color: gainsboro">
-                            Use this document as a way to quickly start any new project.
-                            All you get is this text and a mostly barebones HTML document.
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h3>Usefull link</h3>
-                        <table class="table" style="margin-top: 20px">
-                            <tr>
-                                <td><a style="color: orange" href="#">IT solutions</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">Mobile development</a> </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h3>Follow Us</h3>
-                        <hr>
-                        <img src="~/Image/facebook.png" Style="width: 40px; height: 40px" />
-                        <img src="~/Image/twitter.png" Style="width: 40px; height: 40px" />
-                        <img src="~/Image/instagram.png" Style="width: 40px; height: 40px" />
-                        <img src="~/Image/google.png" Style="width: 40px; height: 40px" />
-                        <img src="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h3>Address</h3>
-                        <hr>
-                        <div style="color: orange">
-                            <p>46/1 Shukrabad, Dhanmondi.</p>
-                            <p>Dhaka, Bangladesh</p>
-                        </div>
-                    </div>
-                </div>
-                <hr style="color: white">
-                <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <hr style="color: black; border:0.5px solid">
+                <p class="pull-right">&copy; @DateTime.Now.Year - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
             </div>
         </div>
     </footer>
+
+    @*<footer id="footer" style="background-color: #3A3A3D;">
+            <div class="footer-bottom">
+                <div class="container">
+                    <div class="row" style="color: white">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Website Name</h3>
+                            <hr>
+                            <p style="color: gainsboro">
+                                Use this document as a way to quickly start any new project.
+                                All you get is this text and a mostly barebones HTML document.
+                            </p>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Usefull link</h3>
+                            <table class="table" style="margin-top: 20px">
+                                <tr>
+                                    <td><a style="color: orange" href="#">IT solutions</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
+                                </tr>
+                                <tr>
+                                    <td><a style="color: orange" href="#">Mobile development</a> </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Follow Us</h3>
+                            <hr>
+                            <img src="~/Image/facebook.png" Style="width: 40px; height: 40px" />
+                            <img src="~/Image/twitter.png" Style="width: 40px; height: 40px" />
+                            <img src="~/Image/instagram.png" Style="width: 40px; height: 40px" />
+                            <img src="~/Image/google.png" Style="width: 40px; height: 40px" />
+                            <img src="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                            <h3>Address</h3>
+                            <hr>
+                            <div style="color: orange">
+                                <p>46/1 Shukrabad, Dhanmondi.</p>
+                                <p>Dhaka, Bangladesh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="color: white">
+                    <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                </div>
+            </div>
+        </footer>*@
 </body>
 </html>
 

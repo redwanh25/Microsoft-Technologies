@@ -241,7 +241,7 @@
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-globe"></span>
                                         </span>
-                                        <asp:TextBox ID="textEmployeeCode" runat="server" placeholder="Enter your EmployeeCode" CssClass="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="textEmployeeCode" runat="server" placeholder="Enter your EmployeeCode" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
