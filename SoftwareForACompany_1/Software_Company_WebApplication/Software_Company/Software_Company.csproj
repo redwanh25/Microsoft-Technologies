@@ -166,28 +166,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Image\desktop.ini" />
-    <Content Include="JavaScriptFile\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css.map" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.css.map" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\GalleryGrid\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\ParticlesBackground\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\desktop.ini" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -199,6 +185,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="JavaScriptFile\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

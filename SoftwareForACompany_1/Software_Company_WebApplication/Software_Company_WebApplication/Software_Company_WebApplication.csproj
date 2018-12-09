@@ -213,7 +213,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DatabaseConnection\PersonBuisnessLayer.cs" />
+    <Compile Include="DatabaseConnection\PersonMessage.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -290,20 +293,11 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css.map" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.css.map" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\desktop.ini" />
-    <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\desktop.ini" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -335,6 +329,8 @@
     <Content Include="Views\Home\View1.cshtml" />
     <Content Include="Views\Home\View2.cshtml" />
     <Content Include="Views\Shared\_Layout_User_Two.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
