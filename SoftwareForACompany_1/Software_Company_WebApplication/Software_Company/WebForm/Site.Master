@@ -139,7 +139,7 @@
                         </li>
                         <li><a class="zoom-effect" href="Gallery.aspx"> Gallery</a></li>
                         <li><a class="zoom-effect" href="ContactUs.aspx">Contact Us</a></li>
-                        <li><a class="zoom-effect" href="#">Blog</a></li>
+                        <li><a class="zoom-effect" href="Blog.aspx">Blog</a></li>
                     </ul>
                 </div>
             </div>

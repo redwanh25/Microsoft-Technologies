@@ -32,7 +32,7 @@
             {
                 new SelectListItem{Text="Male", Value="Male"},
                 new SelectListItem{Text="Female", Value="Female"}
-            }, "Select Gender", new { @class = "form-control"})
+            }, "Select Gender", new { @class = "form-control" })
 
             @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })

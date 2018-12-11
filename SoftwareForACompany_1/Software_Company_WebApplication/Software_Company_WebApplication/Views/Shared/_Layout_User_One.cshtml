@@ -53,7 +53,7 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">E-commerce Solution </a></li>
+                            <li><a href="@Url.Action("Blog_Post", "BlogPost")">Blog Post </a></li>
                             <li><a href="#">Mobile Development </a></li>
                             <li><a href="WebDevelopment.aspx">Web Development </a></li>
                             <li><a href="#">IOS Development </a></li>
@@ -61,7 +61,7 @@
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
                     <li><a class="zoom-effect" href="@Url.Action("View2", "Home")"> View2 </a></li>
-                    <li role="presentation"><a class="zoom-effect" href="@Url.Action("Index", "Person")">Message <span class="badge">42</span></a></li>
+                    <li role="presentation"><a class="zoom-effect" href="@Url.Action("Index", "Person")">Message @*<span class="badge">42</span>*@</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>

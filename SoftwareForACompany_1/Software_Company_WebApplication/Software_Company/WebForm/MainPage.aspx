@@ -81,7 +81,7 @@ jegula page master page theke add content page create kora hoyese--%>
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite;" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2">
@@ -192,7 +192,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 <br />
                 <br />
                 <div class="shadow_B" style="border-radius:10px">
-                    <div class="pre-scrollable" style="min-height:250px">
+                    <div class="pre-scrollable" style="min-height:450px">
                         <ul class="nav nav-tabs h4">
                             <li class="active"><a href="#Customer" data-toggle="tab" style="color:orange">CUSTOMER ENGAGEMENT</a></li>
                             <li><a href="#CAPACITY" data-toggle="tab" style="color:orange">CAPACITY </a></li>

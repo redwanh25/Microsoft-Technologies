@@ -31,5 +31,8 @@ namespace Software_Company_WebApplication.Models
         {
             return new ApplicationDbContext();
         }
+
+        //ai ta koi theke ashse jani na.. but, aita dile login and register hobe na...
+        //public System.Data.Entity.DbSet<Software_Company_WebApplication.DatabaseConnection.PersonMessage> PersonMessages { get; set; }
     }
 }

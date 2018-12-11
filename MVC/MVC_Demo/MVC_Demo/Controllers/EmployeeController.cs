@@ -22,6 +22,25 @@ namespace MVC_Demo.Controllers
         //    return View(employee);
         //}
 
+        public ActionResult AddImage()
+        {
+            Brand b1 = new Brand();
+            return View(b1);
+        }
+        [HttpPost]
+        public ActionResult AddImage(Brand model, HttpPostedFileBase image1)
+        {
+            MVC_Demo_DatabaseEntities db = new MVC_Demo_DatabaseEntities();
+            if(image1 != null)
+            {
+                model.BrandImage = new byte[image1.ContentLength];
+                image1.InputStream.Read(model.BrandImage, 0, image1.ContentLength);
+            }
+            db.Brands.Add(model);
+            db.SaveChanges();
+            return View(model);
+        }
+
         public ActionResult Index()
         {
             EmployeeContext employeeContext = new EmployeeContext();
