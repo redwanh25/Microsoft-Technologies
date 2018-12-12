@@ -48,6 +48,7 @@ namespace Software_Company_WebApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]  //To Remove A potentially dangerous Request.Form value the client (akhun textarea er vitore html tag use kora jabe)
         public ActionResult Create([Bind(Include = "Id,Title,BlogImage,Text")] Blog_tbl blog_tbl, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
@@ -86,6 +87,7 @@ namespace Software_Company_WebApplication.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [ValidateInput(false)]  //To Remove A potentially dangerous Request.Form value the client (akhun textarea er vitore html tag use kora jabe)
         public ActionResult Edit([Bind(Include = "Id,Title,BlogImage,Text")] Blog_tbl blog_tbl, HttpPostedFileBase image1)
         {
             if (ModelState.IsValid)
