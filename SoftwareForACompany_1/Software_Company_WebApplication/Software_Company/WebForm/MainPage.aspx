@@ -192,7 +192,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 <br />
                 <br />
                 <div class="shadow_B" style="border-radius:10px">
-                    <div class="pre-scrollable" style="min-height:450px">
+                    <div class="pre-scrollable" style="min-height:400px">
                         <ul class="nav nav-tabs h4">
                             <li class="active"><a href="#Customer" data-toggle="tab" style="color:orange">CUSTOMER ENGAGEMENT</a></li>
                             <li><a href="#CAPACITY" data-toggle="tab" style="color:orange">CAPACITY </a></li>

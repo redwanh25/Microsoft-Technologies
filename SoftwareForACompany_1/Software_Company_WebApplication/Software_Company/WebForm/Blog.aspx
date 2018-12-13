@@ -1,6 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="Blog.aspx.cs" Inherits="Software_Company.WebForm.Blog" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
     <style>
         #Image1:hover {
             overflow: hidden;
@@ -14,9 +16,9 @@
             <asp:Label ID="DateTime1" runat="server" Text="Label"></asp:Label>
             <asp:Image ID="Image1" runat="server" CssClass="img-responsive" />
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
-            <asp:listview id="ListView1" runat="server"></asp:listview>
+            <asp:ListView ID="ListView1" runat="server"></asp:ListView>
 
-            <asp:gridview id="GridView1" runat="server" gridlines="None" autogeneratecolumns="false">
+            <asp:GridView ID="GridView1" runat="server" GridLines="None" AutoGenerateColumns="false">
                 <Columns>
                     <asp:TemplateField HeaderText="" InsertVisible="False" SortExpression="CustomerId">
                         <ItemTemplate>
@@ -28,14 +30,20 @@
                                 <br />
                                 <br />
                                 <br />
-                                
+
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
-                                            <%#GetImage(Container.DataItem)%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
-                                            <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
+                                    <div class="tz-gallery">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
+                                                <%--<a class="lightbox" href="../Image/rocks.jpg">--%>
+                                                    <%--<%#GetImage(Container.DataItem)%>--%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
+                                                    <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
+                                                <%--</a>--%>
+                                                <%#GetImage(Container.DataItem)%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
+                                                <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
+                                            </div>
                                         </div>
-                                    </div>                                 
+                                    </div>
                                 </div>
 
                                 <div class="well">
@@ -46,7 +54,10 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-            </asp:gridview>
+            </asp:GridView>
         </div>
     </div>
+    <script type="text/javascript">
+        baguetteBox.run('.tz-gallery');
+    </script>
 </asp:Content>
