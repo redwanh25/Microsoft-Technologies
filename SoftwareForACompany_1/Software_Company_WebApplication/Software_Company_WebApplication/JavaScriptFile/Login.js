@@ -16,8 +16,9 @@ $(document).ready(function () {
             success: function (response) {
                 localStorage.setItem("accessToken", response.access_token);
                 localStorage.setItem("userName", response.userName);
-
-                window.location.href = "http://localhost:64491/Home/Index";
+                var root = location.protocol + '//' + location.host;
+                window.location.href = root + "/Home/Index";
+                //window.location.href = "http://localhost:64491/Home/Index";
             },
             // Display errors if any in the Bootstrap alert <div>
             error: function (jqXHR) {

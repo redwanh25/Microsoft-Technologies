@@ -1,16 +1,55 @@
 ﻿@model IEnumerable<Software_Company_WebApplication.Models.Blog_tbl>
-
+@using System.Text;
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    table.fixed {
+        table-layout: fixed;
+        width: 1140px;
+    }
 
-<p>
+        table.fixed td {
+            overflow: hidden;
+        }
+            /*Setting the width of column 7.*/
+            table.fixed td:nth-of-type(1) {
+                width: 50px;
+            }
+
+            table.fixed td:nth-of-type(2) {
+                width: 170px;
+            }
+
+            table.fixed td:nth-of-type(3) {
+                width: 120px;
+            }
+
+            table.fixed td:nth-of-type(5) {
+                width: 400px;
+            }
+
+            table.fixed td:nth-of-type(6) {
+                width: 225px;
+            }
+
+    #blogText .well {
+        min-height: 20px;
+        padding: 10px;
+        margin-bottom: 1px;
+        overflow:hidden;
+    }
+</style>
+
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 
 <div class="row">
+    <div class="pull-right">
+        <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "BlogPostUpdateVersion")'"><span class="glyphicon glyphicon-edit"></span> New Post</button>
+    </div>
     <div class="col-xs-12">
         <h4>Select Number of Rows</h4>
         <div class="form-group">
@@ -27,9 +66,9 @@
         </div>
     </div>
 </div>
-<table class="table table-hover table-striped text-center" id="mytable">
+<table class="table table-hover text-center fixed" id="mytable">
     <tr class="success" style="font-weight: bold; font-size:16px">
-        <td >
+        <td>
             @Html.DisplayNameFor(model => model.Title)
         </td>
         <td>
@@ -47,11 +86,24 @@
     @foreach (var item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
+            <td id="blogText">
+                <div class="well">
+                    @{
+                        var str = Html.DisplayFor(modelItem => item.Title);
+                        string str1 = str.ToString();
+                        if (str1.Length > 65)
+                        {
+                            StringBuilder sb = new StringBuilder(str1);
+                            sb.Remove(65, sb.Length - 65);
+                            str1 = sb.ToString() + "...";
+                        }
+                    }
+                    @str1
+                    @*@Html.DisplayFor(modelItem => item.Title)*@
+                </div>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Date)
+                <b>@Html.DisplayFor(modelItem => item.Date)</b>
             </td>
             <td>
                 @*@Html.DisplayFor(modelItem => item.BlogImage)*@
@@ -63,16 +115,32 @@
                         imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                     }
                 }
-                <img  src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:150px"/>
+                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:150px" />
                 <br />
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Text)
+            <td id="blogText">
+                <div class="well">
+                    @{ 
+                        var str2 = Html.DisplayFor(modelItem => item.Text);
+                        string str3 = str2.ToString();
+                        if(str3.Length > 200)
+                        {
+                            StringBuilder sb = new StringBuilder(str3);
+                            sb.Remove(200, sb.Length - 200);
+                            str3 = sb.ToString() + "...";
+                        }
+                    }
+                    @str3
+                    @*@Html.DisplayFor(modelItem => item.Text)*@
+                </div>
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "BlogPostUpdateVersion", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "BlogPostUpdateVersion", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>
+                <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "BlogPostUpdateVersion", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
             </td>
         </tr>
     }

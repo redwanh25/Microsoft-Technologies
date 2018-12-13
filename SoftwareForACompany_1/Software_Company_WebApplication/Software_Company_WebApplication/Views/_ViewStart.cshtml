@@ -21,6 +21,9 @@
     }
     else
     {
-        Response.Redirect("http://localhost:64491/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+        string appPath = "";
+        appPath = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+        Response.Redirect(appPath + "/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+        //Response.Redirect(appPath + "http://localhost:64491/RegistrationAndLoginPage/RegisterAndLogin.aspx");
     }
 }

@@ -10,7 +10,62 @@
 <div>
     <h4>Blog_tbl</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <div class="row" style="font-size:18px">
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-sm-offset-1">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Title)</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-text-size"></span>
+                            </span>
+                            <textarea disabled rows="3" class="form-control" style="font-size:16px"> @Html.DisplayFor(model => model.Title)</textarea>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Date)</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            <textarea disabled rows="1" class="form-control" style="font-size:16px">@Html.DisplayFor(model => model.Date)</textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.BlogImage) </label>
+                        @{
+                            var imgSrc = "";
+                            if (Model.BlogImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.BlogImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                        }
+                        <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px;" class="img-responsive" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Text) </label>
+                        <textarea disabled rows="10" class="form-control" style="font-size:16px">@Html.DisplayFor(model => model.Text)</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -33,7 +88,6 @@
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.BlogImage)*@
             <br />
             @{
                 var imgSrc = "";
@@ -43,7 +97,7 @@
                     imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                 }
             }
-            <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px;" class="img-responsive"/>
+            <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px;" class="img-responsive" />
             <br /><br />
         </dd>
 
@@ -55,14 +109,16 @@
             @Html.DisplayFor(model => model.Text)
         </dd>
 
-    </dl>
+    </dl>*@
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <a class="btn btn-default" href="@Url.Action("Index", "BlogPostUpdateVersion")">Back to List</a>
+    </div>
     }
 </div>
