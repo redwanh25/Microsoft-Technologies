@@ -16,13 +16,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <div class="form-group has-success">
                         <label>@Html.DisplayNameFor(model => model.Title)</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-text-size"></span>
-                            </span>
-                            <textarea disabled rows="3" class="form-control" style="font-size:16px"> @Html.DisplayFor(model => model.Title)</textarea>
-
-                        </div>
+                        <textarea disabled rows="3" class="form-control" style="font-size:16px"> @Html.DisplayFor(model => model.Title)</textarea>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -65,49 +59,49 @@
         </div>
     </div>
     @*<dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Date)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
 
-        <dt>
-            <br />
-            @Html.DisplayNameFor(model => model.BlogImage)
-        </dt>
+            <dt>
+                <br />
+                @Html.DisplayNameFor(model => model.BlogImage)
+            </dt>
 
-        <dd>
-            <br />
-            @{
-                var imgSrc = "";
-                if (Model.BlogImage != null)
-                {
-                    var base64 = Convert.ToBase64String(Model.BlogImage);
-                    imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <dd>
+                <br />
+                @{
+                    var imgSrc = "";
+                    if (Model.BlogImage != null)
+                    {
+                        var base64 = Convert.ToBase64String(Model.BlogImage);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
                 }
-            }
-            <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px;" class="img-responsive" />
-            <br /><br />
-        </dd>
+                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px;" class="img-responsive" />
+                <br /><br />
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Text)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Text)
-        </dd>
-    </dl>*@
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>
+        </dl>*@
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@

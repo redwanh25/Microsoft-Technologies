@@ -4,7 +4,6 @@
 jegula page master page theke add content page create kora hoyese--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
-
     <style>
         #imageCarousel1 .carousel-inner .item .well {
             /*padding: 10px;*/
@@ -22,13 +21,13 @@ jegula page master page theke add content page create kora hoyese--%>
             overflow: hidden;
         }
 
-        .inner img {
-            transition: all 1.0s ease;
-        }
+            .inner img {
+                transition: all 1.0s ease;
+            }
 
-        .inner:hover img {
-            transform: scale(1.5);
-        }
+            .inner:hover img {
+                transform: scale(1.5);
+            }
 
         /*remove shadow from glyphicons in bootstrap carousel*/
         /*.titelButton .carousel-control.left, .titelButton .carousel-control.right {
@@ -40,10 +39,15 @@ jegula page master page theke add content page create kora hoyese--%>
             animation: bounce .8s;
         }
 
-        .imgHover:hover {
-            background-color: #F5F3F1;
-            transition: .3s;
+        .imgHover {
+            transition: all 0.5s ease;
         }
+
+            .imgHover:hover {
+                background-color: #F5F3F1;
+                transition: .3s;
+                transform: scale(1.1);
+            }
 
         .logoBounce:hover {
             animation: bounce .8s;
@@ -52,8 +56,13 @@ jegula page master page theke add content page create kora hoyese--%>
         .space {
             word-spacing: 30px
         }
-        .innerShadow{
+
+        .innerShadow {
             box-shadow: inset 0px 0px 20px 0px rgba(0,0,0,1);
+        }
+
+        .panel {
+            border-radius: 20px;
         }
     </style>
     <br />
@@ -153,15 +162,16 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading shadow_B">
+                <div>
+                    <%--panel-heading --%>
                     <%--<asp:Button ID="toggleButton" runat="server" Text="Toggle Button" class="btn btn-primary" />--%>
                     <%--<input id="toggleButton" type="button" class="btn btn-default btn-block innerShadow" style="outline: none; height: 45px; font-size: 20px" />--%>
-                        
-                    <a id="toggleButton" class="btn btn-default btn-block innerShadow" style="outline: none; height: 45px; font-size: 20px">
+
+                    <a id="toggleButton" class="btn btn-default btn-block" style="outline: none; height: 45px; font-size: 20px; border-radius: 20px">
                         <marquee behavior="alternate" scrollamount="8">Watch video of how it works here</marquee>
                     </a>
                 </div>
-                <div class="panel-body collapse" id="video">
+                <div class="panel-body collapse animated bounceIn" id="video">
                     <div class="col-sm-6">
                         <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
                         <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
@@ -191,18 +201,18 @@ jegula page master page theke add content page create kora hoyese--%>
                 <h1 class="text-center shadow_T">Indigenous IT consulting company with global deliveries</h1>
                 <br />
                 <br />
-                <div class="shadow_B" style="border-radius:10px">
-                    <div class="pre-scrollable" style="min-height:400px">
+                <div class="shadow_B" style="border-radius: 10px">
+                    <div class="pre-scrollable" style="min-height: 400px">
                         <ul class="nav nav-tabs h4">
-                            <li class="active"><a href="#Customer" data-toggle="tab" style="color:orange">CUSTOMER ENGAGEMENT</a></li>
-                            <li><a href="#CAPACITY" data-toggle="tab" style="color:orange">CAPACITY </a></li>
-                            <li><a href="#QUALITY" data-toggle="tab" style="color:orange">QUALITY </a></li>
-                            <li><a href="#COMPETENCE" data-toggle="tab" style="color:orange">COMPETENCE </a></li>
+                            <li class="active"><a href="#Customer" data-toggle="tab" style="color: orange">CUSTOMER ENGAGEMENT</a></li>
+                            <li><a href="#CAPACITY" data-toggle="tab" style="color: orange">CAPACITY </a></li>
+                            <li><a href="#QUALITY" data-toggle="tab" style="color: orange">QUALITY </a></li>
+                            <li><a href="#COMPETENCE" data-toggle="tab" style="color: orange">COMPETENCE </a></li>
                         </ul>
                         <br />
-                        <div class="tab-content text-center">                          
-                           <div id="Customer" class="tab-pane active">
-                                <h4><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
+                        <div class="tab-content text-center">
+                            <div id="Customer" class="tab-pane active">
+                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
                                     <br />
                                     <br />
                                     Our customers often talk about our commitment. We do not work with IT, we work with people.
@@ -213,10 +223,10 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h4>
+                                </h3>
                             </div>
                             <div id="CAPACITY" class="tab-pane">
-                                <h4><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
+                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
                                     <br />
                                     <br />
                                     We work purposefully to attract the best skills. At Indpro you stay for a long time. No matter where 
@@ -227,10 +237,10 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h4>
+                                </h3>
                             </div>
                             <div id="QUALITY" class="tab-pane">
-                                <h4><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
+                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
                                     <br />
                                     <br />
                                     We have nearly 100 employees, which enables us to quickly find the right developer to our .
@@ -241,10 +251,10 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h4>
+                                </h3>
                             </div>
                             <div id="COMPETENCE" class="tab-pane">
-                                <h4><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
+                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
                                     <br />
                                     <br />
                                     such as communication problems and contextual misunderstandings. We work with mixed teams 
@@ -255,7 +265,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h4>
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -271,28 +281,28 @@ jegula page master page theke add content page create kora hoyese--%>
         <div class="row text-center">
             <h1>How does it happen?</h1>
             <br />
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-comments-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-comments-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-idea-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-idea-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-in-transit-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-in-transit-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-increase-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-increase-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-laptop-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-laptop-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-4" style="color:orange">
-                <img class="logoBounce" src="../Image/icons8-windows-client-64.png" />
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-windows-client-64.png" />
                 <h4><b>Needs analysis</b></h4>
             </div>
         </div>
@@ -539,4 +549,22 @@ jegula page master page theke add content page create kora hoyese--%>
 
         });
     </script>
+
+    <%--Animate a div when we scroll to its position--%>
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var positionTop = $(document).scrollTop();
+                console.log(positionTop);
+                if ((positionTop > 1000) && (positionTop < 1900)) {
+                    $('.im1').addClass('animated fadeInLeft');
+                    $('.im2').addClass('animated fadeInRight');
+                }
+                else {
+                    $('.im1').removeClass('animated fadeInLeft');
+                    $('.im2').removeClass('animated fadeInRight');
+                }
+            });
+        });
+    </script>--%>
 </asp:Content>

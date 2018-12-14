@@ -19,13 +19,15 @@
             }
 
             table.fixed td:nth-of-type(2) {
-                width: 170px;
+                width: 185px;
             }
 
             table.fixed td:nth-of-type(3) {
                 width: 120px;
             }
-
+            table.fixed td:nth-of-type(4) {
+                width: 175px;
+            }
             table.fixed td:nth-of-type(5) {
                 width: 400px;
             }
@@ -126,10 +128,10 @@
                     @{ 
                         var str2 = Html.DisplayFor(modelItem => item.Text);
                         string str3 = str2.ToString();
-                        if(str3.Length > 200)
+                        if(str3.Length > 180)
                         {
                             StringBuilder sb = new StringBuilder(str3);
-                            sb.Remove(200, sb.Length - 200);
+                            sb.Remove(180, sb.Length - 180);
                             str3 = sb.ToString() + "...";
                         }
                     }

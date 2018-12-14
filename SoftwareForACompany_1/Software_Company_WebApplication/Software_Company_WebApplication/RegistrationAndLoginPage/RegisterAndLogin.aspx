@@ -12,6 +12,7 @@
     <script src="../JavaScriptFile/Register.js"></script>
     <script src="../JavaScriptFile/Login.js"></script>
     <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
+    <link href="../jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
     <style>
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
@@ -43,7 +44,7 @@
         }
     </style>
 </head>
-<body style="padding-top: 50px;">
+<body style="padding-top: 50px; font-family: 'Comic Sans MS'">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B">
             <div class="container">
@@ -53,9 +54,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">Logo</a>
+                    <a class="navbar-brand zoom-effect animated bounceInDown" style="font-size: 30px" href="#">Logo</a>
                 </div>
-                <div class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse animated bounceInDown">
                     <div class="navbar-form navbar-right">
                         <div class="form-group">
                             <div class="input-group">
@@ -110,12 +111,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
-                        <div class="well h3">
+                        <div class="well h3 animated fadeInLeft">
                             <marquee behavior="alternate">Application</marquee>
                         </div>
                         <div id="accordion_pic" class="panel-group">
 
-                            <div class="panel panel-success">
+                            <div class="panel panel-success animated bounceInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyOne1" data-toggle="collapse" data-parent="#accordion_pic"><b>Who Can Use This Application</b>
@@ -134,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-info">
+                            <div class="panel panel-info animated fadeInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyTwo2" data-toggle="collapse" data-parent="#accordion_pic"><b>Help Line </b>(+880123456789)
@@ -157,7 +158,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-danger">
+                            <div class="panel panel-danger animated bounceInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyThree3" data-toggle="collapse" data-parent="#accordion_pic"><b>Forget Your Password</b>
@@ -176,7 +177,7 @@
                                 </div>
                             </div>
 
-                            <div class="panel panel-warning">
+                            <div class="panel panel-warning animated fadeInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyOne4" data-toggle="collapse" data-parent="#accordion_pic"><b>How To Use </b>(get details)
@@ -206,13 +207,13 @@
                         </div>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 col-lg-offset-1">
-                        <div class="h2">
+                        <div class="h2 animated fadeInRight">
                             <p>Create a new account</p>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated bounceInRight">
                                     <label>UserName</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -223,7 +224,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated fadeInRight">
                                     <label>Phone Number</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -236,7 +237,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated bounceInRight">
                                     <label>EmployeeCode</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -247,7 +248,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated fadeInRight">
                                     <label>Email ID</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -260,7 +261,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated bounceInRight">
                                     <label>Password</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -271,7 +272,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success">
+                                <div class="form-group has-success animated fadeInRight">
                                     <label>Confirm Password</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -292,7 +293,7 @@
                             </div>
                         </div>
                         <br />
-                        <div class="row">
+                        <div class="row animated fadeInRight">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <input id="btnRegister" class="btn btn-block" type="button" style="border: 1px solid; border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px" value="Register" />
                             </div>
@@ -308,7 +309,7 @@
             <div class="footer-bottom">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
                             <h3>Website Name</h3>
                             <hr style="border: 1px solid; color: black">
                             <p>
@@ -316,22 +317,22 @@
                                 All you get is this text and a mostly barebones HTML document.
                             </p>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
                             <h3>Usefull link</h3>
                             <hr style="border: 1px solid; color: black">
                             <table class="table" style="margin-top: 20px">
-                                <tr>
+                                <tr class="animated fadeInUp">
                                     <td><a style="color: orange" href="#">IT solutions</a> </td>
                                 </tr>
-                                <tr>
+                                <tr class="animated fadeInUp">
                                     <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
                                 </tr>
-                                <tr>
+                                <tr class="animated fadeInUp">
                                     <td><a style="color: orange" href="#">Mobile development</a> </td>
                                 </tr>
                             </table>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
                             <h3>Follow Us</h3>
                             <hr style="border: 1px solid; color: black">
                             <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/facebook.png" Style="width: 40px; height: 40px" />
@@ -340,7 +341,7 @@
                             <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Image/google.png" Style="width: 40px; height: 40px" />
                             <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
                             <h3>Address</h3>
                             <hr style="border: 1px solid; color: black">
                             <div style="color: orange">
@@ -349,8 +350,8 @@
                             </div>
                         </div>
                     </div>
-                    <hr style="border: 1px solid; color: black">
-                    <p class="pull-right">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: red" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                    <hr style="border: 1px solid; color: black" class="animated fadeInUp">
+                    <p class="pull-right animated fadeInUp">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: red" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
                 </div>
             </div>
         </footer>

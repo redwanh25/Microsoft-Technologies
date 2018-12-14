@@ -55,12 +55,12 @@ namespace Software_Company.WebForm
             }
             else
             {
-                if (Application["count"] == null)
+                if (ViewState["count"] == null)
                 {
-                    Application["count"] = 0;
+                    ViewState["count"] = 0;
                 }
-                int i = (int) Application["count"] + 1;
-                Application["count"] = i;
+                int i = (int)ViewState["count"] + 1;
+                ViewState["count"] = i;
                 string str = String.Format("../BlogImage/Hello{0}.jpg", i);
                 ViewState["imageUrl"] = str;
                 Base64ToImage(Convert.ToBase64String((byte[])cImgSrc)).Save(Server.MapPath(str));

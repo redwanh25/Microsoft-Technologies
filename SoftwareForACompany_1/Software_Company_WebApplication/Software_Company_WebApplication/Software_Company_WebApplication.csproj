@@ -277,6 +277,7 @@
     <Content Include="JavaScriptFile\Login.js" />
     <Content Include="JavaScriptFile\Logout.js" />
     <Content Include="JavaScriptFile\Register.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\Animate.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap.css" />

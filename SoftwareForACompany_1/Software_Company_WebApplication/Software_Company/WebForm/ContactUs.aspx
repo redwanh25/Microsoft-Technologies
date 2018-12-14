@@ -18,13 +18,13 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                <div class="h2">
+                <div class="h2 animated rotateInDownLeft">
                     <p>Contact us at Software Company</p>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
+                        <div class="form-group has-success animated rotateInDownLeft">
                             <label>Name</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -35,7 +35,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
+                        <div class="form-group has-success animated rotateInDownLeft">
                             <label>Phone Number</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -48,7 +48,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
+                        <div class="form-group has-success animated rotateInDownLeft">
                             <label>Email</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -59,7 +59,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
+                        <div class="form-group has-success animated rotateInDownLeft">
                             <label>Address</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -70,7 +70,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row  animated rotateInDownLeft">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
                             <label>Message </label>
@@ -86,7 +86,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated rotateInDownLeft">
                         <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
                         <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
                         <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block" OnClick="LinkButton1_Click" style="border-radius:30px; outline:none; background-color:#DEEFD7; font-size:18px">
@@ -101,20 +101,20 @@ jegula page master page theke add content page create kora hoyese--%>
                 <br />
                 <br />
                 <div>
-                    <div class="well">
+                    <div class="well animated fadeInRight">
                         <h4>Address:</h4>
                         <p>Abcdefghijklmn 00, Abcde ABC</p>
                         <p>123 34 Dhaka</p>
                         <p>Bangladesh</p>
                     </div>
-                    <div class="well">
+                    <div class="well animated bounceInRight">
                         <h4>Organization number:</h4>
                         <p>123456-1234</p>
                     </div>
-                    <div class="well">
+                    <div class="well animated fadeInRight">
                         <h4>Tel: +12 34 567 89 10</h4>
                     </div>
-                    <div class="well">
+                    <div class="well animated bounceInRight">
                         <h4>E-post:</h4>
                         <p>redwanh25@gmail.com</p>
                     </div>
@@ -126,28 +126,28 @@ jegula page master page theke add content page create kora hoyese--%>
     <hr style="border: 5px solid; color: #F5F3F1">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInLeft">
                 <h3><b>Sweden</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
                 <p style="color:orange">Tel: +12 34 567 89 10</p>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInLeft">
                 <h3><b>USA</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
                 <p style="color:orange">Tel: +12 34 567 89 10</p>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInRight">
                 <h3><b>India</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
                 <p style="color:orange">Tel: +12 34 567 89 10</p>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInRight">
                 <h3><b>Germany</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>

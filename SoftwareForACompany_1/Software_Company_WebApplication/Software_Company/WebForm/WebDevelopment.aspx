@@ -48,9 +48,9 @@
                 </div>
                 <div class="col-sm-9 col-xs-12">
                     <h1>Shrinking Bootstrap navbar</h1>
-                    <h1>Use this document as a way to quickly start any new project. 
+                    <h2>Use this document as a way to quickly start any new project. 
                  All you get is this text and a mostly barebones HTML document.
-                    </h1>
+                    </h2>
                     <div class="jumbotron">
                         <p>
                             Use this document as a way to quickly start any new project. 
