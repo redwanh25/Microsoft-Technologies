@@ -123,6 +123,7 @@
     <Content Include="WebForm\OurTeam.aspx" />
     <Content Include="WebForm\WebDevelopment.aspx" />
     <Content Include="WebForm\Blog.aspx" />
+    <Content Include="WebForm\WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="WebForm\Blog.aspx.designer.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

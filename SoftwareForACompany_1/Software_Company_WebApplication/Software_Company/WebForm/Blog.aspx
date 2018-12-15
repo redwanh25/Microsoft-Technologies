@@ -16,7 +16,6 @@
             <asp:Label ID="DateTime1" runat="server" Text="Label"></asp:Label>
             <asp:Image ID="Image1" runat="server" CssClass="img-responsive" />
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
-            <asp:ListView ID="ListView1" runat="server"></asp:ListView>
 
             <asp:GridView ID="GridView1" runat="server" GridLines="None" AutoGenerateColumns="false">
                 <Columns>
@@ -36,11 +35,10 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-3">
                                                 <%--<a class="lightbox" href="../Image/rocks.jpg">--%>
-                                                    <%--<%#GetImage(Container.DataItem)%>--%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
-                                                    <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
-                                                <%--</a>--%>
-                                                <%#GetImage(Container.DataItem)%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
+                                                <%--<%#GetImage(Container.DataItem)%>--%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
                                                 <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
+                                                <%--</a>--%>
+                                                <%#GetImage(Container.DataItem)%>      
                                             </div>
                                         </div>
                                     </div>

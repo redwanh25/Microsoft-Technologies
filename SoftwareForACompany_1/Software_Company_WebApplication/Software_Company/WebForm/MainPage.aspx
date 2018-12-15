@@ -45,8 +45,9 @@ jegula page master page theke add content page create kora hoyese--%>
 
             .imgHover:hover {
                 background-color: #F5F3F1;
-                transition: .3s;
-                transform: scale(1.1);
+                transition: 0.3s;
+                /*transform: scale(1.1);*/
+                
             }
 
         .logoBounce:hover {
@@ -88,68 +89,68 @@ jegula page master page theke add content page create kora hoyese--%>
         </div>
         <br />
         <div class="row">
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage1">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite;" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage2">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage3">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage4">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage5">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage6">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1 companyInnerImage7">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage8">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2">
+            <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage9">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs companyInnerImage10">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs">
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs companyInnerImage11">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2 col-xs-offset-2 hidden-lg hidden-md hidden-sm">
+            <div class="col-xs-4 col-sm-2 col-md-2 col-xs-offset-2 hidden-lg hidden-md hidden-sm companyInnerImage12">
                 <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" />
                 <br />
             </div>
-            <div class="col-xs-4 col-sm-2 col-md-2 hidden-lg hidden-md hidden-sm">
+            <div class="col-xs-4 col-sm-2 col-md-2 hidden-lg hidden-md hidden-sm companyInnerImage13">
                 <a href="#">
                     <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
                 <br />
@@ -171,7 +172,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         <marquee behavior="alternate" scrollamount="8">Watch video of how it works here</marquee>
                     </a>
                 </div>
-                <div class="panel-body collapse animated bounceIn" id="video">
+                <div class="panel-body collapse animated zoomIn" id="video">
                     <div class="col-sm-6">
                         <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
                         <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
@@ -212,7 +213,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         <br />
                         <div class="tab-content text-center">
                             <div id="Customer" class="tab-pane active">
-                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
+                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
                                     <br />
                                     <br />
                                     Our customers often talk about our commitment. We do not work with IT, we work with people.
@@ -226,7 +227,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </h3>
                             </div>
                             <div id="CAPACITY" class="tab-pane">
-                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
+                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
                                     <br />
                                     <br />
                                     We work purposefully to attract the best skills. At Indpro you stay for a long time. No matter where 
@@ -240,7 +241,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </h3>
                             </div>
                             <div id="QUALITY" class="tab-pane">
-                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
+                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
                                     <br />
                                     <br />
                                     We have nearly 100 employees, which enables us to quickly find the right developer to our .
@@ -254,7 +255,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </h3>
                             </div>
                             <div id="COMPETENCE" class="tab-pane">
-                                <h3 class="animated zoomIn"><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
+                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
                                     <br />
                                     <br />
                                     such as communication problems and contextual misunderstandings. We work with mixed teams 
@@ -567,4 +568,99 @@ jegula page master page theke add content page create kora hoyese--%>
             });
         });
     </script>--%>
+
+    
+    <script type="text/javascript">
+        $('.companyInnerImage1').mouseover(function () {
+            $('.companyInnerImage1 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage1').mouseout(function () {
+            $('.companyInnerImage1 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage2').mouseover(function () {
+            $('.companyInnerImage2 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage2').mouseout(function () {
+            $('.companyInnerImage2 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage3').mouseover(function () {
+            $('.companyInnerImage3 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage3').mouseout(function () {
+            $('.companyInnerImage3 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage4').mouseover(function () {
+            $('.companyInnerImage4 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage4').mouseout(function () {
+            $('.companyInnerImage4 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage5').mouseover(function () {
+            $('.companyInnerImage5 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage5').mouseout(function () {
+            $('.companyInnerImage5 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage6').mouseover(function () {
+            $('.companyInnerImage6 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage6').mouseout(function () {
+            $('.companyInnerImage6 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage7').mouseover(function () {
+            $('.companyInnerImage7 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage7').mouseout(function () {
+            $('.companyInnerImage7 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage8').mouseover(function () {
+            $('.companyInnerImage8 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage8').mouseout(function () {
+            $('.companyInnerImage8 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage9').mouseover(function () {
+            $('.companyInnerImage9 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage9').mouseout(function () {
+            $('.companyInnerImage9 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage10').mouseover(function () {
+            $('.companyInnerImage10 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage10').mouseout(function () {
+            $('.companyInnerImage10 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage11').mouseover(function () {
+            $('.companyInnerImage11 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage11').mouseout(function () {
+            $('.companyInnerImage11 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage12').mouseover(function () {
+            $('.companyInnerImage12 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage12').mouseout(function () {
+            $('.companyInnerImage12 img').removeClass('animated flipInY');
+        });
+
+        $('.companyInnerImage13').mouseover(function () {
+            $('.companyInnerImage13 img').addClass('animated flipInY');
+        });
+        $('.companyInnerImage13').mouseout(function () {
+            $('.companyInnerImage13 img').removeClass('animated flipInY');
+        });
+
+    </script>
 </asp:Content>

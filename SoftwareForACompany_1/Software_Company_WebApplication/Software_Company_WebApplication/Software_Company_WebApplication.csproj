@@ -289,6 +289,8 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\ihover.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\jquery-3.3.1.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\ParticlesBackground\app.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\ParticlesBackground\particles.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\sweetalert.min.js" />
     <Content Include="Models\Model_BlogPost.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

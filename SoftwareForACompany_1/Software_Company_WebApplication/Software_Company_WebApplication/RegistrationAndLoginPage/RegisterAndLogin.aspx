@@ -43,6 +43,54 @@
             text-decoration: none;
         }
     </style>
+    <style>
+                /*for specific width navbar toggle button show*/
+        @media (max-width: 1000px) {
+            .navbar-header {
+                float: none;
+            }
+
+            .navbar-left, .navbar-right {
+                float: none !important;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+
+            .navbar-fixed-top {
+                top: 0;
+                border-width: 0 0 1px;
+            }
+
+            .navbar-collapse.collapse {
+                display: none !important;
+            }
+
+            .navbar-nav {
+                float: none !important;
+                margin-top: 7.5px;
+            }
+
+                .navbar-nav > li {
+                    float: none;
+                }
+
+                    .navbar-nav > li > a {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+
+            .collapse.in {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 <body style="padding-top: 50px; font-family: 'Comic Sans MS'">
     <form id="form1" runat="server">
@@ -54,10 +102,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand zoom-effect animated bounceInDown" style="font-size: 30px" href="#">Logo</a>
+                    <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">Logo</a>
                 </div>
-                <div class="navbar-collapse collapse animated bounceInDown">
-                    <div class="navbar-form navbar-right">
+                <div class="navbar-collapse collapse">
+                    <div class="navbar-form navbar-right animated bounceInDown">
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon" style="height: 10px">
