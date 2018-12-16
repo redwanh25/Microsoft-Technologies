@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -60,6 +61,14 @@ namespace Software_Company_WebApplication.Controllers
                 }
                 blog_tbl.Date = DateTime.Now;
                 db.Blog_tbl.Add(blog_tbl);
+                //try
+                //{
+                //    db.SaveChanges();
+                //}
+                //catch (DbEntityValidationException e)
+                //{
+                //    Console.WriteLine(e);
+                //}
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

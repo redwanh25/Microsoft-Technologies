@@ -26,7 +26,7 @@ jegula page master page theke add content page create kora hoyese--%>
             }
 
             .inner:hover img {
-                transform: scale(1.5);
+                transform: scale(1.3);
             }
 
         /*remove shadow from glyphicons in bootstrap carousel*/
@@ -47,7 +47,6 @@ jegula page master page theke add content page create kora hoyese--%>
                 background-color: #F5F3F1;
                 transition: 0.3s;
                 /*transform: scale(1.1);*/
-                
             }
 
         .logoBounce:hover {
@@ -463,7 +462,7 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>
         <br />
-        <div class="row">
+        <%--<div class="row">
             <div class="col-sm-6 col-md-3 col-lg-3">
                 <div class="thumbnail shadow_B">
                     <div class="inner">
@@ -519,6 +518,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     </div>
                 </div>
             </div>
+
             <div class="col-sm-6 col-md-3 col-lg-3">
                 <div class="thumbnail shadow_B">
                     <div class="inner">
@@ -536,6 +536,30 @@ jegula page master page theke add content page create kora hoyese--%>
                     </div>
                 </div>
             </div>
+        </div>--%>
+
+        <div class="row">
+            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal">
+                <ItemTemplate>
+                    <div class="col-sm-12 col-md-12 col-lg-11">
+                        <div class="thumbnail shadow_B" style="max-width: 500px">
+                            <div class="inner">
+                                <%#GetImage1(Container.DataItem)%>
+                            </div>
+                            <br />
+                            <div class="caption text-center">
+                                <p>
+                                    <asp:Label Style="font-size: 18px" ID="Label1" Text='<%#GetTitle1(Container.DataItem)%>' runat="server"></asp:Label>
+                                </p>
+                                <br />
+                                <p>
+                                    <asp:Label ForeColor="Red" CssClass="h4" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
         </div>
     </div>
     <script type="text/javascript">
@@ -569,7 +593,7 @@ jegula page master page theke add content page create kora hoyese--%>
         });
     </script>--%>
 
-    
+
     <script type="text/javascript">
         $('.companyInnerImage1').mouseover(function () {
             $('.companyInnerImage1 img').addClass('animated flipInY');
