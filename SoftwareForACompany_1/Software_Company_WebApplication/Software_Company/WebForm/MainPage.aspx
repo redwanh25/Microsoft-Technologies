@@ -83,10 +83,11 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>
     </div>--%>
+
         <div class="row text-center shadow_T">
-            <h1>Over 250 satisfied customers globally</h1>
+            <p style="font-size:45px">Over 250 satisfied customers globally</p>
         </div>
-        <br />
+        <br /><br />
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage1">
                 <a href="#">
@@ -458,10 +459,10 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="text-center shadow_T">
-                <h1>Tech news from the Company blog</h1>
+                <p style="font-size:45px">Tech news from the Company blog</p>
             </div>
         </div>
-        <br />
+        <br /><br />
         <%--<div class="row">
             <div class="col-sm-6 col-md-3 col-lg-3">
                 <div class="thumbnail shadow_B">

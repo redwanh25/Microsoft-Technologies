@@ -10,10 +10,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Title" Type="varchar(max)" />
           <Property Name="Date" Type="datetime" />
           <Property Name="BlogImage" Type="varbinary(max)" />
-          <Property Name="Text" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Text" Type="varchar(max)" />
         </EntityType>
         <EntityContainer Name="Software_CompanyDBModelStoreContainer">
           <EntitySet Name="Blog_tbl" EntityType="Self.Blog_tbl" Schema="dbo" store:Type="Tables" />
@@ -27,10 +27,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Date" Type="DateTime" Precision="3" />
           <Property Name="BlogImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="Text" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="Software_CompanyDBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Blog_tbl" EntityType="Self.Blog_tbl" />
