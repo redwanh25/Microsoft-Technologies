@@ -264,7 +264,7 @@
             </asp:ContentPlaceHolder>
         </div>
 
-        <br />
+        <br /><br />
         <footer id="footer" style="background-color: #3A3A3D; margin-bottom: -60px">
             <div class="footer-bottom">
                 <div class="container">

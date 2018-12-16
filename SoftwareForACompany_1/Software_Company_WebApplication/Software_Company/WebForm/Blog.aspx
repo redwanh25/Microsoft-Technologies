@@ -18,11 +18,16 @@
                 transform: scale(1.03);
             }
     </style>
+    <br /><br />
+    <div class="container">
+        <div align="center">
+            <b style="font-size:50px; color:orange">Our Company blog</b>
+            <hr style="border: 5px solid; color: #F5F3F1">
+        </div>
+    </div>
+    <br />
     <div class="container">
         <div class="row">
-
-
-
             <%--<asp:Label ID="TitleName1" runat="server" Text="Label"></asp:Label>
             <asp:Label ID="DateTime1" runat="server" Text="Label"></asp:Label>
             <asp:Image ID="Image1" runat="server" CssClass="img-responsive" />
@@ -34,7 +39,7 @@
                         <ItemTemplate>
                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
                                 <div class="well">
-                                    <asp:Label CssClass="h2 shadow_T" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
+                                    <asp:Label CssClass="h3 shadow_T" ID="txbType" Text='<%# Eval("Title") %>' runat="server" Font-Bold="True"></asp:Label>
                                     <br />
                                     <br />
                                     <asp:Label ForeColor="Red" CssClass="h4 navbar-right" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
