@@ -10,7 +10,16 @@
 namespace Software_Company.WebForm {
     
     
-    public partial class MainPage {
+    public partial class WebForm2 {
+        
+        /// <summary>
+        /// form1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// btnfake control.
@@ -31,12 +40,12 @@ namespace Software_Company.WebForm {
         protected global::System.Web.UI.WebControls.HiddenField hfColumnRepeat;
         
         /// <summary>
-        /// DataList1 control.
+        /// dlCustomers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataList1;
+        protected global::System.Web.UI.WebControls.DataList dlCustomers;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -25,9 +26,24 @@ namespace Software_Company.WebForm
                 SqlDataReader rdr = cmd.ExecuteReader();
                 DataList1.DataSource = rdr;
                 DataList1.DataBind();
+                // DataList1.RepeatColumns = 3;         // ai tar jonno multiple column toiri hoye jabe.
+
+                //      | | | |         emon vabe show korbe image. like youtube video.
+                //      | | | |
+                //      | | | |
 
             }
         }
+        protected void OnClick(object sender, EventArgs e)
+        {
+            int repeatcolumn = Convert.ToInt32(hfColumnRepeat.Value);
+            this.RsetepeatColumns(repeatcolumn);
+        }
+        private void RsetepeatColumns(int repeatcolumn = 4)
+        {
+            DataList1.RepeatColumns = repeatcolumn;
+        }
+
         protected string GetImage1(object oItem)
         {
             // read the data from database
@@ -36,13 +52,13 @@ namespace Software_Company.WebForm
             // if we do not have any image, return some default.
 
             if (cImgSrc == null)
-            {
-                return "<img src=\"../Image/crose.jpg\" alt=\"image\" style=\"width: 319px; height:235px\" class=\"img-responsive\">";
+            {                                               // style=\"width: 319px; height:235px\"
+                return "<img src=\"../Image/crose.jpg\" alt=\"image\" style=\"width: 310px; height:190px\" class=\"img-responsive\">";
             }
             else
             {
                 // format and render back the image
-                return String.Format("<img src=\"data:image/jpg;base64,{0}\" alt=\"image\" style=\"width: 319px; height:235px\" class=\"img-responsive\"/>",
+                return String.Format("<img src=\"data:image/jpg;base64,{0}\" alt=\"image\" style=\"width: 310px; height:190px\" class=\"img-responsive\"/>",
                     Convert.ToBase64String((byte[])cImgSrc));
 
             }

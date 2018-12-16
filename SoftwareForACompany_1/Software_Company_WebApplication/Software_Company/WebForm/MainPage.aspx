@@ -4,6 +4,60 @@
 jegula page master page theke add content page create kora hoyese--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
+
+    <%--Tech news from the Company blog responsive--%>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // create local storage or check if local storage if not null then remove already exist
+            // Null checking you need to make because only ones you need to call it
+            if (localStorage.getItem('windowSizeratio') != null) {
+                localStorage.removeItem('windowSizeratio');
+            } else {
+                // Assign ratio value as per your resize window setting
+                var value = "0";
+                if ($(this).width() > 0 && $(this).width() <= 540) {
+                    value = "540";
+                }
+                else if ($(this).width() > 540 && $(this).width() <= 980) {
+                    value = "980";
+                } else if ($(this).width() > 980) {
+                    value = "981";
+                }
+                //Assign localstorage value
+                localStorage.setItem('windowSizeratio', value);
+            }
+            // Call this function which will set hidden field value also it will call the button click event.
+            resize($(this).width());
+        });
+        window.onresize = function (event) {
+            // On resize window function will get call
+            resize($(this).width());
+        };
+        function resize(width) {
+            //Assign localstorage value to variable if it exist else it will undefined
+            var ratio = localStorage.getItem('windowSizeratio');
+            //Check the width also you need to check it’s not in same ratio which was it before
+            //So it will not call repeatedly for many times as infinite by checking ratio value which assigned from local storage.
+            //And assign hidden field value and call the buttonclick event from jquery fuction so it will set the RepeatColumns value.
+            if (width > 0 && width <= 540 && ratio != "540" && $("[id*=hfColumnRepeat]").val() != "2") {
+                $("[id*=hfColumnRepeat]").val(2);
+                $("[id*=btnfake]").click();
+            }
+            if (width > 540 && width <= 768 && ratio != "768" && $("[id*=hfColumnRepeat]").val() != "2") {
+                $("[id*=hfColumnRepeat]").val(2);
+                $("[id*=btnfake]").click();
+            }
+            else if (width > 768 && width <= 980 && ratio != "980" && $("[id*=hfColumnRepeat]").val() != "2") {
+                $("[id*=hfColumnRepeat]").val(2);
+                $("[id*=btnfake]").click();
+            }
+            else if (width > 980 && ratio != "981" && $("[id*=hfColumnRepeat]").val() != "4") {
+                $("[id*=hfColumnRepeat]").val(4);
+                $("[id*=btnfake]").click();
+            }
+        }
+    </script>
+
     <style>
         #imageCarousel1 .carousel-inner .item .well {
             /*padding: 10px;*/
@@ -85,9 +139,10 @@ jegula page master page theke add content page create kora hoyese--%>
     </div>--%>
 
         <div class="row text-center shadow_T">
-            <p style="font-size:45px">Over 250 satisfied customers globally</p>
+            <p style="font-size: 45px">Over 250 satisfied customers globally</p>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage1">
                 <a href="#">
@@ -459,10 +514,11 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="text-center shadow_T">
-                <p style="font-size:45px">Tech news from the Company blog</p>
+                <p style="font-size: 45px">Tech news from the Company blog</p>
             </div>
         </div>
-        <br /><br />
+        <br />
+        <br />
         <%--<div class="row">
             <div class="col-sm-6 col-md-3 col-lg-3">
                 <div class="thumbnail shadow_B">
@@ -539,12 +595,17 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>--%>
 
+        <%-- Fake button just for call onClick of button event using jquery function--%>
+        <asp:Button ID="btnfake" runat="server" OnClick="OnClick" Style="display: none" />
+        <%-- Hidden filed to set the ratio value--%>
+        <asp:HiddenField ID="hfColumnRepeat" runat="server" Value="4" />
+
         <div class="row">
-            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal">
+            <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4">
                 <ItemTemplate>
-                    <div class="col-sm-12 col-md-12 col-lg-11">
-                        <div class="thumbnail shadow_B" style="max-width: 500px">
-                            <div class="inner">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="thumbnail shadow_B">         <%--style="max-width: 500px"--%>
+                            <div class="inner" align="center">
                                 <%#GetImage1(Container.DataItem)%>
                             </div>
                             <br />
@@ -563,6 +624,9 @@ jegula page master page theke add content page create kora hoyese--%>
             </asp:DataList>
         </div>
     </div>
+
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             //var el = document.getElementById('toggleButton');
@@ -688,4 +752,6 @@ jegula page master page theke add content page create kora hoyese--%>
         });
 
     </script>
+
+
 </asp:Content>
