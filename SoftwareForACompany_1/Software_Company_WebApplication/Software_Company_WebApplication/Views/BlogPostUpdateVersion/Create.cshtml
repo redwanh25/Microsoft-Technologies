@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Create";
 }
-
+<script src="http://localhost:50028/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
 <h2>Create</h2>
 
 @using (Html.BeginForm("Create", "BlogPostUpdateVersion", FormMethod.Post, new { encType = "multipart/form-data" }))
@@ -57,9 +57,10 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <a class="btn btn-default" href="@Url.Action("Index", "BlogPostUpdateVersion")">Back to List</a>
+    </div>
 
 <script type="text/javascript">
     $('#submitId').click(function () {
@@ -68,7 +69,8 @@
             return true;
         }
         else if ($.inArray(extension, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
-            alert('Sorry, You can only upload an image.');
+            //alert('Sorry, You can only upload an image.');
+            swal("Sorry!", "You can only upload an image!", "error");
             return false;
         }
     });

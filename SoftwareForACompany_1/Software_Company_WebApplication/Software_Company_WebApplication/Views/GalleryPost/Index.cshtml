@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Software_Company_WebApplication.Models.Gallery_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .inner {
+        overflow: hidden;
+    }
+
+    .inner img {
+        transition: all 1.0s ease;
+    }
+
+    .inner:hover img {
+        transform: scale(1.2);
+    }
+</style>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="pull-right">
+            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "GalleryPost")'"><span class="glyphicon glyphicon-edit"></span> New Post</button>
+        </div>
+    </div>
+</div>
+<br />
+<div class="well text-center" style="font-size:40px">
+    <b>@Html.DisplayNameFor(model => model.GalleryImage)</b>
+</div>
+<br />
+
+@foreach (var item in Model)
+{
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-2 countClass">
+        <div class="thumbnail shadow_B">
+            @*style="max-width: 500px"*@
+            <div class="inner" align="center">
+                @{
+                    var imgSrc = "";
+                    if (item.GalleryImage != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.GalleryImage);
+                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                    }
+                }
+                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:150px" class="img-responsive" />       @*height:100px; width:150px*@
+            </div>
+            <br />
+            <div class="caption text-center">
+                <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "GalleryPost", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "GalleryPost", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+            </div>
+        </div>
+    </div>
+}
+
+@*<table class="table table-hover text-center fixed" id="mytable">
+        <tr class="success" style="font-weight: bold; font-size:16px">
+            <td>
+                @Html.DisplayNameFor(model => model.GalleryImage)
+            </td>
+            <td> Action </td>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GalleryImage)
+                        @{
+                            var imgSrc = "";
+                            if (item.GalleryImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.GalleryImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            }
+                        }
+                        <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:150px" />
+                        <br />
+                    </td>
+                    <td>
+                        <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "GalleryPost", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                        <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "GalleryPost", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>
+                        <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "GalleryPost", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+
+    </table>*@

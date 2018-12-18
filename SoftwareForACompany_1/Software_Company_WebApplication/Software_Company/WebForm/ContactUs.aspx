@@ -18,13 +18,13 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                <div class="h2 animated rotateInDownLeft">
+                <div class="h2 animated fadeInLeft">
                     <p>Contact us at Software Company</p>
                 </div>
                 <br />
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated rotateInDownLeft">
+                        <div class="form-group has-success animated fadeInLeft">
                             <label>Name</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -35,7 +35,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated rotateInDownLeft">
+                        <div class="form-group has-success animated bounceInLeft">
                             <label>Phone Number</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -48,7 +48,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 </div>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated rotateInDownLeft">
+                        <div class="form-group has-success animated fadeInLeft">
                             <label>Email</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -59,7 +59,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated rotateInDownLeft">
+                        <div class="form-group has-success animated bounceInLeft">
                             <label>Address</label>
                             <div class="input-group">
                                 <span class="input-group-addon">
@@ -70,7 +70,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                     </div>
                 </div>
-                <div class="row  animated rotateInDownLeft">
+                <div class="row  animated fadeInLeft">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
                             <label>Message </label>
@@ -86,7 +86,7 @@ jegula page master page theke add content page create kora hoyese--%>
                 </div>
                 <br />
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated rotateInDownLeft">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated bounceInLeft">
                         <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
                         <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
                         <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block" OnClick="LinkButton1_Click" style="border-radius:30px; outline:none; background-color:#DEEFD7; font-size:18px">

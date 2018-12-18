@@ -16,6 +16,45 @@
     <script src="~/JavaScriptFile/Login.js"></script>
     <script src="~/JavaScriptFile/Logout.js"></script>
     <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 50px;
+            left: 0;
+            background-color: #EDEDED;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+            .sidenav a {
+                padding: 15px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #363636;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+        /*@@media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }*/
+    </style>
+    <style>
         a, a:hover, a:active, a:visited, a:focus {
             text-decoration: none;
         }
@@ -33,6 +72,53 @@
         .shadow_B {
             box-shadow: -2px 4px 22px #000
         }
+
+                /*for specific width navbar toggle button show*/
+        @@media (max-width: 1000px) {
+            .navbar-header {
+                float: none;
+            }
+
+            .navbar-left, .navbar-right {
+                float: none !important;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+
+            .navbar-fixed-top {
+                top: 0;
+                border-width: 0 0 1px;
+            }
+
+            .navbar-collapse.collapse {
+                display: none !important;
+            }
+
+            .navbar-nav {
+                float: none !important;
+                margin-top: 7.5px;
+            }
+
+                .navbar-nav > li {
+                    float: none;
+                }
+
+                    .navbar-nav > li > a {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+
+            .collapse.in {
+                display: block !important;
+            }
+        }
     </style>
 </head>
 <body style="padding-top:60px; font-family: 'Comic Sans MS'">
@@ -44,6 +130,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>
                 <a class="navbar-brand zoom-effect" style="font-size: 30px; padding-right:30px" href="@Url.Action("Index", "Home")">Logo</a>
             </div>
             <div class="collapse navbar-collapse">
@@ -62,7 +149,7 @@
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
                     <li><a class="zoom-effect" href="@Url.Action("View2", "Home")"> View2 </a></li>
-                    <li><a class="zoom-effect" href="#">Blog Post</a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
@@ -72,6 +159,42 @@
         </div>
     </nav>
 
+    <div id="mySidenav" class="sidenav shadow_B">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Services </a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About </a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Free Services </a>
+
+        @*<div class="dropdown">
+            <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> IT Solutions
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post </a></li>
+                <li><a href="#">Mobile Development </a></li>
+                <li><a href="#">Web Development </a></li>
+                <li><a href="#">IOS Development </a></li>
+                <li><a target="_blank" href="http://localhost:50028/WebForm/MainPage.aspx">Our Website </a></li>
+            </ul>
+        </div>*@
+
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us </a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Services </a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact Us</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Free Services </a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact</a>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us </a>
+    </div>
+
+    <br />
     <div class="container body-content">
         @RenderBody()
         <br /> <br />
@@ -85,6 +208,16 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
     @*<footer id="footer" style="background-color: #3A3A3D;">
             <div class="footer-bottom">

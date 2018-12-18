@@ -58,7 +58,7 @@ namespace Software_Company.WebForm
             else
             {
                 // format and render back the image
-                return String.Format("<img src=\"data:image/jpg;base64,{0}\" alt=\"image\" style=\"width: 310px; height:190px\" class=\"img-responsive\"/>",
+                return String.Format("<img src=\"data:image/jpg;base64,{0}\" alt=\"image\" style=\"width: 350px; height:190px\" class=\"img-responsive\"/>",
                     Convert.ToBase64String((byte[])cImgSrc));
 
             }

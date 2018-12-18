@@ -217,6 +217,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="BlogImage\" />
+    <Folder Include="GalleryImage\" />
     <Folder Include="JavaScriptFile\" />
     <Folder Include="Models\" />
   </ItemGroup>

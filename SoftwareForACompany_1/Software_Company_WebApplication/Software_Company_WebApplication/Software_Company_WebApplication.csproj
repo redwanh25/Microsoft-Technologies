@@ -216,6 +216,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\BlogPostUpdateVersionController.cs" />
+    <Compile Include="Controllers\GalleryPostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -229,6 +230,9 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Blog_tbl.cs">
       <DependentUpon>Model_BlogPost.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gallery_tbl.cs">
+      <DependentUpon>Model_GalleryPost.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Model_BlogPost.Context.cs">
@@ -245,6 +249,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_BlogPost.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_GalleryPost.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GalleryPost.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_GalleryPost.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GalleryPost.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_GalleryPost.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -302,6 +321,16 @@
       <DependentUpon>Model_BlogPost.edmx</DependentUpon>
       <LastGenOutput>Model_BlogPost.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model_GalleryPost.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
+      <LastGenOutput>Model_GalleryPost.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model_GalleryPost.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
+      <LastGenOutput>Model_GalleryPost.cs</LastGenOutput>
+    </Content>
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -338,6 +367,13 @@
     </EntityDeploy>
     <Content Include="Models\Model_BlogPost.edmx.diagram">
       <DependentUpon>Model_BlogPost.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\Model_GalleryPost.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_GalleryPost.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model_GalleryPost.edmx.diagram">
+      <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -378,6 +414,11 @@
     <Content Include="Views\BlogPostUpdateVersion\Details.cshtml" />
     <Content Include="Views\BlogPostUpdateVersion\Edit.cshtml" />
     <Content Include="Views\BlogPostUpdateVersion\Index.cshtml" />
+    <Content Include="Views\GalleryPost\Create.cshtml" />
+    <Content Include="Views\GalleryPost\Delete.cshtml" />
+    <Content Include="Views\GalleryPost\Details.cshtml" />
+    <Content Include="Views\GalleryPost\Edit.cshtml" />
+    <Content Include="Views\GalleryPost\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

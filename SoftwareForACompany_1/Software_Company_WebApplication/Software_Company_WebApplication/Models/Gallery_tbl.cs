@@ -13,15 +13,11 @@ namespace Software_Company_WebApplication.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class Blog_tbl
+    public partial class Gallery_tbl
     {
         public int Id { get; set; }
-        [Required]
-        public string Title { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
-        //[Required] required dile hoy na keno..?
-        public byte[] BlogImage { get; set; }
-        [Required]
-        public string Text { get; set; }
+        // bal [Required] dile kaj kore na.. onno way te required er kaj solve kore disi. :)
+        // GalleryPostController.cs file er create action ta dekho.
+        public byte[] GalleryImage { get; set; }
     }
 }
