@@ -57,14 +57,13 @@ namespace Software_Company.WebForm
             }
             else
             {
-                if (ViewState["countGl"] == null)
+                if (ViewState["countG"] == null)
                 {
-                    ViewState["countGl"] = 0;
+                    ViewState["countG"] = 0;
                 }
-                int i = (int)ViewState["countGl"] + 1;
-                ViewState["countGl"] = i;
-                string str = String.Format("../GalleryImage/HelloGl{0}.jpg", i);
-                ViewState["imageUrlGl"] = str;
+                int i = (int)ViewState["countG"] + 1;
+                ViewState["countG"] = i;
+                string str = String.Format("../GalleryImage/Hello{0}.jpg", i);
                 Base64ToImage(Convert.ToBase64String((byte[])cImgSrc)).Save(Server.MapPath(str));
                 // format and render back the image                                             style=\"width: 330px; height:250px\"
                 //return String.Format("<img src=\"data:image/jpg;base64,{0}\" alt=\"image\" style=\"width: 320px; height:200px\" class=\"img-responsive\"/>",
