@@ -14,6 +14,9 @@
     <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
 
+    <script src="../HTML/AngularJS/angular.js"></script>
+    <script src="../HTML/AngularJS/forgot-password.js"></script>
+
     <style>
         .sidenav {
             height: 200px; /*30%*/
@@ -158,7 +161,7 @@
                         </div>
                         <div class="form-group navbar-right">
                             <div class="btn-group">
-                                <input id="btnLogin" value="login" class="btn btn-sm btn-default" style="width: 80px; font-size: 12px" />
+                                <a id="btnLogin" class="btn btn-sm btn-default" style="width: 80px; font-size: 12px">Login</a>
                                 <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span>
                                     <span class="sr-only">Toggle Dropdown</span>
@@ -427,34 +430,35 @@
                 </div>
             </div>
         </footer>
+    </form>
 
-        <div id="mySidenav" class="sidenav shadow_B">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <div class="row">
-                <div style="padding-left:35px">
-                    <h3 style="color:orange">Forget Password</h3>
-                </div>
+    <div id="mySidenav" class="sidenav shadow_B" ng-app="forgotPasswordApp" ng-controller="forgotPasswordController">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="row">
+            <div style="padding-left: 35px">
+                <h3 style="color: orange">Forget Password</h3>
             </div>
-            <div class="row">
-                <div class="col-xs-11">
-                    <div class="form-group has-error animated fadeInLeft" style="padding-left: 20px; padding-top: 10px;">
-                        <label>Email</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-envelope"></span>
-                            </span>
-                            <asp:TextBox ID="Email1" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
-                        </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-11">
+                <div class="form-group has-error animated fadeInLeft" style="padding-left: 20px; padding-top: 10px;">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="text" ng-model="forgotPassword.Email" class="form-control" placeholder="Your Email Address" />
+
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div style="padding-right: 46px;">
-                    <asp:Button Style="float: right;" CssClass="btn btn-sm btn-danger" ID="SendEmail" runat="server" Text="SendEmail" />
-                </div>
+        </div>
+        <div class="row">
+            <div style="padding-right: 46px;">
+                <input id="sentForgotEmail" type="submit" ng-click="ForgotPassword()" style="float: right;" value="Retrive My Password" class="btn btn-sm btn-danger" />
             </div>
         </div>
-    </form>
+    </div>
 </body>
 </html>
 
@@ -466,5 +470,4 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
-
 </script>

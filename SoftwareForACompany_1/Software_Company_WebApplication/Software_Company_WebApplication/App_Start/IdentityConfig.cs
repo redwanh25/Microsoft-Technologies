@@ -34,6 +34,10 @@ namespace Software_Company_WebApplication
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
+
+            // Code for send mail.
+            manager.EmailService = new Services.EMail();
+
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

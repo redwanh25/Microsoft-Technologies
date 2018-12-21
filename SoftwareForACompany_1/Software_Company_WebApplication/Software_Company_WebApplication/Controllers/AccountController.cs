@@ -384,6 +384,75 @@ namespace Software_Company_WebApplication.Controllers
             base.Dispose(disposing);
         }
 
+        #region Forgot Password
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        [Route("ForgotPassword")]
+        [AllowAnonymous]
+        public async Task<IHttpActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserManager.FindByEmailAsync(model.Email);
+                if (user == null)/* || !await UserManager.IsEmailConfirmedAsync(user.Id))*/
+                {
+                    // Don't reveal that the user does not exist or is not confirmed
+                    return BadRequest("Either user does not exist or you have not confirmed your email.");
+                }
+                //if (user == null)
+                //{
+                //    // Don't reveal that the user does not exist or is not confirmed
+                //    return BadRequest("Either user does not exist or you have not confirmed your email.");
+                //}
+
+                try
+                {
+                    // Send an email with this link
+                    string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                    string callbackUrl = Url.Link("Default", new { controller = "User/ManageAccount/reset-password", userId = user.Id, code = code });
+                    await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    return Ok();
+                }
+                catch (Exception ex)
+                {
+                    return InternalServerError();
+                }
+
+            }
+
+            return BadRequest();
+        }
+
+        #endregion
+
+        #region Reset Password
+
+        // POST: /Account/ResetPassword
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("ResetPassword")]
+        public async Task<IHttpActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                // Don't reveal that the user does not exist
+                return RedirectToRoute("Default", new { controller = "User" });
+            }
+            var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            return InternalServerError();
+        }
+
+        #endregion
+
         #region Helpers
 
         private IAuthenticationManager Authentication

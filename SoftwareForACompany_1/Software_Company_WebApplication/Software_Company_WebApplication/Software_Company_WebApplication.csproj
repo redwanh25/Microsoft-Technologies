@@ -219,6 +219,7 @@
     <Compile Include="Controllers\GalleryPostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\PersonBuisnessLayer.cs" />
     <Compile Include="DatabaseConnection\PersonMessage.cs" />
@@ -275,6 +276,7 @@
       <DependentUpon>RegisterAndLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Services\EmailClassic.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +288,12 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="HTML\AngularJS\angular.js" />
+    <Content Include="HTML\AngularJS\forgot-password.js" />
+    <Content Include="HTML\AngularJS\reset-password.js" />
+    <Content Include="HTML\forgot-password.html" />
+    <Content Include="HTML\reset-password.html" />
+    <Content Include="HTML\style.css" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
     <Content Include="Image\instagram.png" />
@@ -422,6 +430,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
