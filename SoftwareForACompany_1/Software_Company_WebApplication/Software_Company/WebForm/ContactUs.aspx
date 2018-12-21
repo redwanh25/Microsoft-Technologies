@@ -11,10 +11,27 @@ jegula page master page theke add content page create kora hoyese--%>
             padding: 5px;
             margin-bottom: 10px;
         }
-        .temp.btn:hover{
+
+        .temp.btn:hover {
             animation: bounce .8s;
         }
     </style>
+
+    <%--progressbar--%>
+    <%--only one ScriptManager can be added. site.master page a aita add kora ase.--%>
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>--%>
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+        <ProgressTemplate>
+            <div class="modal1">
+                <div class="center">
+                    <asp:Image ID="Image1" ImageUrl="../Image/loader.gif" AlternateText="Processing" runat="server" />
+                </div>
+            </div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
@@ -22,80 +39,84 @@ jegula page master page theke add content page create kora hoyese--%>
                     <p>Contact us at Software Company</p>
                 </div>
                 <br />
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated fadeInLeft">
-                            <label>Name</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </span>
-                                <asp:TextBox ID="Name1" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group has-success animated fadeInLeft">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                        <asp:TextBox ID="Name1" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group has-success animated bounceInLeft">
+                                    <label>Phone Number</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-phone-alt"></span>
+                                        </span>
+                                        <asp:TextBox ID="Phone1" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated bounceInLeft">
-                            <label>Phone Number</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-phone-alt"></span>
-                                </span>
-                                <asp:TextBox ID="Phone1" runat="server" CssClass="form-control" placeholder="Phone Number"></asp:TextBox>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group has-success animated fadeInLeft">
+                                    <label>Email</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-envelope"></span>
+                                        </span>
+                                        <asp:TextBox ID="Email1" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="form-group has-success animated bounceInLeft">
+                                    <label>Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon glyphicon-home"></span>
+                                        </span>
+                                        <asp:TextBox ID="Address1" runat="server" CssClass="form-control" placeholder="Address"></asp:TextBox>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated fadeInLeft">
-                            <label>Email</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <asp:TextBox ID="Email1" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                        <div class="row  animated fadeInLeft">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group has-success">
+                                    <label>Message </label>
+                                    <asp:TextBox ID="Message1" runat="server" CssClass="form-control" placeholder="Write here..." TextMode="MultiLine" Rows="4"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="divError1" class="alert alert-danger collapse">
+                                    <button id="linkClose1" class="close">&times;</button>
+                                    <div id="divErrorText1" runat="server"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated bounceInLeft">
-                            <label>Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon glyphicon-home"></span>
-                                </span>
-                                <asp:TextBox ID="Address1" runat="server" CssClass="form-control" placeholder="Address"></asp:TextBox>
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated bounceInLeft">
+                                <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
+                                <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
+                                <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block" OnClick="LinkButton1_Click" Style="border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px">
+                                    <%--<marquee behavior="alternate" scrollamount="6">Send Your Message</marquee>--%>
+                                    Send Your Message
+                                </asp:LinkButton>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row  animated fadeInLeft">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>Message </label>
-                            <asp:TextBox ID="Message1" runat="server" CssClass="form-control" placeholder="Write here..." TextMode="MultiLine" Rows="4"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div id="divError1" class="alert alert-danger collapse">
-                            <button id="linkClose1" class="close">&times;</button>
-                            <div id="divErrorText1" runat="server"></div>
-                        </div>
-                    </div>
-                </div>
-                <br />
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated bounceInLeft">
-                        <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
-                        <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
-                        <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block" OnClick="LinkButton1_Click" style="border-radius:30px; outline:none; background-color:#DEEFD7; font-size:18px">
-                            <%--<marquee behavior="alternate" scrollamount="6">Send Your Message</marquee>--%>
-                            Send Your Message
-                        </asp:LinkButton>
 
-                    </div>
-                </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                 <br />
@@ -131,28 +152,28 @@ jegula page master page theke add content page create kora hoyese--%>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
-                <p style="color:orange">Tel: +12 34 567 89 10</p>
+                <p style="color: orange">Tel: +12 34 567 89 10</p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInLeft">
                 <h3><b>USA</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
-                <p style="color:orange">Tel: +12 34 567 89 10</p>
+                <p style="color: orange">Tel: +12 34 567 89 10</p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInRight">
                 <h3><b>India</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
-                <p style="color:orange">Tel: +12 34 567 89 10</p>
+                <p style="color: orange">Tel: +12 34 567 89 10</p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center animated bounceInRight">
                 <h3><b>Germany</b></h3>
                 <p>Abcdefghijklmn 00, Abcde ABC</p>
                 <p>123 34 Dhaka</p>
                 <p>Bangladesh</p>
-                <p style="color:orange">Tel: +12 34 567 89 10</p>
+                <p style="color: orange">Tel: +12 34 567 89 10</p>
             </div>
         </div>
     </div>
@@ -183,9 +204,9 @@ jegula page master page theke add content page create kora hoyese--%>
                     $('#divError1').show('fade');
                     return false;       // return false na dile hobe na. return false er jonno button ta kaj korbe na.
                 }
-                else {
-                    alert('Thank You!\nNext Time We Will Contact With You...');
-                }
+                //else {
+                //    alert('Thank You!\nNext Time We Will Contact With You...');
+                //}
             });
             $('#linkClose1').click(function () {
                 $('#divError1').hide('fade');

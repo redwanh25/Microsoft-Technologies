@@ -88,6 +88,7 @@
     <Content Include="Image\icons8-windows-client-64.png" />
     <Content Include="Image\instagram.png" />
     <Content Include="Image\linkedin.png" />
+    <Content Include="Image\loader.gif" />
     <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-3.jpg" />
@@ -99,6 +100,7 @@
     <Content Include="Image\rocks.jpg" />
     <Content Include="Image\sky.jpg" />
     <Content Include="Image\tunnel.jpg" />
+    <Content Include="Image\turquoise-blur-wallpapers.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="Image\video_background2.jpg" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Animate.css" />
@@ -117,7 +119,9 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\ParticlesBackground\app.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\ParticlesBackground\particles.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\SweetAlert\sweetalert.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="WebForm\ContactUs.aspx" />
     <Content Include="WebForm\Gallery.aspx" />
     <Content Include="WebForm\MainPage.aspx" />

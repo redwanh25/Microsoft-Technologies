@@ -13,6 +13,31 @@
     <script src="../JavaScriptFile/Login.js"></script>
     <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
+
+    <style>
+        .sidenav {
+            height: 200px; /*30%*/
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 200px;
+            /*left: 0;*/
+            right: 0;
+            background-color: #EDEDED;
+            overflow-x: hidden;
+            transition: 0.5s;
+            border-radius: 10px;
+        }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+    </style>
+
     <style>
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
@@ -44,7 +69,7 @@
         }
     </style>
     <style>
-                /*for specific width navbar toggle button show*/
+        /*for specific width navbar toggle button show*/
         @media (max-width: 1000px) {
             .navbar-header {
                 float: none;
@@ -129,7 +154,6 @@
                         </div>
                         <div class="form-group">
                             <div style="padding-left: 20px">
-
                             </div>
                         </div>
                         <div class="form-group navbar-right">
@@ -144,10 +168,10 @@
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Settings</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Forget Password</a></li>
+                                    <li><a href="#" onclick="openNav()">Forget Password</a></li>
                                 </ul>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -403,6 +427,44 @@
                 </div>
             </div>
         </footer>
+
+        <div id="mySidenav" class="sidenav shadow_B">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="row">
+                <div style="padding-left:35px">
+                    <h3 style="color:orange">Forget Password</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-11">
+                    <div class="form-group has-error animated fadeInLeft" style="padding-left: 20px; padding-top: 10px;">
+                        <label>Email</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </span>
+                            <asp:TextBox ID="Email1" runat="server" CssClass="form-control" placeholder="Email Address"></asp:TextBox>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div style="padding-right: 46px;">
+                    <asp:Button Style="float: right;" CssClass="btn btn-sm btn-danger" ID="SendEmail" runat="server" Text="SendEmail" />
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 </html>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "350px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+</script>
