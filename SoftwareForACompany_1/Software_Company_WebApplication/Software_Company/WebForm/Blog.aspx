@@ -65,7 +65,8 @@
                                         <asp:Label CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
                                     </div>
                                 </div>
-                            </div>
+                                <br />
+                            </div>                       
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -34,15 +34,6 @@ namespace Software_Company.WebForm
 
             }
         }
-        protected void OnClick(object sender, EventArgs e)
-        {
-            int repeatcolumn = Convert.ToInt32(hfColumnRepeat.Value);
-            this.RsetepeatColumns(repeatcolumn);
-        }
-        private void RsetepeatColumns(int repeatcolumn = 4)
-        {
-            DataList1.RepeatColumns = repeatcolumn;
-        }
 
         protected string GetImage1(object oItem)
         {
@@ -74,6 +65,17 @@ namespace Software_Company.WebForm
                 str1 = sb.ToString() + "...";
             }
             return str1;
+        }
+
+        // for responsive feature. top 4 blog post.
+        protected void OnClick(object sender, EventArgs e)
+        {
+            int repeatcolumn = Convert.ToInt32(hfColumnRepeat.Value);
+            this.RsetepeatColumns(repeatcolumn);
+        }
+        private void RsetepeatColumns(int repeatcolumn = 4)
+        {
+            DataList1.RepeatColumns = repeatcolumn;
         }
     }
 }

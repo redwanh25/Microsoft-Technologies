@@ -118,6 +118,11 @@ jegula page master page theke add content page create kora hoyese--%>
         .panel {
             border-radius: 20px;
         }
+
+        #map {
+            height: 500px;
+            width: 100%;
+        }
     </style>
     <br />
     <br />
@@ -369,10 +374,20 @@ jegula page master page theke add content page create kora hoyese--%>
                 <a href="#" id="btn-read" class="btn btn-block btn-default shadow_B" style="border-radius: 20px; font-size: 17px">READ MORE ABOUT THIS</a>
             </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <%--google map--%>
+    <div id="map"></div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="container">
         <div class="row">
             <br />
             <div class="text-center">
@@ -604,7 +619,8 @@ jegula page master page theke add content page create kora hoyese--%>
             <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4">
                 <ItemTemplate>
                     <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="thumbnail shadow_B">         <%--style="max-width: 500px"--%>
+                        <div class="thumbnail shadow_B">
+                            <%--style="max-width: 500px"--%>
                             <div class="inner" align="center">
                                 <%#GetImage1(Container.DataItem)%>
                             </div>
@@ -753,5 +769,115 @@ jegula page master page theke add content page create kora hoyese--%>
 
     </script>
 
+    <script>
+        var map;
+        function initMap() {
+            // The location of Uluru
+            var Dhaka = { lat: 23.810331, lng: 90.412521 };
+            var Talwan = { lat: 25.038410, lng: 121.563700 };
+            var India = { lat: 20.593683, lng: 78.962883 };
+            var Karachi = { lat: 24.860735, lng: 67.001137 };
+            var Sweden = { lat: 60.128162, lng: 18.643501 };
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 5,
+                center: Dhaka
+            });
+
+            var markerDhaka = new google.maps.Marker({
+                position: Dhaka,
+                map: map
+            });
+            var markerTalwan = new google.maps.Marker({
+                position: Talwan,
+                map: map
+            });
+            var markerIndia = new google.maps.Marker({
+                position: India,
+                map: map
+            });
+            var markerKarachi = new google.maps.Marker({
+                position: Karachi,
+                map: map
+            });
+            var contentStringDhaka = '<div id="content" style="height:110px; width:200px;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<div id="bodyContent">' +
+                '<h4>Address:</h4>' +
+                '<p>Abcdefghijklmn 00, Abcde ABC</p>' +
+                '<p>123 34 Dhaka</p>' +
+                '<p>Bangladesh</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindowDhaka = new google.maps.InfoWindow({
+                content: contentStringDhaka
+            });
+
+            markerDhaka.addListener('click', function () {
+                infowindowDhaka.open(map, markerDhaka);
+            });
+
+            var contentStringTalwan = '<div id="content" style="height:110px; width:200px;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<div id="bodyContent">' +
+                '<h4>Address:</h4>' +
+                '<p>Abcdefghijklmn 00, Abcde ABC</p>' +
+                '<p>123 34 Talwan</p>' +
+                '<p>Talwan</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindowTalwan = new google.maps.InfoWindow({
+                content: contentStringTalwan
+            });
+
+            markerTalwan.addListener('click', function () {
+                infowindowTalwan.open(map, markerTalwan);
+            });
+
+            var contentStringIndia = '<div id="content" style="height:110px; width:200px;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<div id="bodyContent">' +
+                '<h4>Address:</h4>' +
+                '<p>Abcdefghijklmn 00, Abcde ABC</p>' +
+                '<p>123 34 Mumbai</p>' +
+                '<p>India</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindowIndia = new google.maps.InfoWindow({
+                content: contentStringIndia
+            });
+
+            markerIndia.addListener('click', function () {
+                infowindowIndia.open(map, markerIndia);
+            });
+
+            var contentStringKarachi = '<div id="content" style="height:110px; width:200px;">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<div id="bodyContent">' +
+                '<h4>Address:</h4>' +
+                '<p>Abcdefghijklmn 00, Abcde ABC</p>' +
+                '<p>123 34 Karachi</p>' +
+                '<p>Pakistan</p>' +
+                '</div>' +
+                '</div>';
+
+            var infowindowKarachi = new google.maps.InfoWindow({
+                content: contentStringKarachi
+            });
+
+            markerKarachi.addListener('click', function () {
+                infowindowKarachi.open(map, markerKarachi);
+            });
+        }
+    </script>
+
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" type="text/javascript"></script>
 
 </asp:Content>
