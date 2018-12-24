@@ -38,7 +38,7 @@
                     <asp:TemplateField HeaderText="" InsertVisible="False" SortExpression="CustomerId">
                         <ItemTemplate>
                             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
-                                <div class="well">
+                                <div class="well" id="<%# Eval("BlogDivId") %>">
                                     <asp:Label CssClass="h3 shadow_T" ID="txbType" Text='<%# Eval("Title") %>' runat="server" Font-Bold="True"></asp:Label>
                                     <br />
                                     <br />

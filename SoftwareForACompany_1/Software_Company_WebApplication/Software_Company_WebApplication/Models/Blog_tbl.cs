@@ -23,5 +23,6 @@ namespace Software_Company_WebApplication.Models
         public byte[] BlogImage { get; set; }
         [Required]
         public string Text { get; set; }
+        public string BlogDivId { get; set; }
     }
 }

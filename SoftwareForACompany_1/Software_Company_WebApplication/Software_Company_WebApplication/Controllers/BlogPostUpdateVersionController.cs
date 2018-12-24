@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Software_Company_WebApplication.Models;
+using Software_Company_WebApplication.DatabaseConnection;
 
 namespace Software_Company_WebApplication.Controllers
 {
@@ -60,6 +63,12 @@ namespace Software_Company_WebApplication.Controllers
                     image1.InputStream.Read(blog_tbl.BlogImage, 0, image1.ContentLength);
                 }
                 blog_tbl.Date = DateTime.Now;
+
+                BlogDivIdClass bdi = new BlogDivIdClass();
+                int id = bdi.BlogDivIdValue();
+
+                blog_tbl.BlogDivId = "BlogDivId_" + id.ToString();
+
                 db.Blog_tbl.Add(blog_tbl);
                 //try
                 //{

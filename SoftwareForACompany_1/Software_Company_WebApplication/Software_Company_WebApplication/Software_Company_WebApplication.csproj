@@ -221,6 +221,7 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DatabaseConnection\BlogDivIdClass.cs" />
     <Compile Include="DatabaseConnection\PersonBuisnessLayer.cs" />
     <Compile Include="DatabaseConnection\PersonMessage.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />

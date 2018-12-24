@@ -58,13 +58,21 @@ namespace Software_Company.WebForm
         {
             var str = DataBinder.Eval(oItem, "Title") as string;
             string str1 = str.ToString();
-            if (str1.Length > 160)
+            if (str1.Length > 80)
             {
                 StringBuilder sb = new StringBuilder(str1);
-                sb.Remove(160, sb.Length - 160);
+                sb.Remove(80, sb.Length - 80);
                 str1 = sb.ToString() + "...";
             }
             return str1;
+        }
+        protected string GetButton1(object oItem)
+        {
+            var str = DataBinder.Eval(oItem, "BlogDivId") as string;
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri uri = new Uri(url);
+            string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":"+ uri.Port + "/WebForm/Blog.aspx#" + str;
+            return String.Format("<a href=\"{0}\" class=\"btn btn-default btn-block\" style=\"border-radius: 20px; outline: none; color: orange; font-size: 15px\">Get More Info</a>", address);
         }
 
         // for responsive feature. top 4 blog post.

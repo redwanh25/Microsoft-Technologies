@@ -89,9 +89,9 @@ jegula page master page theke add content page create kora hoyese--%>
             filter: none !important;
         }*/
 
-        .thumbnail .caption .btn:hover {
+        /*.thumbnail .caption .btn:hover {
             animation: bounce .8s;
-        }
+        }*/
 
         .imgHover {
             transition: all 0.5s ease;
@@ -120,7 +120,7 @@ jegula page master page theke add content page create kora hoyese--%>
         }
 
         #map {
-            height: 500px;
+            height: 450px;
             width: 100%;
         }
     </style>
@@ -633,6 +633,9 @@ jegula page master page theke add content page create kora hoyese--%>
                                 <p>
                                     <asp:Label ForeColor="Red" CssClass="h4" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
                                 </p>
+                                <br />
+                                <%#GetButton1(Container.DataItem)%>
+                                <%--<a href="#" class="btn btn-default btn-block" style="border-radius: 20px; outline: none; color: orange; font-size: 15px">Get More Info</a>--%>
                             </div>
                         </div>
                     </div>
@@ -640,9 +643,7 @@ jegula page master page theke add content page create kora hoyese--%>
             </asp:DataList>
         </div>
     </div>
-
-
-
+    
     <script type="text/javascript">
         $(document).ready(function () {
             //var el = document.getElementById('toggleButton');
