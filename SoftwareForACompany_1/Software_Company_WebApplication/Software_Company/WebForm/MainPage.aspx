@@ -124,8 +124,28 @@ jegula page master page theke add content page create kora hoyese--%>
             width: 100%;
         }
     </style>
+
+    <%--popup video show style section--%>
+    <style>
+        #home {
+            background: url(../Image/computer.jpg) no-repeat center fixed;
+            display: table;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            background-size: cover;
+        }
+
+        .landing-text {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+
     <br />
     <br />
+
     <div class="container">
         <%--    <div class="row text-center">
         <div class="col-xs-5">
@@ -143,8 +163,8 @@ jegula page master page theke add content page create kora hoyese--%>
         </div>
     </div>--%>
 
-        <div class="row text-center shadow_T">
-            <p style="font-size: 45px">Over 250 satisfied customers globally</p>
+        <div class="row text-center">
+            <p style="font-size: 50px; font-family: Impact">Over 250 satisfied customers globally</p>
         </div>
         <br />
         <br />
@@ -217,53 +237,39 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <div class="container">
-        <div class="row">
-            <div class="panel panel-default">
-                <div>
-                    <%--panel-heading --%>
-                    <%--<asp:Button ID="toggleButton" runat="server" Text="Toggle Button" class="btn btn-primary" />--%>
-                    <%--<input id="toggleButton" type="button" class="btn btn-default btn-block innerShadow" style="outline: none; height: 45px; font-size: 20px" />--%>
 
-                    <a id="toggleButton" class="btn btn-default btn-block" style="outline: none; height: 45px; font-size: 20px; border-radius: 20px">
-                        <marquee behavior="alternate" scrollamount="8">Watch video of how it works here</marquee>
-                    </a>
-                </div>
-                <div class="panel-body collapse animated zoomIn" id="video">
-                    <div class="col-sm-6">
-                        <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
-                        <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
-                        <%--<embed width="300" height="180" src="https://www.youtube.com/v/aPw1M_Ehg94"/>--%>
-                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/748BFvqYHG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                        <br />
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nD7uDivzMiA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+    <br />
+    <br />
+    <br />
+
+    <div id="home">
+        <div class="landing-text" style="height: 300px">
+            <br />
+            <div class="container" align="center">
+                <a id="VideoPopUp" href="#" data-target="#VideoModal" data-toggle="modal">
+                    <img src="../Image/playButtonFrame.png" style="height: 100px;" class="img-responsive"/></a>
+                <h2 style="color: white">Watch video of how it works here</h2>
             </div>
         </div>
     </div>
 
+
+
     <br />
     <br />
-    <hr style="border: 5px solid; color: #F5F3F1">
+    <%--<hr style="border: 5px solid; color: #F5F3F1">--%>
     <br />
+
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="text-center shadow_T">Indigenous IT consulting company with global deliveries</h1>
+                <h1 class="text-center" style="font-family: Impact; font-size: 40px">Indigenous IT consulting company with global deliveries</h1>
                 <br />
                 <br />
-                <div class="shadow_B" style="border-radius: 10px">
-                    <div class="pre-scrollable" style="min-height: 400px">
+                <div style="border-radius: 10px">
+                    <%--class="shadow_B" --%>
+                    <div>
+                        <%--class="pre-scrollable"  style="min-height: 400px"--%>
                         <ul class="nav nav-tabs h4">
                             <li class="active"><a href="#Customer" data-toggle="tab" style="color: orange">CUSTOMER ENGAGEMENT</a></li>
                             <li><a href="#CAPACITY" data-toggle="tab" style="color: orange">CAPACITY </a></li>
@@ -271,26 +277,41 @@ jegula page master page theke add content page create kora hoyese--%>
                             <li><a href="#COMPETENCE" data-toggle="tab" style="color: orange">COMPETENCE </a></li>
                         </ul>
                         <br />
-                        <div class="tab-content text-center">
+                        <div class="tab-content text-center well">
                             <div id="Customer" class="tab-pane active">
-                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Long-term cooperation || Good communication || responsiveness</b></span>
+                                <div class="animated zoomIn">
+                                    <span style="font-family: Arial; color: darkslateblue;" class="h3">
+                                        <b>Long-term cooperation <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Good communication <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>responsiveness</b>
+                                    </span>
                                     <br />
+                                    <i style="font-family: serif" class="h3">
+                                        Our customers often talk about our commitment. We do not work with IT, we work with people.
                                     <br />
-                                    Our customers often talk about our commitment. We do not work with IT, we work with people.
+                                        Our team of developers is working agile against customers according to
                                     <br />
-                                    Our team of developers is working agile against customers according to
+                                        proven SCRUM methodology, and we know what is
                                     <br />
-                                    proven SCRUM methodology, and we know what is
-                                    <br />
-                                    needed for communication between customer and development team to work<br />
-                                    seamlessly at a distance.
-                                </h3>
+                                        needed for communication between customer and development team to work<br />
+                                        seamlessly at a distance.
+                                    </i>
+                                </div>
                             </div>
                             <div id="CAPACITY" class="tab-pane">
-                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Flexible resources || Flexible resources || Quick recruitment</b></span>
+                                <div class="animated zoomIn">
+                                    <span style="font-family: Arial; color: darkslateblue;" class="h3">
+                                        <b>Flexible resources <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Flexible resources <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Quick recruitment</b>
+                                    </span>
                                     <br />
-                                    <br />
-                                    We work purposefully to attract the best skills. At Indpro you stay for a long time. No matter where 
+                                    <i style="font-family: serif;" class="h3">
+                                        We work purposefully to attract the best skills. At Indpro you stay for a long time. No matter where 
                                     <br />
                                     Our team of developers is working agile against customers according to
                                     <br />
@@ -298,13 +319,21 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h3>
+                                    </i>
+                                </div>
                             </div>
                             <div id="QUALITY" class="tab-pane">
-                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>Swedish project management  || Proven processes || Good customer </b></span>
+                                <div class="animated zoomIn">
+                                    <span style="font-family: Arial; color: darkslateblue;" class="h3">
+                                        <b>Swedish project management <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Proven processes <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Good customer</b>
+                                    </span>
                                     <br />
-                                    <br />
-                                    We have nearly 100 employees, which enables us to quickly find the right developer to our .
+                                    <i style="font-family: serif" class="h3">
+                                        We have nearly 100 employees, which enables us to quickly find the right developer to our .
                                     <br />
                                     Our team of developers is working agile against customers according to
                                     <br />
@@ -312,13 +341,21 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h3>
+                                    </i>
+                                </div>
                             </div>
                             <div id="COMPETENCE" class="tab-pane">
-                                <h3 class="animated bounceIn"><span style="font-family: Calibri" class="h3"><b>lace Knowledge || Satisfied staff || Agile development</b></span>
+                                <div class="animated zoomIn">
+                                    <span style="font-family: Arial; color: darkslateblue;" class="h3">
+                                        <b>lace Knowledge <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Satisfied staff <span style="font-size: 1em; color: Tomato;">
+                                            <i class="fas fa-igloo" style="padding:20px"></i>
+                                        </span>Agile development</b>
+                                    </span>
                                     <br />
-                                    <br />
-                                    such as communication problems and contextual misunderstandings. We work with mixed teams 
+                                    <i style="font-family: serif;" class="h3">
+                                        such as communication problems and contextual misunderstandings. We work with mixed teams 
                                     <br />
                                     Our team of developers is working agile against customers according to
                                     <br />
@@ -326,8 +363,10 @@ jegula page master page theke add content page create kora hoyese--%>
                                     <br />
                                     needed for communication between customer and development team to work<br />
                                     seamlessly at a distance.
-                                </h3>
+                                    </i>
+                                </div>
                             </div>
+                            <br />
                         </div>
                     </div>
                 </div>
@@ -338,9 +377,13 @@ jegula page master page theke add content page create kora hoyese--%>
     <br />
     <br />
     <br />
+    <hr style="border: 5px solid; color: #F5F3F1">
+    <br />
+    <br />
+
     <div class="container">
         <div class="row text-center">
-            <h1>How does it happen?</h1>
+            <h1 style="font-family: Impact; font-size: 50px">How does it happen?</h1>
             <br />
             <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-comments-64.png" />
@@ -375,6 +418,8 @@ jegula page master page theke add content page create kora hoyese--%>
             </div>
         </div>
     </div>
+
+    <br />
     <br />
     <br />
     <br />
@@ -387,6 +432,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <br />
     <br />
     <br />
+
     <div class="container">
         <div class="row">
             <br />
@@ -528,8 +574,8 @@ jegula page master page theke add content page create kora hoyese--%>
     <hr style="border: 5px solid; color: #F5F3F1">
     <div class="container">
         <div class="row">
-            <div class="text-center shadow_T">
-                <p style="font-size: 45px">Tech news from the Company blog</p>
+            <div class="text-center">
+                <p style="font-family: Impact; font-size: 50px;">Tech news from the Company blog</p>
             </div>
         </div>
         <br />
@@ -643,7 +689,37 @@ jegula page master page theke add content page create kora hoyese--%>
             </asp:DataList>
         </div>
     </div>
-    
+
+    <div class="modal fade" id="VideoModal" tabindex="-1" data-keyboard="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" style="background-color: darkgray">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal" style="color:black; font-size:40px">&times;</button>
+                    <h4 class="modal-title h3 text-center" style="font-size: 30px"><b>Watch video of how it works here</b></h4>
+                </div>
+                <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-sm-6">
+                        <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
+                        <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
+                        <%--<embed width="300" height="180" src="https://www.youtube.com/v/aPw1M_Ehg94"/>--%>
+                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/748BFvqYHG8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="embed-responsive embed-responsive-16by9" style="border-radius: 10px">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nD7uDivzMiA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <%--<asp:Button ID="btnHideVideoModal" runat="server" Text="Close" class="btn btn-primary btn-sm" data-dismiss="modal" />--%>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $(document).ready(function () {
             //var el = document.getElementById('toggleButton');
@@ -879,6 +955,6 @@ jegula page master page theke add content page create kora hoyese--%>
         }
     </script>
 
-      <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" type="text/javascript"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" type="text/javascript"></script>
 
 </asp:Content>

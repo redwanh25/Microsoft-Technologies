@@ -33,7 +33,7 @@
                     <div class="modal fade" id="loginModal" tabindex="-1" data-backdrop="static" data-keyboard="false">
                         <div class="modal-dialog" style="width: 400px">
                             <%--class="modal-sm"--%>
-                            <div class="modal-content" style="background-color: transparent; color: white">
+                            <div class="modal-content" style="background-color: transparent; opacity:.5; color: white">
                                 <div class="modal-header">
                                     <button class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Login </h4>
