@@ -36,7 +36,7 @@ jegula page master page theke add content page create kora hoyese--%>
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                 <div class="h2 animated fadeInLeft">
-                    <p>Contact us at Software Company</p>
+                    <p style="font-family:Impact">Contact us at Software Company</p>
                 </div>
                 <br />
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">

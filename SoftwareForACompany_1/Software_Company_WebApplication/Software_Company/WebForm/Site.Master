@@ -210,8 +210,8 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">E-commerce Solution </a></li>
                                 <li><a href="#">Mobile Development </a></li>
-                                <li><a href="WebDevelopment.aspx">Web Development </a></li>
-                                <li><a href="#">IOS Development </a></li>
+                                <li><a href="Web_Development.aspx">Web Development </a></li>
+                                <li><a href="IOS_Development.aspx">IOS Development </a></li>
                             </ul>
                         </li>
 
@@ -223,7 +223,7 @@
                                 <li><a href="#">IT Consultants</a></li>
                                 <li><a href="#">Dedicated Team</a></li>
                                 <li><a href="#">Project Development</a></li>
-                                <li><a href="#">How does it work</a></li>
+                                <li><a href="HowDoesItWork.aspx">How does it work</a></li>
                             </ul>
                         </li>
 

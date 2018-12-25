@@ -18,8 +18,8 @@ jegula page master page theke add content page create kora hoyese--%>
                 <div class="col-xs-12">
                     <img class="img-responsive shadow_B" src="../Image/redwan.jpg" style="border-radius:15px"/>
                     <br />
-                    <div class="jumbotron" id="abc">
-                        <h1>Global skills with local touch</h1>
+                    <div class="well" id="abc">
+                        <h1 style="font-family:Impact; font-size:40px;">Global skills with local touch</h1>
                         <h3>Our employees are our most valuable assets. Indpro has over 80 employees,
                             skilled in various technologies and platforms. Our employees are our most
                             valuable assets. Indpro has over 80 employees,skilled in various technologies
@@ -33,8 +33,8 @@ jegula page master page theke add content page create kora hoyese--%>
         <br />
         <div class="container gallery-container">
             <h1 class="text-center shadow_T">Our Employees</h1>
-            <p class="page-description text-center shadow_T">Our employees are our most valuable assets. Indpro has over 80 employees,
-                            skilled in various technologies and platforms.</p>
+            <h3 class="page-description text-center shadow_T">Our employees are our most valuable assets. Indpro has over 80 employees,
+                            skilled in various technologies and platforms.</h3>
             <br />
             <div class="row">
                 <div class="col-xs-12">

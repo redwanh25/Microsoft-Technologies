@@ -73,11 +73,15 @@
   <ItemGroup>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Image\about01.png" />
+    <Content Include="Image\about02.png" />
+    <Content Include="Image\about03.png" />
     <Content Include="Image\benches.jpg" />
     <Content Include="Image\bridge.jpg" />
     <Content Include="Image\coast.jpg" />
     <Content Include="Image\company_name.png" />
     <Content Include="Image\computer.jpg" />
+    <Content Include="Image\computer1.jpg" />
     <Content Include="Image\crose.jpg" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
@@ -87,9 +91,12 @@
     <Content Include="Image\icons8-increase-64.png" />
     <Content Include="Image\icons8-laptop-64.png" />
     <Content Include="Image\icons8-windows-client-64.png" />
+    <Content Include="Image\imac_apple_computer1.jpg" />
     <Content Include="Image\instagram.png" />
+    <Content Include="Image\ios_logo.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\loader.gif" />
+    <Content Include="Image\macbook-pro.jpg" />
     <Content Include="Image\maxresdefault.jpg" />
     <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\mountain-2.jpg" />
@@ -102,9 +109,11 @@
     <Content Include="Image\RedwanPic.jpg" />
     <Content Include="Image\rocks.jpg" />
     <Content Include="Image\sky.jpg" />
+    <Content Include="Image\time-and-attendence-software1.jpg" />
     <Content Include="Image\tunnel.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="Image\video_background2.jpg" />
+    <Content Include="Image\WebDevelopmentPic.jpg" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Animate.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css" />
@@ -128,8 +137,10 @@
     <Content Include="WebForm\Gallery.aspx" />
     <Content Include="WebForm\MainPage.aspx" />
     <Content Include="WebForm\OurTeam.aspx" />
-    <Content Include="WebForm\WebDevelopment.aspx" />
+    <Content Include="WebForm\IOS_Development.aspx" />
     <Content Include="WebForm\Blog.aspx" />
+    <Content Include="WebForm\HowDoesItWork.aspx" />
+    <Content Include="WebForm\Web_Development.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -171,12 +182,12 @@
     <Compile Include="WebForm\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="WebForm\WebDevelopment.aspx.cs">
-      <DependentUpon>WebDevelopment.aspx</DependentUpon>
+    <Compile Include="WebForm\IOS_Development.aspx.cs">
+      <DependentUpon>IOS_Development.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm\WebDevelopment.aspx.designer.cs">
-      <DependentUpon>WebDevelopment.aspx</DependentUpon>
+    <Compile Include="WebForm\IOS_Development.aspx.designer.cs">
+      <DependentUpon>IOS_Development.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Blog.aspx.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
@@ -184,6 +195,20 @@
     </Compile>
     <Compile Include="WebForm\Blog.aspx.designer.cs">
       <DependentUpon>Blog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\HowDoesItWork.aspx.cs">
+      <DependentUpon>HowDoesItWork.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\HowDoesItWork.aspx.designer.cs">
+      <DependentUpon>HowDoesItWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Web_Development.aspx.cs">
+      <DependentUpon>Web_Development.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Web_Development.aspx.designer.cs">
+      <DependentUpon>Web_Development.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

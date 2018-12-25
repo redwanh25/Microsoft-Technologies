@@ -128,7 +128,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <%--popup video show style section--%>
     <style>
         #home {
-            background: url(../Image/computer.jpg) no-repeat center fixed;
+            background: url(../Image/computer1.jpg) no-repeat center fixed;
             display: table;
             height: 100%;
             width: 100%;
@@ -383,38 +383,38 @@ jegula page master page theke add content page create kora hoyese--%>
 
     <div class="container">
         <div class="row text-center">
-            <h1 style="font-family: Impact; font-size: 50px">How does it happen?</h1>
+            <h1 style="font-family: Impact; font-size: 50px">How does it work?</h1>
             <br />
             <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-comments-64.png" />
-                <h4><b>Needs analysis</b></h4>
+                <h4><b>Requirement analysis</b></h4>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-idea-64.png" />
-                <h4><b>Needs analysis</b></h4>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
-                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-in-transit-64.png" />
-                <h4><b>Needs analysis</b></h4>
-            </div>
+                <h4><b>Proposed solution</b></h4>
+            </div>        
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-increase-64.png" />
-                <h4><b>Needs analysis</b></h4>
+                <h4><b>improvements</b></h4>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-laptop-64.png" />
-                <h4><b>Needs analysis</b></h4>
+                <h4><b>Need analysis</b></h4>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-windows-client-64.png" />
-                <h4><b>Needs analysis</b></h4>
+                <h4><b>Start of project</b></h4>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-in-transit-64.png" />
+                <h4><b>Development and delivery</b></h4>
             </div>
         </div>
         <br />
         <br />
         <div class="row">
             <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
-                <a href="#" id="btn-read" class="btn btn-block btn-default shadow_B" style="border-radius: 20px; font-size: 17px">READ MORE ABOUT THIS</a>
+                <a href="HowDoesItWork.aspx" id="btn-read" class="btn btn-block btn-default shadow_B" style="border-radius: 20px; font-size: 17px">READ MORE ABOUT THIS</a>
             </div>
         </div>
     </div>
@@ -677,7 +677,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </p>
                                 <br />
                                 <p>
-                                    <asp:Label ForeColor="Red" CssClass="h4" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
+                                    <asp:Label ForeColor="Red" CssClass="h5" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
                                 </p>
                                 <br />
                                 <%#GetButton1(Container.DataItem)%>
@@ -698,6 +698,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     <h4 class="modal-title h3 text-center" style="font-size: 30px"><b>Watch video of how it works here</b></h4>
                 </div>
                 <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <br />
                     <div class="col-sm-6">
                         <%--onek video iframe a support kore na embed a kore. but, embed a full screen hoy na. iframe a hoy--%>
                         <%--embed use korle youtube er video link like https://www.youtube.com/watch?v=aPw1M_Ehg94 ai ta er "watch?" tuku and "=" er poriborte "/" hobe --%>
