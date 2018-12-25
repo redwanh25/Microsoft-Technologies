@@ -260,16 +260,16 @@ jegula page master page theke add content page create kora hoyese--%>
     <%--<hr style="border: 5px solid; color: #F5F3F1">--%>
     <br />
 
-    <div class="container">
+    <%--class="shadow_B" --%>
+    <%--class="pre-scrollable"  style="min-height: 400px"--%>
+    <%--<div class="container">
         <div class="row">
             <div class="col-xs-12">
                 <h1 class="text-center" style="font-family: Impact; font-size: 40px">Indigenous IT consulting company with global deliveries</h1>
                 <br />
                 <br />
-                <div style="border-radius: 10px">
-                    <%--class="shadow_B" --%>
-                    <div>
-                        <%--class="pre-scrollable"  style="min-height: 400px"--%>
+                <div style="border-radius: 10px">                   
+                    <div>                       
                         <ul class="nav nav-tabs h4">
                             <li class="active"><a href="#Customer" data-toggle="tab" style="color: orange">CUSTOMER ENGAGEMENT</a></li>
                             <li><a href="#CAPACITY" data-toggle="tab" style="color: orange">CAPACITY </a></li>
@@ -369,6 +369,42 @@ jegula page master page theke add content page create kora hoyese--%>
                             <br />
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>--%>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center" style="font-family: Impact; font-size: 40px">Indigenous IT consulting company with global deliveries</h1>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="well" style="min-height:330px">
+                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px;">CUSTOMER ENGAGEMENT</h3>
+                    <h4>Our clients call us committed. We don’t work with IT – we work with people. Our agile teams co-operate with our clients using best practice SCRUM methodology. We know what it takes for the communication between client and developers to flow seamlessly.</h4>
+                    <br /><br />
+                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="well" style="min-height:330px">
+                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px">CAPACITY</h3>
+                    <h4>We have close to 100 employees, which allows us to quickly find the right resources for our clients. We also have a thorough and reliable recruitment process which allows our clients to quickly staff up their teams when their businesses grow or when there is a temporary increase in workload</h4>
+                    <br />
+                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="well" style="min-height:330px">
+                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px">QUALITY</h3>
+                    <h4>We work hard to attract the best competence, and our employees stay with us for a long time. We apply the same Swedish personnel politics at all our offices, regardless of location. We erase hierarchies, and we listen to our employees’ career development needs.</h4>
+                    <br /><br />
+                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
                 </div>
             </div>
         </div>

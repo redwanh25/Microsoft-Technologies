@@ -1,7 +1,7 @@
 ﻿
 var resetPasswordApp = angular.module('resetPasswordApp',[]);
 
-resetPasswordApp.controller('resetPasswordController', ['$scope', '$window','$location','resetPasswordService', function ($scope,$window,$location,resetPasswordService) {
+resetPasswordApp.controller('resetPasswordController', ['$scope', '$window', '$location', 'resetPasswordService', function ($scope, $window, $location, resetPasswordService) {
 
 
     $scope.ResetPassword = {
@@ -40,10 +40,10 @@ resetPasswordApp.controller('resetPasswordController', ['$scope', '$window','$lo
 
         }, function () {
             alert("Failed.Please try again.");
-        })
-    }
+        });
+    };
 
-}])
+}]);
 
 resetPasswordApp.factory('resetPasswordService', ['$http', function ($http) {
 
