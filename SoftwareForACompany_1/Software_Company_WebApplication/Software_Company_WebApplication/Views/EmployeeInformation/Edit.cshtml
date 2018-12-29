@@ -1,0 +1,242 @@
+﻿@model Software_Company_WebApplication.Models.EmployeeInformation
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm("Edit", "EmployeeInformation", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.EmployeeImage)</label>
+                        @{
+                            var imgSrc = "";
+                            if (Model.EmployeeImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(Model.EmployeeImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img class="img-responsive" src="@imgSrc" alt="This employee image" style="border-radius:7px; height:200px;" />
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="~/Image/default_man_photo.jpg" alt="This employee did not upload an image" style="border-radius:7px; height:200px;" />
+                            }
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <input type="file" id="image1" name="image1" class="form-control" />
+                    @Html.ValidationMessageFor(model => model.EmployeeImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.UserName)</label>
+
+                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly = "true", @title = "You can not edit UserName" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Email)</label>
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @readonly = "true", @title = "You can not edit Email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Gender)</label>
+                            @Html.DropDownList("Gender", new List<SelectListItem>
+                            {
+                                new SelectListItem{Text="Male", Value="Male"},
+                                new SelectListItem{Text="Female", Value="Female"}
+                            }, "Select Gender", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.BloodGroup)</label>
+                            @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
+                            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control datepicker", @autocomplete = "off" } })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.MaritalStatus)</label>
+                            @Html.DropDownList("MaritalStatus", new List<SelectListItem>
+                            {
+                                new SelectListItem{Text="Single", Value="Single"},
+                                new SelectListItem{Text="In a relationship", Value="In a relationship"},
+                                new SelectListItem{Text="married", Value="married"},
+                                new SelectListItem{Text="divorce", Value="divorce"},
+                            }, "Select MaritalStatus", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.FullName)</label>
+                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Address)</label>
+                        @Html.TextAreaFor(model => model.Address, new { @rows = 2, @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Nationality)</label>
+                            @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Religion)</label>
+                            @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.AlternativeEmail)</label>
+                        @Html.EditorFor(model => model.AlternativeEmail, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AlternativeEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Designation)</label>
+                        @Html.DropDownList("Designation", new List<SelectListItem>
+                            {
+                                new SelectListItem{Text="CEO", Value="CEO"},
+                                new SelectListItem{Text="Web Developer", Value="Web Developer"},
+                                new SelectListItem{Text="IOS Developer", Value="IOS Developer"},
+                                new SelectListItem{Text="Android Developer", Value="Android Developer"},
+                                new SelectListItem{Text="Software Engineer", Value="Software Engineer"},
+                                new SelectListItem{Text="IT Specialist", Value="IT Specialist"},
+                            }, "Select Designation", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.District)</label>
+                            @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.ZipCode)</label>
+                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Country)</label>
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.PostOffice)</label>
+                            @Html.EditorFor(model => model.PostOffice, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PostOffice, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.PassportNo)</label>
+                        @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.AboutYou)</label>
+                        @Html.TextAreaFor(model => model.AboutYou, new { @rows = 3, @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.AboutYou, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-disk" style="padding-right:7px"></span>Save</button>
+    @*<input type="submit" value="Save" class="btn btn-default" />*@
+    <a class="btn btn-default" href="@Url.Action("Index", "EmployeeInformation")">Back to List</a>
+}
+
+<script>
+    $(function () {
+        $('.datepicker').datepicker({
+            dateFormat: "dd-mm-yy",
+            changeMonth: true,
+            changeYear: true,
+            yearRange: "1950:2010"
+        });
+    });
+</script>
+

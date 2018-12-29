@@ -1,0 +1,176 @@
+﻿@model IEnumerable<Software_Company_WebApplication.Models.EmployeeInformation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.EmployeeImage)</label>
+                        @{
+                            var imgSrc = "";
+                            if (item.EmployeeImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.EmployeeImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img class="img-responsive" src="@imgSrc" alt="This employee image" style="border-radius:7px; height:200px;" />
+                            }
+                            else
+                            {
+                                <img class="img-responsive" src="~/Image/default_man_photo.jpg" alt="This employee did not upload an image" style="border-radius:7px; height:200px;" />
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.UserName)</label>
+                        <input readonly id="Text1" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.UserName)" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Email)</label>
+                        <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Email)" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                        <input readonly id="Text1" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.PhoneNumber)" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Gender)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Gender)" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.BloodGroup)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.BloodGroup)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.DateOfBirth)" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.MaritalStatus)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.MaritalStatus)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.FullName)</label>
+                        <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.FullName)" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Address)</label>
+                        <textarea rows="2" readonly id="Text1" class="form-control" type="text"> @Html.DisplayFor(modelItem => item.Address) </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Nationality)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Nationality)" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Religion)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Religion)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.AlternativeEmail)</label>
+                        <input readonly id="Text1" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.AlternativeEmail)" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.Designation)</label>
+                        <input readonly id="Text1" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Designation)" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.District)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.District)" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.ZipCode)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.ZipCode)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Country)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.Country)" />
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.PostOffice)</label>
+                            <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.PostOffice)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.PassportNo)</label>
+                        <input readonly id="Text2" class="form-control" type="text" value="@Html.DisplayFor(modelItem => item.PassportNo)" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-group has-success">
+                        <label>@Html.DisplayNameFor(model => model.AboutYou)</label>
+                        <textarea rows="3" readonly id="Text1" class="form-control" type="text"> @Html.DisplayFor(modelItem => item.AboutYou) </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <button class="btn btn-default" type="button" onclick="location.href='@Url.Action("Edit", "EmployeeInformation", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil" style="padding-right:7px"></span> Edit</button>
+}
