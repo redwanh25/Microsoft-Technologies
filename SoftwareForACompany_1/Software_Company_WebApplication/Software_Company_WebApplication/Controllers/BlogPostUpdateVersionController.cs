@@ -116,6 +116,18 @@ namespace Software_Company_WebApplication.Controllers
                     image1.InputStream.Read(blog_tbl.BlogImage, 0, image1.ContentLength);
                 }
                 blog_tbl.Date = DateTime.Now;
+
+                BlogImageContains hasImg = new BlogImageContains();
+                bool img = hasImg.hasImage(blog_tbl.Id);
+                if (image1 == null && img == true)
+                {
+                    byte[] imgArr = hasImg.EmpImageByte(blog_tbl.Id);
+                    image1 = new MemoryPostedFile(imgArr);
+
+                    blog_tbl.BlogImage = new byte[image1.ContentLength];
+                    image1.InputStream.Read(blog_tbl.BlogImage, 0, image1.ContentLength);
+                }
+
                 db.Entry(blog_tbl).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -69,6 +70,17 @@ namespace Software_Company_WebApplication.Controllers
                 //var dateAndTime = Convert.ToDateTime(employeeInformation.DateOfBirth);
                 //employeeInformation.DateOfBirth = dateAndTime.ToString("dd/MM/yyyy");
 
+                EmployeeImageContains hasImg = new EmployeeImageContains();
+                bool img = hasImg.hasImage(employeeInformation.Id);
+                if(image1 == null && img == true)
+                {
+                    byte[] imgArr = hasImg.EmpImageByte(employeeInformation.Id);
+                    image1 = new MemoryPostedFile(imgArr);
+
+                    employeeInformation.EmployeeImage = new byte[image1.ContentLength];
+                    image1.InputStream.Read(employeeInformation.EmployeeImage, 0, image1.ContentLength);
+                }
+
                 db.Entry(employeeInformation).State = EntityState.Modified;
 
 
@@ -86,5 +98,23 @@ namespace Software_Company_WebApplication.Controllers
             }
             base.Dispose(disposing);
         }
+    }
+
+    public class MemoryPostedFile : HttpPostedFileBase
+    {
+        private readonly byte[] fileBytes;
+
+        public MemoryPostedFile(byte[] fileBytes, string fileName = null)
+        {
+            this.fileBytes = fileBytes;
+            this.FileName = fileName;
+            this.InputStream = new MemoryStream(fileBytes);
+        }
+
+        public override int ContentLength => fileBytes.Length;
+
+        public override string FileName { get; }
+
+        public override Stream InputStream { get; }
     }
 }

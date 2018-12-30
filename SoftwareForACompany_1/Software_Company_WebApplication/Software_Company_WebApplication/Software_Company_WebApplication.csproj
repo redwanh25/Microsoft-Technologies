@@ -223,7 +223,9 @@
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogDivIdClass.cs" />
+    <Compile Include="DatabaseConnection\BlogImageContains.cs" />
     <Compile Include="DatabaseConnection\EmailAndUserName_Retrive.cs" />
+    <Compile Include="DatabaseConnection\EmployeeImageContains.cs" />
     <Compile Include="DatabaseConnection\PersonBuisnessLayer.cs" />
     <Compile Include="DatabaseConnection\PersonMessage.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
