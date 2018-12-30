@@ -30,6 +30,8 @@ namespace Software_Company_WebApplication.Models
         [Display(Name = "Confirm new password")]
         [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        public string UserId { get; set; }
     }
 
     public class RegisterBindingModel

@@ -115,6 +115,7 @@ namespace Software_Company_WebApplication.Controllers
         }
 
         // POST api/Account/ChangePassword
+        [AllowAnonymous]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -122,8 +123,9 @@ namespace Software_Company_WebApplication.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
+            //User.Identity.GetUserId(); kaj kortese na. null return kortese.
+            string str = model.UserId;
+            IdentityResult result = await UserManager.ChangePasswordAsync(model.UserId, model.OldPassword,
                 model.NewPassword);
             
             if (!result.Succeeded)

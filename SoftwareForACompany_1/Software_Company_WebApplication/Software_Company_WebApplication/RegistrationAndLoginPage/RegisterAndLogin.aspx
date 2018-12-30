@@ -190,7 +190,6 @@
                             <marquee behavior="alternate">Application</marquee>
                         </div>
                         <div id="accordion_pic" class="panel-group">
-
                             <div class="panel panel-success animated bounceInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
