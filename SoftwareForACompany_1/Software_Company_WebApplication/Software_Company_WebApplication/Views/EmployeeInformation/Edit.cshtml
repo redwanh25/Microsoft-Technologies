@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
+
 <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
 <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 
@@ -224,8 +225,8 @@
         </div>
     </div>
     <br />
-    <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-disk" style="padding-right:7px"></span>Save</button>
-    @*<input type="submit" value="Save" class="btn btn-default" />*@
+    <button id="submitId" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-disk" style="padding-right:7px"></span>Save</button>
+    @*<input id="submitId" type="submit" value="Save" class="btn btn-default" />*@
     <a class="btn btn-default" href="@Url.Action("Index", "EmployeeInformation")">Back to List</a>
 }
 
@@ -237,6 +238,20 @@
             changeYear: true,
             yearRange: "1950:2010"
         });
+    });
+</script>
+
+<script type="text/javascript">
+    $('#submitId').click(function () {
+        var extension = $('#image1').val().split('.').pop().toLowerCase();
+        if ($('#image1').val() == '') {
+            return true;
+        }
+        else if ($.inArray(extension, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
+            alert('Sorry, You can only upload an image.');
+            //swal("Sorry!", "You can only upload an image!", "error");     //swal dile kaj kore na.
+            return false;
+        }
     });
 </script>
 

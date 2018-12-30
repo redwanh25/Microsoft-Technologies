@@ -51,7 +51,7 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-sm-9 col-xs-12">
+                <div class="col-sm-8 col-lg-9 col-xs-12">
                     <div class="tz-gallery">
                         <div class="row">
                             <a class="lightbox" href="../Image/ios_logo.png">
@@ -59,7 +59,7 @@
                             </a>
                         </div>
                     </div>
-
+                    <br />
                     <div class="well" id="WhoWeAre">
                         <h2 style="font-family: Impact">Who We Are </h2>
                         <p style="font-size: 19px">
