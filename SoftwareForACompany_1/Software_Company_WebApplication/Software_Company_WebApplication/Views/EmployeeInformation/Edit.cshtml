@@ -60,63 +60,66 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.PhoneNumber)</label>
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PhoneNumber" } })
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <br />
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.Gender)</label>
-                            @Html.DropDownList("Gender", new List<SelectListItem>
-                            {
-                                new SelectListItem{Text="Male", Value="Male"},
-                                new SelectListItem{Text="Female", Value="Female"}
-                            }, "Select Gender", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            <label>@Html.DisplayNameFor(model => model.PhoneNumber)</label>
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PhoneNumber" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.BloodGroup)</label>
-                            @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your BloodGroup" } })
-                            @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.Gender)</label>
+                                @Html.DropDownList("Gender", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="Male", Value="Male"},
+                                    new SelectListItem{Text="Female", Value="Female"}
+                                }, "Select Gender", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
-                            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control datepicker", @autocomplete = "off", @placeholder = "Enter your DateOfBirth" } })
-                            @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.MaritalStatus)</label>
-                            @Html.DropDownList("MaritalStatus", new List<SelectListItem>
-                            {
-                                new SelectListItem{Text="Single", Value="Single"},
-                                new SelectListItem{Text="In a relationship", Value="In a relationship"},
-                                new SelectListItem{Text="married", Value="married"},
-                                new SelectListItem{Text="divorce", Value="divorce"},
-                            }, "Select MaritalStatus", new { @class = "form-control" })
-                            @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.BloodGroup)</label>
+                                @Html.EditorFor(model => model.BloodGroup, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your BloodGroup" } })
+                                @Html.ValidationMessageFor(model => model.BloodGroup, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.FullName)</label>
-                        @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your FullName" } })
-                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.DateOfBirth)</label>
+                                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control datepicker", @autocomplete = "off", @placeholder = "Enter your DateOfBirth" } })
+                                @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.MaritalStatus)</label>
+                                @Html.DropDownList("MaritalStatus", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="Single", Value="Single"},
+                                    new SelectListItem{Text="In a relationship", Value="In a relationship"},
+                                    new SelectListItem{Text="married", Value="married"},
+                                    new SelectListItem{Text="divorce", Value="divorce"},
+                                }, "Select MaritalStatus", new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.FullName)</label>
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your FullName" } })
+                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,101 +132,104 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.Nationality)</label>
-                            @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Nationality" } })
-                            @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+            <br />
+            <div class="well">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.Nationality)</label>
+                                @Html.EditorFor(model => model.Nationality, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Nationality" } })
+                                @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.Religion)</label>
+                                @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Religion" } })
+                                @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.Religion)</label>
-                            @Html.EditorFor(model => model.Religion, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Religion" } })
-                            @Html.ValidationMessageFor(model => model.Religion, "", new { @class = "text-danger" })
+                            <label>@Html.DisplayNameFor(model => model.AlternativeEmail)</label>
+                            @Html.EditorFor(model => model.AlternativeEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your AlternativeEmail" } })
+                            @Html.ValidationMessageFor(model => model.AlternativeEmail, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.AlternativeEmail)</label>
-                        @Html.EditorFor(model => model.AlternativeEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your AlternativeEmail" } })
-                        @Html.ValidationMessageFor(model => model.AlternativeEmail, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.Designation)</label>
+                            @Html.DropDownList("Designation", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="CEO", Value="CEO"},
+                                    new SelectListItem{Text="Web Developer", Value="Web Developer"},
+                                    new SelectListItem{Text="IOS Developer", Value="IOS Developer"},
+                                    new SelectListItem{Text="Android Developer", Value="Android Developer"},
+                                    new SelectListItem{Text="Software Engineer", Value="Software Engineer"},
+                                    new SelectListItem{Text="IT Specialist", Value="IT Specialist"},
+                                }, "Select Designation", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.District)</label>
+                                @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your District" } })
+                                @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.ZipCode)</label>
+                                @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your ZipCode" } })
+                                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.Country)</label>
+                                @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Country" } })
+                                @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>@Html.DisplayNameFor(model => model.PostOffice)</label>
+                                @Html.EditorFor(model => model.PostOffice, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PostOffice" } })
+                                @Html.ValidationMessageFor(model => model.PostOffice, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="form-group has-success">
+                            <label>@Html.DisplayNameFor(model => model.PassportNo)</label>
+                            @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PassportNo" } })
+                            @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.Designation)</label>
-                        @Html.DropDownList("Designation", new List<SelectListItem>
-                            {
-                                new SelectListItem{Text="CEO", Value="CEO"},
-                                new SelectListItem{Text="Web Developer", Value="Web Developer"},
-                                new SelectListItem{Text="IOS Developer", Value="IOS Developer"},
-                                new SelectListItem{Text="Android Developer", Value="Android Developer"},
-                                new SelectListItem{Text="Software Engineer", Value="Software Engineer"},
-                                new SelectListItem{Text="IT Specialist", Value="IT Specialist"},
-                            }, "Select Designation", new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.District)</label>
-                            @Html.EditorFor(model => model.District, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your District" } })
-                            @Html.ValidationMessageFor(model => model.District, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.ZipCode)</label>
-                            @Html.EditorFor(model => model.ZipCode, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your ZipCode" } })
-                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            <label>@Html.DisplayNameFor(model => model.AboutYou)</label>
+                            @Html.TextAreaFor(model => model.AboutYou, new { @rows = 3, @class = "form-control", @placeholder = "Enter your AboutYou" })
+                            @Html.ValidationMessageFor(model => model.AboutYou, "", new { @class = "text-danger" })
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.Country)</label>
-                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your Country" } })
-                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success">
-                            <label>@Html.DisplayNameFor(model => model.PostOffice)</label>
-                            @Html.EditorFor(model => model.PostOffice, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PostOffice" } })
-                            @Html.ValidationMessageFor(model => model.PostOffice, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.PassportNo)</label>
-                        @Html.EditorFor(model => model.PassportNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter your PassportNo" } })
-                        @Html.ValidationMessageFor(model => model.PassportNo, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="form-group has-success">
-                        <label>@Html.DisplayNameFor(model => model.AboutYou)</label>
-                        @Html.TextAreaFor(model => model.AboutYou, new { @rows = 3, @class = "form-control", @placeholder = "Enter your AboutYou" })
-                        @Html.ValidationMessageFor(model => model.AboutYou, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </div>
 
+            </div>
         </div>
-    </div>
     <br />
     <button id="submitId" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-floppy-disk" style="padding-right:7px"></span>Save</button>
     @*<input id="submitId" type="submit" value="Save" class="btn btn-default" />*@
