@@ -117,6 +117,11 @@ namespace Software_Company_WebApplication.Controllers
                 }
                 blog_tbl.Date = DateTime.Now;
 
+                BlogDivIdClass bdi = new BlogDivIdClass();
+                int id = bdi.BlogDivIdValue();
+
+                blog_tbl.BlogDivId = "BlogDivId_" + id.ToString();
+
                 BlogImageContains hasImg = new BlogImageContains();
                 bool img = hasImg.hasImage(blog_tbl.Id);
                 if (image1 == null && img == true)

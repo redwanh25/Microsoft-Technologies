@@ -64,6 +64,11 @@
                                     <div class="well">
                                         <asp:Label CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
                                     </div>
+
+                                    <%#GetFacebookShare(Container.DataItem)%>
+
+                                    <iframe src="https://www.facebook.com/plugins/share_button.php?href=https://www.youtube.com/watch?v=B_pQNLVnIos&layout=button_count&size=large&mobile_iframe=true&appId=377299629711169&width=103&height=28" width="103" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                                
                                 </div>
                                 <br />
                             </div>                       

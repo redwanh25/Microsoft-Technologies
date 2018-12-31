@@ -75,6 +75,15 @@ namespace Software_Company.WebForm
             }
         }
 
+        protected string GetFacebookShare(object oItem)
+        {
+            var str = DataBinder.Eval(oItem, "BlogDivId") as string;
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri uri = new Uri(url);
+            string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/WebForm/Blog.aspx#" + str;
+            return String.Format("<iframe src=\"https://www.facebook.com/plugins/share_button.php?href={0}&layout=button_count&size=large&mobile_iframe=true&appId=377299629711169&width=103&height=28\" width=\"103\" height=\"28\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\" allow=\"encrypted-media\"></iframe>", address);
+        }
+
         //byte code to image
         public System.Drawing.Image Base64ToImage(string base64String)
         {
