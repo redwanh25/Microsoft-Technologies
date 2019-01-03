@@ -28,11 +28,15 @@ namespace Software_Company.WebForm
                     string constr = ConfigurationManager.ConnectionStrings["DBMS"].ConnectionString;
                     using (SqlConnection con = new SqlConnection(constr))
                     {
-                        string query = "insert into JobCVPdf_tbl values (@Name, @ContentType, @DataCV)";
+                        string query = "insert into JobCVPdf_tbl values (@Name, @PhoneNumber, @Email, @Date, @FileName, @ContentType, @DataCV)";
                         using (SqlCommand cmd = new SqlCommand(query))
                         {
                             cmd.Connection = con;
-                            cmd.Parameters.AddWithValue("@Name", filename);
+                            cmd.Parameters.AddWithValue("@Name", txtName.Text);
+                            cmd.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
+                            cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
+                            cmd.Parameters.AddWithValue("@Date", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@FileName", filename);
                             cmd.Parameters.AddWithValue("@ContentType", contentType);
                             cmd.Parameters.AddWithValue("@DataCV", bytes);
                             con.Open();

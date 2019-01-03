@@ -20,12 +20,12 @@ namespace Software_Company_WebApplication.Controllers
         public ActionResult Index()
         {
             List<JobCVPdf_tbl> list = db.JobCVPdf_tbl.ToList();
-            list = list.OrderByDescending(it => it.id).ToList();
+            list = list.OrderByDescending(it => it.Id).ToList();
             return View(list);
         }
 
         // GET: JobCVPdf/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult ShowCV(int? id)
         {
             if (id == null)
             {
@@ -36,12 +36,13 @@ namespace Software_Company_WebApplication.Controllers
             {
                 return HttpNotFound();
             }
+
+            // display PDF
             byte[] byteArray = GetPdfFromDB(id);
             MemoryStream pdfStream = new MemoryStream();
             pdfStream.Write(byteArray, 0, byteArray.Length);
             pdfStream.Position = 0;
             return new FileStreamResult(pdfStream, "application/pdf");
-            //return View(jobCVPdf_tbl);
         }
 
         //// GET: JobCVPdf/Delete/5
@@ -79,15 +80,6 @@ namespace Software_Company_WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DisplayPDF()
-        {
-            byte[] byteArray = GetPdfFromDB(4);
-            MemoryStream pdfStream = new MemoryStream();
-            pdfStream.Write(byteArray, 0, byteArray.Length);
-            pdfStream.Position = 0;
-            return new FileStreamResult(pdfStream, "application/pdf");
-        }
-
         private byte[] GetPdfFromDB(int? id)
         {
             #region
@@ -97,8 +89,8 @@ namespace Software_Company_WebApplication.Controllers
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.CommandText = "SELECT DataCV FROM JobCVPdf_tbl WHERE id=@Id";
-                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.CommandText = "SELECT DataCV FROM JobCVPdf_tbl WHERE Id=@id";
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.Connection = con;
                     con.Open();
                     using (SqlDataReader sdr = cmd.ExecuteReader())

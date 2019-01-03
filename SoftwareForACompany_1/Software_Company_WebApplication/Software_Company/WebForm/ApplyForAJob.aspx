@@ -2,11 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
 
-    <br /><br />
+    <br />
+    <br />
     <div class="container">
         <div align="center">
-            <b style="font-size:40px; color:orange">Software Engineer, Asp.net</b>
-            <hr style="border: 4px solid; width:375px; color: #F5F3F1">
+            <b style="font-size: 40px; color: orange">Software Engineer, Asp.net</b>
+            <hr style="border: 4px solid; width: 375px; color: #F5F3F1">
         </div>
     </div>
     <br />
@@ -83,9 +84,66 @@
                     </h4>
                 </div>
                 <div class="well">
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </span>
+                                    <asp:TextBox ID="txtName" runat="server" placeholder="Enter your Name" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-phone-alt"></span>
+                                    </span>
+                                    <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Enter your Phone Number" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>Email ID</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                    </span>
+                                    <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your Email ID" CssClass="form-control"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group has-success">
+                                <label>Upload Your CV</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-open"></span>
+                                    </span>
+                                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div id="divError" class="alert alert-danger collapse">
+                                <button id="linkClose" class="close">&times;</button>
+                                <div id="divErrorText"></div>
+                            </div>
+                        </div>
+                    </div>
+
                     <br />
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload Your CV" OnClick="Upload" CssClass="btn btn-primary btn-sm" style="width:190px"/>
+
+                    <div class="row">
+                        <asp:Button ID="btnUpload" runat="server" Text="Upload Your CV" OnClick="Upload" CssClass="btn btn-primary btn-sm pull-right" Style="width: 190px; margin-right: 16px;" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,20 +154,43 @@
     <script type="text/javascript">
         $('#btnUpload').click(function () {
             var extension = $('#FileUpload1').val().split('.').pop().toLowerCase();
-            if ($('#FileUpload1').val() == '') {
-                return false;
-            }
-            else if ($.inArray(extension, ['pdf']) == -1) {
-                //alert('Sorry, You can only upload an image.');
-                swal("Sorry!", "You can only upload a pdf file!", "error");
-                return false;
+
+            if ($('#txtName').val().trim() !== '' && $('#txtPhoneNumber').val().trim() !== '' && $('#txtEmail').val().trim() !== '' && $('#FileUpload1').val() !== '') {
+                if ($.inArray(extension, ['pdf']) == -1) {
+                    //alert('Sorry, You can only upload an image.');
+                    swal("Sorry!", "You can only upload a pdf file!", "error");
+                    return false;
+                }
+                else {
+                    alert('Thank you for Uploading your CV!');
+                    //swal("Success!", "Thank you for Uploading your CV!", "Success");
+                    return true;
+                }
             }
             else {
-                alert('Thank you for Uploading your CV!');
-                //swal("Success!", "Thank you for Uploading your CV!", "Success");
-                return true;
+                var str = '';
+                if ($('#txtName').val().trim() === '') {
+                    str += "Name is missing ** ";
+                }
+                if ($('#txtPhoneNumber').val().trim() === '') {
+                    str += "Phone is missing ** ";
+                }
+                if ($('#txtEmail').val().trim() === '') {
+                    str += "Email is missing ** ";
+                }
+                if ($('#FileUpload1').val() == '') {
+                    str += "File is missing ** ";
+                }
+                $('#divErrorText').text(str);
+                $('#divError').show('fade');
+                return false;   // return false na dile hobe na. return false er jonno button ta kaj korbe na.
             }
         });
-</script>
-
+        $('#linkClose').click(function () {
+            $('#divError').hide('fade');
+            return false;   // return false na dile hobe na. return false er jonno crose button a click korle
+            // popup modal chole jay na.
+        });
+    </script>
+        
 </asp:Content>

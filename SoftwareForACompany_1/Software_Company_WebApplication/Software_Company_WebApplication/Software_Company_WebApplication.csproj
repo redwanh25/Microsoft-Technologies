@@ -550,7 +550,6 @@
     <Content Include="Views\EmployeeInformation\Edit.cshtml" />
     <Content Include="Views\EmployeeInformation\Index.cshtml" />
     <Content Include="Views\JobCVPdf\Delete.cshtml" />
-    <Content Include="Views\JobCVPdf\Details.cshtml" />
     <Content Include="Views\JobCVPdf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

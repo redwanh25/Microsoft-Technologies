@@ -14,9 +14,13 @@ namespace Software_Company_WebApplication.Models
     
     public partial class JobCVPdf_tbl
     {
-        public int id { get; set; }
         public string Name { get; set; }
         public string ContentType { get; set; }
         public byte[] DataCV { get; set; }
+        public int Id { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
+        public string FileName { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     }
 }
