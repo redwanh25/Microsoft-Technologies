@@ -65,10 +65,13 @@
                                         <asp:Label CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
                                     </div>
 
-                                    <%#GetFacebookShare(Container.DataItem)%>
-
+                                    <%#GetFacebookShare(Container.DataItem)%>                                  
                                     <iframe src="https://www.facebook.com/plugins/share_button.php?href=https://www.youtube.com/watch?v=B_pQNLVnIos&layout=button_count&size=large&mobile_iframe=true&appId=377299629711169&width=103&height=28" width="103" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                
+
+                                    <%#GetLinkedInShare(Container.DataItem)%>
+                                    <a class="btn btn-default" href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackoverflow.com/questions/10713542/how-to-make-custom-linkedin-share-button&title=Create LinkedIn Share button on Website Webpages&summary=chillyfacts.com&source=Chillyfacts" onclick="window.open(this.href, 'mywin','left=20,top=20,width=700,height=450,toolbar=1,resizable=0'); return false;" ><img src="../Image/linkedin.png" alt="" height="20"/>Share</a>
+                                    
+
                                 </div>
                                 <br />
                             </div>                       

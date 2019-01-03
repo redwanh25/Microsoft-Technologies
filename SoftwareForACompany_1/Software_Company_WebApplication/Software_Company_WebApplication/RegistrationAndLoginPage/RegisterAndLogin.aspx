@@ -130,9 +130,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">Logo</a>
+                    <a class="navbar-brand zoom-effect" style="font-size: 30px;" href="#">Logo</a>
+                    <a class="navbar-brand zoom-effect" style=" padding-left:30px; font-size: 15px;" href="http://localhost:50028/WebForm/MainPage.aspx">Visit Our WebSite </a>
                 </div>
                 <div class="navbar-collapse collapse">
+                    
                     <div class="navbar-form navbar-right animated bounceInDown">
                         <div class="form-group">
                             <div class="input-group">

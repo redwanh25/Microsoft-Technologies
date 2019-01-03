@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Software_Company_WebApplication.Models.JobCVPdf_tbl>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentType)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.DataCV)*@
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "JobCVPdf", new { id = item.id }))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContentType)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.DataCV)*@
+                </td>
+                <td>
+                    @*@Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })*@
+                    <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "JobCVPdf", new { id = item.id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>
+                    <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                </td>
+            </tr>
+        }
+    }
+
+</table>

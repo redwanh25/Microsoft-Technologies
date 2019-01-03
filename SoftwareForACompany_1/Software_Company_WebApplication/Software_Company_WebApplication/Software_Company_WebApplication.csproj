@@ -219,6 +219,7 @@
     <Compile Include="Controllers\EmployeeInformationController.cs" />
     <Compile Include="Controllers\GalleryPostController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobCVPdfController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -244,6 +245,9 @@
       <DependentUpon>Model_GalleryPost.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobCVPdf_tbl.cs">
+      <DependentUpon>Model_JobCVPdf.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model_BlogPost.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +292,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_JobCVPdf.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_JobCVPdf.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_JobCVPdf.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_JobCVPdf.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_JobCVPdf.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_JobCVPdf.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -414,6 +433,16 @@
       <DependentUpon>Model_GalleryPost.edmx</DependentUpon>
       <LastGenOutput>Model_GalleryPost.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model_JobCVPdf.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_JobCVPdf.edmx</DependentUpon>
+      <LastGenOutput>Model_JobCVPdf.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model_JobCVPdf.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_JobCVPdf.edmx</DependentUpon>
+      <LastGenOutput>Model_JobCVPdf.cs</LastGenOutput>
+    </Content>
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -465,6 +494,13 @@
     <Content Include="Models\Model_EmployeeInformation.edmx.diagram">
       <DependentUpon>Model_EmployeeInformation.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Model_JobCVPdf.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_JobCVPdf.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model_JobCVPdf.edmx.diagram">
+      <DependentUpon>Model_JobCVPdf.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -513,6 +549,9 @@
     <Content Include="Views\GalleryPost\Index.cshtml" />
     <Content Include="Views\EmployeeInformation\Edit.cshtml" />
     <Content Include="Views\EmployeeInformation\Index.cshtml" />
+    <Content Include="Views\JobCVPdf\Delete.cshtml" />
+    <Content Include="Views\JobCVPdf\Details.cshtml" />
+    <Content Include="Views\JobCVPdf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

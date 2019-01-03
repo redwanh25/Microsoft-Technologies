@@ -140,6 +140,7 @@
     <Content Include="WebForm\IOS_Development.aspx" />
     <Content Include="WebForm\Blog.aspx" />
     <Content Include="WebForm\HowDoesItWork.aspx" />
+    <Content Include="WebForm\ApplyForAJob.aspx" />
     <Content Include="WebForm\Web_Development.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,13 @@
     </Compile>
     <Compile Include="WebForm\HowDoesItWork.aspx.designer.cs">
       <DependentUpon>HowDoesItWork.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ApplyForAJob.aspx.cs">
+      <DependentUpon>ApplyForAJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ApplyForAJob.aspx.designer.cs">
+      <DependentUpon>ApplyForAJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Web_Development.aspx.cs">
       <DependentUpon>Web_Development.aspx</DependentUpon>

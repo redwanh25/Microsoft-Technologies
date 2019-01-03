@@ -80,8 +80,17 @@ namespace Software_Company.WebForm
             var str = DataBinder.Eval(oItem, "BlogDivId") as string;
             string url = HttpContext.Current.Request.Url.AbsoluteUri;
             Uri uri = new Uri(url);
-            string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/WebForm/Blog.aspx#" + str;
+            string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/WebForm/Blog.aspx%23" + str;
             return String.Format("<iframe src=\"https://www.facebook.com/plugins/share_button.php?href={0}&layout=button_count&size=large&mobile_iframe=true&appId=377299629711169&width=103&height=28\" width=\"103\" height=\"28\" style=\"border:none;overflow:hidden\" scrolling=\"no\" frameborder=\"0\" allowTransparency=\"true\" allow=\"encrypted-media\"></iframe>", address);
+        }
+
+        protected string GetLinkedInShare(object oItem)
+        {
+            var str = DataBinder.Eval(oItem, "BlogDivId") as string;
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            Uri uri = new Uri(url);
+            string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/WebForm/Blog.aspx%23" + str;
+            return String.Format("<a href=\"https://www.linkedin.com/shareArticle?mini=true&url={0}&title=Nai&summary=Nai&source=Nai\" onclick =\"window.open(this.href, 'mywin','left=20,top=20,width=700,height=450,toolbar=1,resizable=0'); return false;\" ><img src=\"../Image/linkedin.png\" alt=\"Image Upload hoyni\" height=\"35\"/></a>", address);
         }
 
         //byte code to image
