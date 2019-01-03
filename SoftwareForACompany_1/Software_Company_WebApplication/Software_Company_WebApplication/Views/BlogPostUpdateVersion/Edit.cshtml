@@ -7,7 +7,6 @@
 }
 
 <h2>Edit</h2>
-
 @using (Html.BeginForm("Edit", "BlogPostUpdateVersion", FormMethod.Post, new { encType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -30,7 +29,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
                     <div class="form-group has-success">
                         <label>@Html.DisplayNameFor(model => model.BlogImage) </label>
                         <input type="file" id="image1" name="image1" class="form-control" />
@@ -56,43 +55,23 @@
             </div>
         </div>
     </div>
-    @*<div class="form-horizontal">
-            <div class="form-group">
-                @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.Title, new { @rows = 2, @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
-                </div>
-            </div>
+}
+@using (Html.BeginForm("RemoveBlogPicture", "BlogPostUpdateVersion", new { id = Model.Id }))
+{
+    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-sm-offset-1">
+        <div class="row">
+            <label style="font-size:15px">Do you want to remove blog picture? </label>
+            <br />
+            <button class="btn btn-primary" type="submit" onclick="return confirm('are you sure you want to delete ID = @Model.Id?')"><span class="glyphicon glyphicon-folder-close" style="padding-right:10px"></span>Remove Blog Picture</button>
+        </div>
+    </div>
 
-            <div class="form-group">
-                @Html.LabelFor(model => model.BlogImage, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-3">
-                    <input type="file" id="image1" name="image1" class="form-control" />
-                    @Html.ValidationMessageFor(model => model.BlogImage, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control", @rows = "4" } })
-                    @Html.TextAreaFor(model => model.Text, new { @rows = 5, @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input id="submitId" type="submit" value="Save" class="btn btn-default" />
-                </div>
-            </div>
-        </div>*@
 }
 
 <div>
+
     @*@Html.ActionLink("Back to List", "Index")*@
-    <a class="btn btn-default" href="@Url.Action("Index", "BlogPostUpdateVersion")">Back to List</a>
+    <a class="btn btn-info pull-right" href="@Url.Action("Index", "BlogPostUpdateVersion")">Back to List</a>
 </div>
 
 <script type="text/javascript">

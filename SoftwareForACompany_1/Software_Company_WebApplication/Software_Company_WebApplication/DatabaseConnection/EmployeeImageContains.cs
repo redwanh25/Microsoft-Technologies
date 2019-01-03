@@ -20,7 +20,8 @@ namespace Software_Company_WebApplication.DatabaseConnection
 
                 cmd.CommandText = "select EmployeeImage from EmployeeInformation where id = @str";
                 cmd.Parameters.AddWithValue("@str", str);
-                if (cmd.ExecuteScalar() == null)
+                object obj = cmd.ExecuteScalar();
+                if (obj.GetType() == typeof(DBNull))
                 {
                     return false;
                 }

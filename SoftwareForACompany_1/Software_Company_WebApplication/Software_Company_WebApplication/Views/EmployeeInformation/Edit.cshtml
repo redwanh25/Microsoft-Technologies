@@ -10,6 +10,18 @@
 <h1 style="font-family:Impact" class="text-center">Employee Personal Information</h1>
 <hr style="border: 2px solid; color: lightgray; width: 200px">
 
+@using (Html.BeginForm("RemovePicture", "EmployeeInformation", new { id = Model.Id }))
+{
+    <div class="container">
+        <div class="row">
+            <label style="font-size:15px">Do you want to remove picture? </label>
+            <br />
+            <button class="btn btn-info btn-sm" type="submit" onclick="return confirm('are you sure you want to delete ID = @Model.Id?')"><span class="glyphicon glyphicon-folder-close" style="padding-right:10px"></span>Remove Picture</button>
+        </div>
+    </div>
+}
+<br />
+
 @using (Html.BeginForm("Edit", "EmployeeInformation", FormMethod.Post, new { encType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -238,6 +250,8 @@
     @*<input id="submitId" type="submit" value="Save" class="btn btn-default" />*@
     <a class="btn btn-default" href="@Url.Action("Index", "EmployeeInformation")">Back to List</a>
 }
+
+
 
 <script>
     $(function () {

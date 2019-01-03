@@ -166,6 +166,34 @@ namespace Software_Company_WebApplication.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public ActionResult RemoveBlogPicture(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Blog_tbl blog_tbl = db.Blog_tbl.Find(id);
+            if (blog_tbl == null)
+            {
+                return HttpNotFound();
+            }
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update Blog_tbl set [BlogImage] = null where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            string str = "Edit/" + id;
+            return RedirectToAction(str);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

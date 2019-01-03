@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -88,6 +90,34 @@ namespace Software_Company_WebApplication.Controllers
                 return RedirectToAction("Index");
             }
             return View(employeeInformation);
+        }
+
+        [HttpPost]
+        public ActionResult RemovePicture(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EmployeeInformation employeeInformation = db.EmployeeInformations.Find(id);
+            if (employeeInformation == null)
+            {
+                return HttpNotFound();
+            }
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update EmployeeInformation set [EmployeeImage] = null where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            string str = "Edit/" + id;
+            return RedirectToAction(str);
         }
 
         protected override void Dispose(bool disposing)

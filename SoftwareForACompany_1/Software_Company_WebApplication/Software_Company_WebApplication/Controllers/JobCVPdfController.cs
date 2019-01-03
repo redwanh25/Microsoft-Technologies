@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -24,7 +25,7 @@ namespace Software_Company_WebApplication.Controllers
             return View(list);
         }
 
-        // GET: JobCVPdf/Details/5
+        // GET: JobCVPdf/ShowCV/5
         public ActionResult ShowCV(int? id)
         {
             if (id == null)
