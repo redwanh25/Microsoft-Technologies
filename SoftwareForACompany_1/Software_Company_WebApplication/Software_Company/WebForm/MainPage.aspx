@@ -164,75 +164,75 @@ jegula page master page theke add content page create kora hoyese--%>
     </div>--%>
 
         <div class="row text-center">
-            <p style="font-size: 50px; font-family: Impact">Over 250 satisfied customers globally</p>
+            <p style="font-size: 30px; font-family: Impact">Over 250 satisfied customers globally</p>
         </div>
         <br />
         <br />
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage1">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite;" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white;" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage2">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage3">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage4">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage5">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage6">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4 col-sm-2 col-md-2 col-md-offset-1 col-sm-offset-1 companyInnerImage7">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage8">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 companyInnerImage9">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs companyInnerImage10">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-xs companyInnerImage11">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 col-xs-offset-2 hidden-lg hidden-md hidden-sm companyInnerImage12">
-                <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" />
+                <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" />
                 <br />
             </div>
             <div class="col-xs-4 col-sm-2 col-md-2 hidden-lg hidden-md hidden-sm companyInnerImage13">
                 <a href="#">
-                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: antiquewhite" class="img-responsive imgHover" /></a>
+                    <img src="../Image/company_name.png" style="border: 6px solid; border-color: white" class="img-responsive imgHover" /></a>
                 <br />
             </div>
         </div>
@@ -247,8 +247,8 @@ jegula page master page theke add content page create kora hoyese--%>
             <br />
             <div class="container" align="center">
                 <a id="VideoPopUp" href="#" data-target="#VideoModal" data-toggle="modal">
-                    <img src="../Image/playButtonFrame.png" style="height: 100px;" class="img-responsive"/></a>
-                <h2 style="color: white">Watch video of how it works here</h2>
+                    <img src="../Image/playButtonFrame.png" style="height: 100px;" class="img-responsive" /></a>
+                <h3 style="color: white">Watch video of how it works here</h3>
             </div>
         </div>
     </div>
@@ -377,34 +377,36 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <h1 class="text-center" style="font-family: Impact; font-size: 40px">Indigenous IT consulting company with global deliveries</h1>
+                <p class="text-center" style="font-family: Impact; font-size: 30px">Indigenous IT consulting company with global deliveries</p>
                 <br />
                 <br />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="well" style="min-height:330px">
-                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px;">CUSTOMER ENGAGEMENT</h3>
+                <div class="well" style="min-height: 330px">
+                    <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px;">CUSTOMER ENGAGEMENT</h4>
                     <h4>Our clients call us committed. We don’t work with IT – we work with people. Our agile teams co-operate with our clients using best practice SCRUM methodology. We know what it takes for the communication between client and developers to flow seamlessly.</h4>
-                    <br /><br />
-                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
+                    <br />
+                    <br />
+                    <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="well" style="min-height:330px">
-                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px">CAPACITY</h3>
+                <div class="well" style="min-height: 330px">
+                    <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px">CAPACITY</h4>
                     <h4>We have close to 100 employees, which allows us to quickly find the right resources for our clients. We also have a thorough and reliable recruitment process which allows our clients to quickly staff up their teams when their businesses grow or when there is a temporary increase in workload</h4>
                     <br />
-                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
+                    <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
-                <div class="well" style="min-height:330px">
-                    <h3 class="text-center" style="font-family: Impact; padding-bottom:10px">QUALITY</h3>
+                <div class="well" style="min-height: 330px">
+                    <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px">QUALITY</h4>
                     <h4>We work hard to attract the best competence, and our employees stay with us for a long time. We apply the same Swedish personnel politics at all our offices, regardless of location. We erase hierarchies, and we listen to our employees’ career development needs.</h4>
-                    <br /><br />
-                    <a href="#" style="outline:none; font-size:18px"><span class="glyphicon glyphicon-share-alt" style="padding-right:15px"></span>Read More Click Here...</a>
+                    <br />
+                    <br />
+                    <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
                 </div>
             </div>
         </div>
@@ -419,16 +421,8 @@ jegula page master page theke add content page create kora hoyese--%>
 
     <div class="container">
         <div class="row text-center">
-            <h1 style="font-family: Impact; font-size: 50px">How does it work?</h1>
+            <p style="font-family: Impact; font-size: 30px">How does it work?</p>
             <br />
-            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
-                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-comments-64.png" />
-                <h4><b>Requirement analysis</b></h4>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
-                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-idea-64.png" />
-                <h4><b>Proposed solution</b></h4>
-            </div>        
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-increase-64.png" />
                 <h4><b>improvements</b></h4>
@@ -437,14 +431,23 @@ jegula page master page theke add content page create kora hoyese--%>
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-laptop-64.png" />
                 <h4><b>Need analysis</b></h4>
             </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-in-transit-64.png" />
+                <h4><b>Development</b></h4>
+            </div>
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-windows-client-64.png" />
                 <h4><b>Start of project</b></h4>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
-                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-in-transit-64.png" />
-                <h4><b>Development and delivery</b></h4>
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-comments-64.png" />
+                <h4><b>Requirement analysis</b></h4>
             </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-idea-64.png" />
+                <h4><b>Proposed solution</b></h4>
+            </div>
+
         </div>
         <br />
         <br />
@@ -484,7 +487,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                 </i></h4>
-                                <h3>Redwan Hossain</h3>
+                                <h4>Redwan Hossain</h4>
                                 <b style="color: orange">CEO, Metric Industrial AB</b>
                             </div>
                         </div>
@@ -495,7 +498,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                 </i></h4>
-                                <h3>Ramijul Islam</h3>
+                                <h4>Ramijul Islam</h4>
                                 <b style="color: orange">CEO, Metric Industrial AB</b>
                             </div>
                         </div>
@@ -506,7 +509,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                 </i></h4>
-                                <h3>Shihab Sharar</h3>
+                                <h4>Shihab Sharar</h4>
                                 <b style="color: orange">CEO, Metric Industrial AB</b>
                             </div>
                         </div>
@@ -517,7 +520,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                 </i></h4>
-                                <h3>Mohoshin Khan</h3>
+                                <h4>Mohoshin Khan</h4>
                                 <b style="color: orange">CEO, Metric Industrial AB</b>
                             </div>
                         </div>
@@ -730,7 +733,7 @@ jegula page master page theke add content page create kora hoyese--%>
         <div class="modal-dialog modal-lg">
             <div class="modal-content" style="background-color: darkgray">
                 <div class="modal-header">
-                    <button class="close" data-dismiss="modal" style="color:black; font-size:40px">&times;</button>
+                    <button class="close" data-dismiss="modal" style="color: black; font-size: 40px">&times;</button>
                     <h4 class="modal-title h3 text-center" style="font-size: 30px"><b>Watch video of how it works here</b></h4>
                 </div>
                 <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">

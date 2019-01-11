@@ -1,8 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="HowDoesItWork.aspx.cs" Inherits="Software_Company.WebForm.HowDoesItWork" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
 
     <style>
         #home {
@@ -21,24 +19,19 @@
         }
     </style>
     <br />
-    <br />
     <div class="container" align="center">
         <div class="tz-gallery">
             <div class="row">
                 <a class="lightbox" href="../Image/computer.jpg">
-                    <img src="../Image/computer.jpg" class="img-responsive" style="border-radius: 10px" />
+                    <img src="../Image/computer.jpg" class="img-responsive" style="border-radius: 10px; max-height:400px; max-width:700px" />
                 </a>
             </div>
         </div>
-
-        <br />
-        <br />
         <div class="row">
             <div class="col-sm-12">
-                <p style="font-family: Impact; font-size: 45px;">A Swedish IT company with global skills</p>
-
-                <h3>We have created our own model for global IT deliveries, which we have developed and honed for over ten years. Our methodology for delivery and cooperation is based on SCRUM and our project tool of choice is Jira.
-When you contact us at Indpro, we always begin by discussing your needs. This is what our process looks like, step by step:</h3>
+                <p style="font-family: Impact; font-size: 30px;">A Swedish IT company with global skills</p>
+                <h4>We have created our own model for global IT deliveries, which we have developed and honed for over ten years. Our methodology for delivery and cooperation is based on SCRUM and our project tool of choice is Jira.
+When you contact us at Indpro, we always begin by discussing your needs. This is what our process looks like, step by step:</h4>
             </div>
         </div>
     </div>
@@ -52,15 +45,15 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
                 <div class="row" style="color: orange">
                     <div class=" col-xs-4 col-sm-4 col-md-4">
                         <img src="../Image/about01.png" class="img-responsive" />
-                        <h3>Write Something here</h3>
+                        <h4>Write Something here</h4>
                     </div>
                     <div class=" col-xs-4 col-sm-4 col-md-4">
                         <img src="../Image/about02.png" class="img-responsive" />
-                        <h3>Write Something</h3>
+                        <h4>Write Something</h4>
                     </div>
                     <div class=" col-xs-4 col-sm-4 col-md-4">
                         <img src="../Image/about03.png" class="img-responsive" />
-                        <h3>Write Something here</h3>
+                        <h4>Write Something here</h4>
                     </div>
                 </div>
                 <br />
@@ -68,15 +61,15 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
                 <br />
                 <div class="row">
                     <div class="col-sm-12" style="color: cornsilk">
-                        <p style="font-family: Georgia; font-size: 50px; color: white"><b>This is how it works</b></p>
+                        <p style="font-family: Georgia; font-size: 30px; color: white"><b>This is how it works</b></p>
 
-                        <h3>We have created our own model for global IT deliveries, which we have
+                        <h4>We have created our own model for global IT deliveries, which we have
                             developed and honed for over ten years. Our methodology for delivery and
                             cooperation is based on SCRUM and our project tool of choice is Jira.
                             When you contact us at Indpro, we always begin by discussing your needs.
                             This is what our process looks like, step by step:
 
-                        </h3>
+                        </h4>
                     </div>
                 </div>
                 <br />
@@ -186,10 +179,10 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
     <br />
     <div class="container">
         <div class="row" align="center">
-            <p style="font-family: Arial; font-size: 45px; color: orange"><b>Help with a defined project?</b></p>
-            <h3>Feel free to get in touch before you’ve made up your mind on that. We’ll look over your needs together, and then we’ll propose a solution that’s adjusted to your individual needs: whether it’s a defined project, or a dedicated team working exclusively for you.</h3>
+            <p style="font-family: Arial; font-size: 30px; color: orange"><b>Help with a defined project?</b></p>
+            <h4>Feel free to get in touch before you’ve made up your mind on that. We’ll look over your needs together, and then we’ll propose a solution that’s adjusted to your individual needs: whether it’s a defined project, or a dedicated team working exclusively for you.</h4>
             <br />
-            <h3>A defined project is often a good start. Partly because it allows us to get to know each other, but also because it becomes a test, allowing us both to validate that our partnership is running smoothly.</h3>
+            <h4>A defined project is often a good start. Partly because it allows us to get to know each other, but also because it becomes a test, allowing us both to validate that our partnership is running smoothly.</h4>
         </div>
     </div>
 

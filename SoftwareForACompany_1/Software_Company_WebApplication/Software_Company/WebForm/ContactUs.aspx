@@ -108,7 +108,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated bounceInLeft">
                                 <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
                                 <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
-                                <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block" OnClick="LinkButton1_Click" Style="border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px">
+                                <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block btn-default" OnClick="LinkButton1_Click" Style="border-radius: 30px; outline: none; font-size: 18px">
                                     <%--<marquee behavior="alternate" scrollamount="6">Send Your Message</marquee>--%>
                                     Send Your Message
                                 </asp:LinkButton>

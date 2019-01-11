@@ -21,8 +21,8 @@
     <br /><br />
     <div class="container">
         <div align="center">
-            <b style="font-size:50px; color:orange">Our Company blog</b>
-            <hr style="border: 5px solid; color: #F5F3F1">
+            <b style="font-size:30px; color:orange">Our Company blog</b>
+            <hr style="border: 3px solid; color: #F5F3F1">
         </div>
     </div>
     <br />
@@ -37,20 +37,17 @@
                 <Columns>
                     <asp:TemplateField HeaderText="" InsertVisible="False" SortExpression="CustomerId">
                         <ItemTemplate>
-                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
                                 <div class="well" id="<%# Eval("BlogDivId") %>">
-                                    <asp:Label CssClass="h3 shadow_T" ID="txbType" Text='<%# Eval("Title") %>' runat="server" Font-Bold="True"></asp:Label>
-                                    <br />
+                                    <asp:Label CssClass="h4" style="font-family:Impact" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
                                     <br />
                                     <asp:Label ForeColor="Red" CssClass="h4 navbar-right" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
-                                    <br />
-                                    <br />
                                     <br />
 
                                     <div class="container">
                                         <div class="tz-gallery">
                                             <div class="row">
-                                                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12  col-lg-offset-2 col-md-offset-1 col-sm-offset-2 blogImage">
+                                                <div class="col-lg-5 col-md-7 col-sm-7 col-xs-12  col-lg-offset-2 col-md-offset-1 col-sm-offset-2 blogImage">
                                                     <%--<a class="lightbox" href="../Image/rocks.jpg">--%>
                                                     <%--<%#GetImage(Container.DataItem)%>--%>       <%--method k call kora hoise. ai method ta Blog.aspx.cs er moddhe ase--%>
                                                     <%--<asp:Image Style="border-radius: 10px" ID="Image1" runat="server" CssClass="img-responsive shadow_B" ImageUrl='<%#"data:Image/png;base64," + Convert.ToBase64String((byte[])Eval("BlogImage")) %>' />--%>
@@ -61,7 +58,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="well">
+                                    <div class="well" style="margin-top:-55px">
                                         <asp:Label CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
                                     </div>
 

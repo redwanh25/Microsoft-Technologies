@@ -2,14 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server">
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <link href="../jquery_Bootstrap_SweetAlert_IHover/GalleryGrid/gallery-grid.css" rel="stylesheet" />
-    <style>
+<%--    <style>
         body {
             padding-top: 50px;
         }
-    </style>
+    </style>--%>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -71,7 +68,7 @@
     <div class="container">
         <div class="container gallery-container">
 
-            <h1 class="text-center shadow_T">Image Gallery</h1>
+            <h2 class="text-center" style="font-family:Impact">Image Gallery</h2>
             <h3 class="page-description text-center shadow_T">
                 Our employees are our most valuable assets.
                 Indpro has over 80 employees, skilled in various technologies and platforms.

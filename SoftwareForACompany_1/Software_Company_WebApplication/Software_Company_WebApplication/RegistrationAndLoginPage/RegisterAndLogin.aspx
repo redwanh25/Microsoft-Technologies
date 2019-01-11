@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <title></title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
@@ -120,7 +121,7 @@
         }
     </style>
 </head>
-<body style="padding-top: 50px; font-family: 'Comic Sans MS'">
+<body style="padding-top: 50px; font-family:  Lora ">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B">
             <div class="container">
@@ -141,7 +142,7 @@
                                 <span class="input-group-addon" style="height: 10px">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
-                                <asp:TextBox ID="txtUserNameLogin" runat="server" placeholder="Enter your UserName" CssClass="form-control" Height="30"></asp:TextBox>
+                                <asp:TextBox ID="txtUserNameLogin" runat="server" placeholder="Enter your UserName" CssClass="form-control" Height="31"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -154,7 +155,7 @@
                                 <span class="input-group-addon" style="height: 10px">
                                     <span class="glyphicon glyphicon-lock"></span>
                                 </span>
-                                <asp:TextBox ID="txtPasswordLogin" runat="server" placeholder="Enter your Password" CssClass="form-control" TextMode="Password" Height="30"></asp:TextBox>
+                                <asp:TextBox ID="txtPasswordLogin" runat="server" placeholder="Enter your Password" CssClass="form-control" TextMode="Password" Height="31"></asp:TextBox>
                             </div>
                         </div>
                         <div class="form-group">
@@ -187,7 +188,7 @@
             <br />
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-5 col-sm-5 col-xs-12">
+                    <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
                         <div class="well h3 animated fadeInLeft">
                             <marquee behavior="alternate">Application</marquee>
                         </div>
@@ -282,7 +283,7 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12 col-lg-offset-1">
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
                         <div class="h2 animated fadeInRight">
                             <p>Create a new account</p>
                         </div>
@@ -386,16 +387,16 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
-                            <h3>Website Name</h3>
-                            <hr style="border: 1px solid; color: black">
+                            <h4>Website Name</h4>
+                            <hr style="border: .5px solid; color: black">
                             <p>
                                 Use this document as a way to quickly start any new project.
                                 All you get is this text and a mostly barebones HTML document.
                             </p>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
-                            <h3>Usefull link</h3>
-                            <hr style="border: 1px solid; color: black">
+                            <h4>Usefull link</h4>
+                            <hr style="border: .5px solid; color: black">
                             <table class="table" style="margin-top: 20px">
                                 <tr class="animated fadeInUp">
                                     <td><a style="color: orange" href="#">IT solutions</a> </td>
@@ -409,24 +410,24 @@
                             </table>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
-                            <h3>Follow Us</h3>
-                            <hr style="border: 1px solid; color: black">
-                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/facebook.png" Style="width: 40px; height: 40px" />
-                            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Image/twitter.png" Style="width: 40px; height: 40px" />
-                            <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Image/instagram.png" Style="width: 40px; height: 40px" />
-                            <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Image/google.png" Style="width: 40px; height: 40px" />
-                            <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
+                            <h4>Follow Us</h4>
+                            <hr style="border: .5px solid; color: black">
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Image/facebook.png" Style="width: 25px; height: 25px" />
+                            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Image/twitter.png" Style="width: 25px; height: 25px" />
+                            <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Image/instagram.png" Style="width: 25px; height: 25px" />
+                            <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Image/google.png" Style="width: 25px; height: 25px" />
+                            <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Image/linkedin.png" Style="width: 25px; height: 25px" />
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 animated fadeInUp">
-                            <h3>Address</h3>
-                            <hr style="border: 1px solid; color: black">
+                            <h4>Address</h4>
+                            <hr style="border: .5px solid; color: black">
                             <div style="color: orange">
                                 <p>46/1 Shukrabad, Dhanmondi.</p>
                                 <p>Dhaka, Bangladesh</p>
                             </div>
                         </div>
                     </div>
-                    <hr style="border: 1px solid; color: black" class="animated fadeInUp">
+                    <hr style="border: .5px solid; color: black" class="animated fadeInUp">
                     <p class="pull-right animated fadeInUp">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: red" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
                 </div>
             </div>

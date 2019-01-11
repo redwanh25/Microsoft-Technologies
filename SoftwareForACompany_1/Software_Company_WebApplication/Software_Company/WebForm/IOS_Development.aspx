@@ -61,51 +61,51 @@
                     </div>
                     <br />
                     <div class="well" id="WhoWeAre">
-                        <h2 style="font-family: Impact">Who We Are </h2>
+                        <h3 style="font-family: Impact">Who We Are </h3>
                         <p style="font-size: 19px">
                             Indpro is a vibrant, Swedish based software development company founded in 2005.  We have offices on three continents. Our headquarter is in Stockholm, Sweden. Our biggest delivery centre is in World Trade Centre, Bangalore, India, and we are close to 100 employees in the organization. We deliver high quality IT solutions through blended sourcing, combining Scandinavian management with Indian skills.
                         </p>
                     </div>
                     <div class="well" id="TheLatestTechnology">
-                        <h2 style="font-family: Impact">The Latest Technology </h2>
+                        <h3 style="font-family: Impact">The Latest Technology </h3>
                         <p style="font-size: 19px">
                             Sweden is one of the highest developed IT countries in the world and the birthplace of IT successes such as Skype, Minecraft and Spotify. Our clients are progressive Scandinavian e-commerce and IT product companies. Working with them means that you will be working with cutting edge technology.
                         </p>
                     </div>
                     <div class="well" id="Growth">
-                        <h2 style="font-family: Impact">Growth </h2>
+                        <h3 style="font-family: Impact">Growth </h3>
                         <p style="font-size: 19px">
                             Indpro makes you grow – that’s our motto. We are a growing company and we like to help our clients grow, but it’s equally important that our staff grows. We recognize that our staff is our greatest asset and offer long term career growth and opportunities. In return, we expect you to develop and learn continuously.
                         </p>
                     </div>
                     <div class="well" id="Responsibility">
-                        <h2 style="font-family: Impact">Responsibility </h2>
+                        <h3 style="font-family: Impact">Responsibility </h3>
                         <p style="font-size: 19px">
                             We have a flat hierarchy and expect our staff to take responsibility for their own work. We don’t mind if your chai break is 10 minutes longer than usual, if that helps you deliver better code. The flexibility we offer gives you a lot of influence on your work situation, as well as the ability to work from home.
                         </p>
                     </div>
                     <div class="well" id="PrimeLocation">
-                        <h2 style="font-family: Impact">Prime Location </h2>
+                        <h3 style="font-family: Impact">Prime Location </h3>
                         <p style="font-size: 19px">
                             Our Bangalore office is beautifully located in the top modern World Trade Center. Here you will not only find office neighbors such as Amazon, but also great facilities including restaurants and shopping.
                         </p>
                     </div>
                     <div class="well" id="InternationalExposure">
-                        <h2 style="font-family: Impact">International Exposure </h2>
+                        <h3 style="font-family: Impact">International Exposure </h3>
                         <p style="font-size: 19px">
                             At Indpro, we are a global family. Working with us will give you exposure to international clients. Our developers communicate directly with clients, regardless of experience level. We also offer the opportunity to travel and work abroad.
                         </p>
                     </div>
                     <div class="well" id="LotsOfFun">
-                        <h2 style="font-family: Impact">Lots Of Fun </h2>
+                        <h3 style="font-family: Impact">Lots Of Fun </h3>
                         <p style="font-size: 19px">
                             Last but not the least, we have fun! Employee well-being is high on our list of priorities and we engage in fun company activities, outings, hackatons and conferences as often as we can.
                         </p>
                     </div>
                     <div class="well" id="IOSDeveloper">
-                        <h2 style="font-family: Impact">IOS Developer </h2>
+                        <h3 style="font-family: Impact">IOS Developer </h3>
                         <h3>Requirements:</h3>
-                        <ul style="font-size: 19px">
+                        <ul style="font-size: 18px">
                             <li>Minimum 2 years of experience with iOS, OSX.</li>
                             <li>Knowledge of Swift and Objective-C is a must.</li>
                             <li>Should have worked with webservices, databases (SQLite with Core Data).</li>
