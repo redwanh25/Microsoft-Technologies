@@ -2,6 +2,15 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
 
+    <style>
+        div ul li {
+            line-height:150%;
+        }
+        div h4 {
+            line-height:130%;
+        }
+    </style>
+
     <br />
     <br />
     <div class="container">

@@ -18,11 +18,11 @@
             <h2 style="color: orange">Do you need web developers?</h2>
             <hr style="border: 2px solid; color: lightgray; width: 200px">
             <p style="font-family: Impact; font-size: 25px">software company is an IT partner with resources in web development.</p>
-            <h4 style="font-family: Calibri">We are a Swedish company with over twelve years of experience in IT delivery. 
+            <p style="font-family: Calibri; font-size: 20px"">We are a Swedish company with over twelve years of experience in IT delivery. 
                     We are proud to list award winning Swedish web productions amongst our client 
                     projects, such as the e-commerce success MatHem.se, and the communication tool 
                     for preschools, Förskoleappen.
-            </h4>
+            </p>
         </div>
         <br />
         <div class="row">

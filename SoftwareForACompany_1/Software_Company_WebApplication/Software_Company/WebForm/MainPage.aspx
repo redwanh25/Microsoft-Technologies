@@ -386,7 +386,7 @@ jegula page master page theke add content page create kora hoyese--%>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="well" style="min-height: 330px">
                     <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px;">CUSTOMER ENGAGEMENT</h4>
-                    <h4>Our clients call us committed. We don’t work with IT – we work with people. Our agile teams co-operate with our clients using best practice SCRUM methodology. We know what it takes for the communication between client and developers to flow seamlessly.</h4>
+                    <h4 style="line-height: 130%">Our clients call us committed. We don’t work with IT – we work with people. Our agile teams co-operate with our clients using best practice SCRUM methodology. We know what it takes for the communication between client and developers to flow seamlessly.</h4>
                     <br />
                     <br />
                     <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
@@ -395,7 +395,7 @@ jegula page master page theke add content page create kora hoyese--%>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="well" style="min-height: 330px">
                     <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px">CAPACITY</h4>
-                    <h4>We have close to 100 employees, which allows us to quickly find the right resources for our clients. We also have a thorough and reliable recruitment process which allows our clients to quickly staff up their teams when their businesses grow or when there is a temporary increase in workload</h4>
+                    <h4 style="line-height: 130%">We have close to 100 employees, which allows us to quickly find the right resources for our clients. We also have a thorough and reliable recruitment process which allows our clients to quickly staff up their teams when their businesses grow or when there is a temporary increase in workload</h4>
                     <br />
                     <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
                 </div>
@@ -403,7 +403,7 @@ jegula page master page theke add content page create kora hoyese--%>
             <div class="col-xs-12 col-sm-4 col-md-4">
                 <div class="well" style="min-height: 330px">
                     <h4 class="text-center" style="font-family: Impact; padding-bottom: 10px">QUALITY</h4>
-                    <h4>We work hard to attract the best competence, and our employees stay with us for a long time. We apply the same Swedish personnel politics at all our offices, regardless of location. We erase hierarchies, and we listen to our employees’ career development needs.</h4>
+                    <h4 style="line-height: 130%">We work hard to attract the best competence, and our employees stay with us for a long time. We apply the same Swedish personnel politics at all our offices, regardless of location. We erase hierarchies, and we listen to our employees’ career development needs.</h4>
                     <br />
                     <br />
                     <a href="#" style="outline: none; font-size: 18px"><span class="glyphicon glyphicon-share-alt" style="padding-right: 15px"></span>Read More Click Here...</a>
@@ -482,7 +482,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     <div class="carousel-inner hidden-lg hidden-md" style="border-radius: 5px">
                         <div class="item active">
                             <div class="well" style="color: black">
-                                <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -493,7 +493,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                         <div class="item">
                             <div class="well" style="color: black">
-                                <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -504,7 +504,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                         <div class="item">
                             <div class="well" style="color: black">
-                                <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -515,7 +515,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                         <div class="item">
                             <div class="well" style="color: black">
-                                <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -542,7 +542,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="well" style="color: black">
-                                        <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                        <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -556,7 +556,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="well" style="color: black">
-                                        <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                        <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -571,7 +571,7 @@ jegula page master page theke add content page create kora hoyese--%>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="well" style="color: black">
-                                        <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                        <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
@@ -585,7 +585,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="well" style="color: black">
-                                        <h4><i>We had numerous reasons for wanting to set up a web shop,
+                                        <h4><i style="line-height: 130%">We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.
                                                 We had numerous reasons for wanting to set up a web shop,
                                                 and Indpro immediately felt like the right provider for us.

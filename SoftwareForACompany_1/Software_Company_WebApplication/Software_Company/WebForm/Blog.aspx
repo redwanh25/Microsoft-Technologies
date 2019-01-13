@@ -39,7 +39,7 @@
                         <ItemTemplate>
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
                                 <div class="well" id="<%# Eval("BlogDivId") %>">
-                                    <asp:Label CssClass="h4" style="font-family:Impact" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
+                                    <asp:Label style="font-family:Comic Sans MS; line-height:130%; font-size:20px;" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
                                     <br />
                                     <asp:Label ForeColor="Red" CssClass="h4 navbar-right" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
                                     <br />
@@ -59,7 +59,7 @@
                                     </div>
 
                                     <div class="well" style="margin-top:-55px">
-                                        <asp:Label CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
+                                        <asp:Label  style="line-height:130%" CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
                                     </div>
 
                                     <%#GetFacebookShare(Container.DataItem)%>                                  
