@@ -24,7 +24,7 @@
             width: 0;
             position: fixed;
             z-index: 1;
-            top: 200px;
+            top: 70px;
             /*left: 0;*/
             right: 0;
             background-color: #EDEDED;

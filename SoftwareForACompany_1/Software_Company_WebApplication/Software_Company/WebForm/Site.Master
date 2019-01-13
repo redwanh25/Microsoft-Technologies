@@ -70,7 +70,7 @@
             /*padding-top: 50px;*/
             margin-top: -5px;
             overflow-x: hidden;
-            height:100%;
+            height: 100%;           /*ai height er jonno afix er feature a aktu problem hoise. visit ios development page*/
         }
 
         a, a:hover, a:active, a:visited, a:focus {
@@ -203,10 +203,11 @@
 
     <style>
         #img-car {
-            position: absolute;
-            left: 0px;
-            top: 47px;
-            z-index: -1;
+            background: url(../Image/mountain-3.jpg) center;
+            display: table;
+            width: 100%;
+            position: relative;
+            background-size: cover;
         }
     </style>
 
@@ -279,60 +280,60 @@
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>
+        
+        <div id="img-car">
+            <div class="row">
+                <div id="imageCarousel" class="carousel slide" data-interval="4000"
+                    data-ride="carousel" data-pause="false" data-wrap="true">
 
-        <%--<img id="img-car" style="width: 100%; min-height: 187px; max-height:370px" src="../Image/mountain-3.jpg" class="img-responsive bluerEffect">--%>
+                    <ol class="carousel-indicators">
+                        <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#imageCarousel" data-slide-to="1"></li>
+                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                        <li data-target="#imageCarousel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <div class="carousel-caption">
+                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
+                                <h2 class="animated bounceInRight">Desert</h2>
+                                <h4 class="animated bounceInLeft">Desert Image Description</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <div class="carousel-caption">
+                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
+                                <h2 class="animated bounceInRight">Jellyfish</h2>
+                                <h4 class="animated bounceInLeft">Jellyfish Image Description</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <div class="carousel-caption">
+                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
+                                <h2 class="animated bounceInRight">Lighthouse</h2>
+                                <h4 class="animated bounceInLeft">Lighthouse Image Description</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <div class="carousel-caption">
+                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
+                                <h2 class="animated bounceInRight">Penguins</h2>
+                                <h4 class="animated bounceInLeft">Penguins Image Description</h4>
+                            </div>
+                        </div>
+                    </div>
 
-        <div class="row">
-            <div id="imageCarousel" class="carousel slide" data-interval="4000"
-                data-ride="carousel" data-pause="false" data-wrap="true">
-
-                <ol class="carousel-indicators">
-                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#imageCarousel" data-slide-to="1"></li>
-                    <li data-target="#imageCarousel" data-slide-to="2"></li>
-                    <li data-target="#imageCarousel" data-slide-to="3"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <img style="width: 100%; min-height: 240px; max-height:370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
-                        <div class="carousel-caption">
-                            <p class="animated bounceInDown hidden-xs" style="font-size: 50px;">This is Wonderful</p>
-                            <h1 class="animated bounceInRight">Desert</h1>
-                            <h3 class="animated bounceInLeft">Desert Image Description</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img style="width: 100%; min-height: 240px; max-height:370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
-                        <div class="carousel-caption">
-                            <p class="animated bounceInDown hidden-xs" style="font-size: 50px;">This is Wonderful</p>
-                            <h1 class="animated bounceInRight">Jellyfish</h1>
-                            <h3 class="animated bounceInLeft">Jellyfish Image Description</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img style="width: 100%; min-height: 240px; max-height:370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
-                        <div class="carousel-caption">
-                            <p class="animated bounceInDown hidden-xs" style="font-size: 50px;">This is Wonderful</p>
-                            <h1 class="animated bounceInRight">Lighthouse</h1>
-                            <h3 class="animated bounceInLeft">Lighthouse Image Description</h3>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img style="width: 100%; min-height: 240px; max-height:370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
-                        <div class="carousel-caption">
-                            <p class="animated bounceInDown hidden-xs" style="font-size: 50px;">This is Wonderful</p>
-                            <h1 class="animated bounceInRight">Penguins</h1>
-                            <h3 class="animated bounceInLeft">Penguins Image Description</h3>
-                        </div>
-                    </div>
+                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
                 </div>
-
-                <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a href="#imageCarousel" class="carousel-control right" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
             </div>
         </div>
 
@@ -459,7 +460,7 @@
         </asp:UpdatePanel>
 
         <div>
-            <input id="ContactPopUp" style="padding-top:10px" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
+            <input id="ContactPopUp" style="padding-top: 10px" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
         </div>
     </form>
 
