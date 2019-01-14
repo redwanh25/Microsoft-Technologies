@@ -77,14 +77,17 @@
     <Content Include="Image\about02.png" />
     <Content Include="Image\about03.png" />
     <Content Include="Image\benches.jpg" />
+    <Content Include="Image\Bootstrap_Blue_logo.png" />
     <Content Include="Image\bridge.jpg" />
     <Content Include="Image\coast.jpg" />
     <Content Include="Image\company_name.png" />
     <Content Include="Image\computer.jpg" />
     <Content Include="Image\computer1.jpg" />
     <Content Include="Image\crose.jpg" />
+    <Content Include="Image\Drupal_Blue_logo.png" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
+    <Content Include="Image\Html_Blue_logo.png" />
     <Content Include="Image\icons8-comments-64.png" />
     <Content Include="Image\icons8-idea-64.png" />
     <Content Include="Image\icons8-in-transit-64.png" />
@@ -98,11 +101,13 @@
     <Content Include="Image\loader.gif" />
     <Content Include="Image\macbook-pro.jpg" />
     <Content Include="Image\maxresdefault.jpg" />
+    <Content Include="Image\MicrosoftNet_Blue_logo.png" />
     <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-3.jpg" />
     <Content Include="Image\mountain-4.jpg" />
     <Content Include="Image\park.jpg" />
+    <Content Include="Image\PHP_Blue_logo.png" />
     <Content Include="Image\playButtonFrame.png" />
     <Content Include="Image\rails.jpg" />
     <Content Include="Image\redwan.jpg" />
@@ -114,6 +119,7 @@
     <Content Include="Image\twitter.png" />
     <Content Include="Image\video_background2.jpg" />
     <Content Include="Image\WebDevelopmentPic.jpg" />
+    <Content Include="Image\Wordpress_Blue_logo.png" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Animate.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\css\bootstrap-theme.min.css" />
@@ -141,6 +147,7 @@
     <Content Include="WebForm\Blog.aspx" />
     <Content Include="WebForm\HowDoesItWork.aspx" />
     <Content Include="WebForm\ApplyForAJob.aspx" />
+    <Content Include="WebForm\Help_With_A_Defined_Project.aspx" />
     <Content Include="WebForm\Web_Development.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +217,13 @@
     </Compile>
     <Compile Include="WebForm\ApplyForAJob.aspx.designer.cs">
       <DependentUpon>ApplyForAJob.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\Help_With_A_Defined_Project.aspx.cs">
+      <DependentUpon>Help_With_A_Defined_Project.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\Help_With_A_Defined_Project.aspx.designer.cs">
+      <DependentUpon>Help_With_A_Defined_Project.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Web_Development.aspx.cs">
       <DependentUpon>Web_Development.aspx</DependentUpon>

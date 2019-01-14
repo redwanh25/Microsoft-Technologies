@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
     <title></title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -46,7 +46,7 @@
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
             transition: transform .1s;
-            cursor: url('http://csscursor.info/source/santahand.png'), default;
+            /*cursor: url('http://csscursor.info/source/santahand.png'), default;*/
         }
 
             .zoom-effect:hover {

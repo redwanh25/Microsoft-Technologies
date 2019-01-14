@@ -23,14 +23,14 @@
         <div class="tz-gallery">
             <div class="row">
                 <a class="lightbox" href="../Image/computer.jpg">
-                    <img src="../Image/computer.jpg" class="img-responsive" style="border-radius: 10px; max-height:400px; max-width:700px" />
+                    <img src="../Image/computer.jpg" class="img-responsive" style="border-radius: 10px; max-height: 400px; max-width: 700px" />
                 </a>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <p style="font-family: Impact; font-size: 30px;">A Swedish IT company with global skills</p>
-                <h4 style="line-height:130%">We have created our own model for global IT deliveries, which we have developed and honed for over ten years. Our methodology for delivery and cooperation is based on SCRUM and our project tool of choice is Jira.
+                <h4 style="line-height: 130%">We have created our own model for global IT deliveries, which we have developed and honed for over ten years. Our methodology for delivery and cooperation is based on SCRUM and our project tool of choice is Jira.
 When you contact us at Indpro, we always begin by discussing your needs. This is what our process looks like, step by step:</h4>
             </div>
         </div>
@@ -44,26 +44,40 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
                 <br />
                 <div class="row" style="color: orange">
                     <div class=" col-xs-4 col-sm-4 col-md-4">
-                        <img src="../Image/about01.png" class="img-responsive" />
-                        <h4>Write Something here</h4>
+                        <img src="../Image/Wordpress_Blue_logo.png" class="img-responsive" style="max-height: 150px; min-height: 100px" />
+                        <h3>Wordpress</h3>
                     </div>
                     <div class=" col-xs-4 col-sm-4 col-md-4">
-                        <img src="../Image/about02.png" class="img-responsive" />
-                        <h4>Write Something</h4>
+                        <img src="../Image/MicrosoftNet_Blue_logo.png" class="img-responsive" style="max-height: 150px; min-height: 120px" />
+                        <h3>.Net</h3>
                     </div>
                     <div class=" col-xs-4 col-sm-4 col-md-4">
-                        <img src="../Image/about03.png" class="img-responsive" />
-                        <h4>Write Something here</h4>
+                        <img src="../Image/Drupal_Blue_logo.png" class="img-responsive" style="max-height: 130px; min-height: 100px" />
+                        <h3>Drupal</h3>
                     </div>
                 </div>
                 <br />
+                <div class="row" style="color: orange">
+                    <div class=" col-xs-4 col-sm-4 col-md-4">
+                        <img src="../Image/Bootstrap_Blue_logo.png" class="img-responsive" style="max-height: 150px; min-height: 100px" />
+                        <h3>Bootstrap</h3>
+                    </div>
+                    <div class=" col-xs-4 col-sm-4 col-md-4">
+                        <img src="../Image/Html_Blue_logo.png" class="img-responsive" style="max-height: 150px; min-height: 100px" />
+                        <h3>Html</h3>
+                    </div>
+                    <div class=" col-xs-4 col-sm-4 col-md-4">
+                        <img src="../Image/PHP_Blue_logo.png" class="img-responsive" style="max-height: 150px; min-height: 100px" />
+                        <h3>Php</h3>
+                    </div>
+                </div>
+                <%--<br />
                 <span style="color: white">---------------------------<span style="font-size: 50px;">~~</span>---------------------------</span><br />
                 <br />
                 <div class="row">
                     <div class="col-sm-12" style="color: cornsilk">
                         <p style="font-family: Georgia; font-size: 30px; color: white"><b>This is how it works</b></p>
-
-                        <h4 style="line-height:130%">We have created our own model for global IT deliveries, which we have
+                    <h4 style="line-height: 130%">We have created our own model for global IT deliveries, which we have
                             developed and honed for over ten years. Our methodology for delivery and
                             cooperation is based on SCRUM and our project tool of choice is Jira.
                             When you contact us at Indpro, we always begin by discussing your needs.
@@ -73,6 +87,7 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
                     </div>
                 </div>
                 <br />
+                <br />--%>
                 <br />
             </div>
         </div>
@@ -81,92 +96,82 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
     <br />
     <br />
     <br />
-    <br />
+
 
     <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-comments-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">1. Requirement analysis</h3>
-                        <h4 style="line-height:130%">What do you need help with? And how can we set it up for you?
-                        To answer these questions we start off with a meeting, where we get
-                        a feel for each other. Then we conduct a workshop where we explore your
-                        needs and discuss solutions.</h4>
+        <div class="row text-center">
+            <p style="font-family: Impact; font-size: 30px;"><b>This is how it works</b></p>
+            <h4 style="line-height: 130%">We have created our own model for global IT deliveries, which we have
+                            developed and honed for over ten years. Our methodology for delivery and
+                            cooperation is based on SCRUM and our project tool of choice is Jira.
+                            When you contact us at Indpro, we always begin by discussing your needs.
+                            This is what our process looks like, step by step:
+
+            </h4>
+        </div>
+        <br />
+        <br />
+        <div class="row text-center">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="thumbnail shadow_B">
+                    <img class="img-responsive" src="../Image/about02.png" />
+
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <hr style="border: 2px solid; color: #F5F3F1">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="thumbnail shadow_B">
+                    <img class="img-responsive" src="../Image/about02.png" />
 
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-idea-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">2. Proposed solution</h3>
-                        <h4 style="line-height:130%">After our workshop we propose a solution. The proposal includes 
-                            suggestions for structure, skills, process, scope and technology.
-                            Sometimes we also include a wireframe design. We discuss and adjust
-                            the proposal together.</h4>
-                    </div>
-                </div>
-
-                <hr style="border: 2px solid; color: #F5F3F1">
-
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-increase-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">3. Start of project</h3>
-                        <h4 style="line-height:130%">When we agree on what is to be done, we at Indpro prepare the tools required, and plan the project. We prefer to work in Jira, and when we do we prepare it completely and all you need to do is join the project. If we help you build a dedicated team, we also recruit in this phase.</h4>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <hr style="border: 2px solid; color: #F5F3F1">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="thumbnail shadow_B">
+                    <img class="img-responsive" src="../Image/about02.png" />
 
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-laptop-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">4. Requirement analysis</h3>
-                        <h4 style="line-height:130%">What do you need help with? And how can we set it up for you?
-                        To answer these questions we start off with a meeting, where we get
-                        a feel for each other. Then we conduct a workshop where we explore your
-                        needs and discuss solutions.</h4>
-                    </div>
-                </div>
-
-                <hr style="border: 2px solid; color: #F5F3F1">
-
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-windows-client-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">5. Follow up and improvements</h3>
-                        <h4 style="line-height:130%">Since work with SCRUM methodology, we continuously evaluate and 
-                            improve our work. After each iteration we review what we did well, 
-                            what we did not do as well, and what we should start doing.</h4>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
                     </div>
                 </div>
+            </div>
 
-                <hr style="border: 2px solid; color: #F5F3F1">
+            <div class="col-sm-6 col-md-3 col-lg-3">
+                <div class="thumbnail shadow_B">
+                    <img class="img-responsive" src="../Image/about02.png" />
 
-                <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2">
-                        <img src="../Image/icons8-in-transit-64.png" style="height: 100px; width: 100px" class="img-responsive" />
-                    </div>
-                    <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
-                        <h3 style="font-family: Impact">6. Development and delivery</h3>
-                        <h4 style="line-height:130%">We practice agile development, and use Indpro’s own cooperation model.
-                            Our model includes development of code, testing of code, code review,
-                            commit, deliveries and demo. If you prefer we will incorporate ourselves
-                            into you process. Otherwise we work fully based on Indpro’s process.</h4>
+                    <div class="caption">
+                        <h3>Thumbnail label</h3>
+                        <p>
+                            Cras justo odio, dapibus ac facilisis in,
+                            egestas eget quam. Donec id elit non mi porta
+                            gravida at eget metus. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -179,10 +184,12 @@ When you contact us at Indpro, we always begin by discussing your needs. This is
     <br />
     <div class="container">
         <div class="row" align="center">
-            <p style="font-family: Arial; font-size: 30px; color: orange"><b>Help with a defined project?</b></p>
-            <h4 style="line-height:130%">Feel free to get in touch before you’ve made up your mind on that. We’ll look over your needs together, and then we’ll propose a solution that’s adjusted to your individual needs: whether it’s a defined project, or a dedicated team working exclusively for you.</h4>
+            <a href="http://nomaa.se/WebForm/Help_With_A_Defined_Project.aspx" class="btn btn-default" style="font-family: Arial; font-size: 25px; color: orange; border-radius: 12px">Help with a defined project?</a>
             <br />
-            <h4 style="line-height:130%">A defined project is often a good start. Partly because it allows us to get to know each other, but also because it becomes a test, allowing us both to validate that our partnership is running smoothly.</h4>
+            <br />
+            <h4 style="line-height: 130%">Feel free to get in touch before you’ve made up your mind on that. We’ll look over your needs together, and then we’ll propose a solution that’s adjusted to your individual needs: whether it’s a defined project, or a dedicated team working exclusively for you.</h4>
+            <br />
+            <h4 style="line-height: 130%">A defined project is often a good start. Partly because it allows us to get to know each other, but also because it becomes a test, allowing us both to validate that our partnership is running smoothly.</h4>
         </div>
     </div>
 

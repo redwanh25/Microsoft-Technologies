@@ -14,6 +14,9 @@
         .affix-bottom {
             position: absolute;
         }
+        html, body{
+            height: unset;
+        }
     </style>
     <div class="container">
         <div class="row">

@@ -39,8 +39,8 @@ jegula page master page theke add content page create kora hoyese--%>
             //Check the width also you need to check it’s not in same ratio which was it before
             //So it will not call repeatedly for many times as infinite by checking ratio value which assigned from local storage.
             //And assign hidden field value and call the buttonclick event from jquery fuction so it will set the RepeatColumns value.
-            if (width > 0 && width <= 540 && ratio != "540" && $("[id*=hfColumnRepeat]").val() != "2") {
-                $("[id*=hfColumnRepeat]").val(2);
+            if (width > 0 && width <= 540 && ratio != "540" && $("[id*=hfColumnRepeat]").val() != "1") {
+                $("[id*=hfColumnRepeat]").val(1);
                 $("[id*=btnfake]").click();
             }
             if (width > 540 && width <= 768 && ratio != "768" && $("[id*=hfColumnRepeat]").val() != "2") {
@@ -703,7 +703,7 @@ jegula page master page theke add content page create kora hoyese--%>
         <div class="row">
             <asp:DataList ID="DataList1" runat="server" RepeatDirection="Horizontal" RepeatColumns="4">
                 <ItemTemplate>
-                    <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-10 col-sm-11 col-md-12 col-lg-12">   <%--col-xs-12 col-sm-12 col-md-12 col-lg-12--%>
                         <div class="thumbnail shadow_B">
                             <%--style="max-width: 500px"--%>
                             <div class="inner" align="center">

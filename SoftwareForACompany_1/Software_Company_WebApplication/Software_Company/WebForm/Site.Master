@@ -34,7 +34,7 @@
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
             transition: transform .1s;
-            cursor: url('http://csscursor.info/source/santahand.png'), default;
+            /*cursor: url('http://csscursor.info/source/santahand.png'), default;*/
         }
 
             .zoom-effect:hover {
@@ -70,7 +70,7 @@
             /*padding-top: 50px;*/
             margin-top: -5px;
             overflow-x: hidden;
-            height: 100%;           /*ai height er jonno afix er feature a aktu problem hoise. visit ios development page*/
+            height: 100%; /*ai height er jonno afix er feature a aktu problem hoise. visit ios development page*/
         }
 
         a, a:hover, a:active, a:visited, a:focus {
@@ -209,6 +209,16 @@
             position: relative;
             background-size: cover;
         }
+
+            #img-car:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                bottom: 0;
+                background: rgba(130, 130, 130, 0.5);
+            }
     </style>
 
 </head>
@@ -280,36 +290,64 @@
                 </div>
             </ProgressTemplate>
         </asp:UpdateProgress>
-        
+
         <div id="img-car">
             <div class="row">
-                <div id="imageCarousel" class="carousel slide" data-interval="4000"
+                <div id="imageCarousel" class="carousel slide" data-interval="5000"
                     data-ride="carousel" data-pause="false" data-wrap="true">
 
                     <ol class="carousel-indicators">
                         <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#imageCarousel" data-slide-to="1"></li>
-                        <li data-target="#imageCarousel" data-slide-to="2"></li>
-                        <li data-target="#imageCarousel" data-slide-to="3"></li>
+                        <%--                        <li data-target="#imageCarousel" data-slide-to="2"></li>
+                        <li data-target="#imageCarousel" data-slide-to="3"></li>--%>
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <img style="width: 100%; min-height: 300px; max-height: 270px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
                             <div class="carousel-caption">
-                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
-                                <h2 class="animated bounceInRight">Desert</h2>
-                                <h4 class="animated bounceInLeft">Desert Image Description</h4>
+                                <h1 class="animated bounceInDown hidden-xs hidden-sm" style="color: orange">Är din webbsida smart?</h1>
+                                <h4 class="animated bounceInDown hidden-md hidden-lg" style="color: orange">Är din webbsida smart?</h4>
+                                <br class="hidden-xs" />
+                                <h3 class="animated bounceInLeft hidden-xs hidden-sm">Vi hjälper dig att optimera din hemsida genom att:
+                                    <br />
+                                    - Sökoptimering
+                                    <br />
+                                    - Smarta funktioner så som kontaktfrom, nyhetsbrev etc.
+                                    <br />
+                                    - Medlemskap, bokningskalender etc.
+                                </h3>
+                                <h5 class="animated bounceInLeft hidden-md hidden-lg">Vi hjälper dig att optimera din hemsida genom att:
+                                    <br />
+                                    - Sökoptimering
+                                    <br />
+                                    - Smarta funktioner så som kontaktfrom, nyhetsbrev etc.
+                                    <br />
+                                    - Medlemskap, bokningskalender etc.
+                                </h5>
                             </div>
                         </div>
                         <div class="item">
-                            <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                            <img style="width: 100%; min-height: 300px; max-height: 270px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
                             <div class="carousel-caption">
-                                <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
-                                <h2 class="animated bounceInRight">Jellyfish</h2>
-                                <h4 class="animated bounceInLeft">Jellyfish Image Description</h4>
+                                <h1 class="animated bounceInDown hidden-xs hidden-sm" style="color: orange">Är din webbsida responsive?</h1>
+                                <h4 class="animated bounceInDown hidden-md hidden-lg" style="color: orange">Är din webbsida responsive?</h4>
+                                <br class="hidden-xs" />
+                                <h3 class="animated bounceInLeft hidden-xs hidden-sm">Vi hjälper dig att optimera din hemsida genom att:
+                                    <br />
+                                    - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC.
+                                    <br />
+                                    - Den anpassar automatisk till den aktuella enheten.
+                                </h3>
+                                <h5 class="animated bounceInLeft hidden-md hidden-lg">Vi hjälper dig att optimera din hemsida genom att:
+                                    <br />
+                                    - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC.
+                                    <br />
+                                    - Den anpassar automatisk till den aktuella enheten.
+                                </h5>
                             </div>
                         </div>
-                        <div class="item">
+                        <%--                        <div class="item">
                             <img style="width: 100%; min-height: 240px; max-height: 370px; opacity: 0" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
                             <div class="carousel-caption">
                                 <p class="animated bounceInDown hidden-xs" style="font-size: 40px;">This is Wonderful</p>
@@ -324,7 +362,7 @@
                                 <h2 class="animated bounceInRight">Penguins</h2>
                                 <h4 class="animated bounceInLeft">Penguins Image Description</h4>
                             </div>
-                        </div>
+                        </div>--%>
                     </div>
 
                     <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
@@ -341,6 +379,30 @@
         <div>
             <asp:ContentPlaceHolder ID="MainContentPlaceHolder" runat="server">
             </asp:ContentPlaceHolder>
+        </div>
+
+        <%--it does not work without web server--%>
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    appId: '377299629711169',
+                    autoLogAppEvents: true,
+                    xfbml: true,
+                    version: 'v2.11'
+                });
+            };
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) { return; }
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        <div class="fb-customerchat"
+            page_id="988929474635855"
+            minimized="true">
         </div>
 
         <br />

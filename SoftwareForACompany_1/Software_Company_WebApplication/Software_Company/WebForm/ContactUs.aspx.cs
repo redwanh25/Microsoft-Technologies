@@ -32,7 +32,7 @@ namespace Software_Company.WebForm
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = con;
                 con.Open();
-                cmd.CommandText = "PersonMessageProcedure";
+                cmd.CommandText = "dbo.PersonMessageProcedure";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
 
                 string name = Name1.Text.Trim();
@@ -50,7 +50,7 @@ namespace Software_Company.WebForm
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Address", address);
                     cmd.Parameters.AddWithValue("@Message", message);
-                    //cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "randomtext", "alertMe()", true);
                     string textEmail = "Name: " + name + ".<br>PhoneNumber: " + phone + ".<br>Email: " + email + ".<br>Address: " + address + ".<br><br>Message: " + message;
 
@@ -60,7 +60,7 @@ namespace Software_Company.WebForm
                     if (result == true)
                     {
                         //System.Threading.Thread.Sleep(5000);
-                        cmd.ExecuteNonQuery();
+                        //cmd.ExecuteNonQuery();
                         //ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", "alert('message has been sent successfully');", true);
                     }
                     else
