@@ -1,0 +1,144 @@
+﻿@model IEnumerable<Software_Company_WebApplication.Models.FoundationDayTShirtDistribution>
+
+@{
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-xs-6">
+            <h4>Select Number of Rows</h4>
+            <div class="form-group">
+                <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                    <option value="5000">Show All</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="pull-right">
+                <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "FoundationDayTShirtDistributions")'"><span class="glyphicon glyphicon-edit"></span> New Post</button>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover text-center fixed" id="mytable">
+        <tr class="success" style="font-weight: bold; font-size:18px">
+            <td>
+                @Html.DisplayNameFor(model => model.StudentID)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.TokenNumber)
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.TShirtSize)
+            </td>
+            @*<td>
+                    @Html.DisplayNameFor(model => model.QRCode)
+                </td>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr style="font-size:16px">
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TokenNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TShirtSize)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.QRCode)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+
+    <br />
+    <div class="pagination-container" align="center">
+        <nav>
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+
+    <script type="text/javascript">
+        var table = '#mytable'
+        $('#maxRows').on('change', function () {
+            $('.pagination').html('');
+            var trnum = 0
+            var maxRows = parseInt($(this).val())
+            var totalRows = $(table + ' tbody tr').length
+
+            // hide column 5 select korle 5 ta row show korbe
+            $(table + ' tr:gt(0)').each(function () {
+                trnum++
+                if (trnum > maxRows) {
+                    $(this).hide()
+                }
+                if (trnum <= maxRows) {
+                    $(this).show()
+                }
+            })
+
+            // show pagination
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+                for (var i = 1; i <= pagenum;) {
+                    $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+                }
+                //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+            }
+            // first value ta active rakhe always
+            $('.pagination li:first-child').addClass('active')
+
+            // page a click korar pore column kore show kore
+            $('.pagination li').on('click', function () {
+                var pageNum = $(this).attr('data-page')
+                var trIndex = 0;
+                $('.pagination li').removeClass('active')
+                $(this).addClass('active');
+                $(table + ' tr:gt(0)').each(function () {
+                    trIndex++;
+                    if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                })
+            })
+        })
+        // get serial no
+        $(function () {
+            $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+            var id = 0;
+            $('table tr:gt(0)').each(function () {
+                id++
+                $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            })
+        })
+    </script>
+</body>
+</html>

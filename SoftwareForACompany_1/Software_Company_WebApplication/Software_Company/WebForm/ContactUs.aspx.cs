@@ -19,12 +19,7 @@ namespace Software_Company.WebForm
 
         }
 
-        protected void Send_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
+        protected void Send1_Click(object sender, EventArgs e)
         {
             string str = ConfigurationManager.ConnectionStrings["DBMS"].ConnectionString;
             using (SqlConnection con = new SqlConnection(str))
@@ -34,6 +29,7 @@ namespace Software_Company.WebForm
                 con.Open();
                 cmd.CommandText = "dbo.PersonMessageProcedure";
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.CommandText = "insert into PersonMessage_tbl values (@Name, @PhoneNumber, @Email, @Address, @Message, GETDATE())";
 
                 string name = Name1.Text.Trim();
                 string phone = Phone1.Text.Trim();
@@ -55,7 +51,7 @@ namespace Software_Company.WebForm
                     string textEmail = "Name: " + name + ".<br>PhoneNumber: " + phone + ".<br>Email: " + email + ".<br>Address: " + address + ".<br><br>Message: " + message;
 
                     bool result = false;
-                    result = sendMain("redwan15-8557@diu.edu.bd", "This Person Want To Contact With Us.", textEmail);
+                    result = sendMail("redwan15-8557@diu.edu.bd", "This Person Want To Contact With Us.", textEmail);
 
                     if (result == true)
                     {
@@ -75,7 +71,7 @@ namespace Software_Company.WebForm
             }
         }
 
-        public bool sendMain(string toEmail, string subject, string emailBody)
+        public bool sendMail(string toEmail, string subject, string emailBody)
         {
             try
             {
@@ -83,6 +79,7 @@ namespace Software_Company.WebForm
                 string senderPassword = ConfigurationManager.AppSettings["senderPassword"].ToString();
 
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                //SmtpClient client = new SmtpClient("relay-hosting.secureserver.net", 25);
                 client.EnableSsl = true;
                 client.Timeout = 100000;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;

@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>DiuAlgorithmAssignment.AlgorithmAssignment._24_Guess_What</StartupObject>
+    <StartupObject>DiuAlgorithmAssignment.DIUVarsity.QRCodeScanner</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,6 +63,7 @@
     <Compile Include="AlgorithmAssignment\__7_TheGreatest.cs" />
     <Compile Include="AlgorithmAssignment\__8_SelectionTest1.cs" />
     <Compile Include="AlgorithmAssignment\__9_EvenNumbers.cs" />
+    <Compile Include="DIUVarsity\QRCodeScanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

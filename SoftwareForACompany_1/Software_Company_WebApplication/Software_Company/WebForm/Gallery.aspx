@@ -8,7 +8,7 @@
         }
     </style>--%>
 
-    <script type="text/javascript">
+    <%--<script type="text/javascript">
         $(document).ready(function () {
             // create local storage or check if local storage if not null then remove already exist
             // Null checking you need to make because only ones you need to call it
@@ -58,12 +58,12 @@
                 $("[id*=btnfake]").click();
             }
         }
-    </script>
+    </script>--%>
 
     <%-- Fake button just for call onClick of button event using jquery function--%>
-    <asp:Button ID="btnfake" runat="server" OnClick="OnClick" Style="display: none" />
+    <%--<asp:Button ID="btnfake" runat="server" OnClick="OnClick" Style="display: none" />--%>
     <%-- Hidden filed to set the ratio value--%>
-    <asp:HiddenField ID="hfColumnRepeat" runat="server" Value="3" />
+    <%--<asp:HiddenField ID="hfColumnRepeat" runat="server" Value="3" />--%>
 
     <div class="container">
         <div class="container gallery-container">
@@ -74,124 +74,124 @@
                 Indpro has over 80 employees, skilled in various technologies and platforms.
             </h3>
 
-            <%--<div class="tz-gallery">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/park.jpg">
-                                <img src="../Image/park.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/benches.jpg">
-                                <img src="../Image/benches.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/bridge.jpg">
-                                <img src="../Image/bridge.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/coast.jpg">
-                                <img src="../Image/coast.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/rails.jpg">
-                                <img src="../Image/rails.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/rocks.jpg">
-                                <img src="../Image/rocks.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/park.jpg">
-                                <img src="../Image/park.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/benches.jpg">
-                                <img src="../Image/benches.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/bridge.jpg">
-                                <img src="../Image/bridge.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/coast.jpg">
-                                <img src="../Image/coast.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/rails.jpg">
-                                <img src="../Image/rails.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <a class="lightbox" href="../Image/rocks.jpg">
-                                <img src="../Image/rocks.jpg" alt="Park" class="card-img-top">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>--%>
-
             <div class="tz-gallery">
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/park.jpg">
+                                <img src="../Image/park.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/benches.jpg">
+                                <img src="../Image/benches.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/bridge.jpg">
+                                <img src="../Image/bridge.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/coast.jpg">
+                                <img src="../Image/coast.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/rails.jpg">
+                                <img src="../Image/rails.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/rocks.jpg">
+                                <img src="../Image/rocks.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/park.jpg">
+                                <img src="../Image/park.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/benches.jpg">
+                                <img src="../Image/benches.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/bridge.jpg">
+                                <img src="../Image/bridge.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/coast.jpg">
+                                <img src="../Image/coast.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/rails.jpg">
+                                <img src="../Image/rails.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4">
+                        <div class="card">
+                            <a class="lightbox" href="../Image/rocks.jpg">
+                                <img src="../Image/rocks.jpg" alt="Park" class="card-img-top">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<%--            <div class="tz-gallery">
                 <div class="row">
                     <asp:DataList ID="DataList2" runat="server" RepeatDirection="Horizontal" RepeatColumns="4">
                         <ItemTemplate>
                             <div class="row">
                                 <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
                                     <div class="card">
-                                        <%#GetImage2(Container.DataItem)%>
+                                        <%# GetImage2(Container.DataItem) %>
                                     </div>
                                 </div>
                             </div>
                         </ItemTemplate>
                     </asp:DataList>
                 </div>
-            </div>
+            </div>--%>
 
         </div>
     </div>

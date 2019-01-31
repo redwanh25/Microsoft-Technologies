@@ -26,5 +26,10 @@ namespace MVC_BusinessObjectAsModel.Controllers
 
             return View();
         }
+
+        public string redwan()
+        {
+            return "hi baby";
+        }
     }
 }

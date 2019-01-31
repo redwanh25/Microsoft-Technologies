@@ -1,0 +1,135 @@
+﻿@model Ajax_Form_Post_MVC.Models.PersonModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            background-color: #fff;
+        }
+        table th {
+            background-color: #B8DBFD;
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        table, table table td {
+            border: 0px solid #ccc;
+        }
+        input[type=text], select {
+            width: 150px;
+        }
+        .modal {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+            display: none;
+        }
+        .center {
+            z-index: 1000;
+            margin: 50px auto;
+            padding: 10px;
+            width: 130px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+        .center img {
+            height: 128px;
+            width: 128px;
+        }
+    </style>
+</head>
+<body>
+    @using (Ajax.BeginForm("AjaxMethod", "Home",
+                    new AjaxOptions
+                    {
+                        OnSuccess = "OnSuccess",
+                        OnFailure = "OnFailure",
+                        LoadingElementId = "progress"
+                    }))
+    {
+        <table id="tblPersons" cellpadding="0" cellspacing="0">
+            <tr>
+                <th colspan="2" align="center">Person Details</th>
+            </tr>
+            <tr>
+                <td>PersonId: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.PersonId)
+                </td>
+            </tr>
+            <tr>
+                <td>Name: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>Gender: </td>
+                <td>
+                    @Html.DropDownListFor(m => m.Gender, new List<SelectListItem>
+                   { new SelectListItem{Text="Male", Value="M"},
+                     new SelectListItem{Text="Female", Value="F"}}, "Please select")
+                </td>
+            </tr>
+            <tr>
+                <td>City: </td>
+                <td>
+                    @Html.TextBoxFor(m => m.City)
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    }
+    <div id="progress" class="modal">
+        <div class="center">
+            <img src="~/images/loader4.gif" />
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+    <script type="text/javascript">
+        function OnSuccess(response) {
+            var message = "Person Id: " + response.PersonId;
+            message += "\nName: " + response.Name;
+            message += "\nGender: " + response.Gender;
+            message += "\nCity: " + response.City;
+            alert(message);
+        }
+        function OnFailure(response) {
+            alert("Error occured.");
+        }
+    </script>
+</body>
+</html>

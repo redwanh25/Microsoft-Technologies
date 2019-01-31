@@ -13,13 +13,13 @@ namespace Algorithms.Sorting
             for(int i = 1; i < arr.Length; i++)
             {
                 int val = arr[i];
-                int h = i;
-                while (h > 0 && arr[h-1] > val)
+                int ind = i;
+                while (ind > 0 && arr[ind - 1] > val)
                 {
-                    arr[h] = arr[h - 1];
-                    h--;
+                    arr[ind] = arr[ind - 1];
+                    ind--;
                 }
-                arr[h] = val;
+                arr[ind] = val;
             }
         }
 

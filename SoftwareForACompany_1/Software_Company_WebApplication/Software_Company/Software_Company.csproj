@@ -139,7 +139,6 @@
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebForm\ContactUs.aspx" />
     <Content Include="WebForm\Gallery.aspx" />
     <Content Include="WebForm\MainPage.aspx" />
     <Content Include="WebForm\OurTeam.aspx" />
@@ -148,6 +147,7 @@
     <Content Include="WebForm\HowDoesItWork.aspx" />
     <Content Include="WebForm\ApplyForAJob.aspx" />
     <Content Include="WebForm\Help_With_A_Defined_Project.aspx" />
+    <Content Include="WebForm\ContactUs.aspx" />
     <Content Include="WebForm\Web_Development.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -155,13 +155,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm\ContactUs.aspx.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm\ContactUs.aspx.designer.cs">
-      <DependentUpon>ContactUs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="WebForm\Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,6 +217,13 @@
     </Compile>
     <Compile Include="WebForm\Help_With_A_Defined_Project.aspx.designer.cs">
       <DependentUpon>Help_With_A_Defined_Project.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm\ContactUs.aspx.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm\ContactUs.aspx.designer.cs">
+      <DependentUpon>ContactUs.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForm\Web_Development.aspx.cs">
       <DependentUpon>Web_Development.aspx</DependentUpon>

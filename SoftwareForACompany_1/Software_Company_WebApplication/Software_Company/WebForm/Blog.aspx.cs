@@ -55,23 +55,23 @@ namespace Software_Company.WebForm
             }
             else
             {
-                if (ViewState["count"] == null)
-                {
-                    ViewState["count"] = 0;
-                }
-                int i = (int)ViewState["count"] + 1;
-                ViewState["count"] = i;
-                string str = String.Format("../BlogImage/Hello{0}.jpg", i);
-                ViewState["imageUrl"] = str;
-                Base64ToImage(Convert.ToBase64String((byte[])cImgSrc)).Save(Server.MapPath(str));
+                //if (ViewState["count"] == null)
+                //{
+                //    ViewState["count"] = 0;
+                //}
+                //int i = (int)ViewState["count"] + 1;
+                //ViewState["count"] = i;
+                //string str = String.Format("../BlogImage/Hello{0}.jpg", i);
+                //ViewState["imageUrl"] = str;
+                //Base64ToImage(Convert.ToBase64String((byte[])cImgSrc)).Save(Server.MapPath(str));
+                //return String.Format("<a class=\"lightbox\" href=\"{0}\"><img style=\"border-radius: 10px;\" src=\"data:image/jpg;base64,{1}\" alt=\"image\" class=\"img-responsive\"/></a> <br/>",
+                //    str, Convert.ToBase64String((byte[])cImgSrc));
 
                 // format and render back the image
-                //return String.Format("<img style=\"border-radius: 10px;\" src=\"data:image/jpg;base64,{0}\" alt=\"image\" class=\"img-responsive\"/> <br/>",
-                //    Convert.ToBase64String((byte[])cImgSrc));
+                return String.Format("<img style=\"border-radius: 10px;\" src=\"data:image/jpg;base64,{0}\" alt=\"image\" class=\"img-responsive\"/> <br/>",
+                    Convert.ToBase64String((byte[])cImgSrc));
 
-                return String.Format("<a class=\"lightbox\" href=\"{0}\"><img style=\"border-radius: 10px;\" src=\"data:image/jpg;base64,{1}\" alt=\"image\" class=\"img-responsive\"/></a> <br/>",
-                    str, Convert.ToBase64String((byte[])cImgSrc));
-                
+
             }
         }
 

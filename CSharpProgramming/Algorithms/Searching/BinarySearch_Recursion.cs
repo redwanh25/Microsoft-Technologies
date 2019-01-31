@@ -10,15 +10,10 @@ namespace Algorithms.Searching
     {
         public static int binary_Search(int low, int high, int key, int[] arr)
         {
-            if(low > high)
-            {
-                Console.WriteLine("not found");
-                return 0;
-            }
-            else
+            if (low <= high)
             {
                 int mid = low + (high - low) / 2;
-                if(arr[mid] > key)
+                if (arr[mid] > key)
                 {
                     high = mid - 1;
                 }
@@ -29,16 +24,22 @@ namespace Algorithms.Searching
                 else
                 {
                     Console.WriteLine("found");
-                    return 0;
+                    return 1;
                 }
                 return binary_Search(low, high, key, arr);
             }
+            return 0;
         }
-        public static void Main(string[] args)
+        public static void Main(String[] args)
         {
             int[] a = { 1, 3, 6, 9, 10, 13, 17, 18, 20, 33, 34, 36, 45 };
-            int low = 0, high = 12, key = 14;
-            binary_Search(low, high, key, a);
+            Array.Sort(a);
+            int low = 0, high = a.Length - 1, key = 9;
+            int x = binary_Search(low, high, key, a);
+            if (x == 0)
+            {
+                Console.WriteLine("not found");
+            }
         }
     }
 }

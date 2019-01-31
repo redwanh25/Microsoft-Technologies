@@ -39,9 +39,10 @@
                         <ItemTemplate>
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
                                 <div class="well" id="<%# Eval("BlogDivId") %>">
-                                    <asp:Label style="font-family:Comic Sans MS; line-height:130%; font-size:20px;" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
+                                    <asp:Label CssClass="hidden-xs" style="font-family:Comic Sans MS; line-height:130%; font-size:20px;" ID="txbType" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
+                                    <asp:Label CssClass="hidden-sm hidden-md hidden-lg" style="font-family:Comic Sans MS; line-height:130%; font-size:16px;" ID="Label1" Text='<%# Eval("Title") %>' runat="server"></asp:Label>
                                     <br />
-                                    <asp:Label ForeColor="Red" CssClass="h4 navbar-right" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
+                                    <asp:Label ForeColor="Red" CssClass="h5 navbar-right" ID="TextBox1" Text='<%# Eval("Date") %>' runat="server"></asp:Label>
                                     <br />
 
                                     <div class="container">
@@ -57,9 +58,13 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="well" style="margin-top:-55px">
+                                    <br />
+                                    <div class="well hidden-xs" style="margin-top:-55px">
                                         <asp:Label  style="line-height:130%" CssClass="h4" ID="TextBox2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
+                                    </div>
+                                    <div class="hidden-sm hidden-md hidden-lg" style="margin-top:-55px">
+                                        <asp:Label  style="line-height:130%" CssClass="h5" ID="Label2" Text='<%# Eval("Text") %>' runat="server"></asp:Label>
+                                        <br /><br />
                                     </div>
 
                                     <%#GetFacebookShare(Container.DataItem)%>                                  

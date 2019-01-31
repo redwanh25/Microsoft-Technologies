@@ -1,10 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/WebForm/Site.Master" AutoEventWireup="true" CodeBehind="ContactUs.aspx.cs" Inherits="Software_Company.WebForm.ContactUs" %>
-
 <%--be carefull ClientIDMode="Static" aita na dile aishob page a jquery id selector kaj korbe na.
 jegula page master page theke add content page create kora hoyese--%>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" runat="server" ClientIDMode="Static">
-    <style>
+        <style>
         /*well k override kora hoise.*/
         .well {
             min-height: 10px;
@@ -21,6 +19,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <%--only one ScriptManager can be added. site.master page a aita add kora ase.--%>
     <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>--%>
+
     <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
         <ProgressTemplate>
             <div class="modal1">
@@ -35,7 +34,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-                <div class="h2 animated fadeInLeft">
+                <div class="h2">
                     <p style="font-family:Impact">Contact us at Software Company</p>
                 </div>
                 <br />
@@ -43,7 +42,7 @@ jegula page master page theke add content page create kora hoyese--%>
                     <ContentTemplate>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated fadeInLeft">
+                                <div class="form-group has-success">
                                     <label>Name</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -54,7 +53,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated bounceInLeft">
+                                <div class="form-group has-success">
                                     <label>Phone Number</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -67,7 +66,7 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated fadeInLeft">
+                                <div class="form-group has-success">
                                     <label>Email</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -78,7 +77,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated bounceInLeft">
+                                <div class="form-group has-success">
                                     <label>Address</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -89,7 +88,7 @@ jegula page master page theke add content page create kora hoyese--%>
                                 </div>
                             </div>
                         </div>
-                        <div class="row  animated fadeInLeft">
+                        <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="form-group has-success">
                                     <label>Message </label>
@@ -105,13 +104,14 @@ jegula page master page theke add content page create kora hoyese--%>
                         </div>
                         <br />
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 animated bounceInLeft">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <%--<input id="Send1" type="button" value="Send Message" runat="server" class="btn btn-info btn-block"/>--%>
                                 <%--<asp:Button ID="Send1" runat="server" Text="Send Message" CssClass="temp btn btn-block" OnClick="Send_Click" style="border-radius:20px; outline:none; background-color:#DEEFD7; font-size:17px"/>--%>
-                                <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block btn-default" OnClick="LinkButton1_Click" Style="border-radius: 30px; outline: none; font-size: 18px">
+                                <asp:LinkButton ID="Send1" runat="server" CssClass="btn btn-block btn-default" Style="border-radius: 30px; outline: none; font-size: 18px" OnClick="Send1_Click">
                                     <%--<marquee behavior="alternate" scrollamount="6">Send Your Message</marquee>--%>
                                     Send Your Message
                                 </asp:LinkButton>
+                                
                             </div>
                         </div>
 
@@ -214,5 +214,4 @@ jegula page master page theke add content page create kora hoyese--%>
             });
         });
     </script>
-
 </asp:Content>

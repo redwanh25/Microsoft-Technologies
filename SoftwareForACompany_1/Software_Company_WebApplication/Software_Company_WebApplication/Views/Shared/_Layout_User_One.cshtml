@@ -62,7 +62,7 @@
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
             transition: transform .1s;
-            cursor: url('http://csscursor.info/source/santahand.png'), default;
+            /*cursor: url('http://csscursor.info/source/santahand.png'), default;*/
         }
 
             .zoom-effect:hover {
@@ -145,6 +145,7 @@
                             <li><a href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post </a></li>
                             <li><a href="@Url.Action("Index", "GalleryPost")">Gallery Post </a></li>
                             <li><a href="@Url.Action("Index", "JobCVPdf")">Job CV Pdf </a></li>
+                            <li><a href="@Url.Action("Index", "FoundationDayTShirtDistributions")">FoundationDay</a></li>
                             <li><a href="#">IOS Development </a></li>
                             <li><a target="_blank" href="http://localhost:50028/WebForm/MainPage.aspx">Our Website </a></li>
                         </ul>
@@ -176,18 +177,18 @@
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Free Services </a>
 
         @*<div class="dropdown">
-            <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
-                <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> IT Solutions
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li><a href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post </a></li>
-                <li><a href="#">Mobile Development </a></li>
-                <li><a href="#">Web Development </a></li>
-                <li><a href="#">IOS Development </a></li>
-                <li><a target="_blank" href="http://localhost:50028/WebForm/MainPage.aspx">Our Website </a></li>
-            </ul>
-        </div>*@
+                <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> IT Solutions
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post </a></li>
+                    <li><a href="#">Mobile Development </a></li>
+                    <li><a href="#">Web Development </a></li>
+                    <li><a href="#">IOS Development </a></li>
+                    <li><a target="_blank" href="http://localhost:50028/WebForm/MainPage.aspx">Our Website </a></li>
+                </ul>
+            </div>*@
 
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact</a>
@@ -214,68 +215,5 @@
             </div>
         </div>
     </footer>
-
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-
-    </script>
-
-    @*<footer id="footer" style="background-color: #3A3A3D;">
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row" style="color: white">
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Website Name</h3>
-                            <hr>
-                            <p style="color: gainsboro">
-                                Use this document as a way to quickly start any new project.
-                                All you get is this text and a mostly barebones HTML document.
-                            </p>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Usefull link</h3>
-                            <table class="table" style="margin-top: 20px">
-                                <tr>
-                                    <td><a style="color: orange" href="#">IT solutions</a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a style="color: orange" href="#">Mobile development</a> </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Follow Us</h3>
-                            <hr>
-                            <img src="~/Image/facebook.png" Style="width: 40px; height: 40px" />
-                            <img src="~/Image/twitter.png" Style="width: 40px; height: 40px" />
-                            <img src="~/Image/instagram.png" Style="width: 40px; height: 40px" />
-                            <img src="~/Image/google.png" Style="width: 40px; height: 40px" />
-                            <img src="~/Image/linkedin.png" Style="width: 40px; height: 40px" />
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                            <h3>Address</h3>
-                            <hr>
-                            <div style="color: orange">
-                                <p>46/1 Shukrabad, Dhanmondi.</p>
-                                <p>Dhaka, Bangladesh</p>
-                            </div>
-                        </div>
-                    </div>
-                    <hr style="color: white">
-                    <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
-                </div>
-            </div>
-        </footer>*@
 </body>
 </html>
-

@@ -43,8 +43,8 @@ jegula page master page theke add content page create kora hoyese--%>
                 $("[id*=hfColumnRepeat]").val(1);
                 $("[id*=btnfake]").click();
             }
-            if (width > 540 && width <= 768 && ratio != "768" && $("[id*=hfColumnRepeat]").val() != "2") {
-                $("[id*=hfColumnRepeat]").val(2);
+            if (width > 540 && width <= 768 && ratio != "768" && $("[id*=hfColumnRepeat]").val() != "1") {
+                $("[id*=hfColumnRepeat]").val(1);
                 $("[id*=btnfake]").click();
             }
             else if (width > 768 && width <= 980 && ratio != "980" && $("[id*=hfColumnRepeat]").val() != "2") {
@@ -420,7 +420,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <br />
 
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center hidden-xs">
             <p style="font-family: Impact; font-size: 30px">How does it work?</p>
             <br />
             <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
@@ -446,6 +446,35 @@ jegula page master page theke add content page create kora hoyese--%>
             <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
                 <img class="logoBounce" style="height: 100px; width: 100px" src="../Image/icons8-idea-64.png" />
                 <h4><b>Proposed solution</b></h4>
+            </div>
+        </div>
+
+        <div class="row text-center hidden-lg hidden-md hidden-sm">
+            <p style="font-family: Impact; font-size: 30px">How does it work?</p>
+            <br />
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-increase-64.png" />
+                <h5><b>improvements</b></h5>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-laptop-64.png" />
+                <h5><b>Need analysis</b></h5>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-in-transit-64.png" />
+                <h5><b>Development</b></h5>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im2" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-windows-client-64.png" />
+                <h5><b>Start of project</b></h5>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-comments-64.png" />
+                <h5><b>Requirement analysis</b></h5>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-4 im1" style="color: orange">
+                <img class="logoBounce" style="height: 70px; width: 70px" src="../Image/icons8-idea-64.png" />
+                <h5><b>Proposed solution</b></h5>
             </div>
 
         </div>
@@ -614,7 +643,7 @@ jegula page master page theke add content page create kora hoyese--%>
     <div class="container">
         <div class="row">
             <div class="text-center">
-                <p style="font-family: Impact; font-size: 50px;">Tech news from the Company blog</p>
+                <p style="font-family: Impact; font-size: 30px;">Tech news from the Company blog</p>
             </div>
         </div>
         <br />
@@ -734,7 +763,7 @@ jegula page master page theke add content page create kora hoyese--%>
             <div class="modal-content" style="background-color: darkgray">
                 <div class="modal-header">
                     <button class="close" data-dismiss="modal" style="color: black; font-size: 40px">&times;</button>
-                    <h4 class="modal-title h3 text-center" style="font-size: 30px"><b>Watch video of how it works here</b></h4>
+                    <p class="modal-title text-center" style="font-size: 23px"><b>Watch video of how it works here</b></p>
                 </div>
                 <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <br />

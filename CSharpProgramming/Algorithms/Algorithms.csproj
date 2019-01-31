@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Algorithms.NumberTheory.BigIntegerFactorial</StartupObject>
+    <StartupObject>Algorithms.Sorting.MergeSort</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

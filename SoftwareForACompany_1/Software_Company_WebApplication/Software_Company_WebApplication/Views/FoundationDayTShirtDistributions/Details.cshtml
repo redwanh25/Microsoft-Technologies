@@ -1,0 +1,58 @@
+﻿@model Software_Company_WebApplication.Models.FoundationDayTShirtDistribution
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>FoundationDayTShirtDistribution</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentID)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.StudentID)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TokenNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TokenNumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TShirtSize)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TShirtSize)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.QRCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.QRCode)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>
