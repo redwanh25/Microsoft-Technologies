@@ -6,7 +6,7 @@
 
 <style>
     /*well k override kora hoise.*/
-    .well {
+    .inner .well {
         min-height: 10px;
         padding: 5px;
         margin-bottom: 10px;
@@ -17,6 +17,7 @@
     }
 </style>
 
+<br /><br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -37,7 +38,7 @@
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-user"></span>
                                 </span>
-                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder="Enter Your Name" } })
+                                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder="Enter Your Name", @required = true } })
                             </div>
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
@@ -49,7 +50,7 @@
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-phone-alt"></span>
                                 </span>
-                                @Html.EditorFor(model => model.Phone_Number, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Phone Number" } })
+                                @Html.EditorFor(model => model.Phone_Number, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Phone Number", @required = true } })
                             </div>
                             @Html.ValidationMessageFor(model => model.Phone_Number, "", new { @class = "text-danger" })
                         </div>
@@ -63,7 +64,7 @@
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon-envelope"></span>
                                 </span>
-                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Email" } })
+                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Email", @required = true } })
                             </div>
                             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
@@ -75,7 +76,7 @@
                                 <span class="input-group-addon">
                                     <span class="glyphicon glyphicon glyphicon-home"></span>
                                 </span>
-                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Address" } })
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Your Address", @required = true } })
                             </div>
                             @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                         </div>
@@ -85,7 +86,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="form-group has-success">
                             <label>Message </label>
-                            @Html.TextAreaFor(model => model.Message, new { @rows = 4, @class = "form-control", @placeholder = "Enter Your Message" })
+                            @Html.TextAreaFor(model => model.Message, new { @rows = 4, @class = "form-control", @placeholder = "Enter Your Message", @required = true })
                         </div>
                         @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
                     </div>
@@ -100,7 +101,7 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                 <br />
                 <br />
-                <div>
+                <div class="inner">
                     <div class="well animated fadeInRight">
                         <h4>Address:</h4>
                         <p>Abcdefghijklmn 00, Abcde ABC</p>

@@ -137,9 +137,11 @@
     <Compile Include="Controllers\ApplyForAJobController.cs" />
     <Compile Include="Controllers\Blog_tblController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HelpWithADefinedProjectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HowDoesItWorkController.cs" />
+    <Compile Include="Controllers\IOSDevelopmentController.cs" />
     <Compile Include="Controllers\MainPageBlog_tblController.cs" />
     <Compile Include="Controllers\WebDevelopmentController.cs" />
     <Compile Include="Global.asax.cs">
@@ -147,6 +149,9 @@
     </Compile>
     <Compile Include="Models\Blog_tbl.cs">
       <DependentUpon>Model_BlogTableMainPage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Gallery_tbl.cs">
+      <DependentUpon>Model_Gallery.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\JobCVPdf_tbl.cs">
       <DependentUpon>Model_ApplyForAJob.tt</DependentUpon>
@@ -195,6 +200,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_ContactUs.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Gallery.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Gallery.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Gallery.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Gallery.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_Gallery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_Gallery.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonMessage_tbl.cs">
       <DependentUpon>Model_ContactUs.tt</DependentUpon>
@@ -267,6 +287,7 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\bootstrap.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\js\npm.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert_IHover\GalleryGrid\gallery-grid.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\IHover\ihover.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\jQuery\uncompressed\jquery-3.3.1.js" />
@@ -303,6 +324,16 @@
       <DependentUpon>Model_ContactUs.edmx</DependentUpon>
       <LastGenOutput>Model_ContactUs.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model_Gallery.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Gallery.edmx</DependentUpon>
+      <LastGenOutput>Model_Gallery.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model_Gallery.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_Gallery.edmx</DependentUpon>
+      <LastGenOutput>Model_Gallery.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model_BlogTableMainPage.edmx">
@@ -334,6 +365,13 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <EntityDeploy Include="Models\Model_Gallery.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_Gallery.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model_Gallery.edmx.diagram">
+      <DependentUpon>Model_Gallery.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -367,9 +405,12 @@
     <Content Include="Views\HowDoesItWork\Index.cshtml" />
     <Content Include="Views\ApplyForAJob\Create.cshtml" />
     <Content Include="Views\HelpWithADefinedProject\Index.cshtml" />
+    <Content Include="Views\IOSDevelopment\Index.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="GalleryImage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

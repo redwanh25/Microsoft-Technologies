@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Software_Company_Website.Models.Gallery_tbl>
+@using Software_Company_Website.Controllers;
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+@*<link href="~/jquery_Bootstrap_SweetAlert_IHover/GalleryGrid/gallery-grid.css" rel="stylesheet" />*@
+
+<style>
+    .imageWeb {
+        transition: all 0.2s ease;
+    }
+
+        .imageWeb:hover {
+            transform: scale(1.03);
+            box-shadow: -2px 4px 22px #000
+        }
+</style>
+
+<br /><br />
+
+<div class="container">
+        <h2 class="text-center" style="font-family:Impact">Image Gallery</h2>
+        <h3 class="page-description text-center shadow_T">
+            Our employees are our most valuable assets.
+            Indpro has over 80 employees, skilled in various technologies and platforms.
+        </h3>
+        <br /><br /><br />
+        <div class="tz-gallery">
+            @foreach (var item in Model)
+            {
+                <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                    <div class="inner" align="center">
+                        <div class="card" style="padding:10px">
+                            @{
+                                var imgSrc = "";
+                                if (item.GalleryImage != null)
+                                {
+                                    var base64 = Convert.ToBase64String(item.GalleryImage);
+                                    imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                }
+                            }
+                            @*@GalleryController.hrefLink(item.Id, item.GalleryImage)*@
+                            <a class="lightbox" href="../Image/benches.jpg">
+                                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb" />       @*height:100px; width:150px*@
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+    </div>
+</div>
+
+<script type="text/javascript">
+    baguetteBox.run('.tz-gallery');
+</script>

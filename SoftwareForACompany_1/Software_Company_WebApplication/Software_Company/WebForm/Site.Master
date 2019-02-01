@@ -504,9 +504,9 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                    <div id="divError" class="alert alert-danger collapse animated zoomIn">
-                                        <button id="linkClose" class="close">&times;</button>
-                                        <div id="divErrorText"></div>
+                                    <div id="divError2" class="alert alert-danger collapse animated zoomIn">
+                                        <button id="linkClose2" class="close">&times;</button>
+                                        <div id="divErrorText2"></div>
                                     </div>
                                 </div>
                             </div>
@@ -551,14 +551,14 @@
                 if ($('#Message').val().trim() === '') {
                     str += "Message is missing ** ";
                 }
-                $('#divErrorText').text(str);
-                $('#divError').show('fade');
+                $('#divErrorText2').text(str);
+                $('#divError2').show('fade');
                 return false;   // return false na dile hobe na. return false er jonno button ta kaj korbe na.
             }
         });
 
-        $('#linkClose').click(function () {
-            $('#divError').hide('fade');
+        $('#linkClose2').click(function () {
+            $('#divError2').hide('fade');
             return false;   // return false na dile hobe na. return false er jonno crose button a click korle
             // popup modal chole jay na.
         });

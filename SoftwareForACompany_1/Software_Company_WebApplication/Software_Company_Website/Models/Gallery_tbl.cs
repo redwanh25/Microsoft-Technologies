@@ -11,17 +11,10 @@ namespace Software_Company_Website.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class PersonMessage_tbl
+    
+    public partial class Gallery_tbl
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        [Display(Name = "Phone Number")]
-        public string Phone_Number { get; set; }
-        public string Email { get; set; }
-        public string Address { get; set; }
-        public string Message { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public byte[] GalleryImage { get; set; }
     }
 }

@@ -17,7 +17,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-    <link href="../jquery_Bootstrap_SweetAlert_IHover/GalleryGrid/gallery-grid.css" rel="stylesheet" />
+    
     <link href="~/jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
     <style>
         a, a:hover, a:active, a:visited, a:focus {
@@ -200,7 +200,7 @@
                             <li><a href="#">E-commerce Solution </a></li>
                             <li><a href="#">Mobile Development </a></li>
                             <li><a href="@Url.Action("Index", "WebDevelopment")">Web Development </a></li>
-                            <li><a href="#">IOS Development </a></li>
+                            <li><a href="@Url.Action("Index", "IOSDevelopment")">IOS Development </a></li>
                         </ul>
                     </li>
 
@@ -228,7 +228,7 @@
                             <li><a href="#">Clients </a></li>
                         </ul>
                     </li>
-                    <li><a class="zoom-effect" href="#">Gallery</a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
                     <li><a class="zoom-effect" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
                     <li><a class="zoom-effect" href="@Url.Action("Index", "Blog_tbl")">Blog</a></li>
                 </ul>
@@ -249,8 +249,8 @@
                     <div class="item active">
                         <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
-                            <h1 class="animated bounceInDown hidden-xs" style="color: orange">Är din webbsida smart?</h1>
-                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange">Är din webbsida smart?</h4>
+                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida smart?</b></h1>
+                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida smart?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
                                 <h3 class="well animated bounceInRight" style="color:black">Vi hjälper dig att optimera din hemsida genom att:</h3>
@@ -276,8 +276,8 @@
                     <div class="item">
                         <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
-                            <h1 class="animated bounceInDown hidden-xs" style="color: orange">Är din webbsida responsive?</h1>
-                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange">Är din webbsida responsive?</h4>
+                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida responsive?</b></h1>
+                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida responsive?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
                                 <h3 class="well animated bounceInRight" style="color:black">Vi hjälper dig att optimera din hemsida genom att:</h3>
@@ -287,14 +287,14 @@
                                         - Den anpassar automatisk till den aktuella enheten.
                                     </h3>
                                 </div>
-                                <h5 class="animated bounceInLeft hidden-sm hidden-md hidden-lg">
-                                    Vi hjälper dig att optimera din hemsida genom att:
-                                    <br />
-                                    - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC.
-                                    <br />
-                                    - Den anpassar automatisk till den aktuella enheten.
-                                </h5>
                             </div>
+                            <h5 class="animated bounceInLeft hidden-sm hidden-md hidden-lg">
+                                Vi hjälper dig att optimera din hemsida genom att:
+                                <br />
+                                - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC.
+                                <br />
+                                - Den anpassar automatisk till den aktuella enheten.
+                            </h5>
                         </div>
                     </div>
 
@@ -393,9 +393,57 @@
             </div>
         </div>
     </footer>
+
+    @*<div class="modal fade" id="ContactModal" tabindex="-1" data-keyboard="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="myForm">
+                    <div class="modal-header">
+                        <button class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title h3 text-center" style="color: darkslateblue">Contact With Us</h4>
+                    </div>
+                    <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group animated zoomIn">
+                                <label>Name</label>
+                                <input required type="text" id="Name" class="form-control" placeholder="Name" />
+                            </div>
+                            <div class="form-group animated zoomIn">
+                                <label>Email</label>
+                                <input required type="text" id="Email" class="form-control" placeholder="Email" />
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="form-group animated zoomIn">
+                                <label>Phone Number</label>
+                                <input required type="text" id="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
+                            </div>
+                            <div class="form-group animated zoomIn">
+                                <label>Address</label>
+                                <input required type="text" id="Address" class="form-control" placeholder="Address" />
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="form-group animated zoomIn">
+                                <label>Message </label>
+                                <textarea required rows="4" type="text" id="Message" class="form-control" placeholder="Message"> </textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <input id="Send1" type="submit" value="Send Message" class="btn btn-primary btn-sm" />
+                        <input id="btnHideModal" type="submit" value="Close" class="btn btn-primary btn-sm" data-dismiss="modal" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div>
         <input id="ContactPopUp" style="padding-top: 10px" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
-    </div>
+    </div>*@
 
 </body>
 </html>

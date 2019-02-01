@@ -25,10 +25,11 @@ namespace Software_Company_Website.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Phone_Number,Email,Address,Message,Date")] PersonMessage_tbl personMessage_tbl)
+        public ActionResult Create([Bind(Include = "Id,Name,Phone_Number,Email,Address,Message")] PersonMessage_tbl personMessage_tbl)
         {
             if (ModelState.IsValid)
             {
+                personMessage_tbl.Date = DateTime.Now;
                 db.PersonMessage_tbl.Add(personMessage_tbl);
                 db.SaveChanges();
                 return RedirectToAction("Create");
