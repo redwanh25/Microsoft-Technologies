@@ -1,5 +1,10 @@
 ﻿
 @{
+    ViewBag.Title = "_Layout_ForContactPage";
+}
+
+
+@{
     //ViewBag.Title = "_Layout_Default";
 }
 
@@ -179,7 +184,6 @@
     </style>
 
     <style>
-
     </style>
 </head>
 <body style="padding-top:88px; font-family: Lora; overflow-x: hidden;">
@@ -402,57 +406,6 @@
         </div>
     </footer>
 
-    <div class="modal fade" id="ContactModal" tabindex="-1" data-keyboard="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form id="myForm">
-                    <div class="modal-header">
-                        <button class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title h3 text-center" style="color: darkslateblue">Contact With Us</h4>
-                    </div>
-                    <div class="modal-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group animated zoomIn">
-                                <label>Name</label>
-                                <input required type="text" id="Name" class="form-control" placeholder="Name" />
-                            </div>
-                            <div class="form-group animated zoomIn">
-                                <label>Email</label>
-                                <input required type="text" id="Email" class="form-control" placeholder="Email" />
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="form-group animated zoomIn">
-                                <label>Phone Number</label>
-                                <input required type="text" id="PhoneNumber" class="form-control" placeholder="PhoneNumber" />
-                            </div>
-                            <div class="form-group animated zoomIn">
-                                <label>Address</label>
-                                <input required type="text" id="Address" class="form-control" placeholder="Address" />
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="form-group animated zoomIn">
-                                <label>Message </label>
-                                <textarea required rows="4" type="text" id="Message" class="form-control" placeholder="Message"></textarea>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <input id="Send1" type="submit" value="Send Message" class="btn btn-primary btn-sm" />
-                        <input id="btnHideModal" type="submit" value="Close" class="btn btn-primary btn-sm" data-dismiss="modal" />
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <input id="ContactPopUp" style="padding-top: 10px" type="button" value="Contact With Us" class="btn btn-success sideBanner noHover" data-target="#ContactModal" data-toggle="modal" />
-    </div>
-
 </body>
 </html>
 
@@ -467,7 +420,7 @@
                 $('.navbar').css("min-height", "");
                 $('#navbutt').removeAttr("style");
                 $('#navdiv').removeAttr("style");
-            
+
                 $('#imgnav').removeClass("bounceInLeft");
                 $('.navbar').css("transition", "all .3s ease");
                 $('#navbutt').css("transition", "all .3s ease");
@@ -490,28 +443,5 @@
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('#Send1').click(function () {           
-            $.ajax({
-                url: '/Controllers/MainPageBlog_tbl/ContactPopUp',
-                method: 'POST',
-                data: {                  
-                    name: $('#Name').val(),
-                    email: $('#Email').val(),
-                    phoneNumber: $('#PhoneNumber').val(),
-                    address: $('#Address').val(),
-                    message: $('#Message').val()
-                },
 
-                success: function (response) {
-                    //swal("Thank You!", "For Sending Message. We Will Contact With You.", "success");
-                },
 
-                error: function (jqXHR) {
-                    
-                }
-            });
-        });
-    });
-</script>

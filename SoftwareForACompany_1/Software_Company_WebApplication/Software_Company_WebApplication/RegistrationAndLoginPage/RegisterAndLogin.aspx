@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
     <title></title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -121,7 +121,7 @@
         }
     </style>
 </head>
-<body style="padding-top: 50px; font-family:  Lora ">
+<body style="padding-top: 50px; font-family: Lora">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B">
             <div class="container">
@@ -131,11 +131,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand zoom-effect" style="font-size: 30px;" href="#">Logo</a>
-                    <a class="navbar-brand zoom-effect" style=" padding-left:30px; font-size: 15px;" href="http://localhost:50028/WebForm/MainPage.aspx">Visit Our WebSite </a>
+                    <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">
+                        <img width="60" class="animated bounceInLeft" id="imgnav" src="../Image/nomaa-logo-125-63.png" />
+                    </a>
+                    <a class="navbar-brand zoom-effect" style="padding-left: 30px; font-size: 15px;" href="http://localhost:53859/">Visit Our WebSite </a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    
+
                     <div class="navbar-form navbar-right animated bounceInDown">
                         <div class="form-group">
                             <div class="input-group">

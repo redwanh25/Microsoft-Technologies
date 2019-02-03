@@ -13,7 +13,7 @@
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <script src="~/Scripts/bootstrap.min.js"></script>
-
+    <link href="~/jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
     <script src="~/JavaScriptFile/Login.js"></script>
     <script src="~/JavaScriptFile/Logout.js"></script>
     <style>
@@ -122,19 +122,21 @@
         }
     </style>
 </head>
-<body style="padding-top:90px; font-family:  Lora ">
-    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:16px">
+<body style="padding-top:130px; font-family:  Lora ">
+    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:17px; min-height:88px"">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button id="navbutt" style="margin-top:45px" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>
-                <a class="navbar-brand zoom-effect" style="font-size: 30px; padding-right:30px" href="@Url.Action("Index", "Home")">Logo</a>
+                <a class="navbar-brand zoom-effect" style="font-size: 30px" href="@Url.Action("Index", "Home")">
+                    <img class="animated bounceInLeft" id="imgnav" src="../Image/nomaa-logo-125-63.png" />
+                </a>
             </div>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
@@ -145,9 +147,9 @@
                             <li><a href="@Url.Action("Index", "BlogPostUpdateVersion")">Blog Post </a></li>
                             <li><a href="@Url.Action("Index", "GalleryPost")">Gallery Post </a></li>
                             <li><a href="@Url.Action("Index", "JobCVPdf")">Job CV Pdf </a></li>
-                            <li><a href="@Url.Action("Index", "FoundationDayTShirtDistributions")">FoundationDay</a></li>
+                            @*<li><a href="@Url.Action("Index", "FoundationDayTShirtDistributions")">FoundationDay</a></li>*@
                             <li><a href="#">IOS Development </a></li>
-                            <li><a target="_blank" href="http://localhost:50028/WebForm/MainPage.aspx">Our Website </a></li>
+                            <li><a target="_blank" href="http://localhost:53859/">Our Website </a></li>
                         </ul>
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
@@ -161,12 +163,11 @@
             </div>
         </div>
     </nav>
-
     <div id="mySidenav" class="sidenav shadow_B">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <div class="row">
+        <a style="padding-top:50px" href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="row" style="padding-top:50px">
             <div style="padding-left:20px">
-                <h3 style="color:orange">Company Name</h3>
+                <h3 style="color:orange">Nomaa IT-Farm</h3>
             </div>
         </div>
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us</a>
@@ -195,11 +196,6 @@
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us </a>
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Services </a>
         <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
-        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact Us</a>
-        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Free Services </a>
-        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span> Clients</a>
-        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span> Contact</a>
-        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span> About Us </a>
     </div>
 
     <div class="container body-content">
@@ -217,3 +213,47 @@
     </footer>
 </body>
 </html>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        var scrollTop = 0;
+        $(window).scroll(function () {
+            scrollTop = $(window).scrollTop();
+
+            if (scrollTop >= 100) {
+                $('#imgnav').attr("width", "60");
+                $('.navbar').css("min-height", "");
+                $('#navbutt').removeAttr("style");
+                $('#navdiv').removeAttr("style");
+
+                $('#imgnav').removeClass("bounceInLeft");
+                $('.navbar').css("transition", "all .3s ease");
+                $('#navbutt').css("transition", "all .3s ease");
+                $('#navdiv').css("transition", "all .3s ease");
+
+
+            } else if (scrollTop < 100) {
+                $('#imgnav').removeAttr("width");
+                $('.navbar').css("min-height", "88px");
+                $('#navbutt').css("margin-top", "45px");
+                $('#navdiv').css("padding-top", "20px");
+
+                $('#imgnav').addClass("bounceInLeft");
+                $('.navbar').css("transition", "all .3s ease");
+                $('#navbutt').css("transition", "all .3s ease");
+                $('#navdiv').css("transition", "all .3s ease");
+            }
+
+        });
+    });
+</script>

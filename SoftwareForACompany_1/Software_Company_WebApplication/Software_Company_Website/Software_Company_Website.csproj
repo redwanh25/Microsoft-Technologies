@@ -264,6 +264,7 @@
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-3.jpg" />
     <Content Include="Image\mountain-4.jpg" />
+    <Content Include="Image\nomaa-logo-125-63.png" />
     <Content Include="Image\park.jpg" />
     <Content Include="Image\PHP_Blue_logo.png" />
     <Content Include="Image\playButtonFrame.png" />
@@ -407,6 +408,7 @@
     <Content Include="Views\HelpWithADefinedProject\Index.cshtml" />
     <Content Include="Views\IOSDevelopment\Index.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_ForContactPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

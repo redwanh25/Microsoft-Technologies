@@ -22,13 +22,113 @@
 <br /><br />
 
 <div class="container">
-        <h2 class="text-center" style="font-family:Impact">Image Gallery</h2>
-        <h3 class="page-description text-center shadow_T">
-            Our employees are our most valuable assets.
-            Indpro has over 80 employees, skilled in various technologies and platforms.
-        </h3>
-        <br /><br /><br />
-        <div class="tz-gallery">
+
+    <h2 class="text-center" style="font-family:Impact">Image Gallery</h2>
+    <h3 class="page-description text-center shadow_T">
+        Our employees are our most valuable assets.
+        Indpro has over 80 employees, skilled in various technologies and platforms.
+    </h3>
+    <br /><br /><br />
+    <div class="tz-gallery">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/park.jpg">
+                        <img src="../Image/park.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/benches.jpg">
+                        <img src="../Image/benches.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/bridge.jpg">
+                        <img src="../Image/bridge.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/coast.jpg">
+                        <img src="../Image/coast.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/rails.jpg">
+                        <img src="../Image/rails.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/rocks.jpg">
+                        <img src="../Image/rocks.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/park.jpg">
+                        <img src="../Image/park.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/benches.jpg">
+                        <img src="../Image/benches.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/bridge.jpg">
+                        <img src="../Image/bridge.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/coast.jpg">
+                        <img src="../Image/coast.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/rails.jpg">
+                        <img src="../Image/rails.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
+                <div class="card" align="center" style="padding:10px">
+                    <a class="lightbox" href="../Image/rocks.jpg">
+                        <img src="../Image/rocks.jpg" alt="Park" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="tz-gallery">
             @foreach (var item in Model)
             {
                 <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
@@ -42,15 +142,14 @@
                                     imgSrc = String.Format("data:image/gif;base64,{0}", base64);
                                 }
                             }
-                            @*@GalleryController.hrefLink(item.Id, item.GalleryImage)*@
-                            <a class="lightbox" href="../Image/benches.jpg">
-                                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb" />       @*height:100px; width:150px*@
+                            <a class="lightbox" href="@GalleryController.hrefLink(item.Id, item.GalleryImage)">
+                                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; min-height:171px" class="img-responsive imageWeb" />
                             </a>
                         </div>
                     </div>
                 </div>
             }
-    </div>
+        </div>*@
 </div>
 
 <script type="text/javascript">

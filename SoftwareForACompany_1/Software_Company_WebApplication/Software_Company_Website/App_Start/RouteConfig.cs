@@ -13,6 +13,10 @@ namespace Software_Company_Website
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Mvc routes
+            routes.MapMvcAttributeRoutes();     // if we comment this line route will not work.
+            // look at /Controllers/MainPageBlog_tbl/ContactPopUp
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

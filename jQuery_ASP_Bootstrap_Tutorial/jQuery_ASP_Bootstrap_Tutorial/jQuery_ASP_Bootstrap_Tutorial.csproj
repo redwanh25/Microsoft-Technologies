@@ -85,6 +85,7 @@
     <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.aspx" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormControl.html" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormValidation.aspx" />
+    <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\NavigationBar_Joss.aspx" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar.aspx" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar_Top.aspx" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_30_To_40\Accordion_Joss.aspx" />
@@ -96,6 +97,7 @@
     <Content Include="image\icons8-lock-50.png" />
     <Content Include="image\IMG_20180517_022534-1.jpg" />
     <Content Include="image\next upload pic.jpg" />
+    <Content Include="image\nomaa-logo-125-63.png" />
     <Content Include="image\redwan_enan.jpg" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css" />
@@ -196,6 +198,13 @@
     </Compile>
     <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\FormValidation.aspx.designer.cs">
       <DependentUpon>FormValidation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\NavigationBar_Joss.aspx.cs">
+      <DependentUpon>NavigationBar_Joss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\NavigationBar_Joss.aspx.designer.cs">
+      <DependentUpon>NavigationBar_Joss.aspx</DependentUpon>
     </Compile>
     <Compile Include="Bootstrap_Tutorial\Bootstrap_20_To_30\Navigation_Bar.aspx.cs">
       <DependentUpon>Navigation_Bar.aspx</DependentUpon>

@@ -395,6 +395,7 @@
     <Content Include="Image\google.png" />
     <Content Include="Image\instagram.png" />
     <Content Include="Image\linkedin.png" />
+    <Content Include="Image\nomaa-logo-125-63.png" />
     <Content Include="Image\register.png" />
     <Content Include="Image\login.png" />
     <Content Include="Image\twitter.png" />

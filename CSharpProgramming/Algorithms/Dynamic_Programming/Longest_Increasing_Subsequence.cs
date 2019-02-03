@@ -37,4 +37,6 @@ namespace Algorithms.Dynamic_Programming
 
 10 22 9 33 21 50 41 60
 
+2 5 1 8 3
+
 */
