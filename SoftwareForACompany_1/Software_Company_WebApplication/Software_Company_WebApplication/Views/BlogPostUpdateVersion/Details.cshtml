@@ -10,7 +10,7 @@
 <div>
     <h4>Blog_tbl</h4>
     <hr />
-    <div class="row" style="font-size:18px">
+    @*<div class="row" style="font-size:18px">
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-sm-offset-1">
             <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
@@ -57,28 +57,28 @@
                 </div>
             </div>
         </div>
-    </div>
-    @*<dl class="dl-horizontal">
+    </div>*@
+    <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Title)
+                <label style="font-size:18px; color:royalblue">@Html.DisplayNameFor(model => model.Title) :</label>
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Title)
+                <label style="font-size:16px">@Html.DisplayFor(model => model.Title)</label>
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Date)
+                <label style="font-size:18px; color:royalblue">@Html.DisplayNameFor(model => model.Date) :</label>
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Date)
-            </dd>
+                <label style="font-size:18px; color:red">@Html.DisplayFor(model => model.Date)</label>
+</dd>
 
             <dt>
                 <br />
-                @Html.DisplayNameFor(model => model.BlogImage)
-            </dt>
+                <label style="font-size:18px; color:royalblue">@Html.DisplayNameFor(model => model.BlogImage) :</label>
+</dt>
 
             <dd>
                 <br />
@@ -95,13 +95,13 @@
             </dd>
 
             <dt>
-                @Html.DisplayNameFor(model => model.Text)
+                <label style="font-size:18px; color:royalblue">@Html.DisplayNameFor(model => model.Text) :</label>
             </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Text)
+                <label style="font-size:16px">@(new HtmlString(Model.Text))</label>
             </dd>
-        </dl>*@
+        </dl>
 </div>
 <p>
     @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@

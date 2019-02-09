@@ -15,6 +15,8 @@
     <meta name="viewport" content="width=device-width" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
     <title></title>
+    @*<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">*@
+    <link rel="icon" type="image/png" href="~/Image/Nomaa.png">
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -31,8 +33,8 @@
         }
 
         .bluerEffect {
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
+            filter: blur(4px);
+            -webkit-filter: blur(4px);
         }
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
@@ -186,8 +188,8 @@
     <style>
     </style>
 </head>
-<body style="padding-top:88px; font-family: Lora; overflow-x: hidden;">
-    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size: 17px; opacity: .95; min-height:88px">
+<body style="padding-top:84px; font-family: Lora; overflow-x: hidden;">
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" style="font-size: 17px; opacity: .95; min-height:88px">
         <div class="container">
             <div class="navbar-header">
                 <button id="navbutt" style="margin-top:45px" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -240,7 +242,19 @@
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
                     <li><a class="zoom-effect" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "Blog_tbl")">Blog</a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPage")">Blog</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                            |
+                            <span class="caret"></span>
+                            |
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">swedish</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -10,11 +10,11 @@ using Software_Company_Website.Models;
 
 namespace Software_Company_Website.Controllers
 {
-    public class Blog_tblController : Controller
+    public class BlogPageController : Controller
     {
         private BlogTableMainPageDBEntities db = new BlogTableMainPageDBEntities();
 
-        // GET: Blog_tbl
+        // GET: BlogPage
         public ActionResult Index()
         {
             List<Blog_tbl> list = db.Blog_tbl.ToList();
@@ -22,7 +22,7 @@ namespace Software_Company_Website.Controllers
             return View(list);
         }
 
-        // GET: Blog_tbl/Details/5
+        // GET: BlogPage/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

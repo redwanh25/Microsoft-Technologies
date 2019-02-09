@@ -208,7 +208,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\BlogPostUpdateVersionController.cs" />
     <Compile Include="Controllers\EmployeeInformationController.cs" />
     <Compile Include="Controllers\FoundationDayTShirtDistributionsController.cs" />
@@ -396,6 +395,7 @@
     <Content Include="Image\instagram.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\nomaa-logo-125-63.png" />
+    <Content Include="Image\Nomaa.png" />
     <Content Include="Image\register.png" />
     <Content Include="Image\login.png" />
     <Content Include="Image\twitter.png" />
@@ -567,7 +567,6 @@
     <Content Include="Views\Shared\_Layout_User_Two.cshtml" />
     <Content Include="Views\Person\Index.cshtml" />
     <Content Include="Views\Person\Details.cshtml" />
-    <Content Include="Views\BlogPost\Blog_Post.cshtml" />
     <Content Include="Views\BlogPostUpdateVersion\Create.cshtml" />
     <Content Include="Views\BlogPostUpdateVersion\Delete.cshtml" />
     <Content Include="Views\BlogPostUpdateVersion\Details.cshtml" />
@@ -626,6 +625,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

@@ -11,7 +11,8 @@ namespace Software_Company_Website.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Blog_tbl
     {
         public int Id { get; set; }

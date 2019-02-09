@@ -12,6 +12,7 @@ namespace Software_Company_WebApplication.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web.Mvc;
 
     public partial class Blog_tbl
     {

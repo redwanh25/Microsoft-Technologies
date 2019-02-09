@@ -103,25 +103,51 @@ namespace Software_Company_Website.Controllers
             {
                 string senderEmail = ConfigurationManager.AppSettings["senderEmail"].ToString();
                 string senderPassword = ConfigurationManager.AppSettings["senderPassword"].ToString();
+                string smtpClient = ConfigurationManager.AppSettings["SmtpClient"].ToString();
+                int smtpPort = int.Parse(ConfigurationManager.AppSettings["SMTPPort"].ToString());
 
-                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
-                //SmtpClient client = new SmtpClient("relay-hosting.secureserver.net", 25);
-                client.EnableSsl = true;
-                client.Timeout = 100000;
-                client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential(senderEmail, senderPassword);
-
-                MailMessage mailMessage = new MailMessage(senderEmail, toEmail, subject, emailBody);
-                mailMessage.IsBodyHtml = true;
-                mailMessage.BodyEncoding = Encoding.UTF8;
-                client.Send(mailMessage);
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress(senderEmail);
+                msg.To.Add(toEmail);
+                msg.Subject = subject;
+                msg.Body = emailBody;
+                msg.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient(smtpClient, smtpPort);
+                smtp.Credentials = new NetworkCredential(senderEmail, senderPassword);
+                smtp.EnableSsl = false;
+                smtp.Send(msg);
+                smtp.Dispose();
                 return true;
             }
             catch (Exception ex)
             {
                 return false;
             }
+
+
+            //try
+            //{
+            //    string senderEmail = ConfigurationManager.AppSettings["senderEmail"].ToString();
+            //    string senderPassword = ConfigurationManager.AppSettings["senderPassword"].ToString();
+
+            //    SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            //    //SmtpClient client = new SmtpClient("relay-hosting.secureserver.net", 25);
+            //    client.EnableSsl = true;
+            //    client.Timeout = 100000;
+            //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            //    client.UseDefaultCredentials = false;
+            //    client.Credentials = new NetworkCredential(senderEmail, senderPassword);
+
+            //    MailMessage mailMessage = new MailMessage(senderEmail, toEmail, subject, emailBody);
+            //    mailMessage.IsBodyHtml = true;
+            //    mailMessage.BodyEncoding = Encoding.UTF8;
+            //    client.Send(mailMessage);
+            //    return true;
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
         }
     }
 }

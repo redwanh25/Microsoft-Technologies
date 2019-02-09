@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
     <title></title>
+    @*<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">*@
+    <link rel="icon" type="image/png" href="~/Image/Nomaa.png">
 
     <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -26,8 +28,8 @@
         }
 
         .bluerEffect {
-            filter: blur(5px);
-            -webkit-filter: blur(5px);
+            filter: blur(4px);
+            -webkit-filter: blur(4px);
         }
         /*navigation bar er upor er effect ta aikhane kora ase.*/
         .zoom-effect {
@@ -179,11 +181,10 @@
     </style>
 
     <style>
-
     </style>
 </head>
-<body style="padding-top:88px; font-family: Lora; overflow-x: hidden;">
-    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size: 17px; opacity: .95; min-height:88px">
+<body style="padding-top:84px; font-family: Lora; overflow-x: hidden;">
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" style="font-size: 17px; opacity: .95; min-height:88px">
         <div class="container">
             <div class="navbar-header">
                 <button id="navbutt" style="margin-top:45px" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -191,7 +192,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand zoom-effect" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
+                <a class="navbar-brand" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
+                    @*zoom-effect*@
                     <img class="animated bounceInLeft" id="imgnav" src="~/Image/nomaa-logo-125-63.png" />
                 </a>
             </div>
@@ -236,12 +238,23 @@
                     </li>
                     <li><a class="zoom-effect" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
                     <li><a class="zoom-effect" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "Blog_tbl")">Blog</a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPage")">Blog</a></li>
+                    
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown" >
+                            |
+                            <span class="caret"></span>
+                            |
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">English</a></li>
+                            <li><a href="#">swedish</a></li> 
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-
     <div id="img-car">
         <div class="row">
             <div id="imageCarousel" class="carousel slide carousel-fade" data-interval="5000"
@@ -253,13 +266,14 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                        <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
                             <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida smart?</b></h1>
                             <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida smart?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
-                                <h3 class="well animated bounceInRight" style="color:black">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                <h3 class="animated bounceInRight">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                
                                 <div class="animated bounceInLeft">
                                     <h3>
                                         - Sökoptimering <br />
@@ -280,13 +294,14 @@
                         </div>
                     </div>
                     <div class="item">
-                        <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="../Image/mountain-1.jpg" class="img-responsive bluerEffect">
+                        <img style="width: 100%; min-height: 300px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
                             <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida responsive?</b></h1>
                             <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida responsive?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
-                                <h3 class="well animated bounceInRight" style="color:black">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                <h3 class="animated bounceInRight">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                
                                 <div class="animated bounceInLeft">
                                     <h3>
                                         - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC. <br />

@@ -16,7 +16,15 @@
         <div class="row">
             <label style="font-size:15px">Do you want to remove picture? </label>
             <br />
-            <button class="btn btn-info btn-sm" type="submit" onclick="return confirm('are you sure you want to delete ID = @Model.Id?')"><span class="glyphicon glyphicon-folder-close" style="padding-right:10px"></span>Remove Picture</button>
+            @if (Model.EmployeeImage == null)
+            {
+                <button disabled class="btn btn-danger btn-sm" type="submit" onclick="return confirm('are you sure you want to delete ID = @Model.Id?')"><span class="glyphicon glyphicon-folder-close" style="padding-right:10px"></span>Remove Picture</button>
+            }
+            else
+            {
+                <button class="btn btn-danger btn-sm" type="submit" onclick="return confirm('are you sure you want to delete ID = @Model.Id?')"><span class="glyphicon glyphicon-folder-close" style="padding-right:10px"></span>Remove Picture</button>
+            }
+
         </div>
     </div>
 }

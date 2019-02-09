@@ -135,7 +135,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplyForAJobController.cs" />
-    <Compile Include="Controllers\Blog_tblController.cs" />
+    <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HelpWithADefinedProjectController.cs" />
@@ -242,6 +242,7 @@
     <Content Include="Image\computer1.jpg" />
     <Content Include="Image\crose.jpg" />
     <Content Include="Image\Drupal_Blue_logo.png" />
+    <Content Include="Image\ecommerce_solutions.png" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
     <Content Include="Image\how-does-it-work.jpeg" />
@@ -254,17 +255,23 @@
     <Content Include="Image\icons8-windows-client-64.png" />
     <Content Include="Image\imac_apple_computer1.jpg" />
     <Content Include="Image\instagram.png" />
+    <Content Include="Image\ios_logo-830x400.png" />
     <Content Include="Image\ios_logo.png" />
+    <Content Include="Image\iphone_mobile.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\loader.gif" />
     <Content Include="Image\macbook-pro.jpg" />
     <Content Include="Image\maxresdefault.jpg" />
     <Content Include="Image\MicrosoftNet_Blue_logo.png" />
+    <Content Include="Image\mobile-development.png" />
     <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\mountain-2.jpg" />
     <Content Include="Image\mountain-3.jpg" />
     <Content Include="Image\mountain-4.jpg" />
+    <Content Include="Image\no-image.jpg" />
     <Content Include="Image\nomaa-logo-125-63.png" />
+    <Content Include="Image\Nomaa.png" />
+    <Content Include="Image\nomaa_01.jpg" />
     <Content Include="Image\park.jpg" />
     <Content Include="Image\PHP_Blue_logo.png" />
     <Content Include="Image\playButtonFrame.png" />
@@ -277,6 +284,7 @@
     <Content Include="Image\tunnel.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="Image\video_background2.jpg" />
+    <Content Include="Image\web-development.png" />
     <Content Include="Image\WebDevelopmentPic.jpg" />
     <Content Include="Image\Wordpress_Blue_logo.png" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover\Animate.css" />
@@ -400,7 +408,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Default.cshtml" />
     <Content Include="Views\MainPageBlog_tbl\Index.cshtml" />
-    <Content Include="Views\Blog_tbl\Index.cshtml" />
     <Content Include="Views\ContactUs\Create.cshtml" />
     <Content Include="Views\WebDevelopment\Index.cshtml" />
     <Content Include="Views\HowDoesItWork\Index.cshtml" />
@@ -409,6 +416,8 @@
     <Content Include="Views\IOSDevelopment\Index.cshtml" />
     <Content Include="Views\Gallery\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_ForContactPage.cshtml" />
+    <Content Include="Views\BlogPage\Details.cshtml" />
+    <Content Include="Views\BlogPage\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -433,6 +442,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
