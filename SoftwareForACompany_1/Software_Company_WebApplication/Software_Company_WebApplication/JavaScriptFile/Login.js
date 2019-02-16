@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
     $('#btnLogin').click(function () {
+        $('#loaderDiv').show();
         $.ajax({
             // Post username, password & the grant type to /token
             url: '/token',
@@ -18,11 +19,13 @@ $(document).ready(function () {
                 localStorage.setItem("userName", response.userName);
                 var root = location.protocol + '//' + location.host;
                 window.location.href = root + "/Home/Index";
+                $('#loaderDiv').hide();
                 //window.location.href = "http://localhost:64491/Home/Index";
             },
             // Display errors if any in the Bootstrap alert <div>
             error: function (jqXHR) {
                 swal("Login Failed!", "May Be Your Username Or Password Is Incorrect!", "error");
+                $('#loaderDiv').hide();
             }
         });
     });

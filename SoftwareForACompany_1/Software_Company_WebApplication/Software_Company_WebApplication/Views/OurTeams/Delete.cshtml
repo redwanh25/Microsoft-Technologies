@@ -1,0 +1,64 @@
+﻿@model Software_Company_WebApplication.Models.OurTeam
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>OurTeam</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Designation)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Designation)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.WorkingSince)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.WorkingSince)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeImage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeImage)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

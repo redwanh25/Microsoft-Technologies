@@ -3,9 +3,9 @@
 @{
     ViewBag.Title = "Create";
 }
-<script src="http://localhost:50028/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
-<h2>Create</h2>
 
+<h2>Create</h2>
+<script src="~/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
 @using (Html.BeginForm("Create", "BlogPostUpdateVersion", FormMethod.Post, new { encType = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()

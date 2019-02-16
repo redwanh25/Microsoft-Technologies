@@ -64,10 +64,10 @@ namespace Software_Company_WebApplication.Controllers
                 }
                 blog_tbl.Date = DateTime.Now;
 
-                BlogDivIdClass bdi = new BlogDivIdClass();
-                int id = bdi.BlogDivIdValue();
+                //BlogDivIdClass bdi = new BlogDivIdClass();
+                //int id = bdi.BlogDivIdValue();
 
-                blog_tbl.BlogDivId = "BlogDivId_" + id.ToString();
+                blog_tbl.BlogDivId = "BlogDivId_" + UniqueIdGenerate();
 
                 db.Blog_tbl.Add(blog_tbl);
                 //try
@@ -117,10 +117,10 @@ namespace Software_Company_WebApplication.Controllers
                 }
                 blog_tbl.Date = DateTime.Now;
 
-                BlogDivIdClass bdi = new BlogDivIdClass();
-                int id = bdi.BlogDivIdValue();
+                //BlogDivIdClass bdi = new BlogDivIdClass();
+                //int id = bdi.BlogDivIdValue();
 
-                blog_tbl.BlogDivId = "BlogDivId_" + id.ToString();
+                blog_tbl.BlogDivId = "BlogDivId_" + UniqueIdGenerate();
 
                 BlogImageContains hasImg = new BlogImageContains();
                 bool img = hasImg.hasImage(blog_tbl.Id);
@@ -192,6 +192,16 @@ namespace Software_Company_WebApplication.Controllers
             }
             string str = "Edit/" + id;
             return RedirectToAction(str);
+        }
+
+        public string UniqueIdGenerate()
+        {
+            byte[] buffer1 = Guid.NewGuid().ToByteArray();
+            string number = BitConverter.ToUInt32(buffer1, 8).ToString();
+            number += String.Format("{0:d9}", (DateTime.Now.Ticks / 10) % 1000000000);
+            byte[] buffer2 = Guid.NewGuid().ToByteArray();
+            number += BitConverter.ToUInt32(buffer2, 8).ToString();
+            return number;
         }
 
         protected override void Dispose(bool disposing)

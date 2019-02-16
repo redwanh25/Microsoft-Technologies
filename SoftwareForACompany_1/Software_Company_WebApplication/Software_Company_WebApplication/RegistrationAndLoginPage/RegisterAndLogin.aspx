@@ -10,8 +10,10 @@
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="../JavaScriptFile/Register.js"></script>
-    <script src="../JavaScriptFile/Login.js"></script>
+
+    <%--<script src="../JavaScriptFile/Register.js"></script>--%>
+    <%--<script src="../JavaScriptFile/Login.js"></script>--%>
+
     <script src="../jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
     <link href="../jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
 
@@ -120,6 +122,40 @@
             }
         }
     </style>
+
+    <%--for progressbar--%>
+    <style type="text/css">
+        .modal1 {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .center {
+            z-index: 1000;
+            margin: 300px auto;
+            padding: 10px;
+            width: 110px;
+            height: 110px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .center img {
+                height: 90px;
+                width: 90px;
+            }
+    </style>
+
 </head>
 <body style="padding-top: 50px; font-family: Lora">
     <form id="form1" runat="server">
@@ -185,6 +221,14 @@
                 </div>
             </div>
         </nav>
+
+        <div style="display: none;" class="modal1" id="loaderDiv">
+            <div class="center">
+                <img src="../Image/loader4.gif" />
+                <%--<asp:Image ID="Image1" ImageUrl="../Image/loader.gif" AlternateText="Processing" runat="server" />--%>
+            </div>
+        </div>
+
         <div style="background-color: #E8EAED">
             <br />
             <br />
@@ -474,4 +518,86 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+</script>
+
+<%--login.js file er code ai khane ase. aita aikhane na dile gif ta kaj kore na.. i don't khow why..--%>
+<script>
+    $(document).ready(function () {
+        $('#btnLogin').click(function () {
+            $('#loaderDiv').show();
+            $.ajax({
+                // Post username, password & the grant type to /token
+                url: '/token',
+                method: 'POST',
+                contentType: 'application/json',
+                data: {
+                    userName: $('#txtUserNameLogin').val(),
+                    password: $('#txtPasswordLogin').val(),
+                    grant_type: 'password'
+                },
+
+                success: function (response) {
+                    localStorage.setItem("accessToken", response.access_token);
+                    localStorage.setItem("userName", response.userName);
+                    var root = location.protocol + '//' + location.host;
+                    window.location.href = root + "/Home/Index";
+                    $('#loaderDiv').hide();
+                    //window.location.href = "http://localhost:64491/Home/Index";
+                },
+                // Display errors if any in the Bootstrap alert <div>
+                error: function (jqXHR) {
+                    swal("Login Failed!", "May Be Your Username Or Password Is Incorrect!", "error");
+                    $('#loaderDiv').hide();
+                }
+            });
+        });
+    });
+</script>
+
+<%--register.js file er code ai khane ase. aita aikhane na dile gif ta kaj kore na.. i don't khow why..--%>
+<script>
+    $(document).ready(function () {
+        //Close the bootstrap alert
+        $('#linkCloseRegister').click(function () {
+            $('#divErrorRegister').hide('fade');
+        });
+
+        $('#successModal').on('hidden.bs.modal', function () {
+            //window.location.href = "Login.aspx";
+        });
+
+        // Save the new user details
+        $('#btnRegister').click(function () {
+            if ($('#textEmployeeCode').val() === "1234_U1" || $('#textEmployeeCode').val() === "1234_U2") {
+                $('#loaderDiv').show();
+                $.ajax({
+                    url: '/api/account/register',
+                    method: 'POST',
+                    data: {
+                        userName: $('#txtUserName').val(),
+                        phoneNumber: $('#txtPhoneNumber').val(),
+                        employeeCode: $('#textEmployeeCode').val(),
+                        email: $('#txtEmail').val(),
+                        password: $('#txtPassword').val(),
+                        confirmPassword: $('#txtConfirmPassword').val()
+                    },
+                    success: function () {
+                        swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                        $('#divErrorRegister').hide();
+                        $('#loaderDiv').hide();
+                    },
+                    error: function (jqXHR) {
+                        $('#divErrorTextRegister').text(jqXHR.responseText);
+                        $('#divErrorRegister').show('fade');
+                        $('#loaderDiv').hide();
+                    }
+                });
+            }
+            else {
+                $('#divErrorTextRegister').text("Please Enter A Valid EmployeeCode");
+                $('#divErrorRegister').show('fade');
+            }
+
+        });
+    });
 </script>

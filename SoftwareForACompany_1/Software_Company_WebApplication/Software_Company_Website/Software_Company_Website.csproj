@@ -143,6 +143,7 @@
     <Compile Include="Controllers\HowDoesItWorkController.cs" />
     <Compile Include="Controllers\IOSDevelopmentController.cs" />
     <Compile Include="Controllers\MainPageBlog_tblController.cs" />
+    <Compile Include="Controllers\OurTeamsController.cs" />
     <Compile Include="Controllers\WebDevelopmentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -215,6 +216,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model_Gallery.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_OurTeams.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OurTeams.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_OurTeams.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OurTeams.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model_OurTeams.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model_OurTeams.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OurTeam.cs">
+      <DependentUpon>Model_OurTeams.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PersonMessage_tbl.cs">
       <DependentUpon>Model_ContactUs.tt</DependentUpon>
@@ -343,6 +362,16 @@
       <DependentUpon>Model_Gallery.edmx</DependentUpon>
       <LastGenOutput>Model_Gallery.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\Model_OurTeams.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_OurTeams.edmx</DependentUpon>
+      <LastGenOutput>Model_OurTeams.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model_OurTeams.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model_OurTeams.edmx</DependentUpon>
+      <LastGenOutput>Model_OurTeams.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model_BlogTableMainPage.edmx">
@@ -381,6 +410,13 @@
     <Content Include="Models\Model_Gallery.edmx.diagram">
       <DependentUpon>Model_Gallery.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\Model_OurTeams.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model_OurTeams.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model_OurTeams.edmx.diagram">
+      <DependentUpon>Model_OurTeams.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -418,6 +454,7 @@
     <Content Include="Views\Shared\_Layout_ForContactPage.cshtml" />
     <Content Include="Views\BlogPage\Details.cshtml" />
     <Content Include="Views\BlogPage\Index.cshtml" />
+    <Content Include="Views\OurTeams\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

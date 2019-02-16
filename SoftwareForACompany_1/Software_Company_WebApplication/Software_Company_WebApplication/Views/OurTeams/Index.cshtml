@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Software_Company_WebApplication.Models.OurTeam>
+
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "OurTeams")'"><span class="glyphicon glyphicon-edit"></span> New Post</button>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="well text-center" style="font-size:40px">
+        <b>Our Team</b>
+    </div>
+    <br />
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "OurTeams", new { id = item.Id }))
+        {
+            <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 countClass">
+                <div class="thumbnail">
+                    @*style="max-width: 500px"*@
+                    <div class="inner" align="center">
+                        @{
+                            var imgSrc = "";
+                            if (item.EmployeeImage != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.EmployeeImage);
+                                imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:150px; width:240px" class="img-responsive" /> @*height:100px; width:150px*@
+                            }
+                            else
+                            {
+                                <img src="~/Image/default_man_photo.jpg" alt="This person did not post with an image" style="border-radius: 10px; height:150px; width:240px" class="img-responsive" /> @*height:100px; width:150px*@
+                            }
+                        }
+                    </div>
+                    <br />
+                    <div class="caption text-center">
+                        <span style="color:red; font-size:17px">Name: </span> <span style="font-size:17px">@Html.DisplayFor(modelItem => item.Name) </span><br />
+                        <span style="color:red; font-size:17px">Designation: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Designation) </span><br />
+                        <span style="color:red; font-size:17px">WorkingSince: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.WorkingSince) </span><br />
+                        <br />
+                        <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "OurTeams", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                        @*<button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "OurTeams", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>*@
+                        @*<button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "OurTeams", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>*@
+                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <br />
+
+</body>
+</html>

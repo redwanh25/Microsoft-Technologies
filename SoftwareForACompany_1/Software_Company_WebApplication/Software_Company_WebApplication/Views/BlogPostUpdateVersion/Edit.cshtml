@@ -6,7 +6,7 @@
     ViewBag.Title = "Edit";
 }
 
-
+<script src="~/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
 
 @using (Html.BeginForm("RemoveBlogPicture", "BlogPostUpdateVersion", new { id = Model.Id }))
 {
@@ -87,8 +87,8 @@
             return true;
         }
         else if ($.inArray(extension, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
-            alert('Sorry, You can only upload an image.');
-            //swal("Sorry!", "You can only upload an image!", "error");  // swal dile kaj kore na.
+            //alert('Sorry, You can only upload an image.');
+            swal("Sorry!", "You can only upload an image!", "error");  // swal dile kaj kore na.
             return false;
         }
     });
