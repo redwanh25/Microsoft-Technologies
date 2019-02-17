@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
+<script src="~/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
 
 <h1 style="font-family:Impact" class="text-center">Employee Personal Information</h1>
 <hr style="border: 2px solid; color: lightgray; width: 200px">
@@ -260,10 +261,10 @@
                     userId: '@User.Identity.GetUserId()',
                 },
                 success: function () {
-                    alert('Password Change Successful!');
-
+                    //alert('Password Change Successful!');
+                    swal("Password Change Successful!", "Thank You. Now You Can Login With Your New Password.", "success");
                     // refresh the page...
-                    document.location.reload(true);
+                    //document.location.reload(true);
                     //swal("Password Change Successful!", "Thank You. Now You Can Login With Your New Password.", "success");
                     $('#divErrorPassword').hide();
                 },

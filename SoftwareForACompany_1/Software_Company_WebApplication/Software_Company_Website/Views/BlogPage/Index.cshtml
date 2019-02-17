@@ -72,8 +72,9 @@
                         <label style="line-height:130%" class="h5" id="Label2">@(new HtmlString(str1Text))</label>
                         <br /><br />
                     </div>
-
-                    <div class="navbar-right">@Html.ActionLink("Read More...", "Details", new { id = item.Id })</div>
+                    
+                    @*<div class="navbar-right">@Html.ActionLink("Read More...", "Details", new { id = item.Id })</div>*@
+                    <div class="navbar-right"><button class="btn btn-default btn-xs" type="button" onclick="location.href='@Url.Action("Details", "BlogPage", new { id = item.Id })'"> <b>Read More...</b> </button></div>
                     <br />
 
                     @{

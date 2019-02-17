@@ -279,6 +279,7 @@
     <Content Include="Image\iphone_mobile.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\loader.gif" />
+    <Content Include="Image\logo-nomaa-globe.png" />
     <Content Include="Image\macbook-pro.jpg" />
     <Content Include="Image\maxresdefault.jpg" />
     <Content Include="Image\MicrosoftNet_Blue_logo.png" />
@@ -289,7 +290,6 @@
     <Content Include="Image\mountain-4.jpg" />
     <Content Include="Image\no-image.jpg" />
     <Content Include="Image\nomaa-logo-125-63.png" />
-    <Content Include="Image\Nomaa.png" />
     <Content Include="Image\nomaa_01.jpg" />
     <Content Include="Image\park.jpg" />
     <Content Include="Image\PHP_Blue_logo.png" />
@@ -428,7 +428,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

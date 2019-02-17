@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+
+    <%--<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />--%>
+    <link rel="icon" type="image/png" href="../Image/logo-nomaa-globe.png">
     <title></title>
     <script src="../Scripts/jquery-3.3.1.min.js"></script>
     <script src="../Scripts/bootstrap.min.js"></script>
@@ -159,7 +161,7 @@
 </head>
 <body style="padding-top: 50px; font-family: Lora">
     <form id="form1" runat="server">
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top shadow_B">
+        <nav class="navbar navbar-default navbar-fixed-top shadow_B">
             <div class="container">
                 <div class="navbar-header">
                     <button id="Button1" type="button" value="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -170,7 +172,7 @@
                     <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">
                         <img width="60" class="animated bounceInLeft" id="imgnav" src="../Image/nomaa-logo-125-63.png" />
                     </a>
-                    <a class="navbar-brand zoom-effect" style="padding-left: 30px; font-size: 15px;" href="http://localhost:53859/">Visit Our WebSite </a>
+                    <a class="navbar-brand zoom-effect" style="padding-left: 30px; font-size: 15px;" href="http://www.nomaa.se/">Visit Our WebSite </a>
                 </div>
                 <div class="navbar-collapse collapse">
 
@@ -235,19 +237,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
-                        <div class="well h3 animated fadeInLeft">
-                            <marquee behavior="alternate">Application</marquee>
+                        <div class="well h3 animated fadeInLeft" align="center">
+                            <%--<marquee behavior="alternate">Application</marquee>--%>
+                            Application
                         </div>
                         <div id="accordion_pic" class="panel-group">
                             <div class="panel panel-success animated bounceInLeft">
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyOne1" data-toggle="collapse" data-parent="#accordion_pic"><b>Who Can Use This Application</b>
-                                            <span class="glyphicon glyphicon-eye-open pull-right"></span>
+                                            <span class="glyphicon glyphicon-menu-up pull-right"></span>
                                         </a>
                                     </div>
                                 </div>
-                                <div id="panelBodyOne1" class="collapse panel-collapse">
+                                <div id="panelBodyOne1" class="collapse in panel-collapse">
                                     <div class="panel-body">
                                         <p>
                                             Only this company emplyee can use this application. because you
@@ -262,7 +265,7 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyTwo2" data-toggle="collapse" data-parent="#accordion_pic"><b>Help Line </b>(+880123456789)
-                                            <span class="glyphicon glyphicon-eye-open pull-right"></span>
+                                            <span class="glyphicon glyphicon-menu-down pull-right"></span>
                                         </a>
                                     </div>
                                 </div>
@@ -285,7 +288,7 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyThree3" data-toggle="collapse" data-parent="#accordion_pic"><b>Forget Your Password</b>
-                                            <span class="glyphicon glyphicon-eye-open pull-right"></span>
+                                            <span class="glyphicon glyphicon-menu-down pull-right"></span>
                                         </a>
                                     </div>
                                 </div>
@@ -304,7 +307,7 @@
                                 <div class="panel-heading">
                                     <div class="panel-title">
                                         <a href="#panelBodyOne4" data-toggle="collapse" data-parent="#accordion_pic"><b>How To Use </b>(get details)
-                                            <span class="glyphicon glyphicon-eye-open pull-right"></span>
+                                            <span class="glyphicon glyphicon-menu-down pull-right"></span>
                                         </a>
                                     </div>
                                 </div>
@@ -599,5 +602,15 @@
             }
 
         });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse', function () {
+                $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+            }).on('hidden.bs.collapse', function () {
+                $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+            });
     });
 </script>

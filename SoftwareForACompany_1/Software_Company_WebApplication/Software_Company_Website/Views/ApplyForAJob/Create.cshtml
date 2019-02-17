@@ -171,20 +171,42 @@
 </div>
 
 <script type="text/javascript">
-    $('#btnUpload').click(function () {
-        var extension = $('#FileUpload1').val().split('.').pop().toLowerCase();
 
-        if ($('#txtName').val().trim() !== '' && $('#txtPhoneNumber').val().trim() !== '' && $('#txtEmail').val().trim() !== '' && $('#FileUpload1').val() !== '') {
-            if ($.inArray(extension, ['pdf']) == -1) {
-                //alert('Sorry, You can only upload an image.');
-                swal("Sorry!", "You can only upload a pdf file!", "error");
-                return false;
-            }
-            else {
-                //alert('Thank you for Uploading your CV!');
-                //swal("Success!", "Thank you for Uploading your CV!", "Success");
-                return true;
-            }
+    function validateEmail(sEmail) {
+        var filter = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (filter.test(sEmail)) {
+            return true;
         }
+        else {
+            return false;
+        }
+    }
+
+    $(document).ready(function () {
+        $('#btnUpload').click(function () {
+            var extension = $('#FileUpload1').val().split('.').pop().toLowerCase();
+            var sEmail = $('#txtEmail').val();
+
+            if ($('#txtName').val().trim() !== '' && $('#txtPhoneNumber').val().trim() !== '' && $('#txtEmail').val().trim() !== '' && $('#FileUpload1').val() !== '') {
+                if (validateEmail(sEmail)) {
+
+                }
+                else {
+                    swal("Sorry!", "please Enter a valid email address!", "error");
+                    return false;
+                }
+
+                if ($.inArray(extension, ['pdf']) == -1) {
+                    //alert('Sorry, You can only upload an image.');
+                    swal("Sorry!", "You can only upload a pdf file!", "error");
+                    return false;
+                }
+                else {
+                    //alert('Thank you for Uploading your CV!');
+                    //swal("Success!", "Thank you for Uploading your CV!", "Success");
+                    return true;
+                }
+            }
+        });
     });
 </script>

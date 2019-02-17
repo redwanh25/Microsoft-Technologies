@@ -15,11 +15,11 @@ namespace Software_Company_WebApplication.Services
 
         #region Private Fields
 
-        private static string strSmtpClient;
-        private static string senderEmail;
-        private static string Password;
-        private static string SMTPPort;
-        private static bool bEnableSSL;
+        //private static string strSmtpClient;
+        //private static string senderEmail;
+        //private static string Password;
+        //private static string SMTPPort;
+        //private static bool bEnableSSL;
 
         #endregion
 

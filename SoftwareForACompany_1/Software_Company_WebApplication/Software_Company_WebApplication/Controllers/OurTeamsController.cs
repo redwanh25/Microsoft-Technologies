@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -140,6 +142,34 @@ namespace Software_Company_WebApplication.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
+
+        [HttpPost]
+        public ActionResult RemoveTeamPicture(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            OurTeam ourTeams = db.OurTeams.Find(id);
+            if (ourTeams == null)
+            {
+                return HttpNotFound();
+            }
+
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update OurTeam set [EmployeeImage] = null where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            string str = "Edit/" + id;
+            return RedirectToAction(str);
+        }
 
         [HttpPost]
         public ActionResult Delete(int id)

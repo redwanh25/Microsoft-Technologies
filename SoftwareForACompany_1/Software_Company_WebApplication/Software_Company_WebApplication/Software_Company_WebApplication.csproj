@@ -400,7 +400,6 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="HTML\AngularJS\angular.js" />
@@ -418,8 +417,8 @@
     <Content Include="Image\loader3.gif" />
     <Content Include="Image\loader4.gif" />
     <Content Include="Image\loader5.gif" />
+    <Content Include="Image\logo-nomaa-globe.png" />
     <Content Include="Image\nomaa-logo-125-63.png" />
-    <Content Include="Image\Nomaa.png" />
     <Content Include="Image\register.png" />
     <Content Include="Image\login.png" />
     <Content Include="Image\twitter.png" />
@@ -673,7 +672,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
