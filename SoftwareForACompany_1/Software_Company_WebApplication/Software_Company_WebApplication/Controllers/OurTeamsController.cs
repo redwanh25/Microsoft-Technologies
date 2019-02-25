@@ -8,7 +8,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Software_Company_WebApplication.DatabaseConnection;
+using Software_Company_WebApplication.DifferentLayout_Database;
 using Software_Company_WebApplication.Models;
 
 namespace Software_Company_WebApplication.Controllers
@@ -16,10 +18,22 @@ namespace Software_Company_WebApplication.Controllers
     public class OurTeamsController : Controller
     {
         private OurTeamDBEntities db = new OurTeamDBEntities();
-
         // GET: OurTeams
         public ActionResult Index()
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
+
             List<OurTeam> list = db.OurTeams.ToList();
             list = list.OrderByDescending(it => it.Id).ToList();
             return View(list);
@@ -28,6 +42,19 @@ namespace Software_Company_WebApplication.Controllers
         // GET: OurTeams/Details/5
         public ActionResult Details(int? id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -43,6 +70,18 @@ namespace Software_Company_WebApplication.Controllers
         // GET: OurTeams/Create
         public ActionResult Create()
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 
@@ -53,6 +92,18 @@ namespace Software_Company_WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Name,Designation,WorkingSince,EmployeeImage")] OurTeam ourTeam, HttpPostedFileBase image1)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 if (image1 != null)
@@ -71,6 +122,18 @@ namespace Software_Company_WebApplication.Controllers
         // GET: OurTeams/Edit/5
         public ActionResult Edit(int? id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -90,6 +153,18 @@ namespace Software_Company_WebApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Name,Designation,WorkingSince,EmployeeImage")] OurTeam ourTeam, HttpPostedFileBase image1)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             if (ModelState.IsValid)
             {
                 if (image1 != null)
@@ -146,6 +221,18 @@ namespace Software_Company_WebApplication.Controllers
         [HttpPost]
         public ActionResult RemoveTeamPicture(int? id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -167,13 +254,25 @@ namespace Software_Company_WebApplication.Controllers
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
             }
-            string str = "Edit/" + id;
-            return RedirectToAction(str);
+            string str1 = "Edit/" + id;
+            return RedirectToAction(str1);
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetEmployeeCode(str);
+            }
+            if (str != "1234_U2")
+            {
+                return HttpNotFound();
+            }
             OurTeam ourTeam = db.OurTeams.Find(id);
             db.OurTeams.Remove(ourTeam);
             db.SaveChanges();
@@ -189,4 +288,5 @@ namespace Software_Company_WebApplication.Controllers
             base.Dispose(disposing);
         }
     }
+
 }

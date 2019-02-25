@@ -197,62 +197,64 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand zoom-effect" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
+                <a class="navbar-brand" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
+                    @*zoom-effect*@
                     <img class="animated bounceInLeft" id="imgnav" src="~/Image/nomaa-logo-125-63.png" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             IT Solutions
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">E-commerce Solution </a></li>
-                            <li><a href="#">Mobile Development </a></li>
+                            @*<li><a href="#">E-commerce Solution </a></li>
+                            <li><a href="#">Mobile Development </a></li>*@
                             <li><a href="@Url.Action("Index", "WebDevelopment")">Web Development </a></li>
                             <li><a href="@Url.Action("Index", "IOSDevelopment")">IOS Development </a></li>
                         </ul>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Our Offer
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">IT Consultants</a></li>
+                            @*<li><a href="#">IT Consultants</a></li>*@
                             <li><a href="@Url.Action("Create", "ApplyForAJob")">Apply For A Job</a></li>
-                            <li><a href="#">Project Development</a></li>
+                            @*<li><a href="#">Project Development</a></li>*@
                             <li><a href="@Url.Action("Index", "HowDoesItWork")">How does it work</a></li>
                         </ul>
                     </li>
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                    @*<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             About Company
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Our Team </a></li>
+                            <li><a href="@Url.Action("Index", "OurTeams")">Our Team </a></li>
                             <li><a href="#">Career </a></li>
                             <li><a href="#">Clients </a></li>
                         </ul>
-                    </li>
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPage")">Blog</a></li>
-                    
+                    </li>*@
+                    <li><a href="@Url.Action("Index", "OurTeams")">Our Team </a></li>
+                    <li><a class="" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
+                    <li><a class="" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
+                    <li><a class="" href="@Url.Action("Index", "BlogPage")">Blog</a></li>
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             |
                             <span class="caret"></span>
                             |
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="#">English</a></li>
-                            <li><a href="#">swedish</a></li>
+                            <li><a href="#">Swedish</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -273,53 +275,53 @@
                     <div class="item active">
                         <img style="width:100%; min-height: 300px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
-                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida smart?</b></h1>
-                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida smart?</b></h4>
+                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Is your website smart?</b></h1>
+                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Is your website smart?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
-                                <h3 class="animated bounceInRight">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                <h3 class="animated bounceInRight">We help you optimize your website by:</h3>
 
                                 <div class="animated bounceInLeft">
                                     <h3>
-                                        - Sökoptimering <br />
-                                        - Smarta funktioner så som kontaktfrom, nyhetsbrev etc.<br />
-                                        - Medlemskap, bokningskalender etc.
+                                        - Search optimization. <br />
+                                        - Smart features such as contactfrom, newsletter etc.<br />
+                                        - Membership, booking calendar etc.
                                     </h3>
                                 </div>
                             </div>
                             <h5 class="animated bounceInLeft hidden-sm hidden-md hidden-lg">
-                                Vi hjälper dig att optimera din hemsida genom att:
+                                We help you optimize your website by:
                                 <br />
-                                - Sökoptimering
+                                - Search optimization.
                                 <br />
-                                - Smarta funktioner så som kontaktfrom, nyhetsbrev etc.
+                                - Smart features such as contactfrom, newsletter etc.
                                 <br />
-                                - Medlemskap, bokningskalender etc.
+                                - Membership, booking calendar etc.
                             </h5>
                         </div>
                     </div>
                     <div class="item">
                         <img style="width:100%; min-height: 300px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive bluerEffect">
                         <div class="carousel-caption">
-                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Är din webbsida responsive?</b></h1>
-                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Är din webbsida responsive?</b></h4>
+                            <h1 class="animated bounceInDown hidden-xs" style="color: orange"><b>Is your website responsive?</b></h1>
+                            <h4 class="animated bounceInDown hidden-sm hidden-md hidden-lg" style="color: orange"><b>Is your website responsive?</b></h4>
                             @*<br class="hidden-xs" />*@
                             <div class="hidden-xs">
-                                <h3 class="animated bounceInRight">Vi hjälper dig att optimera din hemsida genom att:</h3>
+                                <h3 class="animated bounceInRight">We help you optimize your website by:</h3>
 
                                 <div class="animated bounceInLeft">
                                     <h3>
-                                        - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC. <br />
-                                        - Den anpassar automatisk till den aktuella enheten.
+                                        - Responsive design we mean that your website can be displayed as in mobile, tablet, smart TV and PC.<br />
+                                        - It automatically adjusts to the current device.
                                     </h3>
                                 </div>
                             </div>
                             <h5 class="animated bounceInLeft hidden-sm hidden-md hidden-lg">
-                                Vi hjälper dig att optimera din hemsida genom att:
+                                We help you optimize your website by:
                                 <br />
-                                - Responsiv design menar vi med att din hemsida kan visas så som i mobil, läsplatta, smart tv och PC.
+                                - Responsive design we mean that your website can be displayed as in mobile, tablet, smart TV and PC.
                                 <br />
-                                - Den anpassar automatisk till den aktuella enheten.
+                                - It automatically adjusts to the current device.
                             </h5>
                         </div>
                     </div>
@@ -364,63 +366,61 @@
     </div>
 
     <br /><br /><br />
-    <footer id="footer" style="background-color: #3A3A3D; width: 100%">
-        <div class="footer-bottom">
-            <div class="container">
-                <br />
-                <div class="row" style="color: white">
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Website Name</h4>
-                        <hr />
-                        <p style="color: gainsboro">
-                            Use this document as a way to quickly start any new project.
-                            All you get is this text and a mostly barebones HTML document.
-                            Cras mattis consectetur purus sit amet fermentum.
-                        </p>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Usefull link</h4>
-                        <table class="table" style="margin-top: 20px">
-                            <tr>
-                                <td><a style="color: orange" href="#">IT solutions</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">E-commerce solutions</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">Mobile development</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">Web development</a> </td>
-                            </tr>
-                            <tr>
-                                <td><a style="color: orange" href="#">Angular and React developers</a> </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Follow Us</h4>
-                        <hr />
-                        <img id="ImageButton1" src="~/Image/facebook.png" style="width: 25px; height: 25px" />
-                        <img id="ImageButton2" src="~/Image/twitter.png" style="width: 25px; height: 25px" />
-                        <img id="ImageButton3" src="~/Image/instagram.png" style="width: 25px; height: 25px" />
-                        <img id="ImageButton4" src="~/Image/google.png" style="width: 25px; height: 25px" />
-                        <img id="ImageButton5" src="~/Image/linkedin.png" style="width: 25px; height: 25px" />
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <h4>Address</h4>
-                        <hr />
-                        <div style="color: orange">
-                            <p>46/1 Shukrabad, Dhanmondi.</p>
-                            <p>Dhaka, Bangladesh</p>
+                <footer id="footer" style="background-color: #3A3A3D; width: 100%">
+                    <div class="footer-bottom">
+                        <div class="container">
+                            <br />
+                            <div class="row" style="color: white">
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                    <h4>Website Name</h4>
+                                    <hr />
+                                    <p style="color: gainsboro">
+                                        Use this document as a way to quickly start any new project.
+                                        All you get is this text and a mostly barebones HTML document.
+                                        Cras mattis consectetur purus sit amet fermentum.
+                                    </p>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                    <h4>Usefull link</h4>
+                                    <table class="table" style="margin-top: 20px">
+                                        <tr>
+                                            <td><a style="color: orange" href="@Url.Action("Index", "HowDoesItWork")">How does it work</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a style="color: orange" href="@Url.Action("Index", "BlogPage")">Blog Page</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a style="color: orange" href="@Url.Action("Create", "ApplyForAJob")">Apply For A Job</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a style="color: orange" href="@Url.Action("Index", "WebDevelopment")">Web Development </a> </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                    <h4>Follow Us</h4>
+                                    <hr />
+
+                                    <a target="_blank" href="https://www.facebook.com/Nomaa-Software-Company-988929474635855/"><img id="ImageButton1" src="~/Image/facebook.png" style="width: 25px; height: 25px" /></a>
+                                    <img id="ImageButton2" src="~/Image/twitter.png" style="width: 25px; height: 25px" />
+                                    <img id="ImageButton3" src="~/Image/instagram.png" style="width: 25px; height: 25px" />
+                                    <img id="ImageButton4" src="~/Image/google.png" style="width: 25px; height: 25px" />
+                                    <img id="ImageButton5" src="~/Image/linkedin.png" style="width: 25px; height: 25px" />
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                    <h4>Address</h4>
+                                    <hr />
+                                    <div style="color: orange">
+                                        <p>46/1 Shukrabad, Dhanmondi.</p>
+                                        <p>Dhaka, Bangladesh</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
                         </div>
                     </div>
-                </div>
-                <hr />
-                <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
-            </div>
-        </div>
-    </footer>
+                </footer>
 
 </body>
 </html>
@@ -438,6 +438,7 @@
                 $('#navdiv').removeAttr("style");
 
                 $('#imgnav').removeClass("bounceInLeft");
+                $('#imgnav').addClass("bounceInDown");
                 $('.navbar').css("transition", "all .3s ease");
                 $('#navbutt').css("transition", "all .3s ease");
                 $('#navdiv').css("transition", "all .3s ease");
@@ -449,6 +450,7 @@
                 $('#navbutt').css("margin-top", "45px");
                 $('#navdiv').css("padding-top", "20px");
 
+                $('#imgnav').removeClass("bounceInDown");
                 $('#imgnav').addClass("bounceInLeft");
                 $('.navbar').css("transition", "all .3s ease");
                 $('#navbutt').css("transition", "all .3s ease");
