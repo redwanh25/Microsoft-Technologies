@@ -77,6 +77,10 @@
             box-shadow: -2px 4px 22px #000
         }
 
+        .navbar-brand img {
+            animation-duration: .5s;
+        }
+
         /*for specific width navbar toggle button show*/
         @@media (max-width: 1000px) {
             .navbar-header {
@@ -135,14 +139,14 @@
                     <span class="icon-bar"></span>
                 </button>
                 <span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>
-                <a class="navbar-brand zoom-effect" style="font-size: 30px" href="@Url.Action("Index", "Home")">
-                    <img class="animated bounceInLeft" id="imgnav" src="../../Image/nomaa-logo-125-63.png" />
+                <a class="navbar-brand" style="font-size: 30px" href="@Url.Action("Index", "Home")">
+                    <img class="animated fadeInDown" id="imgnav" src="../../Image/nomaa-logo-125-63.png" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             IT Solutions
                             <span class="caret"></span>
                         </a>
@@ -154,13 +158,13 @@
                             <li><a target="_blank" href="http://www.nomaa.se/">Our Website </a></li>
                         </ul>
                     </li>
-                    <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("View2", "Home")"> View2 </a></li>
-                    <li role="presentation"><a class="zoom-effect" href="@Url.Action("Index", "Person")">Message @*<span class="badge">42</span>*@</a></li>
+                    <li><a class="" href="@Url.Action("View1", "Home")"> View1 </a></li>
+                    <li><a class="" href="@Url.Action("View2", "Home")"> View2 </a></li>
+                    <li role="presentation"><a class="" href="@Url.Action("Index", "Person")">Message @*<span class="badge">42</span>*@</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "EmployeeInformation")"><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
-                    <li><a class="zoom-effect" href="#" id="btnLogoff"> Log Off </a></li>
+                    <li><a class="" href="@Url.Action("Index", "EmployeeInformation")"><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
+                    <li><a class="" href="#" id="btnLogoff"> Log Off </a></li>
                 </ul>
             </div>
         </div>
@@ -209,7 +213,7 @@
         <div class="container">
             <div class="row">
                 <hr style="color: black; border:0.5px solid">
-                <p class="pull-right">&copy; @DateTime.Now.Year - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                <p class="pull-right">&copy; @DateTime.Now.Year - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/Nomaa-Software-Company-988929474635855/">Nomaa IT HB</a></p>
             </div>
         </div>
     </footer>
@@ -238,10 +242,11 @@
                 $('#navbutt').removeAttr("style");
                 $('#navdiv').removeAttr("style");
 
-                $('#imgnav').removeClass("bounceInLeft");
-                $('.navbar').css("transition", "all .3s ease");
-                $('#navbutt').css("transition", "all .3s ease");
-                $('#navdiv').css("transition", "all .3s ease");
+                //$('#imgnav').removeClass("fadeInDown");
+                $('#imgnav').addClass("fadeInUp");
+                $('.navbar').css("transition", "all .4s ease");
+                $('#navbutt').css("transition", "all .4s ease");
+                $('#navdiv').css("transition", "all .4s ease");
 
 
             } else if (scrollTop < 100) {
@@ -250,10 +255,11 @@
                 $('#navbutt').css("margin-top", "45px");
                 $('#navdiv').css("padding-top", "20px");
 
-                $('#imgnav').addClass("bounceInLeft");
-                $('.navbar').css("transition", "all .3s ease");
-                $('#navbutt').css("transition", "all .3s ease");
-                $('#navdiv').css("transition", "all .3s ease");
+                $('#imgnav').removeClass("fadeInUp");
+                //$('#imgnav').addClass("fadeInDown");
+                $('.navbar').css("transition", "all .4s ease");
+                $('#navbutt').css("transition", "all .4s ease");
+                $('#navdiv').css("transition", "all .4s ease");
             }
 
         });

@@ -28,6 +28,10 @@
     <link href="~/jquery_Bootstrap_SweetAlert_IHover/Animate.css" rel="stylesheet" />
     <script src="~/jquery_Bootstrap_SweetAlert_IHover/SweetAlert/sweetalert.min.js"></script>
     <style>
+        .lineHeight {
+            line-height: 1.6;
+        }
+
         a, a:hover, a:active, a:visited, a:focus {
             text-decoration: none;
         }
@@ -68,6 +72,10 @@
 
         .shadow_T {
             text-shadow: 6px 7px 19px;
+        }
+
+        .navbar-brand img {
+            animation-duration: .5s;
         }
 
         .carousel-caption h1 {
@@ -184,8 +192,19 @@
                 }
         }
     </style>
-
+    @*navigation bar er nomaa logo ta soto boro er kaj kora hoise*@
     <style>
+        .imgZoom1 {
+            transform: scale(.5);
+            margin-top: -20px;
+            transition: transform .3s;
+            /*margin-left: -30px;*/
+        }
+
+        .imgZoom2 {
+            transform: scale(1);
+            transition: transform .5s;
+        }
     </style>
 </head>
 <body style="padding-top:84px; font-family: Lora; overflow-x: hidden;">
@@ -197,9 +216,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
+                <a class="navbar-brand imgZoom2" style="font-size: 30px" href="@Url.Action("Index", "MainPageBlog_tbl")">
                     @*zoom-effect*@
-                    <img class="animated bounceInLeft" id="imgnav" src="~/Image/nomaa-logo-125-63.png" />
+                    <img class="" id="imgnav" src="~/Image/nomaa-logo-125-63.png" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
@@ -211,7 +230,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             @*<li><a href="#">E-commerce Solution </a></li>
-                            <li><a href="#">Mobile Development </a></li>*@
+                                <li><a href="#">Mobile Development </a></li>*@
                             <li><a href="@Url.Action("Index", "WebDevelopment")">Web Development </a></li>
                             <li><a href="@Url.Action("Index", "IOSDevelopment")">IOS Development </a></li>
                         </ul>
@@ -231,18 +250,18 @@
                     </li>
 
                     @*<li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            About Company
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "OurTeams")">Our Team </a></li>
-                            <li><a href="#">Career </a></li>
-                            <li><a href="#">Clients </a></li>
-                        </ul>
-                    </li>*@
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                About Company
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Index", "OurTeams")">Our Team </a></li>
+                                <li><a href="#">Career </a></li>
+                                <li><a href="#">Clients </a></li>
+                            </ul>
+                        </li>*@
                     <li><a href="@Url.Action("Index", "OurTeams")">Our Team </a></li>
-                    <li><a class="" href="@Url.Action("Index", "Gallery")">Gallery</a></li>
+                    @*<li><a class="" href="@Url.Action("Index", "Gallery")">Gallery</a></li>*@
                     <li><a class="" href="@Url.Action("Create", "ContactUs")">Contact Us</a></li>
                     <li><a class="" href="@Url.Action("Index", "BlogPage")">Blog</a></li>
 
@@ -253,8 +272,8 @@
                             |
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">English</a></li>
-                            <li><a href="#">Swedish</a></li>
+                            <li><a href="http://www.nomaa.se/">English</a></li>
+                            <li><a href="http://swedish.nomaa.se/">Swedish</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -366,61 +385,61 @@
     </div>
 
     <br /><br /><br />
-                <footer id="footer" style="background-color: #3A3A3D; width: 100%">
-                    <div class="footer-bottom">
-                        <div class="container">
-                            <br />
-                            <div class="row" style="color: white">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <h4>Website Name</h4>
-                                    <hr />
-                                    <p style="color: gainsboro">
-                                        Use this document as a way to quickly start any new project.
-                                        All you get is this text and a mostly barebones HTML document.
-                                        Cras mattis consectetur purus sit amet fermentum.
-                                    </p>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <h4>Usefull link</h4>
-                                    <table class="table" style="margin-top: 20px">
-                                        <tr>
-                                            <td><a style="color: orange" href="@Url.Action("Index", "HowDoesItWork")">How does it work</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a style="color: orange" href="@Url.Action("Index", "BlogPage")">Blog Page</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a style="color: orange" href="@Url.Action("Create", "ApplyForAJob")">Apply For A Job</a> </td>
-                                        </tr>
-                                        <tr>
-                                            <td><a style="color: orange" href="@Url.Action("Index", "WebDevelopment")">Web Development </a> </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <h4>Follow Us</h4>
-                                    <hr />
+    <footer id="footer" style="background-color: #3A3A3D; width: 100%">
+        <div class="footer-bottom">
+            <div class="container">
+                <br />
+                <div class="row" style="color: white">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Website Name</h4>
+                        <hr />
+                        <p style="color: gainsboro">
+                            Use this document as a way to quickly start any new project.
+                            All you get is this text and a mostly barebones HTML document.
+                            Cras mattis consectetur purus sit amet fermentum.
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Usefull link</h4>
+                        <table class="table" style="margin-top: 20px">
+                            <tr>
+                                <td><a style="color: orange" href="@Url.Action("Index", "HowDoesItWork")">How does it work</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange" href="@Url.Action("Index", "BlogPage")">Blog Page</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange" href="@Url.Action("Create", "ApplyForAJob")">Apply For A Job</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange" href="@Url.Action("Index", "WebDevelopment")">Web Development </a> </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Follow Us</h4>
+                        <hr />
 
-                                    <a target="_blank" href="https://www.facebook.com/Nomaa-Software-Company-988929474635855/"><img id="ImageButton1" src="~/Image/facebook.png" style="width: 25px; height: 25px" /></a>
-                                    <img id="ImageButton2" src="~/Image/twitter.png" style="width: 25px; height: 25px" />
-                                    <img id="ImageButton3" src="~/Image/instagram.png" style="width: 25px; height: 25px" />
-                                    <img id="ImageButton4" src="~/Image/google.png" style="width: 25px; height: 25px" />
-                                    <img id="ImageButton5" src="~/Image/linkedin.png" style="width: 25px; height: 25px" />
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                    <h4>Address</h4>
-                                    <hr />
-                                    <div style="color: orange">
-                                        <p>46/1 Shukrabad, Dhanmondi.</p>
-                                        <p>Dhaka, Bangladesh</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr />
-                            <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                        <a target="_blank" href="https://www.facebook.com/Nomaa-Software-Company-988929474635855/"><img id="ImageButton1" src="~/Image/facebook.png" style="width: 25px; height: 25px" /></a>
+                        <img id="ImageButton2" src="~/Image/twitter.png" style="width: 25px; height: 25px" />
+                        <img id="ImageButton3" src="~/Image/instagram.png" style="width: 25px; height: 25px" />
+                        <img id="ImageButton4" src="~/Image/google.png" style="width: 25px; height: 25px" />
+                        <img id="ImageButton5" src="~/Image/linkedin.png" style="width: 25px; height: 25px" />
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Address</h4>
+                        <hr />
+                        <div style="color: orange">
+                            <p>46/1 Shukrabad, Dhanmondi.</p>
+                            <p>Dhaka, Bangladesh</p>
                         </div>
                     </div>
-                </footer>
+                </div>
+                <hr />
+                <p class="pull-right" style="color: white">&copy; @DateTime.Now.Year - Developed by <a style="color: navajowhite" target="_blank" href="https://www.facebook.com/Nomaa-Software-Company-988929474635855/">Nomaa IT HB</a></p>
+            </div>
+        </div>
+    </footer>
 
 </body>
 </html>
@@ -432,26 +451,26 @@
             scrollTop = $(window).scrollTop();
 
             if (scrollTop >= 100) {
-                $('#imgnav').attr("width", "60");
+                //$('#imgnav').attr("width", "60");
                 $('.navbar').css("min-height", "");
                 $('#navbutt').removeAttr("style");
                 $('#navdiv').removeAttr("style");
 
-                $('#imgnav').removeClass("bounceInLeft");
-                $('#imgnav').addClass("bounceInDown");
+                $('#imgnav').removeClass("imgZoom2");
+                $('#imgnav').addClass("imgZoom1");
                 $('.navbar').css("transition", "all .3s ease");
                 $('#navbutt').css("transition", "all .3s ease");
                 $('#navdiv').css("transition", "all .3s ease");
 
 
             } else if (scrollTop < 100) {
-                $('#imgnav').removeAttr("width");
+                //$('#imgnav').removeAttr("width");
                 $('.navbar').css("min-height", "88px");
                 $('#navbutt').css("margin-top", "45px");
                 $('#navdiv').css("padding-top", "20px");
 
-                $('#imgnav').removeClass("bounceInDown");
-                $('#imgnav').addClass("bounceInLeft");
+                $('#imgnav').removeClass("imgZoom1");
+                $('#imgnav').addClass("imgZoom2");
                 $('.navbar').css("transition", "all .3s ease");
                 $('#navbutt').css("transition", "all .3s ease");
                 $('#navdiv').css("transition", "all .3s ease");

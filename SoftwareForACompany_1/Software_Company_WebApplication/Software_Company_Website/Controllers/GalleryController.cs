@@ -16,13 +16,13 @@ namespace Software_Company_Website.Controllers
         private GalleryDBEntities db = new GalleryDBEntities();
 
         // GET: Gallery
-        public ActionResult Index()
-        {
-            List<Gallery_tbl> list = db.Gallery_tbl.ToList();
-            list = list.OrderByDescending(it => it.Id).ToList();
+        //public ActionResult Index()
+        //{
+        //    List<Gallery_tbl> list = db.Gallery_tbl.ToList();
+        //    list = list.OrderByDescending(it => it.Id).ToList();
             
-            return View(list);
-        }
+        //    return View(list);
+        //}
 
         public static string hrefLink(int Id, byte[] cImgSrc)
         {

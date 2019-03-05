@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Googlemaps.Models.SchoolInfo>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
+
+
+<script type="text/javascript"
+            src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBJh2b5ZiWLqNn5V4_wFxrHiWsktNyVIqI&sensor=false">
+    </script>
+@*<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJh2b5ZiWLqNn5V4_wFxrHiWsktNyVIqI&callback=initialize">
+</script>*@
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(21.7679, 78.8718),
+            zoom: 6,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+        mapOptions);
+
+
+        @foreach (var info in Model) {
+        @Html.Raw("addMarker("+info.lat+", "+info.lng+");");
+            }
+
+        function addMarker(x, y) {
+            var location = new google.maps.LatLng(x, y);
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map,
+            });
+        }
+
+    } google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+

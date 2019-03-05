@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<MailFormats>
+  <MailFormat Id="AzurePromoPass">
+    <Subject>Table Booking Notification</Subject>
+    <Body>
+      <![CDATA[ 
+
+      <table>
+       <tr>
+        <th width="300pt"></th>
+        <th></th>
+        <th width="500pt"></th>
+      </tr>
+      
+      0? 1?
+
+      </table>
+
+     ]]>
+    </Body>
+  </MailFormat>
+  <MailFormat Id="AzureClinic">
+    <Subject>Azure Clinic</Subject>
+    <Body>
+      <![CDATA[ 
+      <table>
+       <tr>
+        <th width="300pt"></th>
+        <th></th>
+        <th width="500pt"></th>
+      </tr>
+      
+      0?
+
+      </table>
+     ]]>
+    </Body>
+  </MailFormat>
+</MailFormats>

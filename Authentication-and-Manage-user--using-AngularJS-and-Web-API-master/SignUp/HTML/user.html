@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User</title>
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+
+    <!--Bootstrap And Jquery-->
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!--AngularJS-->
+    <script src="AngularJS/angular.js"></script>
+    <script src="AngularJS/angular-local-storage.min.js"></script>
+    <script src="AngularJS/authInterceptorService.js"></script>
+    <script src="AngularJS/user.js"></script>
+</head>
+<body ng-app="UserApp" ng-controller="UserController" ng-cloak>
+    <section style="margin-top:70px;">
+        <section class="wrapper">
+            <div class="container">
+                <h3>User Management</h3>
+                <div class="row">
+                    <div class="col-lg-12 col-xs-12">
+                        <div class="row">
+                            <div style="overflow-x:auto;min-height:100px;" class="col-sm-12">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-xs-1">#</th>
+                                            <th class="col-xs-3">User Email</th>
+                                            <th class="col-xs-3">Phone</th>
+                                            <th class="col-xs-4 text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="user in Users">
+                                            <td ng-bind="$index+1"></td>
+                                            <td ng-bind="user.Email"></td>
+                                            <td ng-bind="user.PhoneNumber"></td>
+                                            <td>
+                                                <p>
+                                                    <a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#myviewModal" ng-click="ViewUser(user)" style="color:white;">View</a>
+                                                    <a class="btn btn-xs btn-danger" ng-click="DeleteUser(user.Id)">Delete</a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="popup">
+        <div class="modal fade" id="myviewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+             style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                            <span style="color:red;"
+                                  class="glyphicon glyphicon-remove-circle "></span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">User Detail</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <p>Email :&nbsp;&nbsp;{{viewUser.Email}}</p>
+                            </div>
+                            <div class="form-group">
+                                <p>UserName:&nbsp;&nbsp;{{viewUser.UserName}}</p>
+                            </div>
+                            <div class="form-group">
+                                <p>Phone Number:&nbsp;&nbsp;{{viewUser.PhoneNumber}}</p>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-primary">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+    </section>
+</body>
+</html>

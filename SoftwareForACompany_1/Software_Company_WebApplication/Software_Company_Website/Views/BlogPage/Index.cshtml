@@ -38,7 +38,8 @@
                         <div class="container">
                             <div class="tz-gallery">
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12  col-lg-offset-2 col-md-offset-1 col-sm-offset-2">  @*blogImage*@
+                                    <div class="col-lg-4 col-md-7 col-sm-7 col-xs-12  col-lg-offset-2 col-md-offset-1 col-sm-offset-2">
+                                        @*blogImage*@
                                         @{
                                             var imgSrc = "";
                                             var base64 = Convert.ToBase64String(item.BlogImage);
@@ -64,15 +65,32 @@
                             sb.Remove(500, sb.Length - 500);
                             str1Text = sb.ToString() + "...";
                         }
+
+
+                        // for prevent cross site scripting attack
+
+                        if (str1Text.Contains("<script") || str1Text.Contains("</script>"))
+                        {
+                            <div class="hidden-xs" style="margin-top:10px">
+                                <label style="line-height:130%" class="h4" id="TextBox2">@str1Text</label>
+                            </div>
+                            <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
+                                <label style="line-height:130%" class="h5" id="Label2">@str1Text</label>
+                                <br /><br />
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="hidden-xs" style="margin-top:10px">
+                                <label style="line-height:130%" class="h4" id="TextBox2">@(new HtmlString(str1Text))</label>
+                            </div>
+                            <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
+                                <label style="line-height:130%" class="h5" id="Label2">@(new HtmlString(str1Text))</label>
+                                <br /><br />
+                            </div>
+                        }
                     }
-                    <div class="hidden-xs" style="margin-top:10px">
-                        <label style="line-height:130%" class="h4" id="TextBox2">@(new HtmlString(str1Text))</label>
-                    </div>
-                    <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
-                        <label style="line-height:130%" class="h5" id="Label2">@(new HtmlString(str1Text))</label>
-                        <br /><br />
-                    </div>
-                    
+
                     @*<div class="navbar-right">@Html.ActionLink("Read More...", "Details", new { id = item.Id })</div>*@
                     <div class="navbar-right"><button class="btn btn-default btn-xs" type="button" onclick="location.href='@Url.Action("Details", "BlogPage", new { id = item.Id })'"> <b>Read More...</b> </button></div>
                     <br />

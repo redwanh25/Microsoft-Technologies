@@ -39,13 +39,30 @@
                 <img src="empty.gif" style="height:0px; width:0px">
             }
             <br />
-            <div class="hidden-xs" style="margin-top:10px">
-                <label style="line-height:130%" class="h4" id="TextBox2">@(new HtmlString(Model.Text))</label>
-            </div>
-            <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
-                <label style="line-height:130%" class="h5" id="Label2">@(new HtmlString(Model.Text))</label>
-                <br /><br />
-            </div>
+            @*for prevent cross site scripting attack*@
+            @{
+                string strText = Model.Text;
+                if (strText.Contains("<script") || strText.Contains("</script>"))
+                {
+                    <div class="hidden-xs" style="margin-top:10px">
+                        <label style="line-height:130%" class="h4" id="TextBox2">@strText</label>
+                    </div>
+                    <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
+                        <label style="line-height:130%" class="h5" id="Label2">@strText</label>
+                        <br /><br />
+                    </div>
+                }
+                else
+                {
+                    <div class="hidden-xs" style="margin-top:10px">
+                        <label style="line-height:130%" class="h4" id="TextBox2">@(new HtmlString(Model.Text))</label>
+                    </div>
+                    <div class="hidden-sm hidden-md hidden-lg" style="margin-top:10px">
+                        <label style="line-height:130%" class="h5" id="Label2">@(new HtmlString(Model.Text))</label>
+                        <br /><br />
+                    </div>
+                }
+            }
 
             @{
                 string str = Model.BlogDivId;
@@ -70,4 +87,3 @@
         <a class="btn btn-default" href="@Url.Action("Index", "BlogPage")">Back to List</a>
     </div>
 </div>
-

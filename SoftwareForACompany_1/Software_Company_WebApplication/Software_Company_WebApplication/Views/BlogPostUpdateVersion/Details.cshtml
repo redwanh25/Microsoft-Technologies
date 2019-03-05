@@ -99,7 +99,18 @@
             </dt>
 
             <dd>
-                <label style="font-size:16px">@(new HtmlString(Model.Text))</label>
+                @*for prevent cross site scripting attack*@
+                @{
+                    string strText = Model.Text;
+                    if (strText.Contains("<script") || strText.Contains("</script>"))
+                    {
+                        <label style="font-size:16px">@Model.Text</label>
+                    }
+                    else
+                    {
+                        <label style="font-size:16px">@(new HtmlString(Model.Text))</label>
+                    }
+                }
             </dd>
         </dl>
 </div>

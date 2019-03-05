@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <!--Bootstrap and Jquery-->
+
+    <link href="../../Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
+    <script src="../../Scripts/bootstrap.min.js"></script>
+
+    <!--Custom CSS-->
+    <link href="/HTML/style.css" rel="stylesheet" />
+
+    <!--Angular-->
+    <script src="/HTML/AngularJS/angular.js"></script>
+    <script src="/HTML/AngularJS/signup.js"></script>
+
+</head>
+
+<body class="main" ng-app="signUpApp">
+    <div class="container-fluid" ng-controller="signupController">
+        <div class="paddingT50">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-4">
+                    <!--<div class="logo1">
+                    <img src="Images/logo_template.png" />
+                    </div>-->
+                    <div class="center heading1">
+                        Sign up for Tablesure
+                    </div>
+                    <div class="form_Main">
+                        <div class="form-group">
+                            <label class="label1" for="email">Email address</label>
+                            <input ng-model="registration.Email" id="email"
+                                   type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label1" for="password">Password</label>
+                            <input ng-model="registration.Password" id="password"
+                                   type="password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label class="label1" for="confirm_password">
+                                Confirm
+                                password
+                            </label>
+                            <input ng-model="registration.ConfirmPassword"
+                                   id="confirm_password" type="password" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <div style="padding-top:10px;">
+                                <input ng-click="signUp()" ng-disabled="isProcessing"
+                                       type="button" class="btn btn-block btn-success"
+                                       value="{{RegisterBtnText}}" />
+                            </div>
+                        </div>
+                        <p class="footer_para">
+                            Already in Tablesure?
+                            <a href="">Sign in</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
