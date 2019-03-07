@@ -137,6 +137,7 @@
     <Compile Include="Controllers\ApplyForAJobController.cs" />
     <Compile Include="Controllers\BlogPageController.cs" />
     <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\HelpWithADefinedProjectController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -249,6 +250,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\404-NotFound.gif" />
     <Content Include="Image\about01.png" />
     <Content Include="Image\about02.png" />
     <Content Include="Image\about03.png" />
@@ -461,6 +463,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="GalleryImage\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
