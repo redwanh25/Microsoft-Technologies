@@ -1,0 +1,242 @@
+﻿@{
+    ViewBag.Title = "_Layout_For_All";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
+    <title>_Layout_For_All</title>
+    <link rel="icon" type="image/png" href="~/Image/cpc_logo_xxl.png">
+
+    <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/jQuery/uncompressed/jquery-3.3.1.js"></script>
+    <link href="~/jquery_Bootstrap_SweetAlert_IHover_Animation/IHover/ihover.css" rel="stylesheet" />
+    <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/Bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/jquery_Bootstrap_SweetAlert_IHover_Animation/Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/jquery_Bootstrap_SweetAlert_IHover_Animation/Animate.css" rel="stylesheet" />
+    <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/SweetAlert/sweetalert.min.js"></script>
+    <script src="~/RegistrationAndLoginPage/Logout.js"></script>
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 50px;
+            left: 0;
+            background-color: #EDEDED;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 8px;
+        }
+
+            .sidenav a {
+                padding: 15px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav a:hover {
+                    color: #363636;
+                }
+
+            .sidenav .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+        /*@@media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }*/
+    </style>
+    <style>
+        a, a:hover, a:active, a:visited, a:focus {
+            text-decoration: none;
+        }
+        /*navigation bar er upor er effect ta aikhane kora ase.*/
+        .zoom-effect {
+            transition: transform .1s;
+            /*cursor: url('http://csscursor.info/source/santahand.png'), default;*/
+        }
+
+            .zoom-effect:hover {
+                /*transform: translateY(-20px) scale(2) rotate(10deg);*/
+                transform: translateY(-4px) scale(1.00);
+            }
+
+        .shadow_B {
+            box-shadow: -2px 4px 22px #000
+        }
+
+        .navbar-brand img {
+            animation-duration: .5s;
+        }
+
+        /*for specific width navbar toggle button show*/
+        @@media (max-width: 1000px) {
+            .navbar-header {
+                float: none;
+            }
+
+            .navbar-left, .navbar-right {
+                float: none !important;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+
+            .navbar-collapse {
+                border-top: 1px solid transparent;
+                box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+            }
+
+            .navbar-fixed-top {
+                top: 0;
+                border-width: 0 0 1px;
+            }
+
+            .navbar-collapse.collapse {
+                display: none !important;
+            }
+
+            .navbar-nav {
+                float: none !important;
+                margin-top: 7.5px;
+            }
+
+                .navbar-nav > li {
+                    float: none;
+                }
+
+                    .navbar-nav > li > a {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                    }
+
+            .collapse.in {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body style="padding-top:130px; font-family:  Lora ">
+    <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:19px; min-height:88px">
+        <div class="container">
+            <div class="navbar-header">
+                <button id="navbutt" style="margin-top:45px" type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>*@
+                <a class="navbar-brand zoom-effect" style="margin-right:30px" href="@Url.Action("Index", "Home")">
+                    <img class="animated fadeInDown" id="imgnav" src="../../Image/cpc_logo_xxl.png" height="60"/>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                            Diu CPC Club
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="font-size:16px">
+                            <li><a class="zoom-effect" href="#">Blog Post </a></li>
+                            <li><a class="zoom-effect" href="#">Gallery Post </a></li>
+                            <li><a class="zoom-effect" href="#">Blog Post </a></li>
+                            <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
+                        </ul>
+                    </li>
+                    <li><a class="zoom-effect" href="#"> View1 </a></li>
+                    <li><a class="zoom-effect" href="#"> View2 </a></li>
+                    <li role="presentation"><a class="zoom-effect" href="#">Message @*<span class="badge">42</span>*@</a></li>
+                </ul>
+
+                <div class="nav navbar-nav navbar-right">                    
+                    <div class="btn-group" style="padding-top:13px">
+                        <a id="btnLogoff" class="btn btn-sm btn-default" style="width: 80px; font-size: 12px">Logout</a>
+                        <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Change Password</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="zoom-effect" href="#"><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
+                    @*<li><a class="zoom-effect" href="#" id="btnLogoff"> Log Off </a></li>*@
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="body-content">
+        @RenderBody()
+        <br /> <br />
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <hr style="color: black; border:0.5px solid">
+                <p class="pull-right" style="font-size:17px">&copy; @DateTime.Now.Year - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/fhwasi">Fuad Wasi </a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004191497770">Sharar Khan</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        var scrollTop = 0;
+        $(window).scroll(function () {
+            scrollTop = $(window).scrollTop();
+
+            if (scrollTop >= 100) {
+                $('#imgnav').removeAttr("height");
+                $('#imgnav').attr("height", "30");
+                $('.navbar').css("min-height", "");
+                $('#navbutt').removeAttr("style");
+                $('#navdiv').removeAttr("style");
+
+                //$('#imgnav').removeClass("fadeInDown");
+                $('#imgnav').addClass("fadeInUp");
+                $('.navbar').css("transition", "all .4s ease");
+                $('#navbutt').css("transition", "all .4s ease");
+                $('#navdiv').css("transition", "all .4s ease");
+
+
+            } else if (scrollTop < 100) {
+                $('#imgnav').removeAttr("height");
+                $('#imgnav').attr("height", "60");
+                $('.navbar').css("min-height", "88px");
+                $('#navbutt').css("margin-top", "45px");
+                $('#navdiv').css("padding-top", "20px");
+
+                $('#imgnav').removeClass("fadeInUp");
+                //$('#imgnav').addClass("fadeInDown");
+                $('.navbar').css("transition", "all .4s ease");
+                $('#navbutt').css("transition", "all .4s ease");
+                $('#navdiv').css("transition", "all .4s ease");
+            }
+
+        });
+    });
+</script>
+
