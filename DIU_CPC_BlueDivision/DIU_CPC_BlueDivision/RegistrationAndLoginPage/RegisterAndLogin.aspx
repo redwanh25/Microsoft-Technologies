@@ -538,8 +538,8 @@
                 },
 
                 success: function (response) {
-                    localStorage.setItem("accessToken", response.access_token);
-                    localStorage.setItem("userName", response.userName);
+                    localStorage.setItem("accessTokenForDIU_CPC_BlueDivision", response.access_token);
+                    localStorage.setItem("userName1", response.userName);
                     var root = location.protocol + '//' + location.host;
                     window.location.href = root + "/Home/Index";
                     $('#loaderDiv').hide();

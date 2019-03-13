@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
 using Microsoft.AspNet.Identity;
@@ -31,7 +32,6 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
-
             return View(db.AspNetUsers.ToList());
         }
 
@@ -110,34 +110,41 @@ namespace DIU_CPC_BlueDivision.Controllers
             return View(aspNetUser);
         }
 
-        [NonAction]
-        // GET: BlueSheetRegisterStudents/Delete/5
+        //[NonAction]
+        //// GET: BlueSheetRegisterStudents/Delete/5
+        //public ActionResult Delete(string id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+        //    if (aspNetUser == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(aspNetUser);
+        //}
+
+        [HttpPost]
         public ActionResult Delete(string id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
-            if (aspNetUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(aspNetUser);
-        }
-
-
-        // POST: BlueSheetRegisterStudents/Delete/5
-        [NonAction]
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            AspNetUser aspNetUser = db.AspNetUsers.Find(id);
-            db.AspNetUsers.Remove(aspNetUser);
-            db.SaveChanges();
+            ListOfAllBlueSheetStudents blueSheetStudents = new ListOfAllBlueSheetStudents();
+            blueSheetStudents.DeleteStudents(id);
             return RedirectToAction("Index");
         }
+
+        //[NonAction]
+        //// POST: BlueSheetRegisterStudents/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(string id)
+        //{
+        //    AspNetUser aspNetUser = db.AspNetUsers.Find(id);
+        //    db.AspNetUsers.Remove(aspNetUser);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

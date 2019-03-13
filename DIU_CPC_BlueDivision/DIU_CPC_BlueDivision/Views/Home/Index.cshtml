@@ -1,43 +1,54 @@
-﻿
-
-
+﻿@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
 
 <div class="container">
+    @{
+        string str = "";
+        str = User.Identity.GetUserId();
+
+        if (!string.IsNullOrEmpty(str))
+        {
+            AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+            str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        }
+        if (str != "1234_U1")
+        {
+            <br /><br /><br /><br />
+            <div class="row" align="center">
+                <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
+                    <a href="#">
+                        <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
+                        <h3>Blue Sheet</h3>
+                    </a>
+                    <br />
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage2">
+                    <a href="#">
+                        <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1" class="img-responsive imgHover" />
+                        <h3>Personal Sheet Tracker - 1</h3>
+                    </a>
+                    <br />
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage3">
+                    <a href="#">
+                        <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1" class="img-responsive imgHover" />
+                        <h3>Personal Sheet Tracker - 2</h3>
+                    </a>
+                    <br />
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage4">
+                    <a href="#">
+                        <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
+                        <h3>Daily Activities</h3>
+                    </a>
+                    <br />
+                </div>
+            </div>
+        }
+    }
+
     <br /><br />
 
-    <div class="row" align="center">
-        <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
-            <a href="#">
-                <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
-                <h3>Blue Sheet</h3>
-            </a>
-            <br />
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage2">
-            <a href="#">
-                <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1" class="img-responsive imgHover" />
-                <h3>Personal Sheet Tracker - 1</h3>
-            </a>
-            <br />
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage3">
-            <a href="#">
-                <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1" class="img-responsive imgHover" />
-                <h3>Personal Sheet Tracker - 2</h3>
-            </a>
-            <br />
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage4">
-            <a href="#">
-                <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
-                <h3>Daily Activities</h3>
-            </a>
-            <br />
-        </div>
-    </div>
-
-    <br /><br />
-    
     <div class="jumbotron">
         <h1>Diu CPC Club</h1>
         <p class="lead">

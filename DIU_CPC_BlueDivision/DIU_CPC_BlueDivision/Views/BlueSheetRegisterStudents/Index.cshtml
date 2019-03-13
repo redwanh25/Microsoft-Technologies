@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.AspNetUser>
-
+@using DIU_CPC_BlueDivision.Models;
 @{
     ViewBag.Title = "Index";
 }
@@ -129,30 +129,7 @@
                         </div>
                     </div>
                 </div>
-                @*<div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated bounceInRight">
-                            <label>textSecureCode</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input id="textSecureCode" type="password" placeholder="Enter your textSecureCode" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <div class="form-group has-success animated fadeInRight">
-                            <label>txtPhoneNumber</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-lock"></span>
-                                </span>
-                                <input id="txtPhoneNumber" type="password" placeholder="Enter your txtPhoneNumber" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
+
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div class="form-group has-success animated bounceInRight">
@@ -200,52 +177,162 @@
 </div>
 
 <br /><br />
+
 <div class="container">
 
-    <h2>List Of BlueSheet Member </h2>
-    <br />
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SecureCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UserName)
-            </th>
-            <th></th>
-        </tr>
+    <div class="row">
+        <div class="col-md-5">
+            <h2 align="center">List Of Admin </h2>
+            <hr style="border: 2px solid; color: #F5F3F1">
+            <div>
+                <h4>Select Number of Rows</h4>
+                <div class="form-group">
+                    <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                        <option value="5000">Show All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <table id="mytable" class="table table-hover text-center">
+                <thead>
+                    <tr class="success text-center" style="font-weight: bold; font-size:18px">
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.SecureCode)
+                            </td>*@
+                        <td>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </td>
+                    </tr>
+                </thead>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SecureCode)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                @*<td>
-                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-                    </td>*@
-            </tr>
-        }
+                @foreach (var item in Model)
+                {
+                    if (item.SecureCode.Equals("1234_U1"))
+                    {
+                        <tbody>
+                            <tr>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.SecureCode)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserName)
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                }
 
-    </table>
+            </table>
+            <br />
+            <div class="pagination-container" align="center">
+                <nav>
+                    <ul class="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-5 col-md-offset-2">
+            <h2 align="center">List Of Students </h2>
+            <hr style="border: 2px solid; color: #F5F3F1">
+            <div>
+                <h4>Select Number of Rows</h4>
+                <div class="form-group">
+                    <select name="state1" id="maxRows1" class="form-control" style="width:150px;">
+                        <option value="5000">Show All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <table id="mytable1" class="table table-hover text-center">
+                <thead>
+                    <tr class="success text-center" style="font-weight: bold; font-size:18px">
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.SecureCode)
+                            </td>*@
+                        <td>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </td>
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.PhoneNumber)
+                            </td>*@
+                        <td>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+                {
+                    using (Html.BeginForm("Delete", "BlueSheetRegisterStudents", new { id = item.Id }))
+                    {
+                        if (item.SecureCode.Equals("*****"))
+                        {
+                            <tbody>
+                                <tr>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.SecureCode)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    }
+                }
+
+            </table>
+            <br />
+            <div class="pagination-container" align="center">
+                <nav>
+                    <ul class="pagination" id="pagination1"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 </div>
+
+
+@*  <td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+    </td>
+*@
+
 
 @*register*@
 <script>
@@ -292,4 +379,120 @@
             $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
         });
     });
+</script>
+
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('#mytable tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('#mytable tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
+</script>
+
+<script type="text/javascript">
+    var table = '#mytable1'
+    $('#maxRows1').on('change', function () {
+        $('#pagination1').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('#pagination1').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('#pagination1 li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('#pagination1 li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('#pagination1 li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('#mytable1 tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('#mytable1 tr:gt(0)').each(function () {
+            id++;
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
 </script>
