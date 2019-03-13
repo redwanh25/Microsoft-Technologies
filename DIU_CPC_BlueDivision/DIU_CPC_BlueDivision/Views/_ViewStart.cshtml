@@ -1,3 +1,22 @@
-﻿@{
-    Layout = "~/Views/Shared/_Layout_For_All.cshtml";
+﻿@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@{
+
+    string str = "";
+    str = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        str = aspNetUsersBusinessLayer.GetSecureCode(str);
+    }
+
+    if (str == "1234_U1")
+    {
+        Layout = "~/Views/Shared/_Layout_For_Admin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout_For_All.cshtml";
+    }
 }

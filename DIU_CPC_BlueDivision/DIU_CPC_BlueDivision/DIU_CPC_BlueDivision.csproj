@@ -213,13 +213,34 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>AspNetUsers_Table.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers_Table.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUsers_Table.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers_Table.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUsers_Table.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUsers_Table.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -242,6 +263,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Image\404-NotFound.gif" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
     <Content Include="Image\HomePageButton.png" />
@@ -263,6 +285,16 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\jQuery\uncompressed\jquery-3.3.1.js" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\SweetAlert\sweetalert.min.js" />
+    <Content Include="Models\AspNetUsers_Table.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
+      <LastGenOutput>AspNetUsers_Table.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AspNetUsers_Table.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
+      <LastGenOutput>AspNetUsers_Table.cs</LastGenOutput>
+    </Content>
     <Content Include="RegistrationAndLoginPage\Logout.js" />
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -299,6 +331,13 @@
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\jQuery\compressed\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\jQuery\uncompressed\desktop.ini" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\SweetAlert\desktop.ini" />
+    <EntityDeploy Include="Models\AspNetUsers_Table.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AspNetUsers_Table.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\AspNetUsers_Table.edmx.diagram">
+      <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -325,9 +364,18 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Layout_For_All.cshtml" />
+    <Content Include="Views\Shared\_Layout_For_Admin.cshtml" />
+    <Content Include="Views\Home\View1.cshtml" />
+    <Content Include="Views\Home\View2.cshtml" />
+    <Content Include="Views\BlueSheetRegisterStudents\Create.cshtml" />
+    <Content Include="Views\BlueSheetRegisterStudents\Delete.cshtml" />
+    <Content Include="Views\BlueSheetRegisterStudents\Details.cshtml" />
+    <Content Include="Views\BlueSheetRegisterStudents\Edit.cshtml" />
+    <Content Include="Views\BlueSheetRegisterStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -340,6 +340,28 @@ namespace DIU_CPC_BlueDivision.Controllers
             return Ok();
         }
 
+        // POST api/Account/BlueSheetRegister
+        [AllowAnonymous]
+        [Route("BlueSheetRegister")]
+        public async Task<IHttpActionResult> BlueSheetRegister(RegisterBindingModelBlueSheetRegister model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, SecureCode = model.SecureCode };
+
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+
+            return Ok();
+        }
+
         // POST api/Account/RegisterExternal
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]

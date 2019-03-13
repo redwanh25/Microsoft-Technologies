@@ -1,13 +1,25 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Error</title>
+    <link rel="icon" type="image/png" href="~/Image/cpc_logo_xxl.png">
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <title>Error 404 (Not Found)</title>
 </head>
-<body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+<body style="background-color:#FBF7F7">
+    <div align="center">
+        <img src="~/Image/404-NotFound.gif" class="img-responsive" />
+    </div>
+    @*<hgroup>
+            <h1>Error 404</h1>
+            <h2>An error occurred while processing your request.</h2>
+        </hgroup>*@
 </body>
 </html>

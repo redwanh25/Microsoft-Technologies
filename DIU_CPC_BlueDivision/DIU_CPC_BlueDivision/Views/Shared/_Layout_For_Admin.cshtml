@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "_Layout_For_All";
+    ViewBag.Title = "_Layout_For_Admin";
 }
 
 <!DOCTYPE html>
@@ -8,7 +8,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
-    <title>_Layout_For_All</title>
+    <title>_Layout_For_Admin</title>
     <link rel="icon" type="image/png" href="~/Image/cpc_logo_xxl.png">
 
     <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/jQuery/uncompressed/jquery-3.3.1.js"></script>
@@ -139,7 +139,7 @@
                 </button>
                 @*<span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>*@
                 <a class="navbar-brand zoom-effect" style="margin-right:30px" href="@Url.Action("Index", "Home")">
-                    <img class="animated fadeInDown" id="imgnav" src="../../Image/cpc_logo_xxl.png" height="60"/>
+                    <img class="animated fadeInDown" id="imgnav" src="../../Image/cpc_logo_xxl.png" height="60" />
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navdiv" style="padding-top:20px">
@@ -156,12 +156,13 @@
                             <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
                         </ul>
                     </li>
-                    <li><a class="zoom-effect" href="#"> View1 </a></li>
-                    <li><a class="zoom-effect" href="#"> View2 </a></li>
-                    <li role="presentation"><a class="zoom-effect" href="#">Message @*<span class="badge">42</span>*@</a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("View1", "Home")"> View1 </a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("View2", "Home")"> View2 </a></li>
+                    <li><a class="zoom-effect" href="@Url.Action("Index", "BlueSheetRegisterStudents")"> Member Create </a></li>
+                    @*<li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>*@
                 </ul>
 
-                <div class="nav navbar-nav navbar-right">                    
+                <div class="nav navbar-nav navbar-right">
                     <div class="btn-group" style="padding-top:13px">
                         <a id="btnLogoff" class="btn btn-sm btn-default" style="width: 80px; font-size: 12px">Logout</a>
                         <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

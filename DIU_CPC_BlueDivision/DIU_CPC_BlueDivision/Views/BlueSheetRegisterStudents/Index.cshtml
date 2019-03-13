@@ -1,0 +1,295 @@
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*for progressbar*@
+<style type="text/css">
+    .modal1 {
+        position: fixed;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        background-color: Black;
+        filter: alpha(opacity=60);
+        opacity: 0.6;
+        -moz-opacity: 0.8;
+    }
+
+    .center {
+        z-index: 1000;
+        margin: 300px auto;
+        padding: 10px;
+        width: 110px;
+        height: 110px;
+        background-color: White;
+        border-radius: 10px;
+        filter: alpha(opacity=100);
+        opacity: 1;
+        -moz-opacity: 1;
+    }
+
+        .center img {
+            height: 90px;
+            width: 90px;
+        }
+</style>
+
+<div style="display: none;" class="modal1" id="loaderDiv">
+    <div class="center">
+        <img src="~/Image/loader4.gif" />
+    </div>
+</div>
+
+<div style="background-color: #E8EAED" class="container-fluid">
+    <br />
+    <br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5 col-sm-12 col-xs-12">
+                <div class="well h3 animated fadeInLeft" align="center">
+                    <marquee behavior="alternate">BlueSheet</marquee>
+                </div>
+                <div id="accordion_pic" class="panel-group">
+                    <div class="panel panel-info animated fadeInLeft">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a href="#panelBodyTwo2" data-toggle="collapse" data-parent="#accordion_pic">
+                                    <b>Help Line </b>(+880123456789)
+                                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="panelBodyTwo2" class="collapse in panel-collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-warning animated fadeInLeft">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a href="#panelBodyOne4" data-toggle="collapse" data-parent="#accordion_pic">
+                                    <b>How To Use </b>(get details)
+                                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="panelBodyOne4" class="collapse panel-collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                    <br />
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
+                <div class="h2 animated fadeInRight">
+                    <p>Create A New Blue Sheet Member</p>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>UserName</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input id="txtUserName" type="text" placeholder="Enter your Name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>Email ID</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input id="txtEmail" type="text" placeholder="Enter your Email ID" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated bounceInRight">
+                            <label>textSecureCode</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="textSecureCode" type="password" placeholder="Enter your textSecureCode" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>txtPhoneNumber</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="txtPhoneNumber" type="password" placeholder="Enter your txtPhoneNumber" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated bounceInRight">
+                            <label>Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="txtPassword" type="password" placeholder="Enter your Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="txtConfirmPassword" type="password" placeholder="Enter your Confirm Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        @*Bootstrap alert to display any validation errors*@
+                        <div id="divErrorRegister" class="alert alert-danger collapse">
+                            <a id="linkCloseRegister" href="#" class="close">&times;</a>
+                            <div id="divErrorTextRegister"></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row animated fadeInRight">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input id="btnRegister1" class="btn btn-block" type="button" style="border: 1px solid; border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px" value="Register" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+<br /><br />
+<div class="container">
+
+    <h2>List Of BlueSheet Member </h2>
+    <br />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SecureCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SecureCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>
+
+@*register*@
+<script>
+    $(document).ready(function () {
+        //Close the bootstrap alert
+        $('#linkCloseRegister').click(function () {
+            $('#divErrorRegister').hide('fade');
+        });
+
+        // Save the new user details
+        $('#btnRegister1').click(function () {
+            $('#loaderDiv').show();
+            $.ajax({
+                url: '/api/account/BlueSheetRegister',
+                method: 'POST',
+                data: {
+                    userName: $('#txtUserName').val(),
+                    secureCode: '*****',
+                    email: $('#txtEmail').val(),
+                    password: $('#txtPassword').val(),
+                    confirmPassword: $('#txtConfirmPassword').val()
+                },
+                success: function () {
+                    swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                    $('#divErrorRegister').hide();
+                    $('#loaderDiv').hide();
+                },
+                error: function (jqXHR) {
+                    $('#divErrorTextRegister').text(jqXHR.responseText);
+                    $('#divErrorRegister').show('fade');
+                    $('#loaderDiv').hide();
+                }
+            });
+
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+        });
+    });
+</script>

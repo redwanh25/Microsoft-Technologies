@@ -568,7 +568,7 @@
             if ($('#textSecureCode').val() === "1234_U1") {
                 $('#loaderDiv').show();
                 $.ajax({
-                    url: '/api/account/register',
+                    url: '/api/account/Register',
                     method: 'POST',
                     data: {
                         userName: $('#txtUserName').val(),

@@ -14,5 +14,17 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             return View();
         }
+
+        public ActionResult View1()
+        {
+            ViewBag.Title = "View1";
+            return View();
+        }
+
+        public ActionResult View2()
+        {
+            ViewBag.Title = "View2";
+            return View();
+        }
     }
 }
