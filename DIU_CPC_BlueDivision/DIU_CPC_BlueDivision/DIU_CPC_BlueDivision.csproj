@@ -220,6 +220,7 @@
     <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\ListOfAllBlueSheetStudents.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
@@ -380,6 +381,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\UnlockRegistrationForm\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

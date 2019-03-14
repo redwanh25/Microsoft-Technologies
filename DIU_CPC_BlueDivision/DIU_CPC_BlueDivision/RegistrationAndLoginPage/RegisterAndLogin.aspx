@@ -18,7 +18,7 @@
     <%--<script src="../JavaScriptFile/Register.js"></script>--%>
     <%--<script src="../JavaScriptFile/Login.js"></script>--%>
 
-<%--<script src="../HTML/AngularJS/angular.js"></script>
+    <%--<script src="../HTML/AngularJS/angular.js"></script>
     <script src="../HTML/AngularJS/forgot-password.js"></script>--%>
 
     <style>
@@ -335,91 +335,111 @@
                             <p>Create A New Admin Account</p>
                         </div>
                         <br />
-                        <div class="row">
+                        <div class="row" id="unlockCode">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated bounceInRight">
-                                    <label>Admin Name</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-user"></span>
-                                        </span>
-                                        <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter your Name" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated fadeInRight">
-                                    <label>Phone Number</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-phone-alt"></span>
-                                        </span>
-                                        <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Enter your Phone Number" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated bounceInRight">
-                                    <label>SecureCode</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-globe"></span>
-                                        </span>
-                                        <asp:TextBox ID="textSecureCode" runat="server" placeholder="Enter your SecureCode" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated fadeInRight">
-                                    <label>Email ID</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-envelope"></span>
-                                        </span>
-                                        <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your Email ID" CssClass="form-control"></asp:TextBox>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated bounceInRight">
-                                    <label>Password</label>
+                                <div class="form-group has-error">
                                     <div class="input-group">
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-lock"></span>
                                         </span>
-                                        <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        <input id="textSecureCodeSubmit" type="password" class="form-control" placeholder="Enter your SecureCode" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="form-group has-success animated fadeInRight">
-                                    <label>Confirm Password</label>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-lock"></span>
-                                        </span>
-                                        <asp:TextBox ID="txtConfirmPassword" runat="server" placeholder="Enter your Confirm Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                <div class="form-group">
+                                    <input id="buttonSecureCodeSubmit" type="button" value="Unlock Registration Form" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: none" id="registrationId">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated bounceInRight">
+                                        <label>Admin Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-user"></span>
+                                            </span>
+                                            <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter your Name" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated fadeInRight">
+                                        <label>Phone Number</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-phone-alt"></span>
+                                            </span>
+                                            <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="Enter your Phone Number" CssClass="form-control"></asp:TextBox>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <!--Bootstrap alert to display any validation errors-->
-                                <div id="divErrorRegister" class="alert alert-danger collapse">
-                                    <a id="linkCloseRegister" href="#" class="close">&times;</a>
-                                    <div id="divErrorTextRegister"></div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated bounceInRight">
+                                        <label>SecureCode</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-globe"></span>
+                                            </span>
+                                            <asp:TextBox ID="textSecureCode" runat="server" placeholder="Enter your SecureCode" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated fadeInRight">
+                                        <label>Email ID</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-envelope"></span>
+                                            </span>
+                                            <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter your Email ID" CssClass="form-control"></asp:TextBox>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <br />
-                        <div class="row animated fadeInRight">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <input id="btnRegister" class="btn btn-block" type="button" style="border: 1px solid; border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px" value="Register" />
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated bounceInRight">
+                                        <label>Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-lock"></span>
+                                            </span>
+                                            <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter your Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group has-success animated fadeInRight">
+                                        <label>Confirm Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-lock"></span>
+                                            </span>
+                                            <asp:TextBox ID="txtConfirmPassword" runat="server" placeholder="Enter your Confirm Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <!--Bootstrap alert to display any validation errors-->
+                                    <div id="divErrorRegister" class="alert alert-danger collapse">
+                                        <a id="linkCloseRegister" href="#" class="close">&times;</a>
+                                        <div id="divErrorTextRegister"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+                            <div class="row animated fadeInRight">
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <input id="btnRegister" class="btn btn-block" type="button" style="border: 1px solid; border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px" value="Register" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -511,6 +531,32 @@
 </body>
 </html>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#buttonSecureCodeSubmit').click(function () {
+            $.ajax({
+                url: '/Controllers/UnlockRegistrationForm/Unlock',
+                method: 'POST',
+                data: {
+                    secureCode: $('#textSecureCodeSubmit').val()
+                },
+                success: function (data) {
+                    if (data.status == "Success") {
+                        $('#registrationId').show();
+                        $('#unlockCode').hide();
+                    }
+                    else {
+                        swal("Unlock Failed!", "May Be Your SecureCode Is Incorrect!", "error");
+                    }
+                },
+                error: function (jqXHR) {
+                    swal("Error!", "Something Went Wrong!", "error");
+                }
+            });
+        });
+    });
+</script>
+
 <script>
     function openNav() {
         document.getElementById("mySidenav").style.width = "350px";
@@ -565,36 +611,47 @@
 
         // Save the new user details
         $('#btnRegister').click(function () {
-            if ($('#textSecureCode').val() === "1234_U1") {
-                $('#loaderDiv').show();
-                $.ajax({
-                    url: '/api/account/Register',
-                    method: 'POST',
-                    data: {
-                        userName: $('#txtUserName').val(),
-                        phoneNumber: $('#txtPhoneNumber').val(),
-                        secureCode: $('#textSecureCode').val(),
-                        email: $('#txtEmail').val(),
-                        password: $('#txtPassword').val(),
-                        confirmPassword: $('#txtConfirmPassword').val()
-                    },
-                    success: function () {
-                        swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
-                        $('#divErrorRegister').hide();
-                        $('#loaderDiv').hide();
-                    },
-                    error: function (jqXHR) {
-                        $('#divErrorTextRegister').text(jqXHR.responseText);
-                        $('#divErrorRegister').show('fade');
-                        $('#loaderDiv').hide();
+            $.ajax({
+                url: '/Controllers/UnlockRegistrationForm/UnlockReg',
+                method: 'POST',
+                data: {
+                    secureCode: $('#textSecureCode').val()
+                },
+                success: function (data) {
+                    if (data.status == "Success") {
+                        $('#loaderDiv').show();
+                        $.ajax({
+                            url: '/api/account/Register',
+                            method: 'POST',
+                            data: {
+                                userName: $('#txtUserName').val(),
+                                phoneNumber: $('#txtPhoneNumber').val(),
+                                secureCode: $('#textSecureCode').val(),
+                                email: $('#txtEmail').val(),
+                                password: $('#txtPassword').val(),
+                                confirmPassword: $('#txtConfirmPassword').val()
+                            },
+                            success: function () {
+                                swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                                $('#divErrorRegister').hide();
+                                $('#loaderDiv').hide();
+                            },
+                            error: function (jqXHR) {
+                                $('#divErrorTextRegister').text(jqXHR.responseText);
+                                $('#divErrorRegister').show('fade');
+                                $('#loaderDiv').hide();
+                            }
+                        });
                     }
-                });
-            }
-            else {
-                $('#divErrorTextRegister').text("Please Enter A Valid SecureCode");
-                $('#divErrorRegister').show('fade');
-            }
-
+                    else {
+                        $('#divErrorTextRegister').text("Please Enter A Valid SecureCode");
+                        $('#divErrorRegister').show('fade');
+                    }
+                },
+                error: function (jqXHR) {
+                    swal("Error!", "Something Went Wrong!", "error");
+                }
+            });
         });
     });
 </script>
@@ -602,9 +659,9 @@
 <script>
     $(document).ready(function () {
         $('.collapse').on('shown.bs.collapse', function () {
-                $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
-            }).on('hidden.bs.collapse', function () {
-                $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
-            });
+            $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+        });
     });
 </script>

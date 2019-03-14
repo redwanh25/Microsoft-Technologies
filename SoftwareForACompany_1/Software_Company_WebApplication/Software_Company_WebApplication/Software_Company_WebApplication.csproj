@@ -216,6 +216,7 @@
     <Compile Include="Controllers\JobCVPdfController.cs" />
     <Compile Include="Controllers\OurTeamsController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\UnlockRegistrationController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogDivIdClass.cs" />
@@ -634,6 +635,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\TShirt\" />
+    <Folder Include="Views\UnlockRegistration\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

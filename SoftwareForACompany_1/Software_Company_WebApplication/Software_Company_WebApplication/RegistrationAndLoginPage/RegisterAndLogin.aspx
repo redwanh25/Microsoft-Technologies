@@ -571,36 +571,47 @@
 
         // Save the new user details
         $('#btnRegister').click(function () {
-            if ($('#textEmployeeCode').val() === "1234_U1" || $('#textEmployeeCode').val() === "1234_U2") {
-                $('#loaderDiv').show();
-                $.ajax({
-                    url: '/api/account/register',
-                    method: 'POST',
-                    data: {
-                        userName: $('#txtUserName').val(),
-                        phoneNumber: $('#txtPhoneNumber').val(),
-                        employeeCode: $('#textEmployeeCode').val(),
-                        email: $('#txtEmail').val(),
-                        password: $('#txtPassword').val(),
-                        confirmPassword: $('#txtConfirmPassword').val()
-                    },
-                    success: function () {
-                        swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
-                        $('#divErrorRegister').hide();
-                        $('#loaderDiv').hide();
-                    },
-                    error: function (jqXHR) {
-                        $('#divErrorTextRegister').text(jqXHR.responseText);
-                        $('#divErrorRegister').show('fade');
-                        $('#loaderDiv').hide();
+            $.ajax({
+                url: '/Controllers/UnlockRegistration/Unlock',
+                method: 'POST',
+                data: {
+                    secureCode: $('#textEmployeeCode').val()
+                },
+                success: function (data) {
+                    if (data.status == "Success") {
+                        $('#loaderDiv').show();
+                        $.ajax({
+                            url: '/api/account/Register',
+                            method: 'POST',
+                            data: {
+                                userName: $('#txtUserName').val(),
+                                phoneNumber: $('#txtPhoneNumber').val(),
+                                employeeCode: $('#textEmployeeCode').val(),
+                                email: $('#txtEmail').val(),
+                                password: $('#txtPassword').val(),
+                                confirmPassword: $('#txtConfirmPassword').val()
+                            },
+                            success: function () {
+                                swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                                $('#divErrorRegister').hide();
+                                $('#loaderDiv').hide();
+                            },
+                            error: function (jqXHR) {
+                                $('#divErrorTextRegister').text(jqXHR.responseText);
+                                $('#divErrorRegister').show('fade');
+                                $('#loaderDiv').hide();
+                            }
+                        });
                     }
-                });
-            }
-            else {
-                $('#divErrorTextRegister').text("Please Enter A Valid EmployeeCode");
-                $('#divErrorRegister').show('fade');
-            }
-
+                    else {
+                        $('#divErrorTextRegister').text("Please Enter A Valid SecureCode");
+                        $('#divErrorRegister').show('fade');
+                    }
+                },
+                error: function (jqXHR) {
+                    swal("Error!", "Something Went Wrong!", "error");
+                }
+            });
         });
     });
 </script>
