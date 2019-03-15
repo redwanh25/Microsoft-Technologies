@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.BlueSheet>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .inner {
+        overflow: hidden;
+    }
+
+        .inner img {
+            transition: all 1.0s ease;
+        }
+
+        .inner:hover img {
+            transform: scale(1.3);
+        }
+</style>
+<br /><br />
+<div class="container">
+    <div align="center">
+        <h1>Blue Sheet</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "BlueSheets")'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-9 col-sm-6 col-md-4 col-lg-3 countClass">
+            <div class="thumbnail shadow_B">
+                <div class="inner" align="center">
+                    <img src="~/Image/no-image.jpg" alt="This person did not post with an image" style="border-radius: 10px; height:150px; width:350px" class="img-responsive" />       @*height:100px; width:150px*@
+                </div>
+                <br />
+                <div class="caption text-center">
+                    <span style="color:red; font-size:17px">Sheet Name: </span> <span style="font-size:17px">@Html.DisplayFor(modelItem => item.BlueSheetName) </span><br />
+                    <span style="color:red; font-size:17px">Date: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Date) </span><br />
+                    <span style="color:red; font-size:17px">Created By: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.CreatedBy) </span><br />
+                    <br />
+                    <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "BlueSheets", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                    <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Details", "BlueSheets", new { id = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Details</button>
+                    <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "BlueSheets", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

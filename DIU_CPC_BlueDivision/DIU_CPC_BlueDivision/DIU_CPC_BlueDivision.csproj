@@ -217,11 +217,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
+    <Compile Include="Controllers\BlueSheetsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DatabaseConnection\BlogImageContains.cs" />
     <Compile Include="DatabaseConnection\ListOfAllBlueSheetStudents.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
     <Compile Include="Global.asax.cs">
@@ -246,6 +250,42 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPostModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogPostModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPostModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogPostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlogPostModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlogPostModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Blog_tbl.cs">
+      <DependentUpon>BlogPostModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlueSheet.cs">
+      <DependentUpon>BlueSheetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlueSheetModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlueSheetModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlueSheetModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlueSheetModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BlueSheetModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BlueSheetModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -277,6 +317,8 @@
     <Content Include="Image\instagram.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\loader4.gif" />
+    <Content Include="Image\Lock3.gif" />
+    <Content Include="Image\no-image.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\Animate.css" />
     <Content Include="jquery_Bootstrap_SweetAlert_IHover_Animation\Bootstrap\css\bootstrap-theme.css" />
@@ -300,6 +342,26 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
       <LastGenOutput>AspNetUsers_Table.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BlogPostModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogPostModel.edmx</DependentUpon>
+      <LastGenOutput>BlogPostModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BlogPostModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlogPostModel.edmx</DependentUpon>
+      <LastGenOutput>BlogPostModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BlueSheetModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlueSheetModel.edmx</DependentUpon>
+      <LastGenOutput>BlueSheetModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\BlueSheetModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BlueSheetModel.edmx</DependentUpon>
+      <LastGenOutput>BlueSheetModel.cs</LastGenOutput>
     </Content>
     <Content Include="RegistrationAndLoginPage\Logout.js" />
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
@@ -344,6 +406,20 @@
     <Content Include="Models\AspNetUsers_Table.edmx.diagram">
       <DependentUpon>AspNetUsers_Table.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\BlueSheetModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BlueSheetModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BlueSheetModel.edmx.diagram">
+      <DependentUpon>BlueSheetModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\BlogPostModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BlogPostModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BlogPostModel.edmx.diagram">
+      <DependentUpon>BlogPostModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -378,6 +454,21 @@
     <Content Include="Views\BlueSheetRegisterStudents\Details.cshtml" />
     <Content Include="Views\BlueSheetRegisterStudents\Edit.cshtml" />
     <Content Include="Views\BlueSheetRegisterStudents\Index.cshtml" />
+    <Content Include="Views\BlueSheets\Create.cshtml" />
+    <Content Include="Views\BlueSheets\Delete.cshtml" />
+    <Content Include="Views\BlueSheets\Details.cshtml" />
+    <Content Include="Views\BlueSheets\Edit.cshtml" />
+    <Content Include="Views\BlueSheets\Index.cshtml" />
+    <Content Include="Views\BlogPost\Create.cshtml" />
+    <Content Include="Views\BlogPost\Delete.cshtml" />
+    <Content Include="Views\BlogPost\Details.cshtml" />
+    <Content Include="Views\BlogPost\Edit.cshtml" />
+    <Content Include="Views\BlogPost\Index.cshtml" />
+    <Content Include="Views\Blog\Create.cshtml" />
+    <Content Include="Views\Blog\Delete.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Blog\Edit.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

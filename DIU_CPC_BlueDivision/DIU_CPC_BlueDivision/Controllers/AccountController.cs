@@ -328,7 +328,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = model.SecureCode };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = model.SecureCode, JoinSemester = model.JoinSemester };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -350,7 +350,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, SecureCode = model.SecureCode };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, SecureCode = model.SecureCode, JoinSemester = model.JoinSemester };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

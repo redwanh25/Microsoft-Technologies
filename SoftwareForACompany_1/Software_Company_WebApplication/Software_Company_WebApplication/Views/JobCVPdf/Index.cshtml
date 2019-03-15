@@ -60,64 +60,65 @@
         </div>
     </div>
 </div>
+<div style="overflow-x:auto;">
+    <table class="table table-hover text-center fixed" id="mytable">
+        <tr class="success" style="font-weight: bold; font-size:16px">
+            <td>
+                <label>File Details</label>
+            </td>
+            <td>
+                @Html.DisplayNameFor(model => model.Date)
+            </td>
+            <td>
+                <label>Person Details</label>
+            </td>
+            <td>
+                Action
+            </td>
+        </tr>
 
-<table class="table table-hover text-center fixed" id="mytable">
-    <tr class="success" style="font-weight: bold; font-size:16px">
-        <td>
-            <label>File Details</label>
-        </td>
-        <td>
-            @Html.DisplayNameFor(model => model.Date)
-        </td>
-        <td>
-            <label>Person Details</label>
-        </td>
-        <td>
-            Action
-        </td>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        using (Html.BeginForm("Delete", "JobCVPdf", new { id = item.Id }))
+        @foreach (var item in Model)
         {
-            <tr>
-                <td id="JobCVPdf">
-                    <div class="well">
-                        @Html.DisplayNameFor(model => model.FileName) :
-                        @Html.DisplayFor(modelItem => item.FileName)
-                        <br />
-                        @Html.DisplayNameFor(model => model.ContentType):
-                        @Html.DisplayFor(modelItem => item.ContentType)
-                        <br /><br />
-                    </div>
-                </td>
-                <td>
-                    <b>@Html.DisplayFor(modelItem => item.Date)</b>
-                </td>
-                <td id="JobCVPdf">
-                    <div class="well">
-                        @Html.DisplayNameFor(model => model.Name) :
-                        @Html.DisplayFor(modelItem => item.Name)
-                        <br />
-                        @Html.DisplayNameFor(model => model.PhoneNumber) :
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)
-                        <br />
-                        @Html.DisplayNameFor(model => model.Email) :
-                        @Html.DisplayFor(modelItem => item.Email)
-                    </div>
-                </td>
-                <td>
-                    @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
-                    <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("ShowCV", "JobCVPdf", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Show CV</button>
-                    <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
-                </td>
-            </tr>
+            using (Html.BeginForm("Delete", "JobCVPdf", new { id = item.Id }))
+            {
+                <tr>
+                    <td id="JobCVPdf">
+                        <div class="well">
+                            @Html.DisplayNameFor(model => model.FileName) :
+                            @Html.DisplayFor(modelItem => item.FileName)
+                            <br />
+                            @Html.DisplayNameFor(model => model.ContentType):
+                            @Html.DisplayFor(modelItem => item.ContentType)
+                            <br /><br />
+                        </div>
+                    </td>
+                    <td>
+                        <b>@Html.DisplayFor(modelItem => item.Date)</b>
+                    </td>
+                    <td id="JobCVPdf">
+                        <div class="well">
+                            @Html.DisplayNameFor(model => model.Name) :
+                            @Html.DisplayFor(modelItem => item.Name)
+                            <br />
+                            @Html.DisplayNameFor(model => model.PhoneNumber) :
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            <br />
+                            @Html.DisplayNameFor(model => model.Email) :
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </div>
+                    </td>
+                    <td>
+                        @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                        <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("ShowCV", "JobCVPdf", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Show CV</button>
+                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                    </td>
+                </tr>
+            }
         }
-    }
 
-</table>
+    </table>
+</div>
 <br />
 <div class="pagination-container" align="center">
     <nav>

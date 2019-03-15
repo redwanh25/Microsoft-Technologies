@@ -332,11 +332,11 @@
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
                         <div class="h2 animated fadeInRight">
-                            <p>Create A New Admin Account</p>
+                            <p>Create A New Admin Account <input id="buttonLock" type="button" value="Lock" class="btn btn-default" style="display:none" />  </p>
                         </div>
                         <br />
                         <div class="row" id="unlockCode">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 animated bounceInRight">
                                 <div class="form-group has-error">
                                     <div class="input-group">
                                         <span class="input-group-addon">
@@ -346,10 +346,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12  animated fadeInRight">
                                 <div class="form-group">
                                     <input id="buttonSecureCodeSubmit" type="button" value="Unlock Registration Form" class="btn btn-default" />
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row" id="unlockCode1">
+                            <div class=" col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-6 col-sm-offset-2 col-sm-6 col-xs-offset-2 col-xs-8 animated bounceInRight">
+                                <img width="300" src="../Image/Lock3.gif" class="img-responsive" />
                             </div>
                         </div>
 
@@ -543,7 +548,9 @@
                 success: function (data) {
                     if (data.status == "Success") {
                         $('#registrationId').show();
-                        $('#unlockCode').hide();
+                        $('#unlockCode').hide(); 
+                        $('#unlockCode1').hide();
+                        //$('#buttonLock').show();
                     }
                     else {
                         swal("Unlock Failed!", "May Be Your SecureCode Is Incorrect!", "error");
@@ -553,8 +560,16 @@
                     swal("Error!", "Something Went Wrong!", "error");
                 }
             });
-        });
+        });    
     });
+    //$(document).ready(function () {
+    //    $('#buttonLock').click(function () {
+    //        $('#registrationId').hide();
+    //        $('#unlockCode').show(); 
+    //        $('#unlockCode1').show();
+    //        $('#buttonLock').hide();
+    //    });
+    //});
 </script>
 
 <script>
@@ -629,7 +644,8 @@
                                 secureCode: $('#textSecureCode').val(),
                                 email: $('#txtEmail').val(),
                                 password: $('#txtPassword').val(),
-                                confirmPassword: $('#txtConfirmPassword').val()
+                                confirmPassword: $('#txtConfirmPassword').val(),
+                                joinSemester: '.....'
                             },
                             success: function () {
                                 swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");

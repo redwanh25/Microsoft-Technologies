@@ -10,12 +10,14 @@ namespace DIU_CPC_BlueDivision.Models
     public class ApplicationUser : IdentityUser
     {
         public string SecureCode { get; set; }
+        public string JoinSemester { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
-            userIdentity.AddClaim(new Claim("SecureCode", SecureCode.ToString()));
             // Add custom user claims here
+            userIdentity.AddClaim(new Claim("SecureCode", SecureCode.ToString()));
+            userIdentity.AddClaim(new Claim("JoinSemester", JoinSemester.ToString()));
             return userIdentity;
         }
     }

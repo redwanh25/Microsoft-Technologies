@@ -60,6 +60,10 @@ namespace DIU_CPC_BlueDivision.Models
         [Required]
         [Display(Name = "Secure Code")]
         public string SecureCode { get; set; }
+
+        [Required]
+        [Display(Name = "Join Semester")]
+        public string JoinSemester { get; set; }
     }
 
     public class RegisterBindingModelBlueSheetRegister
@@ -86,6 +90,10 @@ namespace DIU_CPC_BlueDivision.Models
         [Required]
         [Display(Name = "Secure Code")]
         public string SecureCode { get; set; }
+
+        [Required]
+        [Display(Name = "Join Semester")]
+        public string JoinSemester { get; set; }
     }
 
     public class RegisterExternalBindingModel
