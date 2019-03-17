@@ -30,19 +30,10 @@
             @Html.DisplayNameFor(model => model.Semester)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.SolveCount)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CodeForcesId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSolved)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Problem.ProblemName)
         </th>
         <th></th>
     </tr>
@@ -68,19 +59,10 @@
             @Html.DisplayFor(modelItem => item.Semester)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.SolveCount)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CodeForcesId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSolved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Problem.ProblemName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

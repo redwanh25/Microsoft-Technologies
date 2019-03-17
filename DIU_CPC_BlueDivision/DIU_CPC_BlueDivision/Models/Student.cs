@@ -14,19 +14,23 @@ namespace DIU_CPC_BlueDivision.Models
     
     public partial class Student
     {
-        public int Id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Student()
+        {
+            this.ProblemsStudents = new HashSet<ProblemsStudent>();
+        }
+    
+        public string Id { get; set; }
         public string UserName { get; set; }
         public string StudentId { get; set; }
         public string FullName { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
         public string Semester { get; set; }
-        public string Comment { get; set; }
         public Nullable<int> SolveCount { get; set; }
         public string CodeForcesId { get; set; }
-        public string IsSolved { get; set; }
-        public Nullable<int> ProblemId { get; set; }
     
-        public virtual Problem Problem { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ProblemsStudent> ProblemsStudents { get; set; }
     }
 }

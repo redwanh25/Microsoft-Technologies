@@ -1,0 +1,56 @@
+﻿@model DIU_CPC_BlueDivision.Models.ProblemsStudent
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ProblemsStudent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsSolved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsSolved)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Problem.ProblemName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Problem.ProblemName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.UserName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

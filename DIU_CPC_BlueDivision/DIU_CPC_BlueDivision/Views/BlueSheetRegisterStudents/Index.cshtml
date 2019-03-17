@@ -271,7 +271,7 @@
             <br />
             <div class="pagination-container" align="center">
                 <nav>
-                    <ul class="pagination"></ul>
+                    <ul class="pagination" id="pagination"></ul>
                 </nav>
             </div>
         </div>
@@ -418,117 +418,121 @@
 </script>
 
 <script type="text/javascript">
-    var table = '#mytable'
-    $('#maxRows').on('change', function () {
-        $('.pagination').html('');
-        var trnum = 0
-        var maxRows = parseInt($(this).val())
-        var totalRows = $(table + ' tbody tr').length
+    $(document).ready(function () {
+        var table = '#mytable'
+        $('#maxRows').on('change', function () {
+            $('#pagination').html('');
+            var trnum = 0
+            var maxRows = parseInt($(this).val())
+            var totalRows = $(table + ' tbody tr').length
 
-        // hide column 5 select korle 5 ta row show korbe
-        $(table + ' tr:gt(0)').each(function () {
-            trnum++
-            if (trnum > maxRows) {
-                $(this).hide()
-            }
-            if (trnum <= maxRows) {
-                $(this).show()
-            }
-        })
-
-        // show pagination
-        if (totalRows > maxRows) {
-            var pagenum = Math.ceil(totalRows / maxRows);
-            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
-            for (var i = 1; i <= pagenum;) {
-                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
-            }
-            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
-        }
-        // first value ta active rakhe always
-        $('.pagination li:first-child').addClass('active')
-
-        // page a click korar pore column kore show kore
-        $('.pagination li').on('click', function () {
-            var pageNum = $(this).attr('data-page')
-            var trIndex = 0;
-            $('.pagination li').removeClass('active')
-            $(this).addClass('active');
+            // hide column 5 select korle 5 ta row show korbe
             $(table + ' tr:gt(0)').each(function () {
-                trIndex++;
-                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
+                trnum++
+                if (trnum > maxRows) {
+                    $(this).hide()
+                }
+                if (trnum <= maxRows) {
+                    $(this).show()
                 }
             })
+
+            // show pagination
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+                for (var i = 1; i <= pagenum;) {
+                    $('#pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+                }
+                //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+            }
+            // first value ta active rakhe always
+            $('#pagination li:first-child').addClass('active')
+
+            // page a click korar pore column kore show kore
+            $('#pagination li').on('click', function () {
+                var pageNum = $(this).attr('data-page')
+                var trIndex = 0;
+                $('#pagination li').removeClass('active')
+                $(this).addClass('active');
+                $(table + ' tr:gt(0)').each(function () {
+                    trIndex++;
+                    if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                })
+            })
         })
-    })
-    // get serial no
-    $(function () {
-        $('#mytable tr:eq(0)').prepend('<td class="text-center">No</td>')
-        var id = 0;
-        $('#mytable tr:gt(0)').each(function () {
-            id++
-            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        // get serial no
+        $(function () {
+            $('#mytable tr:eq(0)').prepend('<td class="text-center">No</td>')
+            var id = 0;
+            $('#mytable tr:gt(0)').each(function () {
+                id++
+                $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            })
         })
-    })
+    });
 </script>
 
 <script type="text/javascript">
-    var table = '#mytable1'
-    $('#maxRows1').on('change', function () {
-        $('#pagination1').html('');
-        var trnum = 0
-        var maxRows = parseInt($(this).val())
-        var totalRows = $(table + ' tbody tr').length
+    $(document).ready(function () {
+        var table = '#mytable1'
+        $('#maxRows1').on('change', function () {
+            $('#pagination1').html('');
+            var trnum = 0
+            var maxRows = parseInt($(this).val())
+            var totalRows = $(table + ' tbody tr').length
 
-        // hide column 5 select korle 5 ta row show korbe
-        $(table + ' tr:gt(0)').each(function () {
-            trnum++
-            if (trnum > maxRows) {
-                $(this).hide()
-            }
-            if (trnum <= maxRows) {
-                $(this).show()
-            }
-        })
-
-        // show pagination
-        if (totalRows > maxRows) {
-            var pagenum = Math.ceil(totalRows / maxRows);
-            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
-            for (var i = 1; i <= pagenum;) {
-                $('#pagination1').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
-            }
-            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
-        }
-        // first value ta active rakhe always
-        $('#pagination1 li:first-child').addClass('active')
-
-        // page a click korar pore column kore show kore
-        $('#pagination1 li').on('click', function () {
-            var pageNum = $(this).attr('data-page')
-            var trIndex = 0;
-            $('#pagination1 li').removeClass('active')
-            $(this).addClass('active');
+            // hide column 5 select korle 5 ta row show korbe
             $(table + ' tr:gt(0)').each(function () {
-                trIndex++;
-                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
-                    $(this).hide();
-                } else {
-                    $(this).show();
+                trnum++
+                if (trnum > maxRows) {
+                    $(this).hide()
+                }
+                if (trnum <= maxRows) {
+                    $(this).show()
                 }
             })
+
+            // show pagination
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+                for (var i = 1; i <= pagenum;) {
+                    $('#pagination1').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+                }
+                //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+            }
+            // first value ta active rakhe always
+            $('#pagination1 li:first-child').addClass('active')
+
+            // page a click korar pore column kore show kore
+            $('#pagination1 li').on('click', function () {
+                var pageNum = $(this).attr('data-page')
+                var trIndex = 0;
+                $('#pagination1 li').removeClass('active')
+                $(this).addClass('active');
+                $(table + ' tr:gt(0)').each(function () {
+                    trIndex++;
+                    if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                })
+            })
         })
-    })
-    // get serial no
-    $(function () {
-        $('#mytable1 tr:eq(0)').prepend('<td class="text-center">No</td>')
-        var id = 0;
-        $('#mytable1 tr:gt(0)').each(function () {
-            id++;
-            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        // get serial no
+        $(function () {
+            $('#mytable1 tr:eq(0)').prepend('<td class="text-center">No</td>')
+            var id = 0;
+            $('#mytable1 tr:gt(0)').each(function () {
+                id++;
+                $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            })
         })
-    })
+    });
 </script>

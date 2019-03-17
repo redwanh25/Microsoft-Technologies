@@ -27,6 +27,7 @@ namespace DIU_CPC_BlueDivision.Models
     
         public virtual DbSet<BlueSheet> BlueSheets { get; set; }
         public virtual DbSet<Problem> Problems { get; set; }
+        public virtual DbSet<ProblemsStudent> ProblemsStudents { get; set; }
         public virtual DbSet<Student> Students { get; set; }
     }
 }

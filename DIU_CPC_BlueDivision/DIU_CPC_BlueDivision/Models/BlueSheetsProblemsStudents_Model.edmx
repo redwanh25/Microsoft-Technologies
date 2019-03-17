@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DIU_CPC_BlueDivisionModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DIU_CPC_BlueDivisionModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BlueSheets">
           <Key>
             <PropertyRef Name="Id" />
@@ -24,22 +24,29 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
           <Property Name="BlueSheetId" Type="int" />
         </EntityType>
+        <EntityType Name="ProblemsStudents">
+          <Key>
+            <PropertyRef Name="ProblemId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
+          <Property Name="IsSolved" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProblemId" Type="int" Nullable="false" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
         <EntityType Name="Students">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="1000" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="100" />
           <Property Name="StudentId" Type="nvarchar" MaxLength="100" />
           <Property Name="FullName" Type="nvarchar" MaxLength="100" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="100" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
           <Property Name="Semester" Type="nvarchar" MaxLength="50" />
-          <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
           <Property Name="SolveCount" Type="int" />
           <Property Name="CodeForcesId" Type="nvarchar" MaxLength="100" />
-          <Property Name="IsSolved" Type="nvarchar" MaxLength="50" />
-          <Property Name="ProblemId" Type="int" />
         </EntityType>
         <Association Name="FK__Problems__BlueSh__6C190EBB">
           <End Role="BlueSheets" Type="Self.BlueSheets" Multiplicity="0..1" />
@@ -53,33 +60,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students__Proble__6EF57B66">
-          <End Role="Problems" Type="Self.Problems" Multiplicity="0..1" />
-          <End Role="Students" Type="Self.Students" Multiplicity="*" />
+        <Association Name="FK__ProblemsS__Probl__114A936A">
+          <End Role="Problems" Type="Self.Problems" Multiplicity="1" />
+          <End Role="ProblemsStudents" Type="Self.ProblemsStudents" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Problems">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Students">
+            <Dependent Role="ProblemsStudents">
               <PropertyRef Name="ProblemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProblemsS__Stude__123EB7A3">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="ProblemsStudents" Type="Self.ProblemsStudents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProblemsStudents">
+              <PropertyRef Name="StudentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DIU_CPC_BlueDivisionModel1StoreContainer">
           <EntitySet Name="BlueSheets" EntityType="Self.BlueSheets" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Problems" EntityType="Self.Problems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProblemsStudents" EntityType="Self.ProblemsStudents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Problems__BlueSh__6C190EBB" Association="Self.FK__Problems__BlueSh__6C190EBB">
             <End Role="BlueSheets" EntitySet="BlueSheets" />
             <End Role="Problems" EntitySet="Problems" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students__Proble__6EF57B66" Association="Self.FK__Students__Proble__6EF57B66">
+          <AssociationSet Name="FK__ProblemsS__Probl__114A936A" Association="Self.FK__ProblemsS__Probl__114A936A">
             <End Role="Problems" EntitySet="Problems" />
+            <End Role="ProblemsStudents" EntitySet="ProblemsStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProblemsS__Stude__123EB7A3" Association="Self.FK__ProblemsS__Stude__123EB7A3">
             <End Role="Students" EntitySet="Students" />
+            <End Role="ProblemsStudents" EntitySet="ProblemsStudents" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DIU_CPC_BlueDivisionModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -103,25 +126,7 @@
           <Property Name="Comment" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
           <Property Name="BlueSheetId" Type="Int32" />
           <NavigationProperty Name="BlueSheet" Relationship="Self.FK__Problems__BlueSh__6C190EBB" FromRole="Problems" ToRole="BlueSheets" />
-          <NavigationProperty Name="Students" Relationship="Self.FK__Students__Proble__6EF57B66" FromRole="Problems" ToRole="Students" />
-        </EntityType>
-        <EntityType Name="Student">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="StudentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Semester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Comment" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
-          <Property Name="SolveCount" Type="Int32" />
-          <Property Name="CodeForcesId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IsSolved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ProblemId" Type="Int32" />
-          <NavigationProperty Name="Problem" Relationship="Self.FK__Students__Proble__6EF57B66" FromRole="Students" ToRole="Problems" />
+          <NavigationProperty Name="ProblemsStudents" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" FromRole="Problem" ToRole="ProblemsStudent" />
         </EntityType>
         <Association Name="FK__Problems__BlueSh__6C190EBB">
           <End Role="BlueSheets" Type="Self.BlueSheet" Multiplicity="0..1" />
@@ -135,31 +140,75 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Students__Proble__6EF57B66">
-          <End Role="Problems" Type="Self.Problem" Multiplicity="0..1" />
-          <End Role="Students" Type="Self.Student" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Problems">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Students">
-              <PropertyRef Name="ProblemId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="BlueSheetsProblemsStudentsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BlueSheets" EntityType="Self.BlueSheet" />
           <EntitySet Name="Problems" EntityType="Self.Problem" />
-          <EntitySet Name="Students" EntityType="Self.Student" />
           <AssociationSet Name="FK__Problems__BlueSh__6C190EBB" Association="Self.FK__Problems__BlueSh__6C190EBB">
             <End Role="BlueSheets" EntitySet="BlueSheets" />
             <End Role="Problems" EntitySet="Problems" />
           </AssociationSet>
-          <AssociationSet Name="FK__Students__Proble__6EF57B66" Association="Self.FK__Students__Proble__6EF57B66">
-            <End Role="Problems" EntitySet="Problems" />
-            <End Role="Students" EntitySet="Students" />
+          <EntitySet Name="ProblemsStudents" EntityType="DIU_CPC_BlueDivisionModel1.ProblemsStudent" />
+          <EntitySet Name="Students" EntityType="DIU_CPC_BlueDivisionModel1.Student" />
+          <AssociationSet Name="FK__ProblemsS__Probl__114A936A" Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A">
+            <End Role="Problem" EntitySet="Problems" />
+            <End Role="ProblemsStudent" EntitySet="ProblemsStudents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProblemsS__Stude__123EB7A3" Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3">
+            <End Role="Student" EntitySet="Students" />
+            <End Role="ProblemsStudent" EntitySet="ProblemsStudents" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="ProblemsStudent">
+          <Key>
+            <PropertyRef Name="ProblemId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="Comment" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="IsSolved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemId" Type="Int32" Nullable="false" />
+          <Property Name="StudentId" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Problem" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" FromRole="ProblemsStudent" ToRole="Problem" />
+          <NavigationProperty Name="Student" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" FromRole="ProblemsStudent" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="StudentId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Semester" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SolveCount" Type="Int32" />
+          <Property Name="CodeForcesId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ProblemsStudents" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" FromRole="Student" ToRole="ProblemsStudent" />
+        </EntityType>
+        <Association Name="FK__ProblemsS__Probl__114A936A">
+          <End Type="DIU_CPC_BlueDivisionModel1.Problem" Role="Problem" Multiplicity="1" />
+          <End Type="DIU_CPC_BlueDivisionModel1.ProblemsStudent" Role="ProblemsStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Problem">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProblemsStudent">
+              <PropertyRef Name="ProblemId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProblemsS__Stude__123EB7A3">
+          <End Type="DIU_CPC_BlueDivisionModel1.Student" Role="Student" Multiplicity="1" />
+          <End Type="DIU_CPC_BlueDivisionModel1.ProblemsStudent" Role="ProblemsStudent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProblemsStudent">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -187,21 +236,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ProblemsStudents">
+            <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.ProblemsStudent">
+              <MappingFragment StoreEntitySet="ProblemsStudents">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="ProblemId" ColumnName="ProblemId" />
+                <ScalarProperty Name="IsSolved" ColumnName="IsSolved" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.Student">
               <MappingFragment StoreEntitySet="Students">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="Semester" ColumnName="Semester" />
-                <ScalarProperty Name="Comment" ColumnName="Comment" />
-                <ScalarProperty Name="SolveCount" ColumnName="SolveCount" />
                 <ScalarProperty Name="CodeForcesId" ColumnName="CodeForcesId" />
-                <ScalarProperty Name="IsSolved" ColumnName="IsSolved" />
-                <ScalarProperty Name="ProblemId" ColumnName="ProblemId" />
+                <ScalarProperty Name="SolveCount" ColumnName="SolveCount" />
+                <ScalarProperty Name="Semester" ColumnName="Semester" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

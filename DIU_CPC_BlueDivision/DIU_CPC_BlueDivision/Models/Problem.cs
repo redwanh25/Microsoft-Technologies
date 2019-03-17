@@ -17,7 +17,7 @@ namespace DIU_CPC_BlueDivision.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Problem()
         {
-            this.Students = new HashSet<Student>();
+            this.ProblemsStudents = new HashSet<ProblemsStudent>();
         }
     
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace DIU_CPC_BlueDivision.Models
     
         public virtual BlueSheet BlueSheet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<ProblemsStudent> ProblemsStudents { get; set; }
     }
 }

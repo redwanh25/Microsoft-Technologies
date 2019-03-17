@@ -17,12 +17,11 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: Students
         public ActionResult Index()
         {
-            var students = db.Students.Include(s => s.Problem);
-            return View(students.ToList());
+            return View(db.Students.ToList());
         }
 
         // GET: Students/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
             if (id == null)
             {
@@ -39,7 +38,6 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: Students/Create
         public ActionResult Create()
         {
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,Comment,SolveCount,CodeForcesId,IsSolved,ProblemId")] Student student)
+        public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -57,12 +55,11 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
             return View(student);
         }
 
         // GET: Students/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -73,7 +70,6 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
             return View(student);
         }
 
@@ -82,7 +78,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,Comment,SolveCount,CodeForcesId,IsSolved,ProblemId")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -90,12 +86,11 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
             return View(student);
         }
 
         // GET: Students/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -112,7 +107,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Student student = db.Students.Find(id);
             db.Students.Remove(student);

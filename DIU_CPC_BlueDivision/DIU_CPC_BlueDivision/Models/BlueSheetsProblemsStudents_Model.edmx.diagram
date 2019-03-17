@@ -5,11 +5,21 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="aa9fe88604f14a6abfea43897d3cbf32" Name="Diagram1">
-        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.BlueSheet" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.Problem" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.Student" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.BlueSheet" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.Problem" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__Problems__BlueSh__6C190EBB" ManuallyRouted="false" />
-        <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__Students__Proble__6EF57B66" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.ProblemsStudent" Width="1.5" PointX="5.5" PointY="0.5" />
+        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.Student" Width="1.5" PointX="0.75" PointY="3.625" />
+        <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" />
+        <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" ManuallyRouted="true" >
+          <ConnectorPoint PointX="2.25" PointY="4.218915139222756" />
+          <ConnectorPoint PointX="2.6856" PointY="4.218915139222756" />
+          <ConnectorPoint PointX="2.6856" PointY="4.2104801432291667" />
+          <ConnectorPoint PointX="3.5700000000000003" PointY="4.2104801432291667" />
+          <ConnectorPoint PointX="3.5700000000000003" PointY="3.4396468098958337" />
+          <ConnectorPoint PointX="6.25" PointY="3.4396468098958337" />
+          <ConnectorPoint PointX="6.25" PointY="2.6725878906249996" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -224,8 +224,8 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProblemsController.cs" />
+    <Compile Include="Controllers\ProblemsStudentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
-    <Compile Include="Controllers\Students_ForAllController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
@@ -292,6 +292,9 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Problem.cs">
+      <DependentUpon>BlueSheetsProblemsStudents_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProblemsStudent.cs">
       <DependentUpon>BlueSheetsProblemsStudents_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Student.cs">
@@ -491,11 +494,11 @@
     <Content Include="Views\Students\Details.cshtml" />
     <Content Include="Views\Students\Edit.cshtml" />
     <Content Include="Views\Students\Index.cshtml" />
-    <Content Include="Views\Students_ForAll\Create.cshtml" />
-    <Content Include="Views\Students_ForAll\Delete.cshtml" />
-    <Content Include="Views\Students_ForAll\Details.cshtml" />
-    <Content Include="Views\Students_ForAll\Edit.cshtml" />
-    <Content Include="Views\Students_ForAll\Index.cshtml" />
+    <Content Include="Views\ProblemsStudents\Create.cshtml" />
+    <Content Include="Views\ProblemsStudents\Delete.cshtml" />
+    <Content Include="Views\ProblemsStudents\Details.cshtml" />
+    <Content Include="Views\ProblemsStudents\Edit.cshtml" />
+    <Content Include="Views\ProblemsStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

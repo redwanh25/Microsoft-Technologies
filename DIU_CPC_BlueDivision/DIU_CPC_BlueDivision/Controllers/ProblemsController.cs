@@ -40,7 +40,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
                 return View(problems);
             }
-            
+
         }
 
         // GET: Problems/Details/5
