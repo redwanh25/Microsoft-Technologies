@@ -26,5 +26,23 @@ namespace DIU_CPC_BlueDivision.DifferentLayout_Database
             }
             return id;
         }
+
+        public string GetJoinSemester(string str)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string joinSemester = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select JoinSemester from AspNetUsers where id = @str";
+                cmd.Parameters.AddWithValue("@str", str);
+                joinSemester += (string)cmd.ExecuteScalar();
+
+            }
+            return joinSemester;
+        }
     }
 }

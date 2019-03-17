@@ -11,23 +11,23 @@ namespace DIU_CPC_BlueDivision.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    public partial class BlueSheet
+    
+    public partial class Problem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public BlueSheet()
+        public Problem()
         {
-            this.Problems = new HashSet<Problem>();
+            this.Students = new HashSet<Student>();
         }
     
         public int Id { get; set; }
-        public string BlueSheetName { get; set; }
-        [DataType(DataType.Date)]
-        public Nullable<System.DateTime> Date { get; set; }
-        public string CreatedBy { get; set; }
+        public string ProblemName { get; set; }
+        public string ProblemLink { get; set; }
+        public string Comment { get; set; }
+        public Nullable<int> BlueSheetId { get; set; }
     
+        public virtual BlueSheet BlueSheet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Problem> Problems { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

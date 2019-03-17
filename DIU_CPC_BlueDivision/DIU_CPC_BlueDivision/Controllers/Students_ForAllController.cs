@@ -10,109 +10,116 @@ using DIU_CPC_BlueDivision.Models;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
-    public class BlueSheetsController : Controller
+    public class Students_ForAllController : Controller
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
-        // GET: BlueSheets
+        // GET: Students_ForAll
         public ActionResult Index()
         {
-            return View(db.BlueSheets.ToList());
+            var students = db.Students.Include(s => s.Problem);
+            return View(students.ToList());
         }
 
-        // GET: BlueSheets/Details/5
+        // GET: Students_ForAll/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlueSheet blueSheet = db.BlueSheets.Find(id);
-            if (blueSheet == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(blueSheet);
+            return View(student);
         }
 
-        // GET: BlueSheets/Create
+        // GET: Students_ForAll/Create
         public ActionResult Create()
         {
+            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
             return View();
         }
 
-        // POST: BlueSheets/Create
+        // POST: Students_ForAll/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,BlueSheetName,Date,CreatedBy")] BlueSheet blueSheet)
+        public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,Comment,SolveCount,CodeForcesId,IsSolved,ProblemId")] Student student)
         {
             if (ModelState.IsValid)
             {
-                blueSheet.Date = DateTime.Now;
-                db.BlueSheets.Add(blueSheet);
+                db.Students.Add(student);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(blueSheet);
+            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
+            
+            //List<Student> students = db.Students.Include(s => s.Problem).ToList();
+            //ViewBag.ProblemId = new SelectList(db.Students.Where(per => per.Problem.ProblemName == "Redwan Fall-20-1"), "Id", "ProblemName", student.ProblemId);
+
+            return View(student);
         }
 
-        // GET: BlueSheets/Edit/5
+        // GET: Students_ForAll/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlueSheet blueSheet = db.BlueSheets.Find(id);
-            if (blueSheet == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(blueSheet);
+            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
+            return View(student);
         }
 
-        // POST: BlueSheets/Edit/5
+        // POST: Students_ForAll/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,BlueSheetName,Date,CreatedBy")] BlueSheet blueSheet)
+        public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,Comment,SolveCount,CodeForcesId,IsSolved,ProblemId")] Student student)
         {
             if (ModelState.IsValid)
             {
-                blueSheet.Date = DateTime.Now;
-                db.Entry(blueSheet).State = EntityState.Modified;
+                db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(blueSheet);
+            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", student.ProblemId);
+            return View(student);
         }
 
-        // GET: BlueSheets/Delete/5
+        // GET: Students_ForAll/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BlueSheet blueSheet = db.BlueSheets.Find(id);
-            if (blueSheet == null)
+            Student student = db.Students.Find(id);
+            if (student == null)
             {
                 return HttpNotFound();
             }
-            return View(blueSheet);
+            return View(student);
         }
 
-        // POST: BlueSheets/Delete/5
+        // POST: Students_ForAll/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BlueSheet blueSheet = db.BlueSheets.Find(id);
-            db.BlueSheets.Remove(blueSheet);
+            Student student = db.Students.Find(id);
+            db.Students.Remove(student);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

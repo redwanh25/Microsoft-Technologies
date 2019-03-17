@@ -13,10 +13,10 @@ namespace DIU_CPC_BlueDivision.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BlueSheetEntities : DbContext
+    public partial class BlueSheetsProblemsStudentsEntities : DbContext
     {
-        public BlueSheetEntities()
-            : base("name=BlueSheetEntities")
+        public BlueSheetsProblemsStudentsEntities()
+            : base("name=BlueSheetsProblemsStudentsEntities")
         {
         }
     
@@ -26,7 +26,7 @@ namespace DIU_CPC_BlueDivision.Models
         }
     
         public virtual DbSet<BlueSheet> BlueSheets { get; set; }
-
-        public System.Data.Entity.DbSet<DIU_CPC_BlueDivision.Models.Blog_tbl> Blog_tbl { get; set; }
+        public virtual DbSet<Problem> Problems { get; set; }
+        public virtual DbSet<Student> Students { get; set; }
     }
 }

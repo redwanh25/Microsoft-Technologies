@@ -3,20 +3,21 @@
 
 <div class="container">
     @{
-        string str = "";
-        str = User.Identity.GetUserId();
+        string userId = "", secureCode = "", joinSem = "";
+        userId = User.Identity.GetUserId();
 
-        if (!string.IsNullOrEmpty(str))
+        if (!string.IsNullOrEmpty(userId))
         {
             AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-            str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            secureCode = aspNetUsersBusinessLayer.GetSecureCode(userId);
+            joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
         }
-        if (str != "1234_U1")
+        if (secureCode != "1234_U1")
         {
             <br /><br /><br /><br />
             <div class="row" align="center">
                 <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
-                    <a href="#">
+                    <a href="@Url.Action("Index", "Problems", new { id_Or_SheetName = joinSem})">
                         <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
                         <h3>Blue Sheet</h3>
                     </a>
