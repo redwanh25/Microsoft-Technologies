@@ -6,7 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -54,11 +56,20 @@ namespace DIU_CPC_BlueDivision.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Comment,IsSolved,ProblemId,StudentId")] ProblemsStudent problemsStudent)
         {
+            string userId = "", joinSem = "";
+            userId = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
+            }
+
             if (ModelState.IsValid)
             {
                 db.ProblemsStudents.Add(problemsStudent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Problems", new { id_Or_SheetName = joinSem });
             }
 
             ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
@@ -91,11 +102,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Comment,IsSolved,ProblemId,StudentId")] ProblemsStudent problemsStudent)
         {
+            string userId = "", joinSem = "";
+            userId = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(userId))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
+            }
             if (ModelState.IsValid)
             {
                 db.Entry(problemsStudent).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Problems", new { id_Or_SheetName = joinSem });
             }
             ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
             ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
@@ -103,13 +122,13 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? problemId, string studentId)
         {
-            if (id == null)
+            if (problemId == null && studentId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProblemsStudent problemsStudent = db.ProblemsStudents.Find(id);
+            ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == problemId && per.StudentId == studentId);
             if (problemsStudent == null)
             {
                 return HttpNotFound();
@@ -120,9 +139,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: ProblemsStudents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int? problemId, string studentId)
         {
-            ProblemsStudent problemsStudent = db.ProblemsStudents.Find(id);
+            ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == problemId && per.StudentId == studentId);
             db.ProblemsStudents.Remove(problemsStudent);
             db.SaveChanges();
             return RedirectToAction("Index");

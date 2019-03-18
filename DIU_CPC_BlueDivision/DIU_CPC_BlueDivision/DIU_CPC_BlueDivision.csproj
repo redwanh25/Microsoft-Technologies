@@ -229,6 +229,7 @@
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
+    <Compile Include="DatabaseConnection\DeleteDataFromDatabase.cs" />
     <Compile Include="DatabaseConnection\ListOfAllBlueSheetStudents.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
     <Compile Include="Global.asax.cs">
