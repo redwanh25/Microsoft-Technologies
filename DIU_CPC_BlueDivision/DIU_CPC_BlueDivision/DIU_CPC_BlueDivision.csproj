@@ -499,6 +499,7 @@
     <Content Include="Views\ProblemsStudents\Details.cshtml" />
     <Content Include="Views\ProblemsStudents\Edit.cshtml" />
     <Content Include="Views\ProblemsStudents\Index.cshtml" />
+    <Content Include="Views\ProblemsStudents\Solver.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

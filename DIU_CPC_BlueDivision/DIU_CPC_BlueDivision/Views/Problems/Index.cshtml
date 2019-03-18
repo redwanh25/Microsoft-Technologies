@@ -1,7 +1,20 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Problem>
+@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
 
 @{
+    /**/
+
     ViewBag.Title = "Index";
+
+    string str = "", UserName = "";
+    str = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        UserName = aspNetUsersBusinessLayer.GetUserName(str);
+    }
 }
 
 <h2>Index</h2>
@@ -11,6 +24,9 @@
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.ProblemName)
         </th>
@@ -26,26 +42,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProblemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProblemLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProblemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProblemLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
+            </td>
+            <td>
+
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("ProbStu_Edit", "Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName }, null) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })|
+                @Html.ActionLink("Solver", "Solver", "ProblemsStudents", new { problemId = item.Id }, null)
+            </td>
+        </tr>
+    }
 
 </table>

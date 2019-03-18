@@ -15,8 +15,15 @@
     {
         Layout = "~/Views/Shared/_Layout_For_Admin.cshtml";
     }
-    else
+    else if (str == "*****")
     {
         Layout = "~/Views/Shared/_Layout_For_All.cshtml";
+    }
+    else
+    {
+        string appPath = "";
+        appPath = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+        Response.Redirect(appPath + "/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+        //Response.Redirect(appPath + "http://localhost:50120/RegistrationAndLoginPage/RegisterAndLogin.aspx");
     }
 }

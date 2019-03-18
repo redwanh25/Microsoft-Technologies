@@ -44,5 +44,23 @@ namespace DIU_CPC_BlueDivision.DifferentLayout_Database
             }
             return joinSemester;
         }
+
+        public string GetUserName(string str)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            string userName = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select UserName from AspNetUsers where id = @str";
+                cmd.Parameters.AddWithValue("@str", str);
+                userName += (string)cmd.ExecuteScalar();
+
+            }
+            return userName;
+        }
     }
 }

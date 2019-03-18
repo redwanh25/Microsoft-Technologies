@@ -37,10 +37,13 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Create
-        public ActionResult Create()
+        public ActionResult Create(int problemId, string userName)
         {
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName");
+            //ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
+            //ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName");
+
+            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName");
+            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName");
             return View();
         }
 
@@ -64,19 +67,20 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int problemId, string userName)
         {
-            if (id == null)
+            if (db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName) == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return RedirectToAction("Create", "ProblemsStudents", new { problemId, userName });
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ProblemsStudent problemsStudent = db.ProblemsStudents.Find(id);
+            ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName);
             if (problemsStudent == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
+            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName", problemsStudent.ProblemId);
+            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName", problemsStudent.StudentId);
             return View(problemsStudent);
         }
 
@@ -122,6 +126,12 @@ namespace DIU_CPC_BlueDivision.Controllers
             db.ProblemsStudents.Remove(problemsStudent);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Solver(int problemId)
+        {
+            List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.IsSolved == "ok").ToList();
+            return View(problemsStudents);
         }
 
         protected override void Dispose(bool disposing)
