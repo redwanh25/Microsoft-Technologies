@@ -47,9 +47,48 @@ namespace DIU_CPC_BlueDivision.Controllers
             //ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
             //ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName");
 
-            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName");
-            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName");
-            return View();
+            List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.Student.UserName == userName).ToList();
+            if(problemsStudents.Count != 0)
+            {
+                throw new Exception();
+            }
+
+            string U_id = "", str = "", joinSemester = "", userName1 = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+                userName1 = aspNetUsersBusinessLayer.GetUserName(U_id);
+            }
+            if (str != "1234_U1")
+            {
+                if (userName1 == userName)
+                {
+                    List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
+                    foreach (Problem p in problem)
+                    {
+                        if (p.Id == problemId)
+                        {
+                            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName");
+                            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName");
+                            return View();
+                        }
+                    }
+                    throw new Exception();
+                }
+                else
+                {
+                    throw new Exception();
+                } 
+            }
+            else
+            {
+                throw new Exception();
+            }
+
         }
 
         // POST: ProblemsStudents/Create
@@ -83,19 +122,51 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ProblemsStudents/Edit/5
         public ActionResult Edit(int problemId, string userName)
         {
-            if (db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName) == null)
+            string U_id = "", str = "", joinSemester = "", userName1 = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
             {
-                return RedirectToAction("Create", "ProblemsStudents", new { problemId, userName });
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+                userName1 = aspNetUsersBusinessLayer.GetUserName(U_id);
             }
-            ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName);
-            if (problemsStudent == null)
+            if (str != "1234_U1")
             {
-                return HttpNotFound();
+                if (userName1 == userName)
+                {
+                    List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
+                    foreach (Problem p in problem)
+                    {
+                        if (p.Id == problemId)
+                        {
+                            if (db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName) == null)
+                            {
+                                return RedirectToAction("Create", "ProblemsStudents", new { problemId, userName });
+                                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                            }
+                            ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.Problem.Id == problemId && per.Student.UserName == userName);
+                            if (problemsStudent == null)
+                            {
+                                return HttpNotFound();
+                            }
+                            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName", problemsStudent.ProblemId);
+                            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName", problemsStudent.StudentId);
+                            return View(problemsStudent);
+                        }
+                    }
+                    throw new Exception();
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
-            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName", problemsStudent.ProblemId);
-            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName", problemsStudent.StudentId);
-            return View(problemsStudent);
+            else
+            {
+                throw new Exception();
+            }
         }
 
         // POST: ProblemsStudents/Edit/5
@@ -158,8 +229,33 @@ namespace DIU_CPC_BlueDivision.Controllers
             //ProblemsClass pc = new ProblemsClass();
             //pc.updateProblemSolverCount(problemId, problemCount);
 
-            List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId).ToList();   //&& per.IsSolved == "Accepted"
-            return View(problemsStudents);
+            string U_id = "", str = "", joinSemester = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+            }
+            if (str != "1234_U1")
+            {
+                List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
+                foreach (Problem p in problem)
+                {
+                    if (p.Id == problemId)
+                    {
+                        List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId).ToList();   //&& per.IsSolved == "Accepted"
+                        return View(problemsStudents);
+                    }
+                }
+                throw new Exception();
+            }
+            else
+            {
+                List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId).ToList();   //&& per.IsSolved == "Accepted"
+                return View(problemsStudents);
+            }
         }
 
         protected override void Dispose(bool disposing)
