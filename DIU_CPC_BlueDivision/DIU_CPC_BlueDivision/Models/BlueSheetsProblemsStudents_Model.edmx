@@ -23,6 +23,7 @@
           <Property Name="ProblemLink" Type="nvarchar" MaxLength="3000" />
           <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
           <Property Name="BlueSheetId" Type="int" />
+          <Property Name="ProblemSolverCount" Type="int" />
         </EntityType>
         <EntityType Name="ProblemsStudents">
           <Key>
@@ -33,6 +34,8 @@
           <Property Name="IsSolved" Type="nvarchar" MaxLength="50" />
           <Property Name="ProblemId" Type="int" Nullable="false" />
           <Property Name="StudentId" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="SolutionLink" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ShareSolutionLink" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <EntityType Name="Students">
           <Key>
@@ -127,6 +130,7 @@
           <Property Name="BlueSheetId" Type="Int32" />
           <NavigationProperty Name="BlueSheet" Relationship="Self.FK__Problems__BlueSh__6C190EBB" FromRole="Problems" ToRole="BlueSheets" />
           <NavigationProperty Name="ProblemsStudents" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" FromRole="Problem" ToRole="ProblemsStudent" />
+          <Property Name="ProblemSolverCount" Type="Int32" />
         </EntityType>
         <Association Name="FK__Problems__BlueSh__6C190EBB">
           <End Role="BlueSheets" Type="Self.BlueSheet" Multiplicity="0..1" />
@@ -169,6 +173,8 @@
           <Property Name="StudentId" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Problem" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" FromRole="ProblemsStudent" ToRole="Problem" />
           <NavigationProperty Name="Student" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" FromRole="ProblemsStudent" ToRole="Student" />
+          <Property Name="SolutionLink" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ShareSolutionLink" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -228,6 +234,7 @@
           <EntitySetMapping Name="Problems">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.Problem">
               <MappingFragment StoreEntitySet="Problems">
+                <ScalarProperty Name="ProblemSolverCount" ColumnName="ProblemSolverCount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
                 <ScalarProperty Name="ProblemLink" ColumnName="ProblemLink" />
@@ -239,6 +246,8 @@
           <EntitySetMapping Name="ProblemsStudents">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.ProblemsStudent">
               <MappingFragment StoreEntitySet="ProblemsStudents">
+                <ScalarProperty Name="ShareSolutionLink" ColumnName="ShareSolutionLink" />
+                <ScalarProperty Name="SolutionLink" ColumnName="SolutionLink" />
                 <ScalarProperty Name="StudentId" ColumnName="StudentId" />
                 <ScalarProperty Name="ProblemId" ColumnName="ProblemId" />
                 <ScalarProperty Name="IsSolved" ColumnName="IsSolved" />

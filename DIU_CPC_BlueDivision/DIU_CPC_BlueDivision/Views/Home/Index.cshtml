@@ -1,5 +1,23 @@
-﻿@using Microsoft.AspNet.Identity;
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Blog_tbl>
+@using System.Text;
+
+@using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
+
+
+<style>
+    .inner {
+        overflow: hidden;
+    }
+
+        .inner img {
+            transition: all 1.0s ease;
+        }
+
+        .inner:hover img {
+            transform: scale(1.3);
+        }
+</style>
 
 <div class="container">
     @{
@@ -50,14 +68,14 @@
 
     <br /><br />
 
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1>Diu CPC Club</h1>
         <p class="lead">
             Computer And Programming Club Of Daffodil International University
         </p>
         <p><a target="_blank" href="http://cpc.daffodilvarsity.edu.bd/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
-    <div class="row">
+    <div class="row text-center">
         <div class="col-md-4">
             <h2>Diu CPC Club</h2>
             <p>
@@ -76,7 +94,75 @@
             <p><a class="btn btn-default" target="_blank" href="http://cpc.daffodilvarsity.edu.bd/">Learn more &raquo;</a></p>
         </div>
     </div>
+
 </div>
+
+<br /><br /><br/><br/>
+
+<hr style="border: 5px solid; color: #F5F3F1">
+<div class="container">
+    <div class="row">
+        <div class="text-center">
+            <p style="font-family: Impact; font-size: 30px;">Tech news from the BlueSheet blog</p>
+        </div>
+    </div>
+    <br />
+    <br />
+
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+            @*col-xs-12 col-sm-12 col-md-12 col-lg-12*@
+            <div class="thumbnail shadow_B" style="min-height: 435px;">
+                @*style="max-width: 500px"*@
+                <div class="inner" align="center">
+                    @{
+                        var imgSrc = "";
+                        if (item.BlogImage != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.BlogImage);
+                            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@imgSrc" alt="image" style="width: 350px; height:190px" class="img-responsive" />
+                        }
+                        else
+                        {
+                            <img src="../Image/no-image.jpg" alt="image" style="width: 310px; height:190px" class="img-responsive">
+                        }
+                    }
+
+                </div>
+                <br />
+                <div class="caption text-center">
+                    <p>
+                        @{
+                            string str3 = item.Title;
+                            if (str3.Length > 90)
+                            {
+                                StringBuilder sb = new StringBuilder(str3);
+                                sb.Remove(90, sb.Length - 90);
+                                str3 = sb.ToString() + "...";
+                            }
+                        }
+                        <label style="font-size: 18px" id="Label1">@str3</label>
+                    </p>
+                    <p>
+                        <label style="color:red" class="h5" id="TextBox1">@Html.DisplayFor(modelItem => item.Date)</label>
+                    </p>
+                    @{
+                        string str = item.BlogDivId;
+                        string url = HttpContext.Current.Request.Url.AbsoluteUri;
+                        Uri uri = new Uri(url);
+                        string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/Blog#" + str;
+                    }
+                    <a href="@address" class="btn btn-default btn-block" style="border-radius: 20px; outline: none; color: orange; font-size: 15px">Get More Info</a>
+                </div>
+            </div>
+        </div>
+        @*@Html.ActionLink("Details", "Details", new { id = item.Id })*@
+    }
+
+</div>
+
 
 <script type="text/javascript">
     $('.companyInnerImage1').mouseover(function () {

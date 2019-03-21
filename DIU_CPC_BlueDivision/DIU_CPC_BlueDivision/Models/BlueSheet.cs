@@ -22,9 +22,11 @@ namespace DIU_CPC_BlueDivision.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string BlueSheetName { get; set; }
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
+        [Required]
         public string CreatedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

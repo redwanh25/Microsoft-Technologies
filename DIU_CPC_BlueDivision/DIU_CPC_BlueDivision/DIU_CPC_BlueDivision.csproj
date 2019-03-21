@@ -224,13 +224,17 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProblemsController.cs" />
+    <Compile Include="Controllers\ProblemSolvingRankingController.cs" />
     <Compile Include="Controllers\ProblemsStudentsController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
+    <Compile Include="DatabaseConnection\BlueSheetNameRetrive.cs" />
     <Compile Include="DatabaseConnection\DeleteDataFromDatabase.cs" />
     <Compile Include="DatabaseConnection\ListOfAllBlueSheetStudents.cs" />
+    <Compile Include="DatabaseConnection\ProblemsClass.cs" />
+    <Compile Include="DatabaseConnection\ProblemSolvingRanking.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -501,10 +505,10 @@
     <Content Include="Views\ProblemsStudents\Edit.cshtml" />
     <Content Include="Views\ProblemsStudents\Index.cshtml" />
     <Content Include="Views\ProblemsStudents\Solver.cshtml" />
+    <Content Include="Views\ProblemSolvingRanking\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\UnlockRegistrationForm\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

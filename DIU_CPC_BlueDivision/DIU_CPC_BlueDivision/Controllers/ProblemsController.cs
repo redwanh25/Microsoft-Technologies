@@ -4,8 +4,10 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
@@ -17,11 +19,89 @@ namespace DIU_CPC_BlueDivision.Controllers
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
+        // blueSheets folder er index.cshtml a ase (id).
+        // Home folder er index.cshtml a ase (SheetName).
+
         // GET: Problems
         public ActionResult Index(string id_Or_SheetName)
         {
-            // var problems = db.Problems.Include(p => p.BlueSheet);
+            string U_id = "",  str = "", joinSemester = "";
+            U_id = User.Identity.GetUserId();
 
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+            }
+
+            string appPath = "";
+            appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+            string[] arr = appPath.Split('=');
+
+            try
+            {
+                int x = Convert.ToInt32(id_Or_SheetName);
+            }
+            catch (Exception)
+            {
+                if (joinSemester != arr[1])
+                {
+                    throw new Exception();
+                }
+            }
+
+            ProblemsClass pc = new ProblemsClass();
+            if (str != "1234_U1")
+            {
+                bool check = true;
+                try
+                {
+                    int x = Convert.ToInt32(id_Or_SheetName);
+                    check = false;
+                    throw new Exception();
+                }
+                catch (Exception)
+                {
+                    
+                }
+
+                if (check)
+                {
+                    List<Problem> problems = db.Problems.Where(per => per.BlueSheet.BlueSheetName == id_Or_SheetName).ToList();
+                    BlueSheet blueSheet = db.BlueSheets.FirstOrDefault(per => per.BlueSheetName == id_Or_SheetName);
+                    pc.updateProblemsForSolveCount("Accepted", blueSheet.Id);
+                    //foreach (Problem p in problems)
+                    //{
+                    //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
+                    //    pc.updateProblemSolverCount(p.Id, problemCount);
+                    //}
+                    return View(problems);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            else
+            {
+                int id = Convert.ToInt32(id_Or_SheetName);
+                List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
+
+                pc.updateProblemsForSolveCount("Accepted", id);
+                //foreach (Problem p in problems)
+                //{
+                //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
+                //    pc.updateProblemSolverCount(p.Id, problemCount);
+                //}
+                return View(problems);
+            }
+
+        }
+
+        // GET: Problems/Details/5
+        public ActionResult Details(int? id)
+        {
             string str = "";
             str = User.Identity.GetUserId();
 
@@ -32,21 +112,9 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
             if (str != "1234_U1")
             {
-                List<Problem> problems = db.Problems.Where(per => per.BlueSheet.BlueSheetName == id_Or_SheetName).ToList();
-                return View(problems);
-            }
-            else
-            {
-                int id = Convert.ToInt32(id_Or_SheetName);
-                List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
-                return View(problems);
+                throw new Exception();
             }
 
-        }
-
-        // GET: Problems/Details/5
-        public ActionResult Details(int? id)
-        {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -60,9 +128,22 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: Problems/Create
-        public ActionResult Create()
+        public ActionResult Create(int? blueSheetId)
         {
-            ViewBag.BlueSheetId = new SelectList(db.BlueSheets, "Id", "BlueSheetName");
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
+            ViewBag.BlueSheetId = new SelectList(db.BlueSheets.Where(per => per.Id == blueSheetId), "Id", "BlueSheetName");
             return View();
         }
 
@@ -71,8 +152,21 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ProblemName,ProblemLink,Comment,BlueSheetId")] Problem problem)
+        public ActionResult Create([Bind(Include = "Id,ProblemName,ProblemLink,ProblemSolverCount,Comment,BlueSheetId")] Problem problem)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Problems.Add(problem);
@@ -85,8 +179,21 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: Problems/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id, int blueSheetId)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -96,7 +203,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BlueSheetId = new SelectList(db.BlueSheets, "Id", "BlueSheetName", problem.BlueSheetId);
+            ViewBag.BlueSheetId = new SelectList(db.BlueSheets.Where(per => per.Id == blueSheetId), "Id", "BlueSheetName", problem.BlueSheetId);
             return View(problem);
         }
 
@@ -105,8 +212,21 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProblemName,ProblemLink,Comment,BlueSheetId")] Problem problem)
+        public ActionResult Edit([Bind(Include = "Id,ProblemName,ProblemLink,ProblemSolverCount,Comment,BlueSheetId")] Problem problem)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(problem).State = EntityState.Modified;
@@ -120,6 +240,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: Problems/Delete/5
         public ActionResult Delete(int? id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -137,6 +270,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
             DeleteDataFromDatabase deleteDataFromDatabase = new DeleteDataFromDatabase();
             deleteDataFromDatabase.deleteProblemsStudents(id);
 
@@ -144,7 +290,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             int? Id = problem.BlueSheetId;
             db.Problems.Remove(problem);
             db.SaveChanges();
-            return RedirectToAction("Index", "Problems", new { Id });
+            return RedirectToAction("Index", "Problems", new { id_Or_SheetName = Id });
         }
 
         protected override void Dispose(bool disposing)

@@ -1,45 +1,705 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.ProblemsStudent>
+@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Comment)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsSolved)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Problem.ProblemName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Student.UserName)
-        </th>
-        <th></th>
-    </tr>
+@{
+    string str = "", secureCode = "", userName = "";
+    str = User.Identity.GetUserId();
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsSolved)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Problem.ProblemName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.UserName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
-        </td>
-    </tr>
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
+        userName = aspNetUsersBusinessLayer.GetUserName(str);
+    }
 }
 
-</table>
+<style>
+    .affix {
+        top: 110px;
+        /*background-color: #F5F2F0;
+        padding-right: 115px;
+        padding-left: 30px;*/
+    }
+    /*affix-bottom position absolute na dile pin ta thik moto hoye thake na. aita dite hobe.*/
+    .affix-bottom {
+        position: absolute;
+    }
+</style>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+
+<br /><br /> <br />
+
+<div class="container">
+    <div class="row">
+        <div align="center">
+            <p style="font-size:30px; color:black; font-family:Impact">Problem Solver Sheet</p>
+            <hr style="border: 4px solid; color: #F5F3F1;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-lg-3 hidden-xs hidden-sm">
+            <nav id="mainNavbar">
+                <ul id="nav" style="width: 230px" class="nav nav-pills nav-stacked h4" data-spy="affix" data-offset-top="120" data-offset-bottom="0">
+                    <li style="font-size: 21px">Quick Achieve</li>
+                    <li>
+                        <br />
+                    </li>
+                    <li><a href="#Accepted">Accepted</a></li>
+                    <li><a href="#WrongAnswer">Wrong Answer</a></li>
+                    <li><a href="#CompileError">CompileError</a></li>
+                    <li><a href="#TimeLimitExceeded">Time Limit Exceeded</a></li>
+                    <li><a href="#MemoryLimitExceeded">Memory Limit Exceeded</a></li>
+                    <li><a href="#PresentationError">Presentation Error</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-md-8 col-lg-9 col-xs-12">
+            <br />
+            <div class="row" id="Accepted">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Accepted</p>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <h4>Select Number of Rows</h4>
+                        <div class="form-group">
+                            <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                                <option value="5000">Show All</option>
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px" id="mytable">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "Accepted")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+                <div class="pagination-container" align="center">
+                    <nav>
+                        <ul class="pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+            <br /> <br />
+
+            <br />
+            <div class="row" id="WrongAnswer">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Wrong Answer</p>
+                </div>
+                <br />
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "WrongAnswer")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+            <br /> <br />
+
+            <br />
+            <div class="row" id="CompileError">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Compile Error</p>
+                </div>
+                <br />
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "CompileError")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+            <br /> <br />
+
+            <br />
+            <div class="row" id="TimeLimitExceeded">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Time Limit Exceeded</p>
+                </div>
+                <br />
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "TimeLimitExceeded")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+            <br /> <br />
+
+            <br />
+            <div class="row" id="MemoryLimitExceeded">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Memory Limit Exceeded</p>
+                </div>
+                <br />
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "MemoryLimitExceeded")
+                            {
+
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+            <br /> <br />
+
+            <br />
+            <div class="row" id="PresentationError">
+                <div align="center">
+                    <p style="font-size:25px; color:orange; font-family:Impact">Presentation Error</p>
+                </div>
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px">
+                        <tr class="success" style="font-weight: bold">
+                            <td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.IsSolved)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Problem.ProblemName)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.SolutionLink)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.Student.UserName)
+                            </td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            if (item.IsSolved == "PresentationError")
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Comment)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IsSolved)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Problem.ProblemName)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
+                                            if (secureCode != "1234_U1")
+                                            {
+                                                if (link == "Yes")
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                }
+                                                else if (userName == item.Student.UserName)
+                                                {
+                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                }
+                                                else
+                                                {
+                                                    <p style="color:red">Solution is Private</p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
+                                            }
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.UserName)
+                                    </td>
+                                    @*<td>
+                                            @{
+                                                if (secureCode == null)
+                                                {
+                                                    @Html.ActionLink("Edit | ", "Edit", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Details | ", "Details", new { /* id=item.PrimaryKey */ })
+                                                    @Html.ActionLink("Delete", "Delete", new { problemId = item.ProblemId, studentId = item.StudentId })
+                                                }
+                                            }
+
+                                        </td>*@
+                                </tr>
+                            }
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Smooth Scroll with jQuery*@
+<script type="text/javascript">
+    $('a[href*="#"]')
+        // Remove links that don't actually link to anything
+        .not('[href="#"]')
+        .not('[href="#0"]')
+        .click(function (event) {
+            // On-page links
+            if (
+                location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+                &&
+                location.hostname == this.hostname
+            ) {
+                // Figure out element to scroll to
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                // Does a scroll target exist?
+                if (target.length) {
+                    // Only prevent default if animation is actually gonna happen
+                    event.preventDefault();
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000, function () {
+                        // Callback after animation
+                        // Must change focus!
+                        var $target = $(target);
+                        $target.focus();
+                        if ($target.is(":focus")) { // Checking if the target was focused
+                            return false;
+                        } else {
+                            $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                            $target.focus(); // Set focus again
+                        };
+                    });
+                }
+            }
+        });
+</script>
+
+
+@*pagination*@
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
+</script>

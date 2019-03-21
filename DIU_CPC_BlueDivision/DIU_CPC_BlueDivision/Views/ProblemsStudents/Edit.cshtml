@@ -25,26 +25,55 @@
     <div class="form-group">
         @Html.LabelFor(model => model.IsSolved, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.IsSolved, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownList("IsSolved", new List<SelectListItem>
+                    {
+                        new SelectListItem{Text="Accepted", Value="Accepted"},
+                        new SelectListItem{Text="Wrong Answer", Value="WrongAnswer"},
+                        new SelectListItem{Text="Compile Error", Value="CompileError"},
+                        new SelectListItem{Text="Time Limit Exceeded", Value="TimeLimitExceeded"},
+                        new SelectListItem{Text="Memory Limit Exceeded", Value="MemoryLimitExceeded"},
+                        new SelectListItem{Text="Presentation Error", Value="PresentationError"}
+                    }, "IsSolved", new { @class = "form-control", @id = "isSolved" })
+            @*@Html.EditorFor(model => model.IsSolved, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.IsSolved, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    @*<div class="form-group">
-        @Html.LabelFor(model => model.ProblemId, "ProblemId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.SolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("ProblemId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ProblemId, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SolutionLink, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SolutionLink, "", new { @class = "text-danger" })
         </div>
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.ShareSolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+            @Html.DropDownList("ShareSolutionLink", new List<SelectListItem>
+                {
+                    new SelectListItem{Text="No", Value="No"},
+                    new SelectListItem{Text="Yes", Value="Yes"}
+                }, "ShareSolutionLink", new { @class = "form-control", @id = "shareSolutionLink" })
+            @Html.ValidationMessageFor(model => model.ShareSolutionLink, "", new { @class = "text-danger" })
         </div>
-    </div>*@
+    </div>
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.ProblemId, "ProblemId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProblemId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProblemId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
     @Html.HiddenFor(model => model.ProblemId)
 
@@ -58,6 +87,6 @@
 </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

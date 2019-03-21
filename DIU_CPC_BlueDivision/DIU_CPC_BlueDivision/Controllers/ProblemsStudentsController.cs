@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
 using Microsoft.AspNet.Identity;
@@ -17,6 +18,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
         // GET: ProblemsStudents
+        [NonAction]
         public ActionResult Index()
         {
             var problemsStudents = db.ProblemsStudents.Include(p => p.Problem).Include(p => p.Student);
@@ -24,6 +26,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Details/5
+        [NonAction]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -54,7 +57,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Comment,IsSolved,ProblemId,StudentId")] ProblemsStudent problemsStudent)
+        public ActionResult Create([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink,ProblemId,StudentId")] ProblemsStudent problemsStudent)
         {
             string userId = "", joinSem = "";
             userId = User.Identity.GetUserId();
@@ -100,7 +103,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Comment,IsSolved,ProblemId,StudentId")] ProblemsStudent problemsStudent)
+        public ActionResult Edit([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink,ProblemId,StudentId")] ProblemsStudent problemsStudent)
         {
             string userId = "", joinSem = "";
             userId = User.Identity.GetUserId();
@@ -122,6 +125,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Delete/5
+        [NonAction]
         public ActionResult Delete(int? problemId, string studentId)
         {
             if (problemId == null && studentId == null)
@@ -139,6 +143,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: ProblemsStudents/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [NonAction]
         public ActionResult DeleteConfirmed(int? problemId, string studentId)
         {
             ProblemsStudent problemsStudent = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == problemId && per.StudentId == studentId);
@@ -149,7 +154,11 @@ namespace DIU_CPC_BlueDivision.Controllers
 
         public ActionResult Solver(int problemId)
         {
-            List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.IsSolved == "ok").ToList();
+            //int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.IsSolved == "Accepted").ToList().Count;
+            //ProblemsClass pc = new ProblemsClass();
+            //pc.updateProblemSolverCount(problemId, problemCount);
+
+            List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId).ToList();   //&& per.IsSolved == "Accepted"
             return View(problemsStudents);
         }
 

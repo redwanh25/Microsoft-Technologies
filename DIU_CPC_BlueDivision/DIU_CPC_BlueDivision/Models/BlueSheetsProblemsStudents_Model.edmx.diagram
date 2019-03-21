@@ -12,13 +12,9 @@
         <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel1.Student" Width="1.5" PointX="0.75" PointY="3.625" />
         <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" />
         <AssociationConnector Association="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" ManuallyRouted="true" >
-          <ConnectorPoint PointX="2.25" PointY="4.218915139222756" />
-          <ConnectorPoint PointX="2.6856" PointY="4.218915139222756" />
-          <ConnectorPoint PointX="2.6856" PointY="4.2104801432291667" />
-          <ConnectorPoint PointX="3.5700000000000003" PointY="4.2104801432291667" />
-          <ConnectorPoint PointX="3.5700000000000003" PointY="3.4396468098958337" />
-          <ConnectorPoint PointX="6.25" PointY="3.4396468098958337" />
-          <ConnectorPoint PointX="6.25" PointY="2.6725878906249996" />
+          <ConnectorPoint PointX="2.25" PointY="5.0958968098958328" />
+          <ConnectorPoint PointX="6.25" PointY="5.0958968098958328" />
+          <ConnectorPoint PointX="6.25" PointY="2.672587890625" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

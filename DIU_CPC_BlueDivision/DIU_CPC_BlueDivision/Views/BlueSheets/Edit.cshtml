@@ -14,7 +14,7 @@
         <h4>BlueSheet</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.BlueSheetName, htmlAttributes: new { @class = "control-label col-md-3" })
             <div class="col-md-9">
                 @Html.DropDownList("BlueSheetName", new List<SelectListItem>
@@ -25,8 +25,16 @@
                     new SelectListItem { Text = "Fall-19", Value = "Fall-19" },
                     new SelectListItem { Text = "Summer-19", Value = "Summer-19" },
                     new SelectListItem { Text = "Spring-19", Value = "Spring-19" }
-                }, "Blue Sheet Name", new { @class = "form-control", @id = "BlueSheetNameId" })
+                }, "Blue Sheet Name", new { @class = "form-control", @id = "BlueSheetNameId"})
 
+                @Html.ValidationMessageFor(model => model.BlueSheetName, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BlueSheetName, htmlAttributes: new { @class = "control-label col-md-3" })
+            <div class="col-md-9">
+                @Html.EditorFor(model => model.BlueSheetName, new { htmlAttributes = new { @class = "form-control", @readonly = true } })
                 @Html.ValidationMessageFor(model => model.BlueSheetName, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -11,13 +11,18 @@ namespace DIU_CPC_BlueDivision.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ProblemsStudent
     {
         public string Comment { get; set; }
         public string IsSolved { get; set; }
         public int ProblemId { get; set; }
         public string StudentId { get; set; }
+        [Required]
+        public string SolutionLink { get; set; }
+        [Required]
+        public string ShareSolutionLink { get; set; }
     
         public virtual Problem Problem { get; set; }
         public virtual Student Student { get; set; }

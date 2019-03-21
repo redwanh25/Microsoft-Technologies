@@ -1,75 +1,162 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Student>
 
 @{
-    ViewBag.Title = "Index";
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('=');
 }
 
-<h2>Index</h2>
+<br /><br /><br />
+<div>
+    <div align="center">
+        <p style="font-size:30px; color:orange; font-family:Impact">Problem Solving Ranking - " @arr[1] "</p>
+        <hr style="border: 3px solid; color: #F5F3F1">
+    </div>
+    <div class="col-md-8 col-md-offset-2">
+        <div>
+            <h4>Select Number of Rows</h4>
+            <div class="form-group">
+                <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                    <option value="5000">Show All</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+        <div style="overflow-x:auto;">
+            <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px" id="mytable">
+                <tr class="success" style="font-weight: bold">
+                    <td>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </td>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.StudentId)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </th>*@
+                    <td>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </td>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>*@
+                    <td>
+                        @Html.DisplayNameFor(model => model.Semester)
+                    </td>
+                    <td>
+                        <b style="font-size:20px; color:red">@Html.DisplayNameFor(model => model.SolveCount)</b>
+                    </td>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.CodeForcesId)
+                        </th>*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Semester)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SolveCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodeForcesId)
-        </th>
-        <th></th>
-    </tr>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Semester)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SolveCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CodeForcesId)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.StudentId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EmailAddress)
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>*@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Semester)
+                        </td>
+                        <td>
+                            <b style="font-size:20px; color:red">@Html.DisplayFor(modelItem => item.SolveCount)</b>
+                        </td>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.CodeForcesId)
+                            </td>*@
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+                            </td>*@
+                    </tr>
+                }
+            </table>
+        </div>
+        <br />
+        <div class="pagination-container" align="center">
+            <nav>
+                <ul class="pagination" id="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+</div>
 
-</table>
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">Rank</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
+</script>

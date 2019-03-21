@@ -500,7 +500,7 @@
                         </div>
                     </div>
                     <hr style="border: .5px solid; color: black" class="animated fadeInUp">
-                    <p class="pull-right animated fadeInUp">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: red" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a></p>
+                    <p class="pull-right" style="font-size:17px">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/fhwasi">Fuad Wasi </a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004191497770">Sharar Khan</a></p>
                 </div>
             </div>
         </footer>

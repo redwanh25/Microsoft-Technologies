@@ -6,7 +6,10 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DatabaseConnection;
+using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -15,12 +18,44 @@ namespace DIU_CPC_BlueDivision.Controllers
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
         // GET: Students
-        public ActionResult Index()
+        public ActionResult Index(string semester)
         {
-            return View(db.Students.ToList());
+            string U_id = "", str = "", joinSemester = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+            }
+            if (str != "1234_U1")
+            {
+                if(joinSemester == semester)
+                {
+                    ProblemSolvingRanking problemSolvingRanking1 = new ProblemSolvingRanking();
+                    problemSolvingRanking1.updateStudentsForSolveCount("Accepted", semester);
+
+                    List<Student> students1 = db.Students.Where(per => per.Semester == semester)
+                        .OrderByDescending(s => s.SolveCount).ToList();
+                    return View(students1);
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+
+            ProblemSolvingRanking problemSolvingRanking = new ProblemSolvingRanking();
+            problemSolvingRanking.updateStudentsForSolveCount("Accepted", semester);
+
+            List<Student> students = db.Students.Where(per => per.Semester == semester)
+                .OrderByDescending(s => s.SolveCount).ToList();
+            return View(students);
         }
 
         // GET: Students/Details/5
+        [NonAction]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -36,6 +71,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: Students/Create
+        [NonAction]
         public ActionResult Create()
         {
             return View();
@@ -46,6 +82,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [NonAction]
         public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
         {
             if (ModelState.IsValid)
@@ -59,6 +96,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: Students/Edit/5
+        [NonAction]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -78,6 +116,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [NonAction]
         public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
         {
             if (ModelState.IsValid)
@@ -90,6 +129,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: Students/Delete/5
+        [NonAction]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -107,6 +147,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: Students/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [NonAction]
         public ActionResult DeleteConfirmed(string id)
         {
             Student student = db.Students.Find(id);
