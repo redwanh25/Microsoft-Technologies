@@ -43,5 +43,23 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteReader();
             }
         }
+
+        public int BlueSheetIdRetrive(int problemId)
+        {
+            int Id;
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select BlueSheetId from problems where Id = @problemId";
+                cmd.Parameters.AddWithValue("@problemId", problemId);
+
+                Id = (int)cmd.ExecuteScalar();
+            }
+            return Id;
+        }
     }
 }

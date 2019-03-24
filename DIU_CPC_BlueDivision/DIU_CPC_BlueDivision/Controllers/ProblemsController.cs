@@ -13,6 +13,8 @@ using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
 using Microsoft.AspNet.Identity;
 
+using Excel = Microsoft.Office.Interop.Excel;
+
 namespace DIU_CPC_BlueDivision.Controllers
 {
     public class ProblemsController : Controller
@@ -203,7 +205,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BlueSheetId = new SelectList(db.BlueSheets.Where(per => per.Id == blueSheetId), "Id", "BlueSheetName", problem.BlueSheetId);
+            //ViewBag.BlueSheetId = new SelectList(db.BlueSheets.Where(per => per.Id == blueSheetId), "Id", "BlueSheetName", problem.BlueSheetId);
             return View(problem);
         }
 
@@ -212,7 +214,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ProblemName,ProblemLink,ProblemSolverCount,Comment,BlueSheetId")] Problem problem)
+        public ActionResult Edit([Bind(Include = "Id,ProblemName,ProblemLink,ProblemSolverCount,Comment")] Problem problem)
         {
             string str = "";
             str = User.Identity.GetUserId();
@@ -226,6 +228,10 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
+
+            ProblemsClass prob = new ProblemsClass();
+            int id = prob.BlueSheetIdRetrive(problem.Id);
+            problem.BlueSheetId = id;
 
             if (ModelState.IsValid)
             {
@@ -291,6 +297,54 @@ namespace DIU_CPC_BlueDivision.Controllers
             db.Problems.Remove(problem);
             db.SaveChanges();
             return RedirectToAction("Index", "Problems", new { id_Or_SheetName = Id });
+        }
+
+        [HttpPost]
+        public ActionResult InputFromExcelFile(int blueSheetId, HttpPostedFileBase excelfile)
+        {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+
+            string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
+
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            excelfile.SaveAs(path);
+
+            // read data from excel file
+
+            Excel.Application application = new Excel.Application();
+            Excel.Workbook workbook = application.Workbooks.Open(path);
+            Excel.Worksheet worksheet = workbook.ActiveSheet;
+            Excel.Range range = worksheet.UsedRange;
+
+            for (int row = 2; row <= range.Rows.Count; row++)
+            {
+                Problem problem = new Problem();
+                problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
+                problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
+                problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
+                problem.BlueSheetId = blueSheetId;
+                db.Problems.Add(problem);
+            }
+            db.SaveChanges();
+            application.Workbooks.Close();
+
+            System.IO.File.Delete(path);
+            return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+
         }
 
         protected override void Dispose(bool disposing)

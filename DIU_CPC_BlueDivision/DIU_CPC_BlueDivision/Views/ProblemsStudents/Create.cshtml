@@ -6,83 +6,92 @@
 
 <h2>Create</h2>
 
-@using (Html.BeginForm()) 
+@{
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('=');
+
+}
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-<div class="form-horizontal">
-    <h4>ProblemsStudent</h4>
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.IsSolved, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("IsSolved", new List<SelectListItem>
-                {
-                    new SelectListItem{Text="Accepted", Value="Accepted"},
-                    new SelectListItem{Text="Wrong Answer", Value="WrongAnswer"},
-                    new SelectListItem{Text="Compile Error", Value="CompileError"},
-                    new SelectListItem{Text="Time Limit Exceeded", Value="TimeLimitExceeded"},
-                    new SelectListItem{Text="Memory Limit Exceeded", Value="MemoryLimitExceeded"},
-                    new SelectListItem{Text="Presentation Error", Value="PresentationError"}
-                }, "IsSolved", new { @class = "form-control", @id = "isSolved" })
-            @*@Html.EditorFor(model => model.IsSolved, new { htmlAttributes = new { @class = "form-control" } })*@
-            @Html.ValidationMessageFor(model => model.IsSolved, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <div class="form-horizontal">
+        <h4>ProblemsStudent</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.SolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.SolutionLink, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SolutionLink, "", new { @class = "text-danger" })
-        </div>
-    </div>
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.ProblemId, "Problem Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProblemId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProblemId, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ShareSolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ShareSolutionLink", new List<SelectListItem>
-                {
-                    new SelectListItem{Text="No", Value="No"},
-                    new SelectListItem{Text="Yes", Value="Yes"}
-                }, "ShareSolutionLink", new { @class = "form-control", @id = "shareSolutionLink" })
-            @Html.ValidationMessageFor(model => model.ShareSolutionLink, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.ProblemId, "ProblemId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("ProblemId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.ProblemId, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.IsSolved, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IsSolved", new List<SelectListItem>
+                    {
+                        new SelectListItem{Text="Accepted", Value="Accepted"},
+                        new SelectListItem{Text="Wrong Answer", Value="WrongAnswer"},
+                        new SelectListItem{Text="Compile Error", Value="CompileError"},
+                        new SelectListItem{Text="Time Limit Exceeded", Value="TimeLimitExceeded"},
+                        new SelectListItem{Text="Memory Limit Exceeded", Value="MemoryLimitExceeded"},
+                        new SelectListItem{Text="Presentation Error", Value="PresentationError"}
+                    }, "IsSolved", new { @class = "form-control", @id = "isSolved" })
+                @*@Html.EditorFor(model => model.IsSolved, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.IsSolved, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SolutionLink, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SolutionLink, "", new { @class = "text-danger" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.ShareSolutionLink, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ShareSolutionLink", new List<SelectListItem>
+                    {
+                        new SelectListItem{Text="No", Value="No"},
+                        new SelectListItem{Text="Yes", Value="Yes"}
+                    }, "ShareSolutionLink", new { @class = "form-control", @id = "shareSolutionLink" })
+                @Html.ValidationMessageFor(model => model.ShareSolutionLink, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.StudentId, "StudentId", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
         </div>
     </div>
-</div>
 }
 
 @*<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>*@
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

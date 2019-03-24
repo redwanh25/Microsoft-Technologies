@@ -15,7 +15,7 @@ namespace Software_Company_Website.Controllers
         private BlogTableMainPageDBEntities db = new BlogTableMainPageDBEntities();
 
         // GET: BlogPage
-        [OutputCache(Duration = 31536000)]      // save in cache for 1 year
+        //[OutputCache(Duration = 31536000)]      // save in cache for 1 year
         public ActionResult Index()
         {
             List<Blog_tbl> list = db.Blog_tbl.ToList();

@@ -23,6 +23,10 @@
     table.fixed td:nth-of-type(3) {
         width: 10px;
     }
+
+    table.fixed td:nth-of-type(6) {
+        width: 200px;
+    }
 </style>
 
 @{
@@ -51,8 +55,27 @@
         <hr style="border: 4px solid; color: #F5F3F1">
     </div>
 </div>
-<div class="container">
 
+<div class="container">
+    @{
+
+        if (secureCode == "1234_U1")
+        {
+            <div class="row">
+                <br />
+                @using (Html.BeginForm("InputFromExcelFile", "Problems", new { blueSheetId = Convert.ToInt32(arr[1]) }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <div class="col-xs-7 col-sm-5">
+                        <input id="ExcelFileInput" type="file" name="excelFile" class="form-control" required />
+                    </div>
+                    <div class="col-xs-5 col-sm-5">
+                        <input id="ExcelFileInputButton" type="submit" value="Input From Excel File" class="btn btn-default" />
+                    </div>
+                }
+                <br /><br /><br />
+            </div>
+        }
+    }
 
     <div class="row">
         <div class="col-xs-12 col-sm-6">
@@ -60,9 +83,7 @@
             <div class="form-group">
                 <select name="state" id="maxRows" class="form-control" style="width:150px;">
                     <option value="5000">Show All</option>
-                    <option value="5">5</option>
                     <option value="10">10</option>
-                    <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
                     <option value="75">75</option>
@@ -78,7 +99,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="pull-right">
-                                    @{ 
+                                    @{
                                         BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
                                         string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
 
@@ -95,81 +116,89 @@
         </div>
     </div>
     <br />
-    <div style="overflow-x:auto;">
-        <table class="table table-hover table-responsive table-striped text-center fixed" style="font-size:16px" id="mytable">
-            <tr class="success" style="font-weight: bold">                
-                <td>
-                    @Html.DisplayNameFor(model => model.ProblemName)
-                </td>
-                <td></td>
-                <td>
-                    @Html.DisplayNameFor(model => model.ProblemLink)
-                </td>
-                @*<td>
-                        @Html.DisplayNameFor(model => model.Comment)
-                    </td>*@
-                <td>
-                    @Html.DisplayNameFor(model => model.ProblemSolverCount)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.BlueSheet.BlueSheetName)
-                </td>
-                <td>Action</td>
-            </tr>
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
 
-            @foreach (var item in Model)
-            {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProblemName)
-                </td>
-                <td>
-                    @{
-                        string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
-                        if (comment != "")
-                        {
-                            <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Comment" data-content="@comment"
-                                    data-trigger="focus" data-toggle="popover">
-                                <span class="glyphicon glyphicon-info-sign"></span>
-                            </button>
-                        }
+
+            <div style="overflow-x:auto;">
+                <table class="table table-hover table-responsive table-striped fixed" style="font-size:16px" id="mytable">
+                    <tr class="success text-center" style="font-weight: bold">
+                        <td>
+                            @Html.DisplayNameFor(model => model.ProblemName)
+                        </td>
+                        <td></td>
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.ProblemLink)
+                            </td>*@
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>*@
+                        <td>
+                            Solve Count
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.BlueSheet.BlueSheetName)
+                        </td>
+                        <td>Action</td>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(modelItem => item.ProblemName)</a>
+
+                                @*@Html.DisplayFor(modelItem => item.ProblemName)*@
+                            </td>
+                            <td class="text-center">
+                                @{
+                                    string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
+                                    if (comment != "")
+                                    {
+                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Comment" data-content="@comment"
+                                                data-trigger="focus" data-toggle="popover">
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                        </button>
+                                    }
+                                }
+                            </td>
+                            @*<td>
+                                    <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(model => item.ProblemLink)</a>
+                                </td>*@
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>*@
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.ProblemSolverCount)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
+                            </td>
+                            <td class="text-center">
+
+                                @{
+                                    if (secureCode == "1234_U1")
+                                    {
+                                        <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                                        <button class="btn btn-danger btn-xs" type="submit" onclick="location.href='@Url.Action("Delete","Problems", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                        @*@Html.ActionLink("Edit | ", "Edit", new { id = item.Id, blueSheetId = item.BlueSheet.Id })
+                                            @Html.ActionLink("Delete | ", "Delete", new { id = item.Id })*@
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName })'"><span class="glyphicon glyphicon-list-alt"></span> Submit Problem</button>
+                                        @*@Html.ActionLink("ProbStu_Edit | ", "Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName }, null)*@
+                                    }
+                                }
+                                <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Solver", "ProblemsStudents", new { problemId = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Solver</button>
+                                @*@Html.ActionLink("Solver", "Solver", "ProblemsStudents", new { problemId = item.Id }, null)*@
+                            </td>
+                        </tr>
                     }
-                </td>
-                <td>
-                    <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(model => item.ProblemLink)</a>
-                </td>
-                @*<td>
-            @Html.DisplayFor(modelItem => item.Comment)
-        </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProblemSolverCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
-                </td>
-                <td>
 
-                    @{
-                        if (secureCode == "1234_U1")
-                        {
-                            <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-                            <button class="btn btn-danger btn-xs" type="submit" onclick="location.href='@Url.Action("Delete","Problems", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
-                            @*@Html.ActionLink("Edit | ", "Edit", new { id = item.Id, blueSheetId = item.BlueSheet.Id })
-                    @Html.ActionLink("Delete | ", "Delete", new { id = item.Id })*@
-                        }
-                        else
-                        {
-                            <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName })'"><span class="glyphicon glyphicon-list-alt"></span> Submit Problem</button>
-                            @*@Html.ActionLink("ProbStu_Edit | ", "Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName }, null)*@
-                        }
-                    }
-                    <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Solver", "ProblemsStudents", new { problemId = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Solver</button>
-                    @*@Html.ActionLink("Solver", "Solver", "ProblemsStudents", new { problemId = item.Id }, null)*@
-                </td>
-            </tr>
-            }
-
-        </table>
+                </table>
+            </div>
+        </div>
     </div>
     <br />
     <div class="pagination-container" align="center">
@@ -178,9 +207,23 @@
         </nav>
     </div>
 </div>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $('.btnPopover').popover();
+    });
+</script>
+
+<script type="text/javascript">
+    $('#ExcelFileInputButton').click(function () {
+        var extension = $('#ExcelFileInput').val().split('.').pop().toLowerCase();
+        if ($('#ExcelFileInput').val() != '') {
+            if ($.inArray(extension, ['xls', 'xlsx']) == -1) {
+                //alert('Sorry, You can only upload an image.');
+                swal("Sorry!", "You can only upload a Excel File!", "error");
+                return false;
+            }
+        }
     });
 </script>
 
@@ -237,7 +280,7 @@
         var id = 0;
         $('table tr:gt(0)').each(function () {
             id++
-            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            $(this).prepend('<td style="font-size:19px"  class="text-center">' + id + '</td>')
         })
     })
 </script>

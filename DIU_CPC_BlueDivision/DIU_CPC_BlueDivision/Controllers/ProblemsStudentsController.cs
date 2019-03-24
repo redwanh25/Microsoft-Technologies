@@ -48,7 +48,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             //ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName");
 
             List<ProblemsStudent> problemsStudents = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.Student.UserName == userName).ToList();
-            if(problemsStudents.Count != 0)
+            if (problemsStudents.Count != 0)
             {
                 throw new Exception();
             }
@@ -72,8 +72,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                     {
                         if (p.Id == problemId)
                         {
-                            ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName");
-                            ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName");
+                            //ViewBag.ProblemId = new SelectList(db.Problems.Where(per => per.Id == problemId), "Id", "ProblemName");
+                            //ViewBag.StudentId = new SelectList(db.Students.Where(per => per.UserName == userName), "Id", "UserName");
                             return View();
                         }
                     }
@@ -82,7 +82,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 else
                 {
                     throw new Exception();
-                } 
+                }
             }
             else
             {
@@ -96,7 +96,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink,ProblemId,StudentId")] ProblemsStudent problemsStudent)
+        public ActionResult Create([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink")] ProblemsStudent problemsStudent)
         {
             string userId = "", joinSem = "";
             userId = User.Identity.GetUserId();
@@ -107,6 +107,27 @@ namespace DIU_CPC_BlueDivision.Controllers
                 joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
             }
 
+            string U_id = "", str = "", joinSemester = "", userName1 = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+                joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
+                userName1 = aspNetUsersBusinessLayer.GetUserName(U_id);
+            }
+            List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
+
+            string appPath = "";
+            appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+            string[] arr = appPath.Split('=');
+            string arr1 = arr[1];
+            string[] arr2 = arr1.Split('&');
+            int probId = Convert.ToInt32(arr2[0]);
+
+            problemsStudent.ProblemId = probId;
+            problemsStudent.StudentId = userId;
             if (ModelState.IsValid)
             {
                 db.ProblemsStudents.Add(problemsStudent);
@@ -115,7 +136,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
 
             ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
+            //ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
             return View(problemsStudent);
         }
 
