@@ -1,0 +1,209 @@
+﻿@model IEnumerable<QRCodeGenerator_AudioVideoImage.Models.QRCodeString_tbl>
+@using System.Text;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    #blogText .well {
+        min-height: 20px;
+        padding: 10px;
+        margin-bottom: 1px;
+        overflow: hidden;
+    }
+</style>
+
+<br />
+<h1 align="center"> <b>QRCodeString</b></h1>
+<hr />
+<br />
+
+<div class="row">
+    <div class="col-lg-4">
+        @using (Html.BeginForm("Index", "QRCodeString", FormMethod.Post))
+        {
+            <input type="text" name="qrcode" class="form-control" />
+            <br />
+            <input id="submit1" type="submit" value="Generate" class="btn btn-default" />
+        }
+
+        <br /><br />
+        <div>
+            <div style="display: none;" id="loaderDiv">
+                <img src="~/Image/loader4.gif" height="250" width="250" class="img-responsive" />
+            </div>
+        </div>
+        @if (ViewBag.QRCodeImage != null)
+        {
+            <img id="image1" src="@ViewBag.QRCodeImage" alt="" style="height:300px;width:300px" class="img-responsive" />
+        }
+    </div>
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                        <option value="5000">Show All</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                    <div style="display: none;" class="modal1" id="loaderDivDelete">
+                        <div class="center">
+                            <img src="~/Image/loader4.gif" height="100" width="100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br />
+        <div style="overflow-x:auto;">
+            <table class="table table-hover text-center fixed" id="mytable">
+                <tr class="success" style="font-weight: bold; font-size:16px">
+                    <td>
+                        @Html.DisplayNameFor(model => model.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.QRCodeImage)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.QRCodeString)
+                    </td>
+                    <td>Action</td>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    using (Html.BeginForm("Delete", "QRCodeString", new { id = item.Id }))
+                    {
+                        <tr>
+                            <td>
+                                <b>@Html.DisplayFor(modelItem => item.Date)</b>
+                            </td>
+                            <td>
+                                @{
+                                    var imgSrc = "";
+                                    if (item.QRCodeImage != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(item.QRCodeImage);
+                                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                    }
+                                }
+                                <img src="@imgSrc" alt="No image" style="border-radius: 10px; height:100px; width:100px" />
+                            </td>
+                            <td id="blogText">
+                                @{
+                                    var str2 = Html.DisplayFor(modelItem => item.QRCodeString);
+                                    string str3 = str2.ToString();
+                                    if (str3.Length != 0)
+                                    {
+                                        if (str3.Length > 50)
+                                        {
+                                            StringBuilder sb = new StringBuilder(str3);
+                                            sb.Remove(50, sb.Length - 50);
+                                            str3 = sb.ToString() + "...";
+                                        }
+                                        <div class="well">
+                                            @str3
+                                        </div>
+                                    }
+                                }
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-xs sumbmitDelete" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+        <br />
+        <div class="pagination-container" align="center">
+            <nav>
+                <ul class="pagination"></ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#submit1').click(function () {
+            $('#loaderDiv').show('fade');
+            $('#image1').hide('fade');
+        });
+
+        $('.sumbmitDelete').click(function () {
+            $('#loaderDivDelete').show('fade');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
+</script>
+

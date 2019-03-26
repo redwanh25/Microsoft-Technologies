@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "Demo", FormMethod.Post))
+{
+    <input type="text" name="qrcode"/>
+    <input type="submit" value="Generate"/>
+}
+<hr />
+@if (ViewBag.QRCodeImage != null)
+{
+    <img src="@ViewBag.QRCodeImage" alt="" style="height:150px;width:150px" />
+}
