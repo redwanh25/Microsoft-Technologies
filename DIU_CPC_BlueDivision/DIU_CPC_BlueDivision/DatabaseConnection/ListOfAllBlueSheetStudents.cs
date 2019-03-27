@@ -23,5 +23,20 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void DeleteStudentsByUserName(string userName)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Delete from AspNetUsers where UserName = @userName";
+                cmd.Parameters.AddWithValue("@userName", userName);
+                cmd.Connection = con;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

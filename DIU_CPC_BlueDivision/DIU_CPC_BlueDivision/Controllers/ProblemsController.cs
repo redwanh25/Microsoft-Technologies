@@ -74,15 +74,18 @@ namespace DIU_CPC_BlueDivision.Controllers
                     ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
-                    ViewBag.student = students1;
-                    //listOfAllBlueSheetStudents.DeleteStudents();
+                    //ViewBag.student = students1;
+                    foreach (Student s in students1)
+                    {
+                        listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
+                    }
                 }
-                else
-                {
-                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
-                    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
-                    ViewBag.student = students1;
-                }
+                //else
+                //{
+                //    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                //    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
+                //    //ViewBag.student = students1;
+                //}
             }
             else
             {
@@ -100,15 +103,18 @@ namespace DIU_CPC_BlueDivision.Controllers
                     ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
-                    ViewBag.student = students1;
-                    //listOfAllBlueSheetStudents.DeleteStudents();
+                    //ViewBag.student = students1;
+                    foreach (Student s in students1)
+                    {
+                        listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
+                    }
                 }
-                else
-                {
-                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
-                    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
-                    ViewBag.student = students1;
-                }
+                //else
+                //{
+                //    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                //    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
+                //    //ViewBag.student = students1;
+                //}
             }
 
             
