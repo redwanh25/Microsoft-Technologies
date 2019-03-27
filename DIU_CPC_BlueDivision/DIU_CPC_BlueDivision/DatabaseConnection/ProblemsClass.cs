@@ -61,5 +61,73 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
             }
             return Id;
         }
+
+        public int retriveDay(int blueSheetId)
+        {
+            int day = 0;
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select SetDay from DayAndProblemSet where BlueSheetId = @blueSheetId";
+                cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                day = (int)cmd.ExecuteScalar();               
+            }
+            return day;
+        }
+
+        public int retriveCount(int blueSheetId)
+        {
+            int count = 0;
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select count(*) from DayAndProblemSet where BlueSheetId = @blueSheetId";
+                cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                count = (int)cmd.ExecuteScalar();
+            }
+            return count;
+        }
+
+        public int retriveProblem(int blueSheetId)
+        {
+            int problem = 0;
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select SetProblem from DayAndProblemSet where BlueSheetId = @blueSheetId";
+                cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                problem = (int)cmd.ExecuteScalar();
+            }
+            return problem;
+        }
+
+        public DateTime retriveDateTime(int blueSheetId)
+        {
+            DateTime dateTime;
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select [Date] from DayAndProblemSet where BlueSheetId = @blueSheetId";
+                cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                dateTime = Convert.ToDateTime(cmd.ExecuteScalar());
+            }
+            return dateTime;
+        }
     }
 }

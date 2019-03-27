@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -27,7 +29,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: Problems
         public ActionResult Index(string id_Or_SheetName)
         {
-            string U_id = "",  str = "", joinSemester = "";
+            string U_id = "", str = "", joinSemester = "";
             U_id = User.Identity.GetUserId();
 
             if (!string.IsNullOrEmpty(U_id))
@@ -54,6 +56,64 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
 
             ProblemsClass pc = new ProblemsClass();
+
+            //---------------
+            if(str == "1234_U1")
+            {
+                int blueSheetId = Convert.ToInt32(arr[1]);
+                DateTime dateTime = pc.retriveDateTime(blueSheetId);
+                int problemCount = pc.retriveProblem(blueSheetId);
+                DateTime now = DateTime.Now;
+
+                BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
+                string blueSheetName = blueSheetNameRetrive.getBlueSheetName(blueSheetId);
+
+                List<Student> students1 = new List<Student>();
+                if (now > dateTime)
+                {
+                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+
+                    students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
+                    ViewBag.student = students1;
+                    //listOfAllBlueSheetStudents.DeleteStudents();
+                }
+                else
+                {
+                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
+                    ViewBag.student = students1;
+                }
+            }
+            else
+            {
+                BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
+                int blueSheetId = blueSheetNameRetrive.getBlueSheetId(arr[1]);
+                DateTime dateTime = pc.retriveDateTime(blueSheetId);
+                int problemCount = pc.retriveProblem(blueSheetId);
+                DateTime now = DateTime.Now;
+
+                string blueSheetName = arr[1];
+
+                List<Student> students1 = new List<Student>();
+                if (now > dateTime)
+                {
+                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+
+                    students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
+                    ViewBag.student = students1;
+                    //listOfAllBlueSheetStudents.DeleteStudents();
+                }
+                else
+                {
+                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                    students1 = db.Students.Where(per => per.Semester == blueSheetName).ToList();
+                    ViewBag.student = students1;
+                }
+            }
+
+            
+            //---------------
+
             if (str != "1234_U1")
             {
                 bool check = true;
@@ -65,7 +125,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 }
                 catch (Exception)
                 {
-                    
+
                 }
 
                 if (check)
@@ -73,11 +133,13 @@ namespace DIU_CPC_BlueDivision.Controllers
                     List<Problem> problems = db.Problems.Where(per => per.BlueSheet.BlueSheetName == id_Or_SheetName).ToList();
                     BlueSheet blueSheet = db.BlueSheets.FirstOrDefault(per => per.BlueSheetName == id_Or_SheetName);
                     pc.updateProblemsForSolveCount("Accepted", blueSheet.Id);
-                    //foreach (Problem p in problems)
-                    //{
-                    //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
-                    //    pc.updateProblemSolverCount(p.Id, problemCount);
-                    //}
+                    {
+                        //foreach (Problem p in problems)
+                        //{
+                        //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
+                        //    pc.updateProblemSolverCount(p.Id, problemCount);
+                        //}
+                    }
                     return View(problems);
                 }
                 else
@@ -88,15 +150,25 @@ namespace DIU_CPC_BlueDivision.Controllers
             else
             {
                 int id = Convert.ToInt32(id_Or_SheetName);
-                List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
+                List<BlueSheet> blueSheets = db.BlueSheets.Where(per => per.Id == id).ToList();
+                if (blueSheets.Count != 0)
+                {
+                    List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
 
-                pc.updateProblemsForSolveCount("Accepted", id);
-                //foreach (Problem p in problems)
-                //{
-                //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
-                //    pc.updateProblemSolverCount(p.Id, problemCount);
-                //}
-                return View(problems);
+                    pc.updateProblemsForSolveCount("Accepted", id);
+                    {
+                        //foreach (Problem p in problems)
+                        //{
+                        //    int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == p.Id && per.IsSolved == "Accepted").ToList().Count;
+                        //    pc.updateProblemSolverCount(p.Id, problemCount);
+                        //}
+                    }
+                    return View(problems);
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
 
         }
@@ -344,6 +416,57 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             System.IO.File.Delete(path);
             return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+
+        }
+
+        [HttpPost]
+        [Route("Controllers/Problems/setDayAndProblem")]
+        public void setDayAndProblem(int setDay, int setProblem, int blueSheetId)
+        {
+            string str = "";
+            str = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+            }
+            if (str != "1234_U1")
+            {
+                throw new Exception();
+            }
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update DayAndProblemSet set SetDay = @setDay, SetProblem = @setProblem, [Date] = DATEADD(MINUTE, @setDay, getDate()) where BlueSheetId = @blueSheetId";
+                cmd.Parameters.AddWithValue("@setDay", setDay);
+                cmd.Parameters.AddWithValue("@setProblem", setProblem);
+                cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                cmd.ExecuteNonQuery();
+
+                //ProblemsClass p1 = new ProblemsClass();
+
+                //if (p1.retriveCount(blueSheetId) == 1)
+                //{
+                //    cmd.CommandText = "update DayAndProblemSet set SetDay = @setDay, SetProblem = @setProblem, [Date] = DATEADD(MINUTE, @setDay, getDate()) where BlueSheetId = @blueSheetId";
+                //    cmd.Parameters.AddWithValue("@setDay", setDay);
+                //    cmd.Parameters.AddWithValue("@setProblem", setProblem);
+                //    cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                //    cmd.ExecuteNonQuery();
+                //}
+                //else
+                //{
+                //    cmd.CommandText = "insert into DayAndProblemSet values(@setDay, @setProblem, DATEADD(MINUTE, @setDay, getDate()), @blueSheetId )";
+                //    cmd.Parameters.AddWithValue("@setDay", setDay);
+                //    cmd.Parameters.AddWithValue("@setProblem", setProblem);
+                //    cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
+                //    cmd.ExecuteNonQuery();
+                //}
+            }
 
         }
 

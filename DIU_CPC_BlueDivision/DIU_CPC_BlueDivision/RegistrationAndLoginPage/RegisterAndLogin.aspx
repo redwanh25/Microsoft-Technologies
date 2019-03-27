@@ -582,6 +582,18 @@
     }
 </script>
 
+<%--<script>
+    window.addEventListener("keydown", checkKeyPress, false);
+    function checkKeyPress(key)
+    {
+        if (key.keyCode == "13")
+        {
+            $('#btnLogin').trigger('click');
+            //alert('redwan');
+        }
+    }
+</script>--%>
+
 <%--login.js file er code ai khane ase. aita aikhane na dile gif ta kaj kore na.. i don't khow why..--%>
 <script>
     $(document).ready(function () {

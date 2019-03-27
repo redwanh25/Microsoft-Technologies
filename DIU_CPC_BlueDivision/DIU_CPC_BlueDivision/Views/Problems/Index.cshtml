@@ -29,7 +29,7 @@
     }
 
     .info {
-        font-size: 30px;
+        font-size: 25px;
     }
 </style>
 
@@ -37,28 +37,77 @@
     string appPath = "";
     appPath = string.Format("{0}", Request.Url.AbsoluteUri);
     string[] arr = appPath.Split('=');
+    int blueSheetId = 0;
+    if (secureCode == "1234_U1")
+    {
+        blueSheetId = Convert.ToInt32(arr[1]);
+    }
+    else
+    {
+        BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
+        blueSheetId = blueSheetNameRetrive.getBlueSheetId(arr[1]);
+    }
+
 }
 
 <br /><br />
 
 <div class="row">
-    <table class="countdownContainer pull-right text-center">
-        <tr style="font-size:25px">
-            <td colspan="4">You have to Solve <span style="color:red; font-size:30px"> <b>132</b> </span>problems</td>
-        </tr>
-        <tr class="info">
-            <td id="days">120</td>
-            <td id="hours">4</td>
-            <td id="minutes">12</td>
-            <td id="seconds">22</td>
-        </tr>
-        <tr>
-            <td>Days</td>
-            <td>Hours</td>
-            <td>Minutes</td>
-            <td>Seconds</td>
-        </tr>
-    </table>
+    @{
+        ProblemsClass p1 = new ProblemsClass();
+        int problem = p1.retriveProblem(blueSheetId);
+        DateTime dateTime = p1.retriveDateTime(blueSheetId);
+
+        //if (p1.retriveCount(blueSheetId) == 1)
+        //{
+        //    problem = p1.retriveProblem(blueSheetId);
+        //    dateTime = p1.retriveDateTime(blueSheetId);
+        //}
+    }
+    <div class="pull-right hidden-xs">
+        <div class="countdownContainer text-center">
+            <p style="font-size:25px">
+                <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
+            </p>
+            <p class="info">
+                <span style="color:orchid"><b>@dateTime</b></span>
+            </p>
+        </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+        <div class="countdownContainer text-center">
+            <p style="font-size:25px">
+                <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
+            </p>
+            <p class="info">
+                <span style="color:orchid"><b>@dateTime</b></span>
+            </p>
+        </div>
+    </div>
+    @{
+        if (secureCode == "1234_U1")
+        {
+            <div class="pull-right hidden-xs" style="padding-top:15px; padding-right:30px">
+                <input id="Day" type="text" placeholder="Minute*" class="form-control" style="width:80px; height:25px" />
+                <input id="Problem" type="text" placeholder="Prolem*" class="form-control" style="width:80px; height:25px; margin-top:5px" />
+                <input id="setValue" type="submit" value="Set" class="btn btn-info btn-sm" style="width:80px; height:25px; margin-top:5px" />
+            </div>
+            <div class="hidden-sm hidden-md hidden-lg" style="padding-top:15px">
+                <div class="row col-xs-11">
+                    <div class="col-xs-3 col-xs-offset-2">
+                        <input id="Day1" type="text" placeholder="Day*" class="form-control" style="width:80px; height:25px" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input id="Problem1" type="text" placeholder="Prolem*" class="form-control" style="width:80px; height:25px;" />
+                    </div>
+                    <div class="col-xs-3">
+                        <input id="setValue1" type="submit" value="Set" class="btn btn-info btn-sm" style="width:80px; height:25px;" />
+                    </div>
+                </div>
+                <br /><br />
+            </div>
+        }
+    }
 </div>
 
 <div class="container">
@@ -232,42 +281,53 @@
     </div>
 </div>
 
+<p>student name</p>
+@foreach (var item in ViewBag.student)
+{
+    @item.SolveCount
+    @item.Semester
+    @item.UserName
+    <br />
+}
+
 <script type="text/javascript">
 
-    function countdown() {
-        var now = new Date();
-        var eventDate = new Date(now.getFullYear(), 4, 27);
-        //var eventDate = new Date(2019, 2, 26, 6, 27);
+    $('#setValue').click(function () {
+        $.ajax({
+            url: '/Controllers/Problems/setDayAndProblem',
+            method: 'POST',
+            data: {
+                setDay: $('#Day').val(),
+                setProblem: $('#Problem').val(),
+                blueSheetId: @blueSheetId
+            },
+            success: function () {
+                swal("Set", "Time has been fixed. Please refresh the page.", "success")
+                //alert('time is set. please refresh the page.');
+            },
+            error: function (jqXHR) {
+                swal("Error", "You have to set Day and Problem both.", "error")
+            }
+        });
+    });
 
-        var currentTiime = now.getTime();
-        var eventTime = eventDate.getTime();
-
-        var remTime = eventTime - currentTiime;
-
-        var s = Math.floor(remTime / 1000);
-        var m = Math.floor(s / 60);
-        var h = Math.floor(m / 60);
-        var d = Math.floor(h / 24);
-
-        h %= 24;
-        m %= 60;
-        s %= 60;
-
-        h = (h < 10) ? "0" + h : h;
-        m = (m < 10) ? "0" + m : m;
-        s = (s < 10) ? "0" + s : s;
-
-        document.getElementById("days").textContent = d;
-        document.getElementById("days").innerText = d;
-
-        document.getElementById("hours").textContent = h;
-        document.getElementById("minutes").textContent = m;
-        document.getElementById("seconds").textContent = s;
-
-        setTimeout(countdown, 1000);
-    }
-
-    countdown();
+    $('#setValue1').click(function () {
+        $.ajax({
+            url: '/Controllers/Problems/setDayAndProblem',
+            method: 'POST',
+            data: {
+                setDay: $('#Day1').val(),
+                setProblem: $('#Problem1').val(),
+            },
+            success: function () {
+                swal("Success", "Time has been fixed. Please refresh the page.", "success")
+                //alert('time is set. please refresh the page.');
+            },
+            error: function (jqXHR) {
+                swal("Error", "You have to set Day and Problem both.", "error")
+            }
+        });
+    });
 </script>
 
 <script type="text/javascript">
@@ -338,9 +398,9 @@
     })
     // get serial no
     $(function () {
-        $('table tr:eq(3)').prepend('<td class="text-center">No</td>')
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
         var id = 0;
-        $('table tr:gt(3)').each(function () {
+        $('table tr:gt(0)').each(function () {
             id++
             $(this).prepend('<td style="font-size:19px"  class="text-center">' + id + '</td>')
         })
