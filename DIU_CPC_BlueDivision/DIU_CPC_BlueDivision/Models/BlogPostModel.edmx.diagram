@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d296fa96475f41b7b743b9e5e94d93fb" Name="Diagram1">
-        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel2.Blog_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DIU_CPC_BlueDivisionModel2.Blog_tbl" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

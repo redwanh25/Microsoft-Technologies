@@ -58,7 +58,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ProblemsClass pc = new ProblemsClass();
 
             //---------------
-            if(str == "1234_U1")
+            if (str == "1234_U1")
             {
                 int blueSheetId = Convert.ToInt32(arr[1]);
                 DateTime dateTime = pc.retriveDateTime(blueSheetId);
@@ -78,6 +78,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                     foreach (Student s in students1)
                     {
                         listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
+                        pc.insertCutOffStudents(s.Id, s.UserName, s.Semester, s.SolveCount, s.EmailAddress);
                     }
                 }
                 //else
@@ -107,6 +108,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                     foreach (Student s in students1)
                     {
                         listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
+                        pc.insertCutOffStudents(s.Id, s.UserName, s.Semester, s.SolveCount, s.EmailAddress);
                     }
                 }
                 //else
@@ -117,7 +119,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 //}
             }
 
-            
+
             //---------------
 
             if (str != "1234_U1")
@@ -377,51 +379,93 @@ namespace DIU_CPC_BlueDivision.Controllers
             return RedirectToAction("Index", "Problems", new { id_Or_SheetName = Id });
         }
 
-        [HttpPost]
-        public ActionResult InputFromExcelFile(int blueSheetId, HttpPostedFileBase excelfile)
-        {
-            string str = "";
-            str = User.Identity.GetUserId();
+        //[HttpPost]
+        //public ActionResult InputFromExcelFile(int blueSheetId, HttpPostedFileBase excelfile)
+        //{
+        //    string str = "";
+        //    str = User.Identity.GetUserId();
 
-            if (!string.IsNullOrEmpty(str))
-            {
-                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
-            }
-            if (str != "1234_U1")
+        //    if (!string.IsNullOrEmpty(str))
+        //    {
+        //        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        //        str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        //    }
+        //    if (str != "1234_U1")
+        //    {
+        //        throw new Exception();
+        //    }
+
+        //    string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
+        //    if (System.IO.File.Exists(path))
+        //    {
+        //        System.IO.File.Delete(path);
+        //    }
+        //    excelfile.SaveAs(path);
+
+        //    // read data from excel file
+
+        //    Excel.Application application = new Excel.Application();
+        //    Excel.Workbook workbook = application.Workbooks.Open(path);
+        //    Excel.Worksheet worksheet = workbook.ActiveSheet;
+        //    Excel.Range range = worksheet.UsedRange;
+
+        //    for (int row = 2; row <= range.Rows.Count; row++)
+        //    {
+        //        Problem problem = new Problem();
+        //        problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
+        //        problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
+        //        problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
+        //        problem.BlueSheetId = blueSheetId;
+        //        db.Problems.Add(problem);
+        //    }
+        //    db.SaveChanges();
+        //    application.Workbooks.Close();
+
+        //    System.IO.File.Delete(path);
+        //    return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+
+        //}
+
+        [HttpPost]
+        [Route("Controllers/Problems/InputFromExcelFile")]
+        public void InputFromExcelFile(int blueSheetId, int number)
+        {
+            string path = Server.MapPath("~/Excel_Files/" + "Worksheet-1.xlsx");
+            if (!System.IO.File.Exists(path))
             {
                 throw new Exception();
             }
-
-            string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
-
-            if (System.IO.File.Exists(path))
+            else
             {
-                System.IO.File.Delete(path);
+                // read data from excel file
+                Excel.Application application = new Excel.Application();
+                Excel.Workbook workbook = application.Workbooks.Open(path);
+                Excel.Worksheet worksheet = workbook.ActiveSheet;
+                Excel.Range range = worksheet.UsedRange;
+
+                
+                int count = db.Problems.Where(per => per.BlueSheetId == blueSheetId && per.uploadFromWhere == "Excel_File").Count();
+                if (count + number <= range.Rows.Count)
+                {
+                    for (int row = count + 1; row <= count + number; row++)   // range.Rows.Count
+                    {
+                        Problem problem = new Problem();
+                        problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
+                        problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
+                        problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
+                        problem.BlueSheetId = blueSheetId;
+                        problem.uploadFromWhere = "Excel_File";
+                        db.Problems.Add(problem);
+                    }
+                    db.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                application.Workbooks.Close();
             }
-            excelfile.SaveAs(path);
-
-            // read data from excel file
-
-            Excel.Application application = new Excel.Application();
-            Excel.Workbook workbook = application.Workbooks.Open(path);
-            Excel.Worksheet worksheet = workbook.ActiveSheet;
-            Excel.Range range = worksheet.UsedRange;
-
-            for (int row = 2; row <= range.Rows.Count; row++)
-            {
-                Problem problem = new Problem();
-                problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
-                problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
-                problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
-                problem.BlueSheetId = blueSheetId;
-                db.Problems.Add(problem);
-            }
-            db.SaveChanges();
-            application.Workbooks.Close();
-
-            System.IO.File.Delete(path);
-            return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+            //return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
 
         }
 
@@ -429,18 +473,6 @@ namespace DIU_CPC_BlueDivision.Controllers
         [Route("Controllers/Problems/setDayAndProblem")]
         public void setDayAndProblem(int setDay, int setProblem, int blueSheetId)
         {
-            string str = "";
-            str = User.Identity.GetUserId();
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
-            }
-            if (str != "1234_U1")
-            {
-                throw new Exception();
-            }
             string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             using (SqlConnection con = new SqlConnection(connectionString))
             {

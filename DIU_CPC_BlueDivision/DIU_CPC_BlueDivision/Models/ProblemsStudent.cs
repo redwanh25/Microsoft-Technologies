@@ -23,7 +23,7 @@ namespace DIU_CPC_BlueDivision.Models
         public string SolutionLink { get; set; }
         [Required]
         public string ShareSolutionLink { get; set; }
-    
+
         public virtual Problem Problem { get; set; }
         public virtual Student Student { get; set; }
     }

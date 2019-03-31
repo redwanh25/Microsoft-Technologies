@@ -45,10 +45,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="OfficeOpenXml.Extends, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OfficeOpenXml.Extends.1.0.6.0\lib\net40\OfficeOpenXml.Extends.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -221,6 +227,7 @@
     <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
     <Compile Include="Controllers\BlueSheetsController.cs" />
+    <Compile Include="Controllers\CutOffStudentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProblemsController.cs" />
@@ -294,6 +301,24 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CutOffStudent.cs">
+      <DependentUpon>CutOffStudents_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CutOffStudents_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CutOffStudents_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CutOffStudents_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CutOffStudents_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CutOffStudents_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Problem.cs">
@@ -382,6 +407,16 @@
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
       <LastGenOutput>BlueSheetsProblemsStudents_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\CutOffStudents_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
+      <LastGenOutput>CutOffStudents_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CutOffStudents_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
+      <LastGenOutput>CutOffStudents_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="RegistrationAndLoginPage\Logout.js" />
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -438,6 +473,18 @@
     <Content Include="Models\BlueSheetsProblemsStudents_Model.edmx.diagram">
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
     </Content>
+    <EntityDeploy Include="Models\CutOffStudents_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CutOffStudents_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CutOffStudents_Model.edmx.diagram">
+      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Excel_Files\Worksheet.xlsx" />
+    <Content Include="Excel_Files\Worksheet-1.xlsx" />
+    <Content Include="Excel_Files\Worksheet-2.xlsx" />
+    <None Include="Properties\PublishProfiles\diucpc.pubxml" />
+    <None Include="Properties\PublishProfiles\redwan.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -506,10 +553,14 @@
     <Content Include="Views\ProblemsStudents\Index.cshtml" />
     <Content Include="Views\ProblemsStudents\Solver.cshtml" />
     <Content Include="Views\ProblemSolvingRanking\Index.cshtml" />
+    <Content Include="Views\CutOffStudents\Create.cshtml" />
+    <Content Include="Views\CutOffStudents\Delete.cshtml" />
+    <Content Include="Views\CutOffStudents\Details.cshtml" />
+    <Content Include="Views\CutOffStudents\Edit.cshtml" />
+    <Content Include="Views\CutOffStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Excel_Files\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

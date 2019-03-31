@@ -24,6 +24,7 @@
           <Property Name="Comment" Type="nvarchar" MaxLength="3000" />
           <Property Name="BlueSheetId" Type="int" />
           <Property Name="ProblemSolverCount" Type="int" />
+          <Property Name="uploadFromWhere" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ProblemsStudents">
           <Key>
@@ -131,6 +132,7 @@
           <NavigationProperty Name="BlueSheet" Relationship="Self.FK__Problems__BlueSh__6C190EBB" FromRole="Problems" ToRole="BlueSheets" />
           <NavigationProperty Name="ProblemsStudents" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Probl__114A936A" FromRole="Problem" ToRole="ProblemsStudent" />
           <Property Name="ProblemSolverCount" Type="Int32" />
+          <Property Name="uploadFromWhere" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK__Problems__BlueSh__6C190EBB">
           <End Role="BlueSheets" Type="Self.BlueSheet" Multiplicity="0..1" />
@@ -234,6 +236,7 @@
           <EntitySetMapping Name="Problems">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.Problem">
               <MappingFragment StoreEntitySet="Problems">
+                <ScalarProperty Name="uploadFromWhere" ColumnName="uploadFromWhere" />
                 <ScalarProperty Name="ProblemSolverCount" ColumnName="ProblemSolverCount" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />

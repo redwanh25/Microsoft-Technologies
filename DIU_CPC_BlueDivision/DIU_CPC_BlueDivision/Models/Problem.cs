@@ -29,6 +29,7 @@ namespace DIU_CPC_BlueDivision.Models
         public string Comment { get; set; }
         public Nullable<int> BlueSheetId { get; set; }
         public Nullable<int> ProblemSolverCount { get; set; }
+        public string uploadFromWhere { get; set; }
     
         public virtual BlueSheet BlueSheet { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

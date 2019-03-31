@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DIU_CPC_BlueDivisionModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DIU_CPC_BlueDivisionModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Blog_tbl">
           <Key>
             <PropertyRef Name="Id" />
@@ -19,11 +19,13 @@
         <EntityContainer Name="DIU_CPC_BlueDivisionModel2StoreContainer">
           <EntitySet Name="Blog_tbl" EntityType="Self.Blog_tbl" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DIU_CPC_BlueDivisionModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BlogPostEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Blog_tbl" EntityType="DIU_CPC_BlueDivisionModel2.Blog_tbl" />
+        </EntityContainer>
         <EntityType Name="Blog_tbl">
           <Key>
             <PropertyRef Name="Id" />
@@ -35,9 +37,6 @@
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="BlogDivId" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="BlogPostEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Blog_tbl" EntityType="Self.Blog_tbl" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -47,12 +46,12 @@
           <EntitySetMapping Name="Blog_tbl">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel2.Blog_tbl">
               <MappingFragment StoreEntitySet="Blog_tbl">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
-                <ScalarProperty Name="Text" ColumnName="Text" />
                 <ScalarProperty Name="BlogDivId" ColumnName="BlogDivId" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

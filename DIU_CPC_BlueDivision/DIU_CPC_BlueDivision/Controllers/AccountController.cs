@@ -115,6 +115,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // POST api/Account/ChangePassword
+        [AllowAnonymous]
         [Route("ChangePassword")]
         public async Task<IHttpActionResult> ChangePassword(ChangePasswordBindingModel model)
         {
@@ -123,7 +124,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
+            IdentityResult result = await UserManager.ChangePasswordAsync(model.UserId, model.OldPassword,
                 model.NewPassword);
             
             if (!result.Succeeded)

@@ -129,5 +129,40 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
             }
             return dateTime;
         }
+
+        public void insertCutOffStudents(string UserId, string UserName, string Semester, int? SolveCount, string EmailAddress)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "insert into CutOffStudents (UserId, UserName, EmailAddress, Semester, SolveCount) values(@UserId, @UserName, @EmailAddress, @Semester, @SolveCount)";
+                cmd.Parameters.AddWithValue("@UserId", UserId);
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                cmd.Parameters.AddWithValue("@EmailAddress", EmailAddress);
+                cmd.Parameters.AddWithValue("@Semester", Semester);
+                cmd.Parameters.AddWithValue("@SolveCount", SolveCount);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteCutOffStudents(int id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Delete from CutOffStudents where id = @parameter";
+                cmd.Parameters.AddWithValue("@parameter", id);
+                cmd.Connection = con;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
