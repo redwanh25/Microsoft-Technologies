@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
@@ -13,6 +14,8 @@ using System.Web.UI;
 using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNet.Identity;
 
 using Excel = Microsoft.Office.Interop.Excel;
@@ -426,11 +429,66 @@ namespace DIU_CPC_BlueDivision.Controllers
 
         //}
 
+        //[HttpPost]
+        //[Route("Controllers/Problems/InputFromExcelFile")]
+        //public void InputFromExcelFile(int blueSheetId, int number)
+        //{
+        //    string path = Server.MapPath("~/Excel_Files/Worksheet-1.xlsx");
+
+        //    if (!System.IO.File.Exists(path))
+        //    {
+        //        throw new Exception();
+        //    }
+        //    else
+        //    {
+        //        // read data from excel file
+        //        Excel.Application application = new Excel.Application();
+        //        Excel.Workbook workbook = application.Workbooks.Open(path);
+        //        Excel.Worksheet worksheet = workbook.ActiveSheet;
+        //        Excel.Range range = worksheet.UsedRange;
+
+        //        try
+        //        {
+        //            int count = db.Problems.Where(per => per.BlueSheetId == blueSheetId && per.uploadFromWhere == "Excel_File").Count();
+        //            if (count + number <= range.Rows.Count)
+        //            {
+        //                for (int row = count + 1; row <= count + number; row++)   // range.Rows.Count
+        //                {
+        //                    Problem problem = new Problem();
+        //                    problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
+        //                    problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
+        //                    problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
+        //                    problem.BlueSheetId = blueSheetId;
+        //                    problem.uploadFromWhere = "Excel_File";
+        //                    db.Problems.Add(problem);
+        //                }
+        //                db.SaveChanges();
+        //            }
+        //            else
+        //            {
+        //                throw new Exception();
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+
+        //        }
+        //        finally
+        //        {
+        //            application.Workbooks.Close();
+        //        }
+
+        //    }
+        //    //return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+
+        //}
+
         [HttpPost]
-        [Route("Controllers/Problems/InputFromExcelFile")]
-        public void InputFromExcelFile(int blueSheetId, int number)
+        [Route("Controllers/Problems/InputFromExcelFileAjax")]
+        public void InputFromExcelFileAjax(int blueSheetId, int number)
         {
-            string path = Server.MapPath("~/Excel_Files/" + "Worksheet-1.xlsx");
+            string path = Server.MapPath("~/Excel_Files/ExcelFileDemo1.xlsx");
+
             if (!System.IO.File.Exists(path))
             {
                 throw new Exception();
@@ -438,35 +496,99 @@ namespace DIU_CPC_BlueDivision.Controllers
             else
             {
                 // read data from excel file
-                Excel.Application application = new Excel.Application();
-                Excel.Workbook workbook = application.Workbooks.Open(path);
-                Excel.Worksheet worksheet = workbook.ActiveSheet;
-                Excel.Range range = worksheet.UsedRange;
-
-                
-                int count = db.Problems.Where(per => per.BlueSheetId == blueSheetId && per.uploadFromWhere == "Excel_File").Count();
-                if (count + number <= range.Rows.Count)
+                using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
                 {
-                    for (int row = count + 1; row <= count + number; row++)   // range.Rows.Count
+                    WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
+                    IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
+                    string relationshipId = sheets.First().Id.Value;
+                    WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
+                    Worksheet workSheet = worksheetPart.Worksheet;
+                    SheetData sheetData = workSheet.GetFirstChild<SheetData>();
+                    List<Row> rows = sheetData.Descendants<Row>().ToList();
+
+                    int count = db.Problems.Where(per => per.BlueSheetId == blueSheetId && per.uploadFromWhere == "Excel_File").Count();
+                    if (count + number <= rows.Count())
                     {
-                        Problem problem = new Problem();
-                        problem.ProblemName = ((Excel.Range)range.Cells[row, 1]).Text;
-                        problem.ProblemLink = ((Excel.Range)range.Cells[row, 2]).Text;
-                        problem.Comment = ((Excel.Range)range.Cells[row, 3]).Text;
-                        problem.BlueSheetId = blueSheetId;
-                        problem.uploadFromWhere = "Excel_File";
-                        db.Problems.Add(problem);
+                        for (int i = count; i < count + number; i++) //this will also include your header row...
+                        {
+                            Problem problem = new Problem();
+                            problem.ProblemName = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(0));
+                            problem.ProblemLink = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(1));
+                            if (rows[i].Count() == 3)
+                            {
+                                problem.Comment = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(2));
+                            }
+                            problem.BlueSheetId = blueSheetId;
+                            problem.uploadFromWhere = "Excel_File";
+                            db.Problems.Add(problem);
+                        }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
+                    else
+                    {
+                        throw new Exception();
+                    }
                 }
-                else
-                {
-                    throw new Exception();
-                }
-                application.Workbooks.Close();
             }
-            //return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+        }
 
+        [HttpPost]
+        public ActionResult InputFromExcelFile(int blueSheetId, HttpPostedFileBase excelfile)
+        {
+
+            string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            excelfile.SaveAs(path);
+
+            // read data from excel file
+
+            using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
+            {
+                WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
+                IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
+                string relationshipId = sheets.First().Id.Value;
+                WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
+                Worksheet workSheet = worksheetPart.Worksheet;
+                SheetData sheetData = workSheet.GetFirstChild<SheetData>();
+                List<Row> rows = sheetData.Descendants<Row>().ToList();
+
+                for (int i = 0; i < rows.Count(); i++) //this will also include your header row...
+                {
+                    Problem problem = new Problem();
+                    problem.ProblemName = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(0));
+                    problem.ProblemLink = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(1));
+                    if (rows[i].Count() == 3)
+                    {
+                        problem.Comment = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(2));
+                    }
+                    problem.BlueSheetId = blueSheetId;
+                    //problem.uploadFromWhere = "Excel_File";
+                    db.Problems.Add(problem);
+                }
+                db.SaveChanges();
+            }
+
+            System.IO.File.Delete(path);
+            return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
+
+        }
+
+        public static string GetCellValue(SpreadsheetDocument document, Cell cell)
+        {
+            SharedStringTablePart stringTablePart = document.WorkbookPart.SharedStringTablePart;
+            string value = cell.CellValue.InnerXml;
+
+            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            {
+                return stringTablePart.SharedStringTable.ChildElements[Int32.Parse(value)].InnerText;
+            }
+            else
+            {
+                return value;
+            }
         }
 
         [HttpPost]
