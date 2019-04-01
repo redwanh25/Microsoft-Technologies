@@ -368,6 +368,15 @@
     </td>
 *@
 
+<script>
+    window.addEventListener("keydown", checkKeyPress, false);
+    function checkKeyPress(key) {
+        if (key.keyCode == "13" && $('#txtPassword').val() != '' && $('#txtConfirmPassword').val() != '') {
+            $('#btnRegister1').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+    }
+</script>
 
 @*register*@
 <script>

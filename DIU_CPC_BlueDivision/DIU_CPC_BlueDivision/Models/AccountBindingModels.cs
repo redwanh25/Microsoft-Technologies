@@ -59,7 +59,7 @@ namespace DIU_CPC_BlueDivision.Models
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Secure Code")]
         public string SecureCode { get; set; }
 

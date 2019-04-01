@@ -216,7 +216,6 @@
                                     <li><a href="#" onclick="openNav()">Forget Password</a></li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -332,7 +331,10 @@
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
                         <div class="h2 animated fadeInRight">
-                            <p>Create A New Admin Account <input id="buttonLock" type="button" value="Lock" class="btn btn-default" style="display:none" />  </p>
+                            <p>
+                                Create A New Admin Account
+                                <input id="buttonLock" type="button" value="Lock" class="btn btn-default" style="display: none" />
+                            </p>
                         </div>
                         <br />
                         <div class="row" id="unlockCode">
@@ -367,7 +369,7 @@
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-user"></span>
                                             </span>
-                                            <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter your Name" CssClass="form-control"></asp:TextBox>
+                                            <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter UserName" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -384,7 +386,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <%--<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group has-success animated bounceInRight">
                                         <label>SecureCode</label>
                                         <div class="input-group">
@@ -394,7 +396,7 @@
                                             <asp:TextBox ID="textSecureCode" runat="server" placeholder="Enter your SecureCode" TextMode="Password" CssClass="form-control"></asp:TextBox>
                                         </div>
                                     </div>
-                                </div>
+                                </div>--%>
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group has-success animated fadeInRight">
                                         <label>Email ID</label>
@@ -500,7 +502,7 @@
                         </div>
                     </div>
                     <hr style="border: .5px solid; color: black" class="animated fadeInUp">
-                    <p class="pull-right" style="font-size:17px">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/fhwasi">Fuad Wasi </a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004191497770">Sharar Khan</a></p>
+                    <p class="pull-right" style="font-size: 17px">&copy; <%: DateTime.Now.Year %> - Developed by <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186">Redwan Hossain</a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/fhwasi">Fuad Wasi </a>, <a style="color: orange" target="_blank" href="https://www.facebook.com/profile.php?id=100004191497770">Sharar Khan</a></p>
                 </div>
             </div>
         </footer>
@@ -548,7 +550,7 @@
                 success: function (data) {
                     if (data.status == "Success") {
                         $('#registrationId').show();
-                        $('#unlockCode').hide(); 
+                        $('#unlockCode').hide();
                         $('#unlockCode1').hide();
                         //$('#buttonLock').show();
                     }
@@ -560,7 +562,7 @@
                     swal("Error!", "Something Went Wrong!", "error");
                 }
             });
-        });    
+        });
     });
     //$(document).ready(function () {
     //    $('#buttonLock').click(function () {
@@ -582,17 +584,23 @@
     }
 </script>
 
-<%--<script>
+<script>
     window.addEventListener("keydown", checkKeyPress, false);
-    function checkKeyPress(key)
-    {
-        if (key.keyCode == "13")
-        {
+    function checkKeyPress(key) {
+        if (key.keyCode == "13" && $('#txtUserNameLogin').val() != '' && $('#txtPasswordLogin').val() != '') {
             $('#btnLogin').trigger('click');
-            //alert('redwan');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+        else if (key.keyCode == "13" && $('#txtPassword').val() != '' && $('#txtConfirmPassword').val() != '') {
+            $('#btnRegister').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+        else if (key.keyCode == "13" && $('#textSecureCodeSubmit').val() != '') {
+            $('#buttonSecureCodeSubmit').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
         }
     }
-</script>--%>
+</script>
 
 <%--login.js file er code ai khane ase. aita aikhane na dile gif ta kaj kore na.. i don't khow why..--%>
 <script>
@@ -628,8 +636,19 @@
     });
 </script>
 
+<%--<script>
+    $(document).ready(function () {
+        $(document).keydown(function (objEvent) {
+            (objEvent) ? keycode = objEvent.keyCode : keycode = event.keyCode;
+            if (keycode == 13) {
+                //alert('redwan');
+            }
+        });
+    });
+</script>--%>
+
 <%--register.js file er code ai khane ase. aita aikhane na dile gif ta kaj kore na.. i don't khow why..--%>
-<script>
+<%--<script>
     $(document).ready(function () {
         //Close the bootstrap alert
         $('#linkCloseRegister').click(function () {
@@ -678,6 +697,43 @@
                 },
                 error: function (jqXHR) {
                     swal("Error!", "Something Went Wrong!", "error");
+                }
+            });
+        });
+    });
+</script>--%>
+
+<script>
+    $(document).ready(function () {
+        //Close the bootstrap alert
+        $('#linkCloseRegister').click(function () {
+            $('#divErrorRegister').hide('fade');
+        });
+
+        // Save the new user details
+        $('#btnRegister').click(function () {
+            $('#loaderDiv').show();
+            $.ajax({
+                url: '/api/account/Register',
+                method: 'POST',
+                data: {
+                    userName: $('#txtUserName').val(),
+                    phoneNumber: $('#txtPhoneNumber').val(),
+                    //secureCode: $('#textSecureCode').val(),
+                    email: $('#txtEmail').val(),
+                    password: $('#txtPassword').val(),
+                    confirmPassword: $('#txtConfirmPassword').val(),
+                    joinSemester: '.....'
+                },
+                success: function () {
+                    swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                    $('#divErrorRegister').hide();
+                    $('#loaderDiv').hide();
+                },
+                error: function (jqXHR) {
+                    $('#divErrorTextRegister').text(jqXHR.responseText);
+                    $('#divErrorRegister').show('fade');
+                    $('#loaderDiv').hide();
                 }
             });
         });
