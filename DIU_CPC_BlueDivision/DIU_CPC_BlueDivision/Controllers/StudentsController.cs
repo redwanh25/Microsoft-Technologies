@@ -18,6 +18,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
         // GET: Students
+        [NonAction]
         public ActionResult Index(string semester)
         {
             string U_id = "", str = "", joinSemester = "";

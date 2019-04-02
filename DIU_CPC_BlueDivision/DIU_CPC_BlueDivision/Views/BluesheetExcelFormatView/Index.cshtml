@@ -1,5 +1,9 @@
 ﻿@model DIU_CPC_BlueDivision.Models.Blue_Prob_ProbStu_Stu
 @using DIU_CPC_BlueDivision.Models;
+@using System.Text;
+@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using DIU_CPC_BlueDivision.DatabaseConnection;
 
 @{
     ViewBag.Title = "Index";
@@ -23,6 +27,19 @@
 <h2>Index</h2>
 <br />
 
+@{
+    string userId = "", secureCode = "", joinSem = "", userName = "";
+    userId = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(userId))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        //secureCode = aspNetUsersBusinessLayer.GetSecureCode(userId);
+        //joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
+        userName = aspNetUsersBusinessLayer.GetUserName(userId);
+    }
+}
+
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <h4>Select Number of Rows</h4>
@@ -40,6 +57,7 @@
     </div>
 </div>
 <br />
+
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div style="overflow-x:auto;">
@@ -48,7 +66,7 @@
                     <td>Problem Name</td>
                     @foreach (Student stu in Model.students.OrderByDescending(per => per.SolveCount).ToList())
                     {
-                        if (stu.Semester == "Fall-20")
+                        if (stu.Semester == ViewBag.semester)
                         {
                             <td>
                                 @stu.UserName<br />
@@ -59,12 +77,12 @@
                 </tr>
                 @foreach (Problem prob in Model.problems)
                 {
-                    if (prob.BlueSheetId == 42)
+                    if (prob.BlueSheet.BlueSheetName == ViewBag.semester)
                     {
                         <tr>
                             <td>
-
-                                @prob.ProblemName
+                                <a target="_blank" href="@prob.ProblemLink">@prob.ProblemName</a>
+                                <span style="padding-right:10px"></span>
                                 @{
                                     if (!string.IsNullOrEmpty(prob.Comment))
                                     {
@@ -79,7 +97,7 @@
                             @foreach (Student stu in Model.students.OrderByDescending(per => per.SolveCount).ToList())
                             {
                                 int check = 0;
-                                if (stu.Semester == "Fall-20")
+                                if (stu.Semester == ViewBag.semester)
                                 {
                                     foreach (ProblemsStudent probStu in Model.problemsStudents)
                                     {
@@ -88,13 +106,31 @@
                                             check = 1;
                                             <td class="text-center">
                                                 <span>AC (<img height="15" src="~/Image/Accepted.png" />)</span>
-                                                @if (probStu.ShareSolutionLink == "Yes")
-                                                {
-                                                    <a target="_blank" href="@probStu.SolutionLink">Solution</a>
+
+                                                @{
+                                                    if (!string.IsNullOrEmpty(probStu.Comment))
+                                                    {
+                                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Comment" data-content="@probStu.Comment"
+                                                                data-trigger="focus" data-toggle="popover">
+                                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                                        </button>
+                                                    }
                                                 }
-                                                else if (probStu.ShareSolutionLink == "No")
+                                                <br />
+                                                @if (probStu.SolutionLink != null)
                                                 {
-                                                    <span style="color:red">Private(Sol)</span>
+                                                    if (probStu.ShareSolutionLink == "Yes")
+                                                    {
+                                                        <a target="_blank" href="@probStu.SolutionLink">Solution</a>
+                                                    }
+                                                    else if (userName == probStu.Student.UserName)
+                                                    {
+                                                        <a target="_blank" href="@probStu.SolutionLink">Solution(<span style="color:red">P</span>)</a>
+                                                    }
+                                                    else if (probStu.ShareSolutionLink == "No")
+                                                    {
+                                                        <span style="color:red">Private(Sol)</span>
+                                                    }
                                                 }
                                             </td>
                                         }

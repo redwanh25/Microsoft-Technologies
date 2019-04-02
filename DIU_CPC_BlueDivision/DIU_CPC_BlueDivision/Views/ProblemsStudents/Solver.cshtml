@@ -120,17 +120,20 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
-                                                }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
                                             }
                                             else
@@ -212,22 +215,21 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)">To See His/Her Solution</a>
                                             }
                                         }
                                     </td>
@@ -299,17 +301,20 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
-                                                }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
                                             }
                                             else
@@ -386,17 +391,20 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
-                                                }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
                                             }
                                             else
@@ -474,17 +482,20 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
-                                                }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
                                             }
                                             else
@@ -561,17 +572,20 @@
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
                                             if (secureCode != "1234_U1")
                                             {
-                                                if (link == "Yes")
+                                                if (!string.IsNullOrEmpty(link))
                                                 {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
-                                                }
-                                                else if (userName == item.Student.UserName)
-                                                {
-                                                    <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
-                                                }
-                                                else
-                                                {
-                                                    <p style="color:red">Solution is Private</p>
+                                                    if (link == "Yes")
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>To See His/Her Solution</b></a>
+                                                    }
+                                                    else if (userName == item.Student.UserName)
+                                                    {
+                                                        <a class="btn btn-default btn-sm" target="_blank" href="@Html.DisplayFor(modelItem => item.SolutionLink)"><b>See Your Solution (private)</b></a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <p style="color:red">Solution is Private</p>
+                                                    }
                                                 }
                                             }
                                             else
