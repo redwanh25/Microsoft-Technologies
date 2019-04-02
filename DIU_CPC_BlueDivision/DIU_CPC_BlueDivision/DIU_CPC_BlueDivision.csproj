@@ -237,6 +237,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
+    <Compile Include="Controllers\BluesheetExcelFormatViewController.cs" />
     <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
     <Compile Include="Controllers\BlueSheetsController.cs" />
     <Compile Include="Controllers\CutOffStudentsController.cs" />
@@ -314,6 +315,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Blue_Prob_ProbStu_Stu.cs" />
     <Compile Include="Models\CutOffStudent.cs">
       <DependentUpon>CutOffStudents_Model.tt</DependentUpon>
     </Compile>
@@ -364,6 +366,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Image\404-NotFound.gif" />
+    <Content Include="Image\Accepted.png" />
     <Content Include="Image\facebook.png" />
     <Content Include="Image\google.png" />
     <Content Include="Image\HomePageButton.png" />
@@ -569,6 +572,7 @@
     <Content Include="Views\CutOffStudents\Details.cshtml" />
     <Content Include="Views\CutOffStudents\Edit.cshtml" />
     <Content Include="Views\CutOffStudents\Index.cshtml" />
+    <Content Include="Views\BluesheetExcelFormatView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

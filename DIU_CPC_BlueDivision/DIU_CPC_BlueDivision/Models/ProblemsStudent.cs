@@ -16,12 +16,11 @@ namespace DIU_CPC_BlueDivision.Models
     public partial class ProblemsStudent
     {
         public string Comment { get; set; }
+        [Required]
         public string IsSolved { get; set; }
         public int ProblemId { get; set; }
-        public string StudentId { get; set; }
-        [Required]
+        public string StudentId { get; set; }        
         public string SolutionLink { get; set; }
-        [Required]
         public string ShareSolutionLink { get; set; }
 
         public virtual Problem Problem { get; set; }
