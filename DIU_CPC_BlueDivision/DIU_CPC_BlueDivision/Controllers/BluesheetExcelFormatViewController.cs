@@ -26,9 +26,17 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
             if (str != "1234_U1")
             {
-                ProblemSolvingRanking problemSolvingRanking1 = new ProblemSolvingRanking();
-                problemSolvingRanking1.updateStudentsForSolveCount("Accepted", joinSemester);
-                ViewBag.semester = joinSemester;
+                if (string.IsNullOrEmpty(semester))
+                {
+                    ProblemSolvingRanking problemSolvingRanking1 = new ProblemSolvingRanking();
+                    problemSolvingRanking1.updateStudentsForSolveCount("Accepted", joinSemester);
+                    ViewBag.semester = joinSemester;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                
             }
             else
             {
