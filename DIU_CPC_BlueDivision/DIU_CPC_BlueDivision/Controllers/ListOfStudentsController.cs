@@ -23,7 +23,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private string student = ConfigurationManager.AppSettings["Student"].ToString();
 
         // GET: ListOfStudents
-        public ActionResult Index()
+        public ActionResult Index(string SearchName, string SelectSemester)
         {
             string str = "";
             str = User.Identity.GetUserId();
@@ -37,7 +37,26 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
-            return View(db.Students.ToList());
+
+            if (!string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
+            {
+                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName) && per.Semester == SelectSemester).ToList();
+                return View(list);
+            }
+            else if (string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
+            {
+                List<Student> list = db.Students.Where(per => per.Semester == SelectSemester).ToList();
+                return View(list);
+            }
+            else if(!string.IsNullOrEmpty(SearchName) && string.IsNullOrEmpty(SelectSemester))
+            {
+                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName)).ToList();
+                return View(list);
+            }
+            else
+            {
+                return View(db.Students.ToList());
+            }     
         }
 
         //// GET: ListOfStudents/Details/5

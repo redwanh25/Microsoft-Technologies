@@ -4,6 +4,7 @@
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
 @using System.Configuration;
+@using DIU_CPC_BlueDivision.DatabaseConnection;
 
 <style>
     .inner {
@@ -31,17 +32,34 @@
             secureCode = aspNetUsersBusinessLayer.GetSecureCode(userId);
             joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
         }
+        ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+        string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(userId);
+
         if (secureCode == student)
         {
             <br /><br /><br /><br />
             <div class="row" align="center">
-                <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
-                    <a href="@Url.Action("Index", "Problems", new { id_Or_SheetName = joinSem})">
-                        <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
-                        <h3>Blue Sheet</h3>
-                    </a>
-                    <br />
-                </div>
+                @if (check == "Mute")
+                {
+                    <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
+                        <a id="muteId">
+                            <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
+                            <h3>Blue Sheet</h3>
+                        </a>
+                        <br />
+                    </div>
+                }
+                else
+                {
+                    <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage1 col-md-offset-2">
+                        <a href="@Url.Action("Index", "Problems", new { id_Or_SheetName = joinSem })">
+                            <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1;" class="img-responsive imgHover" />
+                            <h3>Blue Sheet</h3>
+                        </a>
+                        <br />
+                    </div>
+                }
+
                 <div class="col-xs-6 col-sm-3 col-md-2 companyInnerImage2">
                     <a href="@Url.Action("Index", "BluesheetExcelFormatView")">
                         <img src="~/Image/HomePageButton.png" style="border: 6px solid; border-color: #F5F3F1" class="img-responsive imgHover" />
@@ -98,7 +116,7 @@
 
 </div>
 
-<br /><br /><br/><br/>
+<br /><br /><br /><br />
 
 <hr style="border: 5px solid; color: #F5F3F1">
 <div class="container">
@@ -164,6 +182,14 @@
 
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('#muteId').click(function () {
+            swal("Sorry!", "You have been suspended for a temporary period! Please Contact with Admin.\n" +
+                "You have to request Your Admin how to get into the BlueSheet Again", "error")
+        });
+    });
+</script>
 
 <script type="text/javascript">
     $('.companyInnerImage1').mouseover(function () {

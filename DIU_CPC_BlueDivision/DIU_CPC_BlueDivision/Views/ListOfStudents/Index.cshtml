@@ -21,7 +21,7 @@
         secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
     }
     ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-    
+
 }
 
 <br /><br /><br />
@@ -49,112 +49,118 @@
     </div>
     <div style="overflow-x:auto;">
         <table id="mytable" class="table table-hover text-center">
-            <tr class="success text-center" style="font-weight: bold; font-size:18px">
-                <td>
-                    @Html.DisplayNameFor(model => model.UserName)
-                    <input id="userNameStudent" type="text" class="form-control" style="height:25px" />
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.StudentId)
-                </td>
-                @*<td>
-                @Html.DisplayNameFor(model => model.FullName)
-            </td>*@
-                <td>
-                    @Html.DisplayNameFor(model => model.EmailAddress)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Semester)
-                    @Html.DropDownList("SelectSemester", new List<SelectListItem>
-                    {
-                        new SelectListItem{Text="Fall-20", Value="Fall-20"},
-                        new SelectListItem{Text="Summer-20", Value="Summer-20"},
-                        new SelectListItem{Text="Spring-20", Value="Spring-20"},
-                        new SelectListItem{Text="Fall-19", Value="Fall-19"},
-                        new SelectListItem{Text="Summer-19", Value="Summer-19"},
-                        new SelectListItem{Text="Spring-19", Value="Spring-19"}
-                    }, "Select Semester", new { @class = "form-control", @id = "SelectSemesterStudent", @style= "font-size:13px; width:120px; height:25px; padding:0px" })
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.SolveCount)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.CodeForcesId)
-                </td>
-                <td colspan="3">Action</td>
-            </tr>
+            @using (Html.BeginForm("Index", "ListOfStudents", FormMethod.Get))
+            {
+                <tr class="success text-center" style="font-weight: bold; font-size:18px">
+                    <td>
+                        @Html.DisplayNameFor(model => model.UserName)
+                        @Html.TextBox("SearchName", null, new { @class = "form-control", @style = "height:25px", @placeholder = "username" })
+                        @*<input id="userNameStudent" type="text" class="form-control" style="height:25px" />*@  @*aita dile kaj kore na..*@
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.StudentId)
+                    </td>
+                    @*<td>
+                    @Html.DisplayNameFor(model => model.FullName)
+                </td>*@
+                    <td>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Semester)
+                        @Html.DropDownList("SelectSemester", new List<SelectListItem>
+                        {
+                            new SelectListItem{Text="Fall-20", Value="Fall-20"},
+                            new SelectListItem{Text="Summer-20", Value="Summer-20"},
+                            new SelectListItem{Text="Spring-20", Value="Spring-20"},
+                            new SelectListItem{Text="Fall-19", Value="Fall-19"},
+                            new SelectListItem{Text="Summer-19", Value="Summer-19"},
+                            new SelectListItem{Text="Spring-19", Value="Spring-19"}
+                        }, "Select Semester", new { @class = "form-control", @id = "SelectSemesterStudent", @style= "font-size:13px; width:120px; height:25px; padding:0px" })
+                        <input class="hidden" id="btnsearch" type="submit" value="submit"/>
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.SolveCount)
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.CodeForcesId)
+                    </td>
+                    <td colspan="3">Action</td>
+                </tr>
+                
+            }
 
             @foreach (var item in Model)
             {
                 string muteOrUnmute = listOfAllAdminsAndStudents.CheckMuteOrUnmute(item.Id);
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.UserName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentId)
-                </td>
-                @*<td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.EmailAddress)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Semester)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SolveCount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CodeForcesId)
-                </td>
-                <td>
-                    @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id }))
-                    {
-                        if (muteOrUnmute == "Mute")
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    @*<td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Semester)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SolveCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CodeForcesId)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id }))
                         {
-                            <button class="btn btn-warning btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
-                        }
-                        else
-                        {
-                            <button class="btn btn-warning btn-xs" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
-                        }
+                            if (muteOrUnmute == "Mute")
+                            {
+                                <button class="btn btn-warning btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-warning btn-xs" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
+                            }
 
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id }))
-                    {
-                        if (muteOrUnmute == "Unmute")
-                        {
-                            <button class="btn btn-success btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
                         }
-                        else
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id }))
                         {
-                            <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
-                        }
+                            if (muteOrUnmute == "Unmute")
+                            {
+                                <button class="btn btn-success btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
+                            }
+                            else
+                            {
+                                <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
+                            }
 
-                    }
-                </td>
-                <td>
-                    @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id }))
-                    {
-                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to Delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
-                    }
-                </td>
-                @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-        </td>*@
-            </tr>
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id }))
+                        {
+                            <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to Delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                        }
+                    </td>
+                    @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>*@
+                </tr>
 
             }
 
@@ -168,8 +174,26 @@
     </div>
 </div>
 
-@*searching*@
 <script>
+    window.addEventListener("keydown", checkKeyPress, false);
+    function checkKeyPress(key) {
+        if (key.keyCode == "13" && $('#userNameStudent').val() != '' && $("#SelectSemesterStudent option:selected").val() != '') {
+            $('#btnsearch').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+        else if (key.keyCode == "13" && $('#userNameStudent').val() != '') {
+            $('#btnsearch').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+        else if (key.keyCode == "13" && $("#SelectSemesterStudent option:selected").val() != '') {
+            $('#btnsearch').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+    }
+</script>
+
+@*searching*@
+@*<script>
     window.addEventListener("keydown", checkKeyPress, false);
     function checkKeyPress(key) {
         if (key.keyCode == "13" && $('#userNameStudent').val() != '' && $("#SelectSemesterStudent option:selected").val() != '') {
@@ -204,7 +228,7 @@
     function searchStudent(name, semester) {
         alert(name + ' ' + semester);
     };
-</script>
+</script>*@
 
 <script type="text/javascript">
     $(document).ready(function () {

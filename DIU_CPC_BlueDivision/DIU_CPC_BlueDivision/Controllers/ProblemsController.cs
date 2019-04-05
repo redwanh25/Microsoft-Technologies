@@ -85,7 +85,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                     //ViewBag.student = students1;
                     foreach (Student s in students1)
                     {
-                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.UserName);
+                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.Id);
                     }
                 }
                 //else
@@ -97,6 +97,13 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
             else
             {
+                ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+                string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(U_id);
+
+                if (check == "Mute")
+                {
+                    throw new Exception();
+                }
                 BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
                 int blueSheetId = blueSheetNameRetrive.getBlueSheetId(arr[1]);
                 DateTime dateTime = pc.retriveDateTime(blueSheetId);
@@ -110,13 +117,11 @@ namespace DIU_CPC_BlueDivision.Controllers
                 //cutoff
                 if (now > dateTime)
                 {
-                    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
                     //ViewBag.student = students1;
                     foreach (Student s in students1)
                     {
-                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.UserName);
+                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.Id);
                     }
                 }
                 //else
