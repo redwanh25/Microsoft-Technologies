@@ -4,6 +4,7 @@ using DIU_CPC_BlueDivision.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +13,10 @@ namespace DIU_CPC_BlueDivision.Controllers
 {
     public class BluesheetExcelFormatViewController : Controller
     {
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
+
         // GET: BluesheetExcelFormatView
         public ActionResult Index(string semester)
         {
@@ -24,7 +29,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
                 joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 if (string.IsNullOrEmpty(semester))
                 {

@@ -3,7 +3,7 @@
 
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
-
+@using System.Configuration;
 
 <style>
     .inner {
@@ -21,6 +21,7 @@
 
 <div class="container">
     @{
+        string student = ConfigurationManager.AppSettings["Student"].ToString();
         string userId = "", secureCode = "", joinSem = "";
         userId = User.Identity.GetUserId();
 
@@ -30,7 +31,7 @@
             secureCode = aspNetUsersBusinessLayer.GetSecureCode(userId);
             joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
         }
-        if (secureCode != "1234_U1")
+        if (secureCode == student)
         {
             <br /><br /><br /><br />
             <div class="row" align="center">

@@ -63,7 +63,7 @@ namespace DIU_CPC_BlueDivision.Models
         [Display(Name = "Secure Code")]
         public string SecureCode { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Join Semester")]
         public string JoinSemester { get; set; }
     }
@@ -89,7 +89,7 @@ namespace DIU_CPC_BlueDivision.Models
         [Display(Name = "User Name")]
         public string UserName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Secure Code")]
         public string SecureCode { get; set; }
 

@@ -1,21 +1,28 @@
 ﻿@using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using System.Configuration;
+
 @{
 
     string str = "";
     str = User.Identity.GetUserId();
-
+    string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+    string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
     if (!string.IsNullOrEmpty(str))
     {
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
         str = aspNetUsersBusinessLayer.GetSecureCode(str);
     }
-
-    if (str == "1234_U1")
+    if (str == superAdmin)
+    {
+        Layout = "~/Views/Shared/_Layout_For_SuperAdmin.cshtml";
+    }
+    else if (str == admin)
     {
         Layout = "~/Views/Shared/_Layout_For_Admin.cshtml";
     }
-    else if (str == "*****")
+    else if (str == student)
     {
         Layout = "~/Views/Shared/_Layout_For_All.cshtml";
     }

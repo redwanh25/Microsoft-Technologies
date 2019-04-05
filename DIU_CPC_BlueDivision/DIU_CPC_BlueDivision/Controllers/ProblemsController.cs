@@ -25,6 +25,9 @@ namespace DIU_CPC_BlueDivision.Controllers
     public class ProblemsController : Controller
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
 
         // blueSheets folder er index.cshtml a ase (id).
         // Home folder er index.cshtml a ase (SheetName).
@@ -61,7 +64,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ProblemsClass pc = new ProblemsClass();
 
             //---------------
-            if (str == "1234_U1")
+            if (str != student)
             {
                 int blueSheetId = Convert.ToInt32(arr[1]);
                 DateTime dateTime = pc.retriveDateTime(blueSheetId);
@@ -72,9 +75,11 @@ namespace DIU_CPC_BlueDivision.Controllers
                 string blueSheetName = blueSheetNameRetrive.getBlueSheetName(blueSheetId);
 
                 List<Student> students1 = new List<Student>();
+
+                //cutoff
                 if (now > dateTime)
                 {
-                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                    ListOfAllAdminsAndStudents listOfAllBlueSheetStudents = new ListOfAllAdminsAndStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
                     //ViewBag.student = students1;
@@ -104,7 +109,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 List<Student> students1 = new List<Student>();
                 if (now > dateTime)
                 {
-                    ListOfAllBlueSheetStudents listOfAllBlueSheetStudents = new ListOfAllBlueSheetStudents();
+                    ListOfAllAdminsAndStudents listOfAllBlueSheetStudents = new ListOfAllAdminsAndStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
                     //ViewBag.student = students1;
@@ -125,7 +130,7 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             //---------------
 
-            if (str != "1234_U1")
+            if (str == student)
             {
                 bool check = true;
                 try
@@ -195,7 +200,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -223,7 +228,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -247,7 +252,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -274,7 +279,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -307,7 +312,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -337,7 +342,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -367,7 +372,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -393,7 +398,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         //        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
         //        str = aspNetUsersBusinessLayer.GetSecureCode(str);
         //    }
-        //    if (str != "1234_U1")
+        //    if (str == student)
         //    {
         //        throw new Exception();
         //    }

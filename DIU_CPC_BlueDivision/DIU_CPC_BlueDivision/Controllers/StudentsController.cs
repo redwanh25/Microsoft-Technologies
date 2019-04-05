@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -16,6 +17,9 @@ namespace DIU_CPC_BlueDivision.Controllers
     public class StudentsController : Controller
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
 
         // GET: Students
         [NonAction]
@@ -30,7 +34,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
                 joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 if(joinSemester == semester)
                 {

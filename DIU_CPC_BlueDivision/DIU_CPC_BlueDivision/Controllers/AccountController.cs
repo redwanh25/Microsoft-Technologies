@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using DIU_CPC_BlueDivision.Models;
 using DIU_CPC_BlueDivision.Providers;
 using DIU_CPC_BlueDivision.Results;
+using System.Configuration;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -319,17 +320,43 @@ namespace DIU_CPC_BlueDivision.Controllers
             return logins;
         }
 
-        // POST api/Account/Register
+        // POST api/Account/SuperAdminRegister
         [AllowAnonymous]
-        [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        [Route("SuperAdminRegister")]
+        public async Task<IHttpActionResult> SuperAdminRegister(RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            string secureCodeForSuperAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+            string semesterForSuperAdmin = ConfigurationManager.AppSettings["SuperAdminSemester"].ToString();
 
-            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = "1234_U1", JoinSemester = model.JoinSemester };
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = secureCodeForSuperAdmin, JoinSemester = semesterForSuperAdmin };
+
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+
+            return Ok();
+        }
+
+        // POST api/Account/AdminRegister
+        [AllowAnonymous]
+        [Route("AdminRegister")]
+        public async Task<IHttpActionResult> AdminRegister(RegisterBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            string secureCodeForAdmin = ConfigurationManager.AppSettings["Admin"].ToString();
+            string semesterForAdmin = ConfigurationManager.AppSettings["AdminSemester"].ToString();
+
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = secureCodeForAdmin, JoinSemester = semesterForAdmin };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -350,8 +377,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, SecureCode = model.SecureCode, JoinSemester = model.JoinSemester };
+            string secureCodeForStudent = ConfigurationManager.AppSettings["Student"].ToString();
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, SecureCode = secureCodeForStudent, JoinSemester = model.JoinSemester };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 

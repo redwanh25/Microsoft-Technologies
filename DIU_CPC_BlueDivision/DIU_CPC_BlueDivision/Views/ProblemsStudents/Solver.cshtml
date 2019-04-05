@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.ProblemsStudent>
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using System.Configuration;
 
 @{
     string str = "", secureCode = "", userName = "";
     str = User.Identity.GetUserId();
-
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
     if (!string.IsNullOrEmpty(str))
     {
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
@@ -118,7 +119,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {
@@ -213,7 +214,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {
@@ -299,7 +300,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {
@@ -389,7 +390,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {
@@ -480,7 +481,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {
@@ -570,7 +571,7 @@
                                     <td>
                                         @{
                                             string link = Html.DisplayFor(modelItem => item.ShareSolutionLink).ToString();
-                                            if (secureCode != "1234_U1")
+                                            if (secureCode == student)
                                             {
                                                 if (!string.IsNullOrEmpty(link))
                                                 {

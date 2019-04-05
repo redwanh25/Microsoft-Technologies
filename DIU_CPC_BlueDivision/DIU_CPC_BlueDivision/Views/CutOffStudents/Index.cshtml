@@ -2,11 +2,13 @@
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
 @using DIU_CPC_BlueDivision.DatabaseConnection;
+@using System.Configuration;
 
 @{
     ViewBag.Title = "Index";
 }
 @{
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
     string str = "";
     str = User.Identity.GetUserId();
 
@@ -71,7 +73,8 @@
                         @Html.DisplayNameFor(model => model.CodeForcesId)
                     </td>
                     @{
-                        if (str == "1234_U1")
+
+                        if (str != student)
                         {
                             <td>
                                 Action
@@ -110,7 +113,7 @@
                                 @Html.DisplayFor(modelItem => item.CodeForcesId)
                             </td>
                             @{
-                                if (str == "1234_U1")
+                                if (str != student)
                                 {
                                     <td>
                                         <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>

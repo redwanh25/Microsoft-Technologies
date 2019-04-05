@@ -1,9 +1,7 @@
-﻿@{
-    /**/
+﻿@using Microsoft.AspNet.Identity;
 
-    /**/
-
-    ViewBag.Title = "_Layout_For_All";
+@{
+    ViewBag.Title = "_Layout_For_SuperAdmin";
 }
 
 <!DOCTYPE html>
@@ -12,7 +10,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
-    <title>_Layout_For_All</title>
+    <title>_Layout_For_Admin</title>
     <link rel="icon" type="image/png" href="~/Image/cpc_logo_xxl.png">
 
     <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/jQuery/uncompressed/jquery-3.3.1.js"></script>
@@ -118,21 +116,8 @@
                 margin-left: 50px;
             }
     </style>
+
 </head>
-
-@using Microsoft.AspNet.Identity;
-@using DIU_CPC_BlueDivision.DifferentLayout_Database;
-@{
-
-    string str = "", joinSemester = "";
-    str = User.Identity.GetUserId();
-
-    if (!string.IsNullOrEmpty(str))
-    {
-        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-        joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(str);
-    }
-}
 <body style="padding-top:90px; font-family:  Lora ">
     <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:19px; min-height:88px">
         <div class="container">
@@ -151,18 +136,28 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
-                            Diu CPC Club
+                            CPC Club-1
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" style="font-size:16px">
-                            <li><a class="zoom-effect" href="@Url.Action("Index", "Blog")">Blog</a></li>
-                            <li><a class="zoom-effect" href="#">Something </a></li>
-                            <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPost")">Blog Post </a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "BlueSheets")">Blue Sheets </a></li>
+
                         </ul>
                     </li>
-                    @*<li><a class="zoom-effect" href="@Url.Action("Index", "Students", new {semester = joinSemester})"> SolveRanking </a></li>*@
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "BluesheetExcelFormatView")"> Full Sheet view </a></li>
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "CutOffStudents")"> CutOffStudents </a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
+                            CPC Club-2
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" style="font-size:16px">
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "RegistrationForAdminAndStudent")"> Registration</a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "ListOfAdmins")">List Of Admins</a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "ListOfStudents")">List Of Students</a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "CutOffStudents")"> CutOffStudents </a></li>
+                        </ul>
+                    </li>
+                    <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
                     @*<li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>*@
                 </ul>
 
@@ -262,7 +257,7 @@
     }
 </script>
 
-@using Microsoft.AspNet.Identity;
+
 
 <script>
     $(document).ready(function () {
@@ -337,4 +332,5 @@
         });
     });
 </script>
+
 

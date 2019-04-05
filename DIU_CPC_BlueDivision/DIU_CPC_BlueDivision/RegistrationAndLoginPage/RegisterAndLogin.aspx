@@ -171,7 +171,7 @@
                     <a class="navbar-brand zoom-effect" style="font-size: 30px" href="#">
                         <img height="30" class="animated bounceInLeft" id="imgnav" src="../Image/cpc_logo_xxl.png" />
                     </a>
-                    <a class="navbar-brand zoom-effect" style="padding-left: 30px; font-size: 15px;" href="http://www.nomaa.se/">Visit Our WebSite </a>
+                    <a class="navbar-brand zoom-effect" style="padding-left: 30px; font-size: 15px;" href="http://daffodilvarsity.edu.bd/">Visit Our WebSite </a>
                 </div>
                 <div class="navbar-collapse collapse">
 
@@ -329,10 +329,17 @@
 
                         </div>
                     </div>
+                    <%
+                        bool show = false;
+                        if (show)
+                        {
+                    %>
+                    <%--============================================================--%>
+
                     <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
                         <div class="h2 animated fadeInRight">
                             <p>
-                                Create A New Admin Account
+                                Create A New Super Admin Account
                                 <input id="buttonLock" type="button" value="Lock" class="btn btn-default" style="display: none" />
                             </p>
                         </div>
@@ -344,7 +351,7 @@
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-lock"></span>
                                         </span>
-                                        <input id="textSecureCodeSubmit" type="password" class="form-control" placeholder="Enter your SecureCode" />
+                                        <input id="textSecureCodeSubmit" type="password" class="form-control" placeholder="Enter Unlock Code" />
                                     </div>
                                 </div>
                             </div>
@@ -364,7 +371,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                     <div class="form-group has-success animated bounceInRight">
-                                        <label>Admin Name</label>
+                                        <label>User Name</label>
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-user"></span>
@@ -450,6 +457,28 @@
                             </div>
                         </div>
                     </div>
+
+                    <%--============================================================--%>
+                    <%  
+                        }
+                        else
+                        {
+                    %>
+
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 col-lg-offset-1">
+                        <br /><br /><br />
+                        <h1>Computer Programming Club (CPC)</h1>
+                        <div class="row" id="unlockCode2">
+                            <div class=" col-lg-offset-2 col-lg-6 col-md-offset-2 col-md-6 col-sm-offset-2 col-sm-6 col-xs-offset-2 col-xs-8 animated bounceInRight">
+                                <img width="300" src="../Image/Lock3.gif" class="img-responsive" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+
+                    <%
+                        }
+                    %>
                 </div>
             </div>
             <br />
@@ -667,7 +696,7 @@
                     if (data.status == "Success") {
                         $('#loaderDiv').show();
                         $.ajax({
-                            url: '/api/account/Register',
+                            url: '/api/Account/SuperAdminRegister',
                             method: 'POST',
                             data: {
                                 userName: $('#txtUserName').val(),
@@ -676,7 +705,6 @@
                                 email: $('#txtEmail').val(),
                                 password: $('#txtPassword').val(),
                                 confirmPassword: $('#txtConfirmPassword').val(),
-                                joinSemester: '.....'
                             },
                             success: function () {
                                 swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
@@ -714,7 +742,7 @@
         $('#btnRegister').click(function () {
             $('#loaderDiv').show();
             $.ajax({
-                url: '/api/account/Register',
+                url: '/api/Account/SuperAdminRegister',
                 method: 'POST',
                 data: {
                     userName: $('#txtUserName').val(),
@@ -723,7 +751,6 @@
                     email: $('#txtEmail').val(),
                     password: $('#txtPassword').val(),
                     confirmPassword: $('#txtConfirmPassword').val(),
-                    joinSemester: '.....'
                 },
                 success: function () {
                     swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
@@ -749,3 +776,4 @@
         });
     });
 </script>
+

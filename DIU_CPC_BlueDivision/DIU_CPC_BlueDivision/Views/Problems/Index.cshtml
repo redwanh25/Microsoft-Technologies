@@ -2,12 +2,12 @@
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
 @using DIU_CPC_BlueDivision.DatabaseConnection;
-
+@using System.Configuration;
 @{
     /**/
 
     ViewBag.Title = "Index";
-
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
     string str = "", UserName = "", secureCode = "";
     str = User.Identity.GetUserId();
 
@@ -38,7 +38,7 @@
     appPath = string.Format("{0}", Request.Url.AbsoluteUri);
     string[] arr = appPath.Split('=');
     int blueSheetId = 0;
-    if (secureCode == "1234_U1")
+    if (secureCode != student)
     {
         blueSheetId = Convert.ToInt32(arr[1]);
     }
@@ -85,7 +85,7 @@
         </div>
     </div>
     @{
-        if (secureCode == "1234_U1")
+        if (secureCode != student)
         {
             <div class="pull-right hidden-xs" style="padding-top:15px; padding-right:30px">
                 <input id="Problem" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px" />
@@ -107,7 +107,7 @@
 <div class="container">
     <div>
         @{
-            if (secureCode == "1234_U1")
+            if (secureCode != student)
             {
                 BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
                 string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
@@ -126,7 +126,7 @@
 <div class="container">
     @{
 
-        if (secureCode == "1234_U1")
+        if (secureCode != student)
         {
 
             @*<div class="row">
@@ -187,7 +187,7 @@
         <div class="col-xs-12 col-sm-6">
             <div class="pull-right">
                 @{
-                    if (secureCode == "1234_U1")
+                    if (secureCode != student)
                     {
                         <div class="row">
                             <div class="col-xs-12">
@@ -270,7 +270,7 @@
                             <td class="text-center">
 
                                 @{
-                                    if (secureCode == "1234_U1")
+                                    if (secureCode != student)
                                     {
                                         <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
                                         if (item.uploadFromWhere != "Excel_File")

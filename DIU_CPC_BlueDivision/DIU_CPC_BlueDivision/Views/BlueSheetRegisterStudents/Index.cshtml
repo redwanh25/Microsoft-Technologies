@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.AspNetUser>
 @using DIU_CPC_BlueDivision.Models;
+@using System.Configuration;
 @{
     ViewBag.Title = "Index";
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
 }
 
 @*for progressbar*@
@@ -245,7 +247,7 @@
 
                     @foreach (var item in Model)
                     {
-                        if (item.SecureCode.Equals("1234_U1"))
+                        if (!item.SecureCode.Equals(student))
                         {
                             <tbody>
                                 <tr>
@@ -319,8 +321,8 @@
                     @foreach (var item in Model)
                     {
                         using (Html.BeginForm("Delete", "BlueSheetRegisterStudents", new { id = item.Id }))
-                        {
-                            if (item.SecureCode.Equals("*****"))
+                        { 
+                            if (item.SecureCode.Equals(student))
                             {
                                 <tbody>
                                     <tr>
@@ -394,7 +396,6 @@
                 method: 'POST',
                 data: {
                     userName: $('#txtUserName').val(),
-                    secureCode: '*****',
                     email: $('#txtEmail').val(),
                     password: $('#txtPassword').val(),
                     confirmPassword: $('#txtConfirmPassword').val(),

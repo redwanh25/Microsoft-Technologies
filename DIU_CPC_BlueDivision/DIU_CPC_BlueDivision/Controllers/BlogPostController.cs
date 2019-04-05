@@ -19,6 +19,9 @@ namespace DIU_CPC_BlueDivision.Controllers
     public class BlogPostController : Controller
     {
         private BlogPostEntities db = new BlogPostEntities();
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
 
         // GET: BlogPost
         public ActionResult Index()
@@ -31,7 +34,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -52,7 +55,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -80,7 +83,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -104,7 +107,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -150,7 +153,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -183,7 +186,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -231,7 +234,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -261,7 +264,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
@@ -283,7 +286,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str != "1234_U1")
+            if (str == student)
             {
                 throw new Exception();
             }
