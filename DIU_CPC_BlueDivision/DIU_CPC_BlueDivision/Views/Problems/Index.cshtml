@@ -197,10 +197,11 @@
                                         BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
                                         string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
 
-                                        <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "BluesheetExcelFormatView", new { semester = blueSheetName })'">Full Sheet View</button>
+                                    <button class="btn btn-danger btn-sm" type="button" onclick="location.href='@Url.Action("Index", "CutOffStudents", new { semester = blueSheetName })'">Disable Students</button>
+                                        <button class="btn btn-info btn-sm" type="button" onclick="location.href='@Url.Action("Index", "BluesheetExcelFormatView", new { semester = blueSheetName })'">Full Sheet View</button>
                                         @*<button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Students", new { semester = blueSheetName })'">Problem Solving Ranking</button>*@
                                     }
-                                    <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "Problems", new { blueSheetId = arr[1] })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
+                                    <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "Problems", new { blueSheetId = arr[1] })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +249,7 @@
                                     string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
                                     if (comment != "")
                                     {
-                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Comment" data-content="@comment"
+                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Admin's Comment" data-content="@comment"
                                                 data-trigger="focus" data-toggle="popover">
                                             <span class="glyphicon glyphicon-info-sign"></span>
                                         </button>

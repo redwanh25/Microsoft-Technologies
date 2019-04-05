@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.CutOffStudent>
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Student>
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
 @using DIU_CPC_BlueDivision.DatabaseConnection;
@@ -17,6 +17,9 @@
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
         str = aspNetUsersBusinessLayer.GetSecureCode(str);
     }
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('=');
 }
 
 @*<p>
@@ -24,11 +27,12 @@
     </p>*@
 
 <br /><br /><br />
+<div align="center">
+    <p style="font-size:30px; color:orange; font-family:Impact">BlueSheet Disable Students - " @arr[1] "</p>
+    <hr style="border: 3px solid; color: #F5F3F1">
+</div>
+
 <div>
-    <div align="center">
-        <p style="font-size:30px; color:orange; font-family:Impact">BlueSheet CutOff All Student</p>
-        <hr style="border: 3px solid; color: #F5F3F1">
-    </div>
     <div class="col-md-12">
         <div>
             <h4>Select Number of Rows</h4>
@@ -54,9 +58,9 @@
                     <td>
                         @Html.DisplayNameFor(model => model.StudentId)
                     </td>
-                    <td>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </td>
+                    @*<td>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </td>*@
                     <td>
                         @Html.DisplayNameFor(model => model.EmailAddress)
                     </td>
@@ -85,7 +89,7 @@
 
                 @foreach (var item in Model)
                 {
-                    using (Html.BeginForm("Delete", "CutOffStudents", new { id = item.Id }))
+                    using (Html.BeginForm("UnmuteStudent", "CutOffStudents", new { id = item.Id }))
                     {
                         <tr>
                             <td>
@@ -94,9 +98,9 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.StudentId)
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.FullName)
-                            </td>
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>*@
                             <td>
                                 @Html.DisplayFor(modelItem => item.EmailAddress)
                             </td>
@@ -116,7 +120,7 @@
                                 if (str != student)
                                 {
                                     <td>
-                                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                        <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
                                     </td>
                                 }
                             }

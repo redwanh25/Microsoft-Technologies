@@ -19,10 +19,10 @@ namespace DIU_CPC_BlueDivision.Models
         [Required]
         public string IsSolved { get; set; }
         public int ProblemId { get; set; }
-        public string StudentId { get; set; }        
+        public string StudentId { get; set; }
         public string SolutionLink { get; set; }
         public string ShareSolutionLink { get; set; }
-
+    
         public virtual Problem Problem { get; set; }
         public virtual Student Student { get; set; }
     }

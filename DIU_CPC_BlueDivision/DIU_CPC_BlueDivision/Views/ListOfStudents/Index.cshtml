@@ -20,6 +20,8 @@
         UserName = aspNetUsersBusinessLayer.GetUserName(str);
         secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
     }
+    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+    
 }
 
 <br /><br /><br />
@@ -56,8 +58,8 @@
                     @Html.DisplayNameFor(model => model.StudentId)
                 </td>
                 @*<td>
-                        @Html.DisplayNameFor(model => model.FullName)
-                    </td>*@
+                @Html.DisplayNameFor(model => model.FullName)
+            </td>*@
                 <td>
                     @Html.DisplayNameFor(model => model.EmailAddress)
                 </td>
@@ -87,55 +89,73 @@
 
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.StudentId)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.FullName)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EmailAddress)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PhoneNumber)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Semester)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SolveCount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CodeForcesId)
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id }))
+                string muteOrUnmute = listOfAllAdminsAndStudents.CheckMuteOrUnmute(item.Id);
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Semester)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SolveCount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodeForcesId)
+                </td>
+                <td>
+                    @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id }))
+                    {
+                        if (muteOrUnmute == "Mute")
+                        {
+                            <button class="btn btn-warning btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
+                        }
+                        else
                         {
                             <button class="btn btn-warning btn-xs" type="submit" onclick="return confirm('are you sure you want to Mute ID = @item.Id?')"> <span class="glyphicon glyphicon-off"> </span> Mute</button>
                         }
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id }))
+
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id }))
+                    {
+                        if (muteOrUnmute == "Unmute")
+                        {
+                            <button class="btn btn-success btn-xs hidden" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
+                        }
+                        else
                         {
                             <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to UnMute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
                         }
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id }))
-                        {
-                            <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to Delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
-                        }
-                    </td>
-                    @*<td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                        </td>*@
-                </tr>
+
+                    }
+                </td>
+                <td>
+                    @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id }))
+                    {
+                        <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to Delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                    }
+                </td>
+                @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        </td>*@
+            </tr>
+
             }
 
         </table>

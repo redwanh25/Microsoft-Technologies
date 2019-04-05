@@ -319,24 +319,6 @@
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Blue_Prob_ProbStu_Stu.cs" />
-    <Compile Include="Models\CutOffStudent.cs">
-      <DependentUpon>CutOffStudents_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CutOffStudents_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CutOffStudents_Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CutOffStudents_Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CutOffStudents_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CutOffStudents_Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Problem.cs">
       <DependentUpon>BlueSheetsProblemsStudents_Model.tt</DependentUpon>
@@ -425,16 +407,6 @@
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
       <LastGenOutput>BlueSheetsProblemsStudents_Model.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CutOffStudents_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
-      <LastGenOutput>CutOffStudents_Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\CutOffStudents_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
-      <LastGenOutput>CutOffStudents_Model.cs</LastGenOutput>
-    </Content>
     <Content Include="RegistrationAndLoginPage\Logout.js" />
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -490,13 +462,6 @@
     </EntityDeploy>
     <Content Include="Models\BlueSheetsProblemsStudents_Model.edmx.diagram">
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\CutOffStudents_Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CutOffStudents_Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\CutOffStudents_Model.edmx.diagram">
-      <DependentUpon>CutOffStudents_Model.edmx</DependentUpon>
     </Content>
     <Content Include="Excel_Files\ExcelFileDemo1.xlsx" />
     <Content Include="Excel_Files\ExcelFileDemo2.xlsx" />
@@ -570,11 +535,6 @@
     <Content Include="Views\ProblemsStudents\Index.cshtml" />
     <Content Include="Views\ProblemsStudents\Solver.cshtml" />
     <Content Include="Views\ProblemSolvingRanking\Index.cshtml" />
-    <Content Include="Views\CutOffStudents\Create.cshtml" />
-    <Content Include="Views\CutOffStudents\Delete.cshtml" />
-    <Content Include="Views\CutOffStudents\Details.cshtml" />
-    <Content Include="Views\CutOffStudents\Edit.cshtml" />
-    <Content Include="Views\CutOffStudents\Index.cshtml" />
     <Content Include="Views\BluesheetExcelFormatView\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_For_SuperAdmin.cshtml" />
     <Content Include="Views\RegistrationForAdminAndStudent\Index.cshtml" />
@@ -588,6 +548,11 @@
     <Content Include="Views\ListOfAdmins\Details.cshtml" />
     <Content Include="Views\ListOfAdmins\Edit.cshtml" />
     <Content Include="Views\ListOfAdmins\Index.cshtml" />
+    <Content Include="Views\CutOffStudents\Create.cshtml" />
+    <Content Include="Views\CutOffStudents\Delete.cshtml" />
+    <Content Include="Views\CutOffStudents\Details.cshtml" />
+    <Content Include="Views\CutOffStudents\Edit.cshtml" />
+    <Content Include="Views\CutOffStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

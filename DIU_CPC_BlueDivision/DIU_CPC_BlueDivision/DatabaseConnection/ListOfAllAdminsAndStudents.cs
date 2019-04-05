@@ -53,5 +53,52 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public void UpdateStudentsMute(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "update dbo.students set MuteOrUnmute = 'Mute' where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = con;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateStudentsUnmute(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "update dbo.students set MuteOrUnmute = 'Unmute' where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = con;
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public string CheckMuteOrUnmute(string id)
+        {
+            string value = "";
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "select MuteOrUnmute from dbo.Students where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Connection = con;
+                con.Open();
+
+                value = (string) cmd.ExecuteScalar();
+            }
+            return value;
+        }
     }
 }

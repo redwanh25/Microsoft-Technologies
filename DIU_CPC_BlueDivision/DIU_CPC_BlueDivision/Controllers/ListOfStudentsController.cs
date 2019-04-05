@@ -138,8 +138,24 @@ namespace DIU_CPC_BlueDivision.Controllers
         [HttpPost]
         public ActionResult DeleteStudent(string id)
         {
-            ListOfAllAdminsAndStudents blueSheetStudents = new ListOfAllAdminsAndStudents();
-            blueSheetStudents.DeleteStudents(id);
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            listOfAllAdminsAndStudents.DeleteStudents(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult MuteStudent(string id)
+        {
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            listOfAllAdminsAndStudents.UpdateStudentsMute(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult UnmuteStudent(string id)
+        {
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
             return RedirectToAction("Index");
         }
 

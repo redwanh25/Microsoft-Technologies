@@ -79,14 +79,13 @@ namespace DIU_CPC_BlueDivision.Controllers
                 //cutoff
                 if (now > dateTime)
                 {
-                    ListOfAllAdminsAndStudents listOfAllBlueSheetStudents = new ListOfAllAdminsAndStudents();
+                    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
                     //ViewBag.student = students1;
                     foreach (Student s in students1)
                     {
-                        listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
-                        pc.insertCutOffStudents(s.Id, s.UserName, s.Semester, s.SolveCount, s.EmailAddress);
+                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.UserName);
                     }
                 }
                 //else
@@ -107,16 +106,17 @@ namespace DIU_CPC_BlueDivision.Controllers
                 string blueSheetName = arr[1];
 
                 List<Student> students1 = new List<Student>();
+
+                //cutoff
                 if (now > dateTime)
                 {
-                    ListOfAllAdminsAndStudents listOfAllBlueSheetStudents = new ListOfAllAdminsAndStudents();
+                    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
 
                     students1 = db.Students.Where(per => per.Semester == blueSheetName && per.SolveCount < problemCount).ToList();
                     //ViewBag.student = students1;
                     foreach (Student s in students1)
                     {
-                        listOfAllBlueSheetStudents.DeleteStudentsByUserName(s.UserName);
-                        pc.insertCutOffStudents(s.Id, s.UserName, s.Semester, s.SolveCount, s.EmailAddress);
+                        listOfAllAdminsAndStudents.UpdateStudentsMute(s.UserName);
                     }
                 }
                 //else
