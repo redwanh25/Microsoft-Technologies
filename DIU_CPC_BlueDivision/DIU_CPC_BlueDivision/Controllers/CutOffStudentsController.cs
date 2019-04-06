@@ -142,7 +142,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         {
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
-            return RedirectToAction("Index");
+
+            Student student = db.Students.FirstOrDefault(per => per.Id == id);
+            return RedirectToAction("Index", "CutOffStudents", new { semester = student.Semester });
         }
 
         protected override void Dispose(bool disposing)
