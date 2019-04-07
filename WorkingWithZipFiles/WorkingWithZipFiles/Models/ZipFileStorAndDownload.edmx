@@ -5,48 +5,48 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="DIUOthersProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="QRCodeString_tbl">
+        <EntityType Name="ZipFileStorAndDownload_tbl">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="datetime" />
-          <Property Name="QRCodeImage" Type="varbinary(max)" />
-          <Property Name="QRCodeString" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ZipFile" Type="varbinary(max)" />
+          <Property Name="ZipFileName" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityContainer Name="DIUOthersProjectModelStoreContainer">
-          <EntitySet Name="QRCodeString_tbl" EntityType="Self.QRCodeString_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZipFileStorAndDownload_tbl" EntityType="Self.ZipFileStorAndDownload_tbl" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DIUOthersProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="QRCodeString_tbl">
+        <EntityType Name="ZipFileStorAndDownload_tbl">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Date" Type="DateTime" Precision="3" />
-          <Property Name="QRCodeImage" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="QRCodeString" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ZipFile" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ZipFileName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="QRCodeStringEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="QRCodeString_tbl" EntityType="Self.QRCodeString_tbl" />
+        <EntityContainer Name="ZipFileStorAndDownloadEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ZipFileStorAndDownload_tbl" EntityType="Self.ZipFileStorAndDownload_tbl" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DIUOthersProjectModelStoreContainer" CdmEntityContainer="QRCodeStringEntities">
-          <EntitySetMapping Name="QRCodeString_tbl">
-            <EntityTypeMapping TypeName="DIUOthersProjectModel.QRCodeString_tbl">
-              <MappingFragment StoreEntitySet="QRCodeString_tbl">
+        <EntityContainerMapping StorageEntityContainer="DIUOthersProjectModelStoreContainer" CdmEntityContainer="ZipFileStorAndDownloadEntities">
+          <EntitySetMapping Name="ZipFileStorAndDownload_tbl">
+            <EntityTypeMapping TypeName="DIUOthersProjectModel.ZipFileStorAndDownload_tbl">
+              <MappingFragment StoreEntitySet="ZipFileStorAndDownload_tbl">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="QRCodeImage" ColumnName="QRCodeImage" />
-                <ScalarProperty Name="QRCodeString" ColumnName="QRCodeString" />
+                <ScalarProperty Name="ZipFile" ColumnName="ZipFile" />
+                <ScalarProperty Name="ZipFileName" ColumnName="ZipFileName" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

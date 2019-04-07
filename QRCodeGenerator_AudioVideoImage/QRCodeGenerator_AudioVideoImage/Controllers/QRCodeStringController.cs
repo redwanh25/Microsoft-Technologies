@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using QRCodeGenerator_AudioVideoImage.DatabaseConnection;
 using QRCodeGenerator_AudioVideoImage.Models;
 using QRCoder;
@@ -47,6 +48,8 @@ namespace QRCodeGenerator_AudioVideoImage.Controllers
 
             QRCodeString qRCodeString = new QRCodeString();
             qRCodeString.storeData(image, qrcode);
+
+            //Response.Redirect(Request.Url.ToString(), true);
 
             List<QRCodeString_tbl> list = db.QRCodeString_tbl.ToList();
             list = list.OrderByDescending(it => it.Id).ToList();

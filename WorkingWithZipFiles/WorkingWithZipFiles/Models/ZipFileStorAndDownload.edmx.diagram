@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6e46a7a52b9845a28c6d89c73d08c4b2" Name="Diagram1">
-        <EntityTypeShape EntityType="DIUOthersProjectModel.QRCodeString_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="310f0cd4d48c44a693ff97c85b90f1d8" Name="Diagram1">
+        <EntityTypeShape EntityType="DIUOthersProjectModel.ZipFileStorAndDownload_tbl" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

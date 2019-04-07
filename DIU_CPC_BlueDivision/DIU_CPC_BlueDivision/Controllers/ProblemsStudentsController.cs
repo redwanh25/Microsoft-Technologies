@@ -71,6 +71,15 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 if (userName1 == userName)
                 {
+
+                    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+                    string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(U_id);
+
+                    if (check == "Mute")
+                    {
+                        throw new Exception();
+                    }
+
                     List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
                     foreach (Problem p in problem)
                     {
@@ -121,6 +130,15 @@ namespace DIU_CPC_BlueDivision.Controllers
                 joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(U_id);
                 userName1 = aspNetUsersBusinessLayer.GetUserName(U_id);
             }
+
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(U_id);
+
+            if (check == "Mute")
+            {
+                throw new Exception();
+            }
+
             List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
 
             string appPath = "";
@@ -161,6 +179,14 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 if (userName1 == userName)
                 {
+                    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+                    string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(U_id);
+
+                    if (check == "Mute")
+                    {
+                        throw new Exception();
+                    }
+
                     List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSemester).ToList();
                     foreach (Problem p in problem)
                     {
@@ -209,6 +235,15 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
             }
+
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(userId);
+
+            if (check == "Mute")
+            {
+                throw new Exception();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(problemsStudent).State = EntityState.Modified;
