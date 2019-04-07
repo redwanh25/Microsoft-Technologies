@@ -119,7 +119,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                     blog_tbl.BlogImage = new byte[image1.ContentLength];
                     image1.InputStream.Read(blog_tbl.BlogImage, 0, image1.ContentLength);
                 }
-                blog_tbl.Date = DateTime.Now;
+                DateTime dateTime = DateTime.UtcNow;
+                blog_tbl.Date = dateTime.AddHours(+6);
 
                 //BlogDivIdClass bdi = new BlogDivIdClass();
                 //int id = bdi.BlogDivIdValue();
@@ -198,7 +199,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                     blog_tbl.BlogImage = new byte[image1.ContentLength];
                     image1.InputStream.Read(blog_tbl.BlogImage, 0, image1.ContentLength);
                 }
-                blog_tbl.Date = DateTime.Now;
+                DateTime dateTime = DateTime.UtcNow;
+                blog_tbl.Date = dateTime.AddHours(+6);
 
                 //BlogDivIdClass bdi = new BlogDivIdClass();
                 //int id = bdi.BlogDivIdValue();

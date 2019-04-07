@@ -111,7 +111,9 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             if (ModelState.IsValid)
             {
-                blueSheet.Date = DateTime.Now;
+                DateTime dateTime = DateTime.UtcNow;
+                blueSheet.Date = dateTime.AddHours(+6);
+
                 db.BlueSheets.Add(blueSheet);
                 try
                 {
@@ -194,7 +196,9 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             if (ModelState.IsValid)
             {
-                blueSheet.Date = DateTime.Now;
+                DateTime dateTime = DateTime.UtcNow;
+                blueSheet.Date = dateTime.AddHours(+6);
+
                 db.Entry(blueSheet).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

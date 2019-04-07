@@ -612,7 +612,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 cmd.Connection = con;
                 con.Open();
 
-                cmd.CommandText = "update DayAndProblemSet set SetDay = @setDay, SetProblem = @setProblem, [Date] = DATEADD(MINUTE, @setDay, getDate()) where BlueSheetId = @blueSheetId";
+                cmd.CommandText = "update DayAndProblemSet set SetDay = @setDay, SetProblem = @setProblem, [Date] = DATEADD(MINUTE, @setDay, DATEADD(HOUR, +6, GETUTCDATE())) where BlueSheetId = @blueSheetId";
                 cmd.Parameters.AddWithValue("@setDay", setDay);
                 cmd.Parameters.AddWithValue("@setProblem", setProblem);
                 cmd.Parameters.AddWithValue("@blueSheetId", blueSheetId);
