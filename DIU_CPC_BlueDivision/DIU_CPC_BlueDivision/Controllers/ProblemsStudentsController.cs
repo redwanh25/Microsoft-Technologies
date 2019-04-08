@@ -46,6 +46,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Create
+        [NonAction]
         public ActionResult Create(int problemId, string userName)
         {
             //ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName");
@@ -107,7 +108,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: ProblemsStudents/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost] [NonAction]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink")] ProblemsStudent problemsStudent)
         {
@@ -163,6 +164,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ProblemsStudents/Edit/5
+        [NonAction]
         public ActionResult Edit(int problemId, string userName)
         {
             string U_id = "", str = "", joinSemester = "", userName1 = "";
@@ -223,36 +225,91 @@ namespace DIU_CPC_BlueDivision.Controllers
         // POST: ProblemsStudents/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink,ProblemId,StudentId")] ProblemsStudent problemsStudent)
+        //{
+        //    string userId = "", joinSem = "";
+        //    userId = User.Identity.GetUserId();
+
+        //    if (!string.IsNullOrEmpty(userId))
+        //    {
+        //        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        //        joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
+        //    }
+
+        //    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+        //    string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(userId);
+
+        //    if (check == "Mute")
+        //    {
+        //        throw new Exception();
+        //    }
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(problemsStudent).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index", "Problems", new { id_Or_SheetName = joinSem });
+        //    }
+        //    ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
+        //    ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
+        //    return View(problemsStudent);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Comment,IsSolved,SolutionLink,ShareSolutionLink,ProblemId,StudentId")] ProblemsStudent problemsStudent)
+        public ActionResult Edit(IEnumerable<int> verdict)
         {
-            string userId = "", joinSem = "";
+            string userId = "", joinSem = "", userName = "";
             userId = User.Identity.GetUserId();
 
             if (!string.IsNullOrEmpty(userId))
             {
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 joinSem = aspNetUsersBusinessLayer.GetJoinSemester(userId);
+                userName = aspNetUsersBusinessLayer.GetUserName(userId);
             }
 
-            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-            string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(userId);
-
-            if (check == "Mute")
+            List<Problem> problem = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSem).ToList();
+            ProblemsStudentsClass psc = new ProblemsStudentsClass();
+            foreach (Problem prob in problem)
             {
-                throw new Exception();
+                if (db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == prob.Id && per.StudentId == userId) != null)
+                {
+                    psc.UpdateData(prob.Id, userId, "");
+                }
             }
 
-            if (ModelState.IsValid)
+            if (verdict != null)
             {
-                db.Entry(problemsStudent).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index", "Problems", new { id_Or_SheetName = joinSem });
+                List<int> list = verdict.ToList();
+                foreach (int problemId in list)
+                {
+                    if (db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == problemId && per.StudentId == userId) == null)
+                    {
+                        ProblemsStudent problemsStudent = new ProblemsStudent();
+                        problemsStudent.ProblemId = problemId;
+                        problemsStudent.StudentId = userId;
+                        problemsStudent.IsSolved = "Accepted";
+
+                        db.ProblemsStudents.Add(problemsStudent);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        psc.UpdateData(problemId, userId, "Accepted");
+                    }
+                }
             }
-            ViewBag.ProblemId = new SelectList(db.Problems, "Id", "ProblemName", problemsStudent.ProblemId);
-            ViewBag.StudentId = new SelectList(db.Students, "Id", "UserName", problemsStudent.StudentId);
-            return View(problemsStudent);
+            ProblemsClass pc = new ProblemsClass();
+            List<Problem> problems = db.Problems.Where(per => per.BlueSheet.BlueSheetName == joinSem).ToList();
+            BlueSheet blueSheet = db.BlueSheets.FirstOrDefault(per => per.BlueSheetName == joinSem);
+            pc.updateProblemsForSolveCount("Accepted", blueSheet.Id);
+
+
+            return RedirectToAction("Index", "Problems", new { id_Or_SheetName = joinSem });
         }
 
         // GET: ProblemsStudents/Delete/5
@@ -283,6 +340,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             return RedirectToAction("Index");
         }
 
+        [NonAction]
         public ActionResult Solver(int problemId)
         {
             //int problemCount = db.ProblemsStudents.Where(per => per.ProblemId == problemId && per.IsSolved == "Accepted").ToList().Count;

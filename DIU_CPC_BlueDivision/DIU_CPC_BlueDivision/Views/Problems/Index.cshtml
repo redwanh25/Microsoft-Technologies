@@ -3,6 +3,7 @@
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
 @using DIU_CPC_BlueDivision.DatabaseConnection;
 @using System.Configuration;
+@using DIU_CPC_BlueDivision.Models;
 @{
     /**/
 
@@ -10,6 +11,7 @@
     string student = ConfigurationManager.AppSettings["Student"].ToString();
     string str = "", UserName = "", secureCode = "";
     str = User.Identity.GetUserId();
+    BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
     if (!string.IsNullOrEmpty(str))
     {
@@ -22,6 +24,10 @@
 <style>
     table.fixed td:nth-of-type(3) {
         width: 10px;
+    }
+
+    table.fixed td:nth-of-type(5) {
+        width: 20px;
     }
 
     table.fixed td:nth-of-type(6) {
@@ -176,6 +182,7 @@
             <div class="form-group">
                 <select name="state" id="maxRows" class="form-control" style="width:150px;">
                     <option value="5000">Show All</option>
+                    <option value="5">5</option>
                     <option value="10">10</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
@@ -197,7 +204,7 @@
                                         BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
                                         string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
 
-                                    <button class="btn btn-danger btn-sm" type="button" onclick="location.href='@Url.Action("Index", "CutOffStudents", new { semester = blueSheetName })'">Disable Students</button>
+                                        <button class="btn btn-danger btn-sm" type="button" onclick="location.href='@Url.Action("Index", "CutOffStudents", new { semester = blueSheetName })'">Disable Students</button>
                                         <button class="btn btn-info btn-sm" type="button" onclick="location.href='@Url.Action("Index", "BluesheetExcelFormatView", new { semester = blueSheetName })'">Full Sheet View</button>
                                         @*<button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Students", new { semester = blueSheetName })'">Problem Solving Ranking</button>*@
                                     }
@@ -214,88 +221,118 @@
     <br />
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">
-            <div style="overflow-x:auto;">
-                <table class="table table-hover table-responsive table-striped fixed" style="font-size:16px" id="mytable">
-                    <tr class="success text-center" style="font-weight: bold">
-                        <td>
-                            @Html.DisplayNameFor(model => model.ProblemName)
-                        </td>
-                        <td></td>
-                        @*<td>
-                                @Html.DisplayNameFor(model => model.ProblemLink)
-                            </td>*@
-                        @*<td>
-                                @Html.DisplayNameFor(model => model.Comment)
-                            </td>*@
-                        <td>
-                            Solve Count
-                        </td>
-                        <td>
-                            @Html.DisplayNameFor(model => model.BlueSheet.BlueSheetName)
-                        </td>
-                        <td>Action</td>
-                    </tr>
+            @using (Html.BeginForm("Edit", "ProblemsStudents", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-                    @foreach (var item in Model)
-                    {
-                        <tr>
+                <div style="overflow-x:auto;">
+                    <table class="table table-hover table-responsive table-striped fixed" style="font-size:16px" id="mytable">
+                        <tr class="success text-center" style="font-weight: bold">
                             <td>
-                                <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(modelItem => item.ProblemName)</a>
-
-                                @*@Html.DisplayFor(modelItem => item.ProblemName)*@
+                                @Html.DisplayNameFor(model => model.ProblemName)
                             </td>
-                            <td class="text-center">
-                                @{
-                                    string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
-                                    if (comment != "")
-                                    {
-                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Admin's Comment" data-content="@comment"
-                                                data-trigger="focus" data-toggle="popover">
-                                            <span class="glyphicon glyphicon-info-sign"></span>
-                                        </button>
-                                    }
-                                }
-                            </td>
+                            <td></td>
                             @*<td>
-                                    <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(model => item.ProblemLink)</a>
+                                    @Html.DisplayNameFor(model => model.ProblemLink)
                                 </td>*@
                             @*<td>
-                                    @Html.DisplayFor(modelItem => item.Comment)
+                                    @Html.DisplayNameFor(model => model.Comment)
                                 </td>*@
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.ProblemSolverCount)
+                            <td>
+                                Solve Count
                             </td>
-                            <td class="text-center">
-                                @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
+                            <td>
+                                @Html.DisplayNameFor(model => model.BlueSheet.BlueSheetName)
                             </td>
-                            <td class="text-center">
-
-                                @{
-                                    if (secureCode != student)
-                                    {
-                                        <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
-                                        if (item.uploadFromWhere != "Excel_File")
-                                        {
-                                            <button class="btn btn-danger btn-xs" type="submit" onclick="location.href='@Url.Action("Delete","Problems", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
-                                        }
-
-                                        @*@Html.ActionLink("Edit | ", "Edit", new { id = item.Id, blueSheetId = item.BlueSheet.Id })
-                                            @Html.ActionLink("Delete | ", "Delete", new { id = item.Id })*@
-                                    }
-                                    else
-                                    {
-                                        <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName })'"><span class="glyphicon glyphicon-list-alt"></span> Submit Problem</button>
-                                        @*@Html.ActionLink("ProbStu_Edit | ", "Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName }, null)*@
-                                    }
-                                }
-                                <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Solver", "ProblemsStudents", new { problemId = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Solver</button>
-                                @*@Html.ActionLink("Solver", "Solver", "ProblemsStudents", new { problemId = item.Id }, null)*@
-                            </td>
+                            @if (secureCode == student)
+                            {
+                                <td style="background-color: darkkhaki">
+                                    Accepted
+                                    <input style="height:25px; padding-top:2px;" type="submit" class="btn btn-default btn-sm pull-right" value="Save Change" />
+                                </td>
+                            }
+                            else
+                            {
+                                <td>Action</td>
+                            }
                         </tr>
-                    }
 
-                </table>
-            </div>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(modelItem => item.ProblemName)</a>
+
+                                    @*@Html.DisplayFor(modelItem => item.ProblemName)*@
+                                </td>
+                                <td class="text-center">
+                                    @{
+                                        string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
+                                        if (comment != "")
+                                        {
+                                            <button type="button" style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Admin's Comment" data-content="@comment"
+                                                        data-trigger="focus" data-toggle="popover">
+                                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                                </button>
+                                        }
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.ProblemSolverCount)
+                                </td>
+                                <td class="text-center">
+                                    @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
+                                </td>
+                                @if (secureCode == student)
+                                {
+                                    <td align="center">
+                                        @{
+                                            ProblemsStudent ps = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == item.Id && per.StudentId == str);
+                                            try
+                                            {
+                                                if (ps.IsSolved == "Accepted")
+                                                {
+                                                    <input checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
+                                                }
+                                                else
+                                                {
+                                                    <input style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
+                                                }
+                                            }
+                                            catch (Exception)
+                                            {
+                                                <input style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
+                                            }
+                                        }
+                                    </td>
+
+                                }
+                                else
+                                {
+                                    <td class="text-center">
+                                        @{
+                                            if (secureCode != student)
+                                            {
+                                                <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                                                if (item.uploadFromWhere != "Excel_File")
+                                                {
+                                                    <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "Problems", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                                }
+                                            }
+                                            @*else
+                                                {
+                                                    <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName })'"><span class="glyphicon glyphicon-list-alt"></span> Submit Problem</button>
+                                                }*@
+                                        }
+                                        @*<button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Solver", "ProblemsStudents", new { problemId = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Solver</button>*@
+                                    </td>
+                                }
+
+                            </tr>
+                        }
+                    </table>
+                </div>
+            }
         </div>
     </div>
     <br />
