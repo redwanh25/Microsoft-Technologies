@@ -1,0 +1,228 @@
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Blog_tbl>
+@using System.Text;
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+<style>
+    table.fixed {
+        table-layout: fixed;
+        width: 1140px;
+    }
+
+        table.fixed td {
+            overflow: hidden;
+        }
+            /*Setting the width of column 7.*/
+            table.fixed td:nth-of-type(1) {
+                width: 50px;
+            }
+
+            table.fixed td:nth-of-type(2) {
+                width: 185px;
+            }
+
+            table.fixed td:nth-of-type(3) {
+                width: 120px;
+            }
+
+            table.fixed td:nth-of-type(4) {
+                width: 175px;
+            }
+
+            table.fixed td:nth-of-type(5) {
+                width: 400px;
+            }
+
+            table.fixed td:nth-of-type(6) {
+                width: 225px;
+            }
+
+    #blogText .well {
+        min-height: 20px;
+        padding: 10px;
+        margin-bottom: 1px;
+        overflow: hidden;
+    }
+</style>
+
+<br /><br />
+      <div class="container">
+          <div align="center">
+              <p style="font-size:30px; color:orange; font-family:Impact">Blog Post Create</p>
+              <hr style="border: 4px solid; color: #F5F3F1">
+          </div>
+          <div class="row">
+
+              <div class="col-xs-12 col-sm-6">
+                  <h4>Select Number of Rows</h4>
+                  <div class="form-group">
+                      <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                          <option value="5000">Show All</option>
+                          <option value="5">5</option>
+                          <option value="10">10</option>
+                          <option value="15">15</option>
+                          <option value="20">20</option>
+                          <option value="50">50</option>
+                          <option value="75">75</option>
+                          <option value="100">100</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                  <div class="pull-right">
+                      <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "BlogPost")'"><span class="glyphicon glyphicon-edit"></span> New Post</button>
+                      <button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Blog")'"> See Blog Page</button>
+                  </div>
+              </div>
+          </div>
+          <br />
+          <div style="overflow-x:auto;">
+              <table class="table table-hover text-center fixed" id="mytable">
+                  <tr class="success" style="font-weight: bold; font-size:16px">
+                      <td>
+                          @Html.DisplayNameFor(model => model.Title)
+                      </td>
+                      <td>
+                          @Html.DisplayNameFor(model => model.Date)
+                      </td>
+                      <td>
+                          @Html.DisplayNameFor(model => model.BlogImage)
+                      </td>
+                      <td>
+                          @Html.DisplayNameFor(model => model.Text)
+                      </td>
+                      <td> Action </td>
+                  </tr>
+
+                  @foreach (var item in Model)
+                  {
+                      <tr>
+                          <td id="blogText">
+                              <div class="well">
+                                  @{
+                                      var str = Html.DisplayFor(modelItem => item.Title);
+                                      string str1 = str.ToString();
+                                      if (str1.Length > 65)
+                                      {
+                                          StringBuilder sb = new StringBuilder(str1);
+                                          sb.Remove(65, sb.Length - 65);
+                                          str1 = sb.ToString() + "...";
+                                      }
+                                  }
+                                  @str1
+                                  @*@Html.DisplayFor(modelItem => item.Title)*@
+                              </div>
+                          </td>
+                          <td>
+                              <b>@Html.DisplayFor(modelItem => item.Date)</b>
+                          </td>
+                          <td>
+                              @*@Html.DisplayFor(modelItem => item.BlogImage)*@
+                              @{
+                                  var imgSrc = "";
+                                  if (item.BlogImage != null)
+                                  {
+                                      var base64 = Convert.ToBase64String(item.BlogImage);
+                                      imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                  }
+                              }
+                              <img src="@imgSrc" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:150px" />
+                              <br />
+                          </td>
+                          <td id="blogText">
+                              <div class="well">
+                                  @{
+                                      var str2 = Html.DisplayFor(modelItem => item.Text);
+                                      string str3 = str2.ToString();
+                                      if (str3.Length > 180)
+                                      {
+                                          StringBuilder sb = new StringBuilder(str3);
+                                          sb.Remove(180, sb.Length - 180);
+                                          str3 = sb.ToString() + "...";
+                                      }
+                                  }
+                                  @str3
+                                  @*@Html.DisplayFor(modelItem => item.Text)*@
+                              </div>
+                          </td>
+                          <td>
+                              <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "BlogPost", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                              <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Details", "BlogPost", new { id = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Details</button>
+                              <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "BlogPost", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                              @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                          </td>
+                      </tr>
+                  }
+
+              </table>
+          </div>
+          <br />
+          <div class="pagination-container" align="center">
+              <nav>
+                  <ul class="pagination"></ul>
+              </nav>
+          </div>
+      </div>
+
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+        })
+    })
+</script>
+

@@ -1,0 +1,455 @@
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.Problem>
+@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using DIU_CPC_BlueDivision.DatabaseConnection;
+@using System.Configuration;
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    string student = ConfigurationManager.AppSettings["Student"].ToString();
+    string str = "", UserName = "", secureCode = "";
+    str = User.Identity.GetUserId();
+
+    if (!string.IsNullOrEmpty(str))
+    {
+        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        UserName = aspNetUsersBusinessLayer.GetUserName(str);
+        secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
+    }
+}
+
+<style>
+    table.fixed td:nth-of-type(3) {
+        width: 10px;
+    }
+
+    table.fixed td:nth-of-type(6) {
+        width: 200px;
+    }
+
+    .info {
+        font-size: 25px;
+    }
+</style>
+
+@{
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('=');
+    int blueSheetId = 0;
+    if (secureCode != student)
+    {
+        blueSheetId = Convert.ToInt32(arr[1]);
+    }
+    else
+    {
+        BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
+        blueSheetId = blueSheetNameRetrive.getBlueSheetId(arr[1]);
+    }
+
+}
+
+<br /><br />
+
+<div class="row">
+    @{
+        ProblemsClass p1 = new ProblemsClass();
+        int problem = p1.retriveProblem(blueSheetId);
+        DateTime dateTime = p1.retriveDateTime(blueSheetId);
+
+        //if (p1.retriveCount(blueSheetId) == 1)
+        //{
+        //    problem = p1.retriveProblem(blueSheetId);
+        //    dateTime = p1.retriveDateTime(blueSheetId);
+        //}
+    }
+    <div class="pull-right hidden-xs">
+        <div class="countdownContainer text-center">
+            <p style="font-size:25px">
+                <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
+            </p>
+            <p class="info">
+                <span style="color:orchid"><b>@dateTime</b></span>
+            </p>
+        </div>
+    </div>
+    <div class="hidden-sm hidden-md hidden-lg">
+        <div class="countdownContainer text-center">
+            <p style="font-size:25px">
+                <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
+            </p>
+            <p class="info">
+                <span style="color:orchid"><b>@dateTime</b></span>
+            </p>
+        </div>
+    </div>
+    @{
+        if (secureCode != student)
+        {
+            <div class="pull-right hidden-xs" style="padding-top:15px; padding-right:30px">
+                <input id="Problem" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px" />
+                <input id="Day" type="text" placeholder="Minute*" class="form-control" style="width:80px; height:25px; margin-top:5px" />
+                <input id="setValue" type="submit" value="Set" class="btn btn-warning btn-sm" style="width:80px; height:25px; margin-top:5px" />
+            </div>
+            <div class="hidden-sm hidden-md hidden-lg" style="padding-top:15px">
+                <div align="center">
+                    <input id="Problem1" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px; display:inline" />
+                    <input id="Day1" type="text" placeholder="Day*" class="form-control" style="width:80px; height:25px; display:inline" />
+                    <input id="setValue1" type="submit" value="Set" class="btn btn-warning btn-sm" style="width:80px; height:25px; display:inline" />
+                </div>
+                <br /><br />
+            </div>
+        }
+    }
+</div>
+
+<div class="container">
+    <div>
+        @{
+            if (secureCode != student)
+            {
+                BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
+                string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
+                <p style="font-size:25px; color:orange; font-family:Impact">Problem Page - " @blueSheetName "</p>
+            }
+            else
+            {
+                <p style="font-size:25px; color:orange; font-family:Impact">Problem Page - " @arr[1] "</p>
+            }
+        }
+
+        <hr style="border: 4px solid; color: #F5F3F1">
+    </div>
+</div>
+
+<div class="container">
+    @{
+
+        if (secureCode != student)
+        {
+
+            @*<div class="row">
+                    <br />
+                    @using (Html.BeginForm("InputFromExcelFile", "Problems", new { blueSheetId = Convert.ToInt32(arr[1]) }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            <div class="col-xs-7 col-sm-5">
+                                <input id="ExcelFileInput" type="file" name="excelFile" class="form-control" required />
+                            </div>
+                            <div class="col-xs-5 col-sm-5">
+                                <input id="ExcelFileInputButton" type="submit" value="Input From Excel File" class="btn btn-default" />
+                            </div>
+                        }
+                    <div align="center">
+                        <input style="width:230px; display:inline" id="number" type="text" class="form-control" placeholder="Please Enter Number Of Prolems" />
+                        <input style="display:inline" id="numberInputButton" type="submit" value="Input From Excel File" class="btn btn-default" />
+                    </div>
+                    <br />
+                </div>*@
+
+            <div class="row">
+                <br />
+                <div class="col-xs-12 col-lg-6 col-md-6">
+                    @using (Html.BeginForm("InputFromExcelFile", "Problems", new { blueSheetId = Convert.ToInt32(arr[1]) }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div align="center">
+                            <input style="width:230px; display:inline" id="ExcelFileInput" type="file" name="excelFile" class="form-control" required />
+                            <input style="display:inline; margin-bottom:5px;" id="ExcelFileInputButton" type="submit" value="Input From Excel File" class="btn btn-warning btn-sm" />
+                        </div>
+                    }
+                </div>
+                <div class="col-xs-12 col-lg-6 col-md-6">
+                    <div align="center">
+                        <input style="width:230px; display:inline" id="number" type="text" class="form-control" placeholder="Please Enter Number Of Prolems" />
+                        <input style="display:inline" id="numberInputButton" type="submit" value="Input From Excel File" class="btn btn-warning btn-sm" />
+                    </div>
+                </div>
+                <br /><br /><br />
+            </div>
+
+        }
+    }
+    <br />
+    <div class="row">
+        <div class="col-xs-12 col-sm-6">
+            <h4>Select Number of Rows</h4>
+            <div class="form-group">
+                <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                    <option value="5000">Show All</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="75">75</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <div class="pull-right">
+                @{
+                    if (secureCode != student)
+                    {
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="pull-right">
+
+                                    @{
+                                        BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
+                                        string blueSheetName = blue.getBlueSheetName(Convert.ToInt32(arr[1]));
+
+                                    <button class="btn btn-danger btn-sm" type="button" onclick="location.href='@Url.Action("Index", "CutOffStudents", new { semester = blueSheetName })'">Disable Students</button>
+                                        <button class="btn btn-info btn-sm" type="button" onclick="location.href='@Url.Action("Index", "BluesheetExcelFormatView", new { semester = blueSheetName })'">Full Sheet View</button>
+                                        @*<button class="btn btn-info" type="button" onclick="location.href='@Url.Action("Index", "Students", new { semester = blueSheetName })'">Problem Solving Ranking</button>*@
+                                    }
+                                    <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "Problems", new { blueSheetId = arr[1] })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
+                                </div>
+                            </div>
+                        </div>
+                        @*@Html.ActionLink("Create New", "Create", "Problems", new { blueSheetId = arr[1] }, null)*@
+                    }
+                }
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div style="overflow-x:auto;">
+                <table class="table table-hover table-responsive table-striped fixed" style="font-size:16px" id="mytable">
+                    <tr class="success text-center" style="font-weight: bold">
+                        <td>
+                            @Html.DisplayNameFor(model => model.ProblemName)
+                        </td>
+                        <td></td>
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.ProblemLink)
+                            </td>*@
+                        @*<td>
+                                @Html.DisplayNameFor(model => model.Comment)
+                            </td>*@
+                        <td>
+                            Solve Count
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(model => model.BlueSheet.BlueSheetName)
+                        </td>
+                        <td>Action</td>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(modelItem => item.ProblemName)</a>
+
+                                @*@Html.DisplayFor(modelItem => item.ProblemName)*@
+                            </td>
+                            <td class="text-center">
+                                @{
+                                    string comment = Html.DisplayFor(modelItem => item.Comment).ToString();
+                                    if (comment != "")
+                                    {
+                                        <button style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Admin's Comment" data-content="@comment"
+                                                data-trigger="focus" data-toggle="popover">
+                                            <span class="glyphicon glyphicon-info-sign"></span>
+                                        </button>
+                                    }
+                                }
+                            </td>
+                            @*<td>
+                                    <a target="_blank" href="@Html.DisplayFor(model => item.ProblemLink)">@Html.DisplayFor(model => item.ProblemLink)</a>
+                                </td>*@
+                            @*<td>
+                                    @Html.DisplayFor(modelItem => item.Comment)
+                                </td>*@
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.ProblemSolverCount)
+                            </td>
+                            <td class="text-center">
+                                @Html.DisplayFor(modelItem => item.BlueSheet.BlueSheetName)
+                            </td>
+                            <td class="text-center">
+
+                                @{
+                                    if (secureCode != student)
+                                    {
+                                        <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Problems", new { id = item.Id, blueSheetId = item.BlueSheet.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                                        if (item.uploadFromWhere != "Excel_File")
+                                        {
+                                            <button class="btn btn-danger btn-xs" type="submit" onclick="location.href='@Url.Action("Delete","Problems", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                        }
+
+                                        @*@Html.ActionLink("Edit | ", "Edit", new { id = item.Id, blueSheetId = item.BlueSheet.Id })
+                                            @Html.ActionLink("Delete | ", "Delete", new { id = item.Id })*@
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName })'"><span class="glyphicon glyphicon-list-alt"></span> Submit Problem</button>
+                                        @*@Html.ActionLink("ProbStu_Edit | ", "Edit", "ProblemsStudents", new { problemId = item.Id, userName = UserName }, null)*@
+                                    }
+                                }
+                                <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Solver", "ProblemsStudents", new { problemId = item.Id })'"><span class="glyphicon glyphicon-list-alt"></span> Solver</button>
+                                @*@Html.ActionLink("Solver", "Solver", "ProblemsStudents", new { problemId = item.Id }, null)*@
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="pagination-container" align="center">
+        <nav>
+            <ul class="pagination"></ul>
+        </nav>
+    </div>
+</div>
+
+@*<p>student name</p>
+    @foreach (var item in ViewBag.student)
+    {
+        @item.SolveCount
+        @item.Semester
+        @item.UserName
+        <br />
+    }*@
+
+<script type="text/javascript">
+
+    $('#numberInputButton').click(function () {
+        if ($('#number').val() != '') {
+            $.ajax({
+                url: '/Controllers/Problems/InputFromExcelFileAjax',
+                method: 'POST',
+                data: {
+                    blueSheetId: @blueSheetId,
+                    number: $('#number').val()
+                },
+                success: function () {
+                    swal("uploaded", $('#number').val() + " Problems has been uploaded.\nPlease Refresh the page", "success")
+                    //window.location.href = @appPath;  // aita dile url er method call hoy na.
+                },
+                error: function (jqXHR) {
+                    //swal("Error", jqXHR.responseText, "error")
+                    swal("error", "Maybe your file is not Exists OR You have insufficient problem in Excel File.\nPlease Check the Excel File.", "error")
+                }
+            });
+        }
+    });
+
+    $('#setValue').click(function () {
+        $.ajax({
+            url: '/Controllers/Problems/setDayAndProblem',
+            method: 'POST',
+            data: {
+                setDay: $('#Day').val(),
+                setProblem: $('#Problem').val(),
+                blueSheetId: @blueSheetId
+            },
+            success: function () {
+                swal("Set", "Time has been fixed. Please refresh the page.", "success")
+                //alert('time is set. please refresh the page.');
+            },
+            error: function (jqXHR) {
+                swal("Error", "You have to set Day and Problem both.", "error")
+            }
+        });
+    });
+
+    $('#setValue1').click(function () {
+        $.ajax({
+            url: '/Controllers/Problems/setDayAndProblem',
+            method: 'POST',
+            data: {
+                setDay: $('#Day1').val(),
+                setProblem: $('#Problem1').val(),
+                blueSheetId: @blueSheetId
+            },
+            success: function () {
+                swal("Success", "Time has been fixed. Please refresh the page.", "success")
+                //alert('time is set. please refresh the page.');
+            },
+            error: function (jqXHR) {
+                swal("Error", "You have to set Day and Problem both.", "error")
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btnPopover').popover();
+    });
+</script>
+
+<script type="text/javascript">
+    $('#ExcelFileInputButton').click(function () {
+        var extension = $('#ExcelFileInput').val().split('.').pop().toLowerCase();
+        if ($('#ExcelFileInput').val() != '') {
+            if ($.inArray(extension, ['xls', 'xlsx']) == -1) {
+                //alert('Sorry, You can only upload an image.');
+                swal("Sorry!", "You can only upload a Excel File!", "error");
+                return false;
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px"  class="text-center">' + id + '</td>')
+        })
+    })
+</script>

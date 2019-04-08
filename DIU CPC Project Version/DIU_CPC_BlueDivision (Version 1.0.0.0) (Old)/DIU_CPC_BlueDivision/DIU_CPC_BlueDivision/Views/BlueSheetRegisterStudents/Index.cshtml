@@ -1,0 +1,547 @@
+﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.AspNetUser>
+@using DIU_CPC_BlueDivision.Models;
+@{
+    ViewBag.Title = "Index";
+}
+
+@*for progressbar*@
+@*<style type="text/css">
+        .modal1 {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .center {
+            z-index: 1000;
+            margin: 300px auto;
+            padding: 10px;
+            width: 110px;
+            height: 110px;
+            background-color: White;
+            border-radius: 10px;
+            filter: alpha(opacity=100);
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+
+            .center img {
+                height: 50px;
+                width: 50px;
+            }
+    </style>*@
+
+@*<div style="display: none;" class="modal1" id="loaderDiv">
+        <div class="center">
+            <img src="~/Image/loader4.gif" height="40" width="40"/>
+        </div>
+    </div>*@
+
+<div style="background-color: #E8EAED;">
+    <br />
+    <br /><br /><br />
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-10 col-xs-10 col-lg-offset-1 col-xs-offset-1">
+                <div class="well h3 animated fadeInLeft" align="center">
+                    <marquee behavior="alternate">BlueSheet</marquee>
+                </div>
+                <div id="accordion_pic" class="panel-group">
+                    <div class="panel panel-info animated fadeInLeft">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a href="#panelBodyTwo2" data-toggle="collapse" data-parent="#accordion_pic">
+                                    <b>Help Line </b>(+880123456789)
+                                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="panelBodyTwo2" class="collapse in panel-collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-warning animated fadeInLeft">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <a href="#panelBodyOne4" data-toggle="collapse" data-parent="#accordion_pic">
+                                    <b>How To Use </b>(get details)
+                                    <span class="glyphicon glyphicon-menu-down pull-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div id="panelBodyOne4" class="collapse panel-collapse">
+                            <div class="panel-body">
+                                <p>
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                    <br />
+                                    Only this company emplyee can use this application. because you
+                                    have to EmplyeeCode. if you do not have EmplyeeCode, you can't
+                                    login...
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-10 col-xs-10 col-lg-offset-1 col-xs-offset-1">
+                <div class="h2 animated fadeInRight">
+                    <p>Create A New Blue Sheet Member</p>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>UserName</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input id="txtUserName" type="text" placeholder="Enter your Name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>Email ID</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input id="txtEmail" type="text" placeholder="Enter your Email ID" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated bounceInRight">
+                            <label>Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="txtPassword" type="password" placeholder="Enter your Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated fadeInRight">
+                            <label>Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-lock"></span>
+                                </span>
+                                <input id="txtConfirmPassword" type="password" placeholder="Enter your Confirm Password" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="form-group has-success animated bounceInRight">
+                            <label>Select Join Semester</label>
+                            @Html.DropDownList("SelectJoinSemester", new List<SelectListItem>
+                                {
+                                    new SelectListItem{Text="Fall-20", Value="Fall-20"},
+                                    new SelectListItem{Text="Summer-20", Value="Summer-20"},
+                                    new SelectListItem{Text="Spring-20", Value="Spring-20"},
+                                    new SelectListItem{Text="Fall-19", Value="Fall-19"},
+                                    new SelectListItem{Text="Summer-19", Value="Summer-19"},
+                                    new SelectListItem{Text="Spring-19", Value="Spring-19"}
+                                }, "Select Join Semester", new { @class = "form-control", @id = "SelectJoinSemester"})
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6 col-lg-offset-2 col-sm-offset-2 col-xs-offset-5">
+                        <div style="display: none;" id="loaderDiv">
+                            <label>Loading...</label>
+                            <br />
+                            <img src="~/Image/loader1.gif" height="40" width="40" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        @*Bootstrap alert to display any validation errors*@
+                        <div id="divErrorRegister" class="alert alert-danger collapse">
+                            <a id="linkCloseRegister" href="#" class="close">&times;</a>
+                            <div id="divErrorTextRegister"></div>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                <div class="row animated fadeInRight">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <input id="btnRegister1" class="btn btn-block" type="button" style="border: 1px solid; border-radius: 30px; outline: none; background-color: #DEEFD7; font-size: 18px" value="Register" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+</div>
+
+<br /><br />
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-5">
+            <h2 align="center">List Of Admin </h2>
+            <hr style="border: 2px solid; color: #F5F3F1">
+            <div>
+                <h4>Select Number of Rows</h4>
+                <div class="form-group">
+                    <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                        <option value="5000">Show All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="mytable" class="table table-hover text-center">
+                    <thead>
+                        <tr class="success text-center" style="font-weight: bold; font-size:18px">
+                            @*<td>
+                                    @Html.DisplayNameFor(model => model.SecureCode)
+                                </td>*@
+                            <td>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </td>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        if (item.SecureCode.Equals("1234_U1"))
+                        {
+                            <tbody>
+                                <tr>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.SecureCode)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserName)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        }
+                    }
+
+                </table>
+            </div>
+            <br />
+            <div class="pagination-container" align="center">
+                <nav>
+                    <ul class="pagination" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <h2 align="center">List Of Students </h2>
+            <hr style="border: 2px solid; color: #F5F3F1">
+            <div>
+                <h4>Select Number of Rows</h4>
+                <div class="form-group">
+                    <select name="state1" id="maxRows1" class="form-control" style="width:150px;">
+                        <option value="5000">Show All</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                    </select>
+                </div>
+            </div>
+            <div style="overflow-x:auto;">
+                <table id="mytable1" class="table table-hover text-center">
+                    <thead>
+                        <tr class="success text-center" style="font-weight: bold; font-size:18px">
+                            @*<td>
+                                    @Html.DisplayNameFor(model => model.SecureCode)
+                                </td>*@
+                            <td>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </td>
+                            @*<td>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </td>*@
+                            <td>
+                                @Html.DisplayNameFor(model => model.JoinSemester)
+                            </td>
+                            <td>
+                                @Html.DisplayNameFor(model => model.UserName)
+                            </td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        using (Html.BeginForm("Delete", "BlueSheetRegisterStudents", new { id = item.Id }))
+                        {
+                            if (item.SecureCode.Equals("*****"))
+                            {
+                                <tbody>
+                                    <tr>
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.SecureCode)
+                                            </td>*@
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Email)
+                                        </td>
+                                        @*<td>
+                                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                            </td>*@
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.JoinSemester)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.UserName)
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            }
+                        }
+                    }
+
+                </table>
+            </div>
+            <br />
+            <div class="pagination-container" align="center">
+                <nav>
+                    <ul class="pagination" id="pagination1"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*  <td>
+        @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+    </td>
+*@
+
+<script>
+    window.addEventListener("keydown", checkKeyPress, false);
+    function checkKeyPress(key) {
+        if (key.keyCode == "13" && $('#txtPassword').val() != '' && $('#txtConfirmPassword').val() != '') {
+            $('#btnRegister1').trigger('click');
+            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+        }
+    }
+</script>
+
+@*register*@
+<script>
+    $(document).ready(function () {
+        //Close the bootstrap alert
+        $('#linkCloseRegister').click(function () {
+            $('#divErrorRegister').hide('fade');
+        });
+
+        // Save the new user details
+        $('#btnRegister1').click(function () {
+            $('#loaderDiv').show();
+            $.ajax({
+                url: '/api/account/BlueSheetRegister',
+                method: 'POST',
+                data: {
+                    userName: $('#txtUserName').val(),
+                    secureCode: '*****',
+                    email: $('#txtEmail').val(),
+                    password: $('#txtPassword').val(),
+                    confirmPassword: $('#txtConfirmPassword').val(),
+                    joinSemester: $("#SelectJoinSemester option:selected").val()
+                },
+                success: function () {
+                    swal("Registration Successful!", "Thank You For Registration. Now You Can Login.", "success");
+                    $('#divErrorRegister').hide();
+                    $('#loaderDiv').hide();
+                },
+                error: function (jqXHR) {
+                    $('#divErrorTextRegister').text(jqXHR.responseText);
+                    $('#divErrorRegister').show('fade');
+                    $('#loaderDiv').hide();
+                }
+            });
+
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.collapse').on('shown.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+        }).on('hidden.bs.collapse', function () {
+            $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = '#mytable'
+        $('#maxRows').on('change', function () {
+            $('#pagination').html('');
+            var trnum = 0
+            var maxRows = parseInt($(this).val())
+            var totalRows = $(table + ' tbody tr').length
+
+            // hide column 5 select korle 5 ta row show korbe
+            $(table + ' tr:gt(0)').each(function () {
+                trnum++
+                if (trnum > maxRows) {
+                    $(this).hide()
+                }
+                if (trnum <= maxRows) {
+                    $(this).show()
+                }
+            })
+
+            // show pagination
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+                for (var i = 1; i <= pagenum;) {
+                    $('#pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+                }
+                //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+            }
+            // first value ta active rakhe always
+            $('#pagination li:first-child').addClass('active')
+
+            // page a click korar pore column kore show kore
+            $('#pagination li').on('click', function () {
+                var pageNum = $(this).attr('data-page')
+                var trIndex = 0;
+                $('#pagination li').removeClass('active')
+                $(this).addClass('active');
+                $(table + ' tr:gt(0)').each(function () {
+                    trIndex++;
+                    if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                })
+            })
+        })
+        // get serial no
+        $(function () {
+            $('#mytable tr:eq(0)').prepend('<td class="text-center">No</td>')
+            var id = 0;
+            $('#mytable tr:gt(0)').each(function () {
+                id++
+                $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            })
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var table = '#mytable1'
+        $('#maxRows1').on('change', function () {
+            $('#pagination1').html('');
+            var trnum = 0
+            var maxRows = parseInt($(this).val())
+            var totalRows = $(table + ' tbody tr').length
+
+            // hide column 5 select korle 5 ta row show korbe
+            $(table + ' tr:gt(0)').each(function () {
+                trnum++
+                if (trnum > maxRows) {
+                    $(this).hide()
+                }
+                if (trnum <= maxRows) {
+                    $(this).show()
+                }
+            })
+
+            // show pagination
+            if (totalRows > maxRows) {
+                var pagenum = Math.ceil(totalRows / maxRows);
+                //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+                for (var i = 1; i <= pagenum;) {
+                    $('#pagination1').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+                }
+                //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+            }
+            // first value ta active rakhe always
+            $('#pagination1 li:first-child').addClass('active')
+
+            // page a click korar pore column kore show kore
+            $('#pagination1 li').on('click', function () {
+                var pageNum = $(this).attr('data-page')
+                var trIndex = 0;
+                $('#pagination1 li').removeClass('active')
+                $(this).addClass('active');
+                $(table + ' tr:gt(0)').each(function () {
+                    trIndex++;
+                    if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                })
+            })
+        })
+        // get serial no
+        $(function () {
+            $('#mytable1 tr:eq(0)').prepend('<td class="text-center">No</td>')
+            var id = 0;
+            $('#mytable1 tr:gt(0)').each(function () {
+                id++;
+                $(this).prepend('<td style="font-size:19px">' + id + '</td>')
+            })
+        })
+    });
+</script>
