@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     /**/
 
     /**/
@@ -122,6 +123,7 @@
 
 @using Microsoft.AspNet.Identity;
 @using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using DIU_CPC_BlueDivision.DatabaseConnection;
 @{
 
     string str = "", joinSemester = "";
@@ -132,6 +134,8 @@
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
         joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(str);
     }
+    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+    string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(str);
 }
 <body style="padding-top:90px; font-family:  Lora ">
     <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:19px; min-height:88px">
@@ -162,6 +166,10 @@
                     </li>
                     @*<li><a class="zoom-effect" href="@Url.Action("Index", "Students", new {semester = joinSemester})"> SolveRanking </a></li>*@
                     <li><a class="zoom-effect" href="@Url.Action("Index", "BluesheetExcelFormatView")"> Full Sheet view </a></li>
+                    @if (check == "Mute")
+                    {
+                        <li><a id="RequestToAdmin" style="color:red" class="zoom-effect" href="#"> Request To Admin </a></li>
+                    }
                     @*<li><a class="zoom-effect" href="@Url.Action("Index", "CutOffStudents")"> CutOffStudents </a></li>*@
                     @*<li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>*@
                 </ul>
@@ -334,6 +342,28 @@
                 $('#navdiv').css("transition", "all .4s ease");
             }
 
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('#RequestToAdmin').click(function () {
+            $.ajax({
+                url: '/Controllers/RequestToAdmin/RequestToAdminForUnmute',
+                method: 'POST',
+                data: {
+                    
+                },
+
+                success: function (response) {
+                    swal("Request To Admin!", "We Will Contact With You.", "success");
+                },
+
+                error: function (jqXHR) {
+
+                }
+            });
         });
     });
 </script>

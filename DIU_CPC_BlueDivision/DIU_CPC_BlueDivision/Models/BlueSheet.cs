@@ -20,7 +20,7 @@ namespace DIU_CPC_BlueDivision.Models
         {
             this.Problems = new HashSet<Problem>();
         }
-    
+
         public int Id { get; set; }
         [Required]
         public string BlueSheetName { get; set; }
@@ -28,7 +28,7 @@ namespace DIU_CPC_BlueDivision.Models
         public Nullable<System.DateTime> Date { get; set; }
         [Required]
         public string CreatedBy { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Problem> Problems { get; set; }
     }

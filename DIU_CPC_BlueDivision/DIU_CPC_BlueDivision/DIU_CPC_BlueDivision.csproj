@@ -249,6 +249,8 @@
     <Compile Include="Controllers\ProblemSolvingRankingController.cs" />
     <Compile Include="Controllers\ProblemsStudentsController.cs" />
     <Compile Include="Controllers\RegistrationForAdminAndStudentController.cs" />
+    <Compile Include="Controllers\RequestStudentsController.cs" />
+    <Compile Include="Controllers\RequestToAdminController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -554,9 +556,16 @@
     <Content Include="Views\CutOffStudents\Details.cshtml" />
     <Content Include="Views\CutOffStudents\Edit.cshtml" />
     <Content Include="Views\CutOffStudents\Index.cshtml" />
+    <Content Include="Views\RequestStudents\Create.cshtml" />
+    <Content Include="Views\RequestStudents\Delete.cshtml" />
+    <Content Include="Views\RequestStudents\Details.cshtml" />
+    <Content Include="Views\RequestStudents\Edit.cshtml" />
+    <Content Include="Views\RequestStudents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RequestToAdmin\" />
+    <Folder Include="Views\temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

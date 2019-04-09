@@ -1,7 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.Models;
 
 @{
-    ViewBag.Title = "_Layout_For_Admin";
+                /**/
+
+                ViewBag.Title = "_Layout_For_Admin";
 }
 
 <!DOCTYPE html>
@@ -142,7 +145,7 @@
                         <ul class="dropdown-menu" style="font-size:16px">
                             <li><a class="zoom-effect" href="@Url.Action("Index", "BlogPost")">Blog Post </a></li>
                             <li><a class="zoom-effect" href="@Url.Action("Index", "BlueSheets")">Blue Sheets </a></li>
-
+                            <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -156,8 +159,11 @@
                             @*<li><a class="zoom-effect" href="@Url.Action("Index", "CutOffStudents")"> CutOffStudents </a></li>*@
                         </ul>
                     </li>
-                    <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
-                    @*<li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>*@
+                    @{
+                        BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
+                        List<Student> list = db.Students.Where(per => per.Request == 1).ToList();
+                        <li role="presentation"><a class="zoom-effect" href="@Url.Action("Index", "RequestStudents")">Request <span class="badge">@list.Count()</span></a></li>
+                    }
                 </ul>
 
                 <div class="nav navbar-nav navbar-right">

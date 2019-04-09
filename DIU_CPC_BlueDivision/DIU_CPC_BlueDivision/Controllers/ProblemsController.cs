@@ -69,7 +69,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                 int blueSheetId = Convert.ToInt32(arr[1]);
                 DateTime dateTime = pc.retriveDateTime(blueSheetId);
                 int problemCount = pc.retriveProblem(blueSheetId);
-                DateTime now = DateTime.Now;
+                DateTime utc = DateTime.UtcNow;
+                DateTime now = utc.AddHours(6);
 
                 BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
                 string blueSheetName = blueSheetNameRetrive.getBlueSheetName(blueSheetId);
@@ -108,7 +109,9 @@ namespace DIU_CPC_BlueDivision.Controllers
                 int blueSheetId = blueSheetNameRetrive.getBlueSheetId(arr[1]);
                 DateTime dateTime = pc.retriveDateTime(blueSheetId);
                 int problemCount = pc.retriveProblem(blueSheetId);
-                DateTime now = DateTime.Now;
+
+                DateTime utc = DateTime.UtcNow;
+                DateTime now = utc.AddHours(6);
 
                 string blueSheetName = arr[1];
 

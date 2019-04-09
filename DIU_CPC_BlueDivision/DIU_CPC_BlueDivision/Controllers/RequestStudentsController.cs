@@ -14,52 +14,42 @@ using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
-    public class ListOfStudentsController : Controller
+    public class RequestStudentsController : Controller
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
+        string student = ConfigurationManager.AppSettings["Student"].ToString();
 
-        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
-        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
-        private string student = ConfigurationManager.AppSettings["Student"].ToString();
-
-        // GET: ListOfStudents
-        public ActionResult Index(string SearchName, string SelectSemester)
-        {
-            string str = "";
+        // GET: RequestStudents
+        public ActionResult Index()
+        {           
+            string str = "", secureCode = "";
             str = User.Identity.GetUserId();
 
             if (!string.IsNullOrEmpty(str))
             {
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+                secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (secureCode == student)
             {
                 throw new Exception();
             }
 
-            if (!string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
-            {
-                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName) && per.Semester == SelectSemester).ToList();
-                return View(list);
-            }
-            else if (string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
-            {
-                List<Student> list = db.Students.Where(per => per.Semester == SelectSemester).ToList();
-                return View(list);
-            }
-            else if(!string.IsNullOrEmpty(SearchName) && string.IsNullOrEmpty(SelectSemester))
-            {
-                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName)).ToList();
-                return View(list);
-            }
-            else
-            {
-                return View(db.Students.OrderBy(per => per.Semester).ToList());
-            }     
+            List<Student> list = db.Students.Where(per => per.Request == 1).ToList();
+            List<Student> students = list.OrderBy(per => per.Semester).ToList();
+            return View(students);
         }
 
-        //// GET: ListOfStudents/Details/5
+        [HttpPost]
+        public ActionResult UnmuteStudentRequest(string id)
+        {
+            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
+            listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
+
+            return RedirectToAction("Index");
+        }
+
+        //// GET: RequestStudents/Details/5
         //public ActionResult Details(string id)
         //{
         //    if (id == null)
@@ -74,18 +64,18 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    return View(student);
         //}
 
-        //// GET: ListOfStudents/Create
+        //// GET: RequestStudents/Create
         //public ActionResult Create()
         //{
         //    return View();
         //}
 
-        //// POST: ListOfStudents/Create
+        //// POST: RequestStudents/Create
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
+        //public ActionResult Create([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId,MuteOrUnmute,Request")] Student student)
         //{
         //    if (ModelState.IsValid)
         //    {
@@ -97,7 +87,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    return View(student);
         //}
 
-        //// GET: ListOfStudents/Edit/5
+        //// GET: RequestStudents/Edit/5
         //public ActionResult Edit(string id)
         //{
         //    if (id == null)
@@ -112,12 +102,12 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    return View(student);
         //}
 
-        //// POST: ListOfStudents/Edit/5
+        //// POST: RequestStudents/Edit/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId")] Student student)
+        //public ActionResult Edit([Bind(Include = "Id,UserName,StudentId,FullName,EmailAddress,PhoneNumber,Semester,SolveCount,CodeForcesId,MuteOrUnmute,Request")] Student student)
         //{
         //    if (ModelState.IsValid)
         //    {
@@ -128,7 +118,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    return View(student);
         //}
 
-        //// GET: ListOfStudents/Delete/5
+        //// GET: RequestStudents/Delete/5
         //public ActionResult Delete(string id)
         //{
         //    if (id == null)
@@ -143,7 +133,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    return View(student);
         //}
 
-        //// POST: ListOfStudents/Delete/5
+        //// POST: RequestStudents/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         //public ActionResult DeleteConfirmed(string id)
@@ -153,30 +143,6 @@ namespace DIU_CPC_BlueDivision.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index");
         //}
-
-        [HttpPost]
-        public ActionResult DeleteStudent(string id)
-        {
-            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-            listOfAllAdminsAndStudents.DeleteStudents(id);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult MuteStudent(string id)
-        {
-            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-            listOfAllAdminsAndStudents.UpdateStudentsMute(id);
-            return RedirectToAction("Index");
-        }
-
-        [HttpPost]
-        public ActionResult UnmuteStudent(string id)
-        {
-            ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-            listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {

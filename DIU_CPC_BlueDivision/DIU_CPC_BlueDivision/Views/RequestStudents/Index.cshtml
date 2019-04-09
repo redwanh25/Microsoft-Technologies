@@ -17,9 +17,6 @@
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
         str = aspNetUsersBusinessLayer.GetSecureCode(str);
     }
-    string appPath = "";
-    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
-    string[] arr = appPath.Split('=');
 }
 
 @*<p>
@@ -28,7 +25,7 @@
 
 <br /><br /><br />
 <div align="center">
-    <p style="font-size:30px; color:orange; font-family:Impact">BlueSheet Disable Students - " @arr[1] "</p>
+    <p style="font-size:30px; color:orange; font-family:Impact">BlueSheet Request Students</p>
     <hr style="border: 3px solid; color: #F5F3F1">
 </div>
 
@@ -89,7 +86,7 @@
 
                 @foreach (var item in Model)
                 {
-                    using (Html.BeginForm("UnmuteStudent", "CutOffStudents", new { id = item.Id }))
+                    using (Html.BeginForm("UnmuteStudentRequest", "RequestStudents", new { id = item.Id }))
                     {
                         <tr>
                             <td>
@@ -120,7 +117,7 @@
                                 if (str != student)
                                 {
                                     <td>
-                                        <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to Unmute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
+                                        <button class="btn btn-success btn-xs" type="submit" onclick="return confirm('are you sure you want to unmute ID = @item.Id?')"> <span class="glyphicon glyphicon-ok"> </span> Unmute</button>
                                     </td>
                                 }
                             }
