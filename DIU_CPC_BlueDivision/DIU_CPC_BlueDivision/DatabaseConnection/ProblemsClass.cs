@@ -164,5 +164,25 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteNonQuery();
             }
         }
+
+        public string CheckUploadFromWhere(int id)
+        {
+            string str = "";
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Select uploadFromWhere from dbo.Problems where  id = @parameter";
+                cmd.Parameters.AddWithValue("@parameter", id);
+                cmd.Connection = con;
+
+                con.Open();
+                if (!string.IsNullOrEmpty(cmd.ExecuteScalar().ToString()))
+                {
+                    str += (string)cmd.ExecuteScalar();
+                }   
+            }
+            return str;
+        }
     }
 }

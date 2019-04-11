@@ -324,10 +324,15 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
-
+            
             ProblemsClass prob = new ProblemsClass();
             int id = prob.BlueSheetIdRetrive(problem.Id);
             problem.BlueSheetId = id;
+
+            if (prob.CheckUploadFromWhere(problem.Id) == "Excel_File")
+            {
+                problem.uploadFromWhere = "Excel_File";
+            }
 
             if (ModelState.IsValid)
             {
