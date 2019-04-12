@@ -25,6 +25,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ListOfStudents
         public ActionResult Index(string SearchName, string SelectSemester)
         {
+            ViewBag.seName = SearchName;
+            ViewBag.seSemester = SelectSemester;
+
             string str = "";
             str = User.Identity.GetUserId();
 
@@ -40,7 +43,7 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             if (!string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
             {
-                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName) && per.Semester == SelectSemester).ToList();
+                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName.Trim()) && per.Semester == SelectSemester).ToList();
                 return View(list);
             }
             else if (string.IsNullOrEmpty(SearchName) && !string.IsNullOrEmpty(SelectSemester))
@@ -50,7 +53,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
             else if (!string.IsNullOrEmpty(SearchName) && string.IsNullOrEmpty(SelectSemester))
             {
-                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName)).ToList();
+                List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName.Trim())).ToList();
                 return View(list);
             }
             else
@@ -155,30 +158,30 @@ namespace DIU_CPC_BlueDivision.Controllers
         //}
 
         [HttpPost]
-        public ActionResult DeleteStudent(string id)
+        public ActionResult DeleteStudent(string id, string searchName, string selectSemester)
         {
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.DeleteStudents(id);
-            return RedirectToAction("Index");
-            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = SearchName, SelectSemester = SelectSemester });
+            //return RedirectToAction("Index");
+            return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
         }
 
         [HttpPost]
-        public ActionResult MuteStudent(string id)
+        public ActionResult MuteStudent(string id, string searchName, string selectSemester)
         {
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.UpdateStudentsMute(id);
-            return RedirectToAction("Index");
-            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
+            //return RedirectToAction("Index");
+            return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
         }
 
         [HttpPost]
-        public ActionResult UnmuteStudent(string id)
+        public ActionResult UnmuteStudent(string id, string searchName, string selectSemester)
         {
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
-            return RedirectToAction("Index");
-            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
+            //return RedirectToAction("Index");
+            return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
         }
 
         protected override void Dispose(bool disposing)

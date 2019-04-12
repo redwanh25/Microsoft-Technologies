@@ -22,6 +22,9 @@
     }
     ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
 
+    string sName = ViewBag.seName;
+    string sSemester = ViewBag.seSemester;
+
 }
 
 <br /><br /><br />
@@ -122,7 +125,7 @@
                         @Html.DisplayFor(modelItem => item.CodeForcesId)
                     </td>
                     <td>
-                        @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id }))
+                        @using (Html.BeginForm("MuteStudent", "ListOfStudents", new { id = item.Id, searchName = sName, selectSemester = sSemester }))
                         {
                             if (muteOrUnmute == "Mute")
                             {
@@ -136,7 +139,7 @@
                         }
                     </td>
                     <td>
-                        @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id }))
+                        @using (Html.BeginForm("UnmuteStudent", "ListOfStudents", new { id = item.Id, searchName = sName, selectSemester = sSemester }))
                         {
                             if (muteOrUnmute == "Unmute")
                             {
@@ -150,7 +153,7 @@
                         }
                     </td>
                     <td>
-                        @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id }))
+                        @using (Html.BeginForm("DeleteStudent", "ListOfStudents", new { id = item.Id, searchName = sName, selectSemester = sSemester }))
                         {
                             <button class="btn btn-danger btn-xs" type="submit" onclick="return confirm('are you sure you want to Delete ID = @item.Id?')"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
                         }
