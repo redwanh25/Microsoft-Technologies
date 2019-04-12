@@ -44,7 +44,7 @@
                     <span style="color:red; font-size:17px">Date: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Date) </span><br />
                     <span style="color:red; font-size:17px">Created By: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.CreatedBy) </span><br />
                     <br />
-                    <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "BlueSheets", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                    @*<button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "BlueSheets", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>*@
                     <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "Problems", new { id_Or_SheetName = item.Id.ToString() })'"> <span class="glyphicon glyphicon-pencil"> </span> Details</button>
                     <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "BlueSheets", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
                 </div>

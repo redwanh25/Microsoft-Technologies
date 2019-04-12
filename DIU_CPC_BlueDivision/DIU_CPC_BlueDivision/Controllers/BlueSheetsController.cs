@@ -94,23 +94,25 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,BlueSheetName,Date,CreatedBy")] BlueSheet blueSheet)
+        public ActionResult Create([Bind(Include = "Id,BlueSheetName,Date")] BlueSheet blueSheet)   //,CreatedBy
         {
-            string str = "";
+            string str = "", UserName = "", secureCode = "";
             str = User.Identity.GetUserId();
 
             if (!string.IsNullOrEmpty(str))
             {
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
+                UserName = aspNetUsersBusinessLayer.GetUserName(str);
+                secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (secureCode == student)
             {
                 throw new Exception();
             }
 
             if (ModelState.IsValid)
             {
+                blueSheet.CreatedBy = UserName;
                 DateTime dateTime = DateTime.UtcNow;
                 blueSheet.Date = dateTime.AddHours(+6);
 
@@ -139,72 +141,72 @@ namespace DIU_CPC_BlueDivision.Controllers
             return View(blueSheet);
         }
 
-        // GET: BlueSheets/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            string str = "";
-            str = User.Identity.GetUserId();
+        //// GET: BlueSheets/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    string str = "";
+        //    str = User.Identity.GetUserId();
 
-            if (!string.IsNullOrEmpty(str))
-            {
-                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
-            }
-            if (str == student)
-            {
-                throw new Exception();
-            }
+        //    if (!string.IsNullOrEmpty(str))
+        //    {
+        //        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        //        str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        //    }
+        //    if (str == student)
+        //    {
+        //        throw new Exception();
+        //    }
 
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            BlueSheet blueSheet = db.BlueSheets.Find(id);
-            if (blueSheet == null)
-            {
-                return HttpNotFound();
-            }
-            return View(blueSheet);
-        }
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    BlueSheet blueSheet = db.BlueSheets.Find(id);
+        //    if (blueSheet == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(blueSheet);
+        //}
 
-        // POST: BlueSheets/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,BlueSheetName,Date,CreatedBy")] BlueSheet blueSheet)
-        {
-            string str = "";
-            str = User.Identity.GetUserId();
+        //// POST: BlueSheets/Edit/5
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Edit([Bind(Include = "Id,BlueSheetName,Date,CreatedBy")] BlueSheet blueSheet)
+        //{
+        //    string str = "";
+        //    str = User.Identity.GetUserId();
 
-            if (!string.IsNullOrEmpty(str))
-            {
-                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-                str = aspNetUsersBusinessLayer.GetSecureCode(str);
-            }
-            if (str == student)
-            {
-                throw new Exception();
-            }
+        //    if (!string.IsNullOrEmpty(str))
+        //    {
+        //        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+        //        str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        //    }
+        //    if (str == student)
+        //    {
+        //        throw new Exception();
+        //    }
 
-            // aita korle error dey...
-            //BlueSheet blue = db.BlueSheets.Single(per => per.Id == blueSheet.Id);
-            //blueSheet.BlueSheetName = blue.BlueSheetName;
+        //    // aita korle error dey...
+        //    //BlueSheet blue = db.BlueSheets.Single(per => per.Id == blueSheet.Id);
+        //    //blueSheet.BlueSheetName = blue.BlueSheetName;
 
-            BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
-            blueSheet.BlueSheetName = blue.getBlueSheetName(blueSheet.Id);
+        //    BlueSheetNameRetrive blue = new BlueSheetNameRetrive();
+        //    blueSheet.BlueSheetName = blue.getBlueSheetName(blueSheet.Id);
 
-            if (ModelState.IsValid)
-            {
-                DateTime dateTime = DateTime.UtcNow;
-                blueSheet.Date = dateTime.AddHours(+6);
+        //    if (ModelState.IsValid)
+        //    {
+        //        DateTime dateTime = DateTime.UtcNow;
+        //        blueSheet.Date = dateTime.AddHours(+6);
 
-                db.Entry(blueSheet).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(blueSheet);
-        }
+        //        db.Entry(blueSheet).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+        //    return View(blueSheet);
+        //}
 
         // GET: BlueSheets/Delete/5
         public ActionResult Delete(int? id)
