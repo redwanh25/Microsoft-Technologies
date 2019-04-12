@@ -48,7 +48,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 List<Student> list = db.Students.Where(per => per.Semester == SelectSemester).ToList();
                 return View(list);
             }
-            else if(!string.IsNullOrEmpty(SearchName) && string.IsNullOrEmpty(SelectSemester))
+            else if (!string.IsNullOrEmpty(SearchName) && string.IsNullOrEmpty(SelectSemester))
             {
                 List<Student> list = db.Students.Where(per => per.UserName.StartsWith(SearchName)).ToList();
                 return View(list);
@@ -56,7 +56,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             else
             {
                 return View(db.Students.OrderBy(per => per.Semester).ToList());
-            }     
+            }
         }
 
         //// GET: ListOfStudents/Details/5
@@ -160,6 +160,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.DeleteStudents(id);
             return RedirectToAction("Index");
+            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = SearchName, SelectSemester = SelectSemester });
         }
 
         [HttpPost]
@@ -168,6 +169,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.UpdateStudentsMute(id);
             return RedirectToAction("Index");
+            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
         }
 
         [HttpPost]
@@ -176,6 +178,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
             listOfAllAdminsAndStudents.UpdateStudentsUnmute(id);
             return RedirectToAction("Index");
+            //return RedirectToAction("Index", "ListOfStudents", new { SearchName = searchName, SelectSemester = selectSemester });
         }
 
         protected override void Dispose(bool disposing)

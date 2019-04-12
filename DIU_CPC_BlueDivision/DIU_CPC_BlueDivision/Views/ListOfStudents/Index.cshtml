@@ -70,7 +70,7 @@
                         @Html.DisplayNameFor(model => model.PhoneNumber)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(model => model.Semester)
+                        BlueSheet
                         @Html.DropDownList("SelectSemester", new List<SelectListItem>
                         {
                             new SelectListItem{Text="Fall-20", Value="Fall-20"},
@@ -79,8 +79,8 @@
                             new SelectListItem{Text="Fall-19", Value="Fall-19"},
                             new SelectListItem{Text="Summer-19", Value="Summer-19"},
                             new SelectListItem{Text="Spring-19", Value="Spring-19"}
-                        }, "Select Semester", new { @class = "form-control", @id = "SelectSemesterStudent", @style= "font-size:13px; width:120px; height:25px; padding:0px" })
-                        <input class="hidden" id="btnsearch" type="submit" value="submit"/>
+                        }, "Select BlueSheet", new { @class = "form-control", @id = "SelectSemesterStudent", @style= "font-size:13px; width:120px; height:25px; padding:0px" })
+                        <input class="hidden" id="btnsearch" type="submit" value="submit" />
                     </td>
                     <td>
                         @Html.DisplayNameFor(model => model.SolveCount)
