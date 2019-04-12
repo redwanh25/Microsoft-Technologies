@@ -28,9 +28,26 @@
     }
     else
     {
-        string appPath = "";
-        appPath = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
-        Response.Redirect(appPath + "/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+        string appPath1 = "";
+        appPath1 = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+        Response.Redirect(appPath1 + "/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+
+
+
+        //string appPath = "";
+        //appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+
+        //string blogPage = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority) + "/Blog";
+        //if (appPath == blogPage)
+        //{
+        //    Layout = "~/Views/Shared/_Layout.cshtml";
+        //}
+        //else
+        //{
+        //    string appPath1 = "";
+        //    appPath1 = string.Format("{0}://{1}", Request.Url.Scheme, Request.Url.Authority);
+        //    Response.Redirect(appPath1 + "/RegistrationAndLoginPage/RegisterAndLogin.aspx");
+        //}
         //Response.Redirect(appPath + "http://localhost:50120/RegistrationAndLoginPage/RegisterAndLogin.aspx");
     }
 }

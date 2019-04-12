@@ -65,10 +65,9 @@
             }
 
             @{
-                string str = Model.BlogDivId;
                 string url = HttpContext.Current.Request.Url.AbsoluteUri;
                 Uri uri = new Uri(url);
-                string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/BlogPage%23" + str;
+                string address = uri.Scheme + Uri.SchemeDelimiter + uri.Host + ":" + uri.Port + "/Blog/Details/" + Model.Id;
                 <iframe src="https://www.facebook.com/plugins/share_button.php?href=@address&layout=button_count&size=large&mobile_iframe=true&appId=377299629711169&width=103&height=28" width="103" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
             }
 
