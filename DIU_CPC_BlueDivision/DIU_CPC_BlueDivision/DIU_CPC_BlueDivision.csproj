@@ -251,12 +251,13 @@
     <Compile Include="Controllers\RegistrationForAdminAndStudentController.cs" />
     <Compile Include="Controllers\RequestStudentsController.cs" />
     <Compile Include="Controllers\RequestToAdminController.cs" />
-    <Compile Include="Controllers\StudentsController.cs" />
+    <Compile Include="Controllers\StudentsProfileController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
     <Compile Include="DatabaseConnection\BlueSheetNameRetrive.cs" />
     <Compile Include="DatabaseConnection\DeleteDataFromDatabase.cs" />
+    <Compile Include="DatabaseConnection\StudentsInformation_Retrive.cs" />
     <Compile Include="DatabaseConnection\ListOfAllAdminsAndStudents.cs" />
     <Compile Include="DatabaseConnection\ProblemsClass.cs" />
     <Compile Include="DatabaseConnection\ProblemSolvingRanking.cs" />
@@ -526,11 +527,6 @@
     <Content Include="Views\Problems\Details.cshtml" />
     <Content Include="Views\Problems\Edit.cshtml" />
     <Content Include="Views\Problems\Index.cshtml" />
-    <Content Include="Views\Students\Create.cshtml" />
-    <Content Include="Views\Students\Delete.cshtml" />
-    <Content Include="Views\Students\Details.cshtml" />
-    <Content Include="Views\Students\Edit.cshtml" />
-    <Content Include="Views\Students\Index.cshtml" />
     <Content Include="Views\ProblemsStudents\Create.cshtml" />
     <Content Include="Views\ProblemsStudents\Delete.cshtml" />
     <Content Include="Views\ProblemsStudents\Details.cshtml" />
@@ -561,6 +557,8 @@
     <Content Include="Views\RequestStudents\Details.cshtml" />
     <Content Include="Views\RequestStudents\Edit.cshtml" />
     <Content Include="Views\RequestStudents\Index.cshtml" />
+    <Content Include="Views\StudentsProfile\Edit.cshtml" />
+    <Content Include="Views\StudentsProfile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

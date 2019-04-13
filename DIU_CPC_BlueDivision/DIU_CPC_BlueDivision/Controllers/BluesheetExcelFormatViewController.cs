@@ -33,8 +33,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 if (string.IsNullOrEmpty(semester))
                 {
-                    ProblemSolvingRanking problemSolvingRanking1 = new ProblemSolvingRanking();
-                    problemSolvingRanking1.updateStudentsForSolveCount("Accepted", joinSemester);
+                    //ProblemSolvingRanking problemSolvingRanking1 = new ProblemSolvingRanking();
+                    //problemSolvingRanking1.updateStudentsForSolveCount("Accepted", joinSemester);
                     ViewBag.semester = joinSemester;
                 }
                 else
@@ -45,8 +45,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             }
             else
             {
-                ProblemSolvingRanking problemSolvingRanking = new ProblemSolvingRanking();
-                problemSolvingRanking.updateStudentsForSolveCount("Accepted", semester);
+                //ProblemSolvingRanking problemSolvingRanking = new ProblemSolvingRanking();
+                //problemSolvingRanking.updateStudentsForSolveCount("Accepted", semester);
                 ViewBag.semester = semester;
             }
 

@@ -1,0 +1,80 @@
+﻿@model DIU_CPC_BlueDivision.Models.Student
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolveCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CodeForcesId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MuteOrUnmute)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Request)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.EmailAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.StudentId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Semester)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SolveCount)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CodeForcesId)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.MuteOrUnmute)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Request)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+        </td>
+    </tr>
+
+</table>

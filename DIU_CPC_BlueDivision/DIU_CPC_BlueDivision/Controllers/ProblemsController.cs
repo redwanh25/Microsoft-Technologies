@@ -138,6 +138,8 @@ namespace DIU_CPC_BlueDivision.Controllers
 
             //---------------
 
+            ProblemSolvingRanking problemSolvingRanking = new ProblemSolvingRanking();
+
             if (str == student)
             {
                 bool check = true;
@@ -157,6 +159,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                     List<Problem> problems = db.Problems.Where(per => per.BlueSheet.BlueSheetName == id_Or_SheetName).ToList();
                     BlueSheet blueSheet = db.BlueSheets.FirstOrDefault(per => per.BlueSheetName == id_Or_SheetName);
                     pc.updateProblemsForSolveCount("Accepted", blueSheet.Id);
+                    problemSolvingRanking.updateStudentsForSolveCount("Accepted", blueSheet.BlueSheetName);
                     {
                         //foreach (Problem p in problems)
                         //{
@@ -174,12 +177,18 @@ namespace DIU_CPC_BlueDivision.Controllers
             else
             {
                 int id = Convert.ToInt32(id_Or_SheetName);
+
                 List<BlueSheet> blueSheets = db.BlueSheets.Where(per => per.Id == id).ToList();
                 if (blueSheets.Count != 0)
                 {
                     List<Problem> problems = db.Problems.Where(per => per.BlueSheetId == id).ToList();
-
                     pc.updateProblemsForSolveCount("Accepted", id);
+
+                    BlueSheetNameRetrive blueSheetNameRetrive = new BlueSheetNameRetrive();
+                    string blueSheetName = blueSheetNameRetrive.getBlueSheetName(id);
+
+                    problemSolvingRanking.updateStudentsForSolveCount("Accepted", blueSheetName);
+
                     {
                         //foreach (Problem p in problems)
                         //{

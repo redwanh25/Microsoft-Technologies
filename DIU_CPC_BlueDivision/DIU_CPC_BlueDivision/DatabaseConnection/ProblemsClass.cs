@@ -10,22 +10,22 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
 {
     public class ProblemsClass
     {
-        public void updateProblemSolverCount(int problemId, int problemCount)
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand();
-                cmd.Connection = con;
-                con.Open();
+        //public void updateProblemSolverCount(int problemId, int problemCount)
+        //{
+        //    string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //    using (SqlConnection con = new SqlConnection(connectionString))
+        //    {
+        //        SqlCommand cmd = new SqlCommand();
+        //        cmd.Connection = con;
+        //        con.Open();
 
-                cmd.CommandText = "update problems set problemSolverCount = @problemCount where id = @problemId";
-                cmd.Parameters.AddWithValue("@problemCount", problemCount);
-                cmd.Parameters.AddWithValue("@problemId", problemId);
+        //        cmd.CommandText = "update problems set problemSolverCount = @problemCount where id = @problemId";
+        //        cmd.Parameters.AddWithValue("@problemCount", problemCount);
+        //        cmd.Parameters.AddWithValue("@problemId", problemId);
 
-                cmd.ExecuteNonQuery();
-            }
-        }
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //}
 
         public void updateProblemsForSolveCount(string isSolved, int blueSheetId)
         {
