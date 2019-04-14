@@ -116,5 +116,86 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
             }
             return request;
         }
+
+        public bool hasImage(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select StudentImage from dbo.Students where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                object obj = cmd.ExecuteScalar();
+                if (obj.GetType() == typeof(DBNull))
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+
+        public byte[] StudentImageByte(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            byte[] imgByte = new byte[byte.MaxValue - 2];
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "select StudentImage from dbo.Students where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                object obj = cmd.ExecuteScalar();
+                if (obj.GetType() == typeof(DBNull))
+                {
+                    return null;
+                }
+                else
+                {
+                    imgByte = (byte[])cmd.ExecuteScalar();
+                } 
+            }
+            return imgByte;
+        }
+
+        public void StoreProfilePic(string id, byte[] stuImage)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update dbo.Students set StudentImage = @stuImage where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@stuImage", stuImage);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteProfilePicture(string id)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con;
+                con.Open();
+
+                cmd.CommandText = "update dbo.Students set StudentImage = null where Id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

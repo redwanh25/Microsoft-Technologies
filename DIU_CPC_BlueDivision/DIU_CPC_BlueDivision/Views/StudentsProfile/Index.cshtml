@@ -1,80 +1,231 @@
 ﻿@model DIU_CPC_BlueDivision.Models.Student
-
+@using Microsoft.AspNet.Identity;
 @{
+    /**/
+
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<style>
+    #header {
+        background: url('../Image/mountain-1.jpg') center no-repeat;
+        height: 200px;
+        width: 100%;
+        /*background-color: antiquewhite;*/
+    }
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Semester)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SolveCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CodeForcesId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MuteOrUnmute)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Request)
-        </th>
-        <th>Action</th>
-    </tr>
+        #header #personalProfile {
+            position: relative;
+            padding-top: 130px;
+            padding-left: 320px;
+            color: white;
+        }
 
-    <tr>
-        <td>
-            @Html.DisplayFor(model => model.UserName)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.EmailAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.StudentId)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Semester)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.SolveCount)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.CodeForcesId)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.MuteOrUnmute)
-        </td>
-        <td>
-            @Html.DisplayFor(model => model.Request)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
-        </td>
-    </tr>
+        #header #profilePic {
+            position: relative;
+            margin-top: -110px;
+            padding-left: 80px;
+        }
 
-</table>
+    #header1 {
+        background: url('../Image/mountain-1.jpg') center no-repeat;
+        height: 150px;
+        width: 100%;
+        /*background-color: antiquewhite;*/
+    }
+
+        #header1 #personalProfile1 {
+            position: relative;
+            padding-top: 110px;
+            padding-left: 170px;
+            color: white;
+        }
+
+        #header1 #profilePic1 {
+            position: relative;
+            margin-top: -70px;
+            padding-left: 30px;
+        }
+
+    #edit {
+        padding-top: 50px;
+    }
+</style>
+
+<div id="header" class="hidden-xs" style="border-radius:10px">
+    <h1 id="personalProfile">@Model.UserName</h1>
+    <div id="profilePic" class="tz-gallery">
+        @if (Model.StudentImage != null)
+        {
+            var imgSrc = "";
+            var base64 = Convert.ToBase64String(Model.StudentImage);
+            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            string fileName = User.Identity.GetUserId() + ".jpg";
+            <a class="lightbox" href="~/Image_ProfilePicture/@fileName">
+                <img src="@imgSrc" width="200" height="200" style="border-radius:30px" />
+            </a>
+        }
+        else
+        {
+            <img src="~/Image/no-image.jpg" width="200" height="200" style="border-radius:30px" />
+        }
+    </div>
+</div>
+
+<div id="header1" class="hidden-sm hidden-md hidden-lg" style="border-radius:10px">
+    <h4 id="personalProfile1">@Model.UserName</h4>
+    <div id="profilePic1" class="tz-gallery">
+        @if (Model.StudentImage != null)
+        {
+            var imgSrc = "";
+            var base64 = Convert.ToBase64String(Model.StudentImage);
+            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            string fileName = User.Identity.GetUserId() + ".jpg";
+            <a class="lightbox" href="~/Image_ProfilePicture/@fileName">
+                <img src="@imgSrc" width="120" height="120" style="border-radius:20px" />
+            </a>
+        }
+        else
+        {
+            <img src="~/Image/no-image.jpg" width="120" height="120" style="border-radius:20px" />
+        }
+
+    </div>
+</div>
+
+<div id="edit" style="position:relative" class="pull-right">
+    <button class="btn btn-default btn-sm" type="button" onclick="location.href='@Url.Action("Edit", "StudentsProfile", new { id = Model.Id })'"><span class="glyphicon glyphicon-edit"></span> Edit </button>
+</div>
+<br />
+
+<div class="row" style="margin-top:100px; font-size:17px;">
+    <div class="col-xs-12 col-sm-6">
+        <div style="overflow-x:auto;">
+            <table class="table table-hover">
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.UserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.EmailAddress)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.EmailAddress)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.StudentId)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.StudentId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.FullName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.PhoneNumber)
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <div style="overflow-x:auto;">
+            <table class="table table-hover">
+                <tr>
+                    <td>
+                        BlueSheet Name
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.Semester)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.SolveCount)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.SolveCount)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.CodeForcesId)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @Html.DisplayFor(model => model.CodeForcesId)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Status
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @{
+                            if (Model.MuteOrUnmute == "Unmute")
+                            {
+                                <span style="color:green" title="You have access in BlueSheet.">Active</span>
+                            }
+                            else
+                            {
+                                <span style="color:red" title="Rquest to the Admin for Active you.">Disable</span>
+                            }
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Request)
+                    </td>
+                    <td>:</td>
+                    <td>
+                        @{
+                            if (Model.Request == 0 && Model.MuteOrUnmute == "Unmute")
+                            {
+                                <span style="color:green">Request Accepted</span>
+                            }
+                            else if (Model.Request == 0 && Model.MuteOrUnmute == "Mute")
+                            {
+                                <span style="color:blue">Not Requested</span>
+                            }
+                            else if (Model.Request == 1 && Model.MuteOrUnmute == "Mute")
+                            {
+                                <span style="color:orange">Request Pending</span>
+                            }
+                        }
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    baguetteBox.run('.tz-gallery');
+</script>
+

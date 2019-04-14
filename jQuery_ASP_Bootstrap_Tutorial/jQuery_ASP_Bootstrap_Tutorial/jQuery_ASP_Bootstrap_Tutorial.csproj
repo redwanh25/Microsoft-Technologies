@@ -93,6 +93,7 @@
     <Content Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Modal_Popup.aspx" />
     <Content Include="Bootstrap_Tutorial\Bootstrap_40_To_50\Tabs_Plugin.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="HTML_Tutorial\PositionProperty.html" />
     <Content Include="image\HIM_1338.jpg" />
     <Content Include="image\icons8-lock-50.png" />
     <Content Include="image\IMG_20180517_022534-1.jpg" />

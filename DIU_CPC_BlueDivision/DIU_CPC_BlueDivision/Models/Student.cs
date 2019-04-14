@@ -31,6 +31,7 @@ namespace DIU_CPC_BlueDivision.Models
         public string CodeForcesId { get; set; }
         public string MuteOrUnmute { get; set; }
         public Nullable<int> Request { get; set; }
+        public byte[] StudentImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProblemsStudent> ProblemsStudents { get; set; }

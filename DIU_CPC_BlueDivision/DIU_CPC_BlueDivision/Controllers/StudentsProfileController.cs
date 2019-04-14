@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -28,6 +29,13 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: StudentsProfile/Edit/5
         public ActionResult Edit(string id)
         {
+            string userId = User.Identity.GetUserId();
+
+            if(userId != id)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -54,6 +62,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             student.SolveCount = studentsInformation.GetSolveCount(student.Id);
             student.MuteOrUnmute = studentsInformation.GetMuteOrUnmute(student.Id);
             student.Request = studentsInformation.GetRequest(student.Id);
+            student.StudentImage = studentsInformation.StudentImageByte(student.Id);
 
             if (ModelState.IsValid)
             {
@@ -66,6 +75,40 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return RedirectToAction("Index");
             }
             return View(student);
+        }
+
+        [HttpPost]
+        public ActionResult UploadProfilePic(HttpPostedFileBase image1)
+        {
+            string studentId = User.Identity.GetUserId();
+            StudentsInformation_Retrive sir = new StudentsInformation_Retrive();
+            bool img = sir.hasImage(studentId);
+            if(image1 != null)
+            {
+                byte[] imgArr = new byte[image1.ContentLength];
+                image1.InputStream.Read(imgArr, 0, image1.ContentLength);
+                sir.StoreProfilePic(studentId, imgArr);
+
+                //string fName = image1.FileName;
+                //string extention = Path.GetExtension(fName);
+                var filename = Server.MapPath("~/Image_ProfilePicture/" + studentId + ".jpg");
+                if (System.IO.File.Exists(filename))
+                {
+                    System.IO.File.Delete(filename);
+                }
+                image1.SaveAs(filename);
+            }
+            string str = "Edit/" + studentId;
+            return RedirectToAction(str);
+        }
+
+        [HttpPost]
+        public ActionResult RemoveProfilePic(string id)
+        {
+            StudentsInformation_Retrive sir = new StudentsInformation_Retrive();
+            sir.DeleteProfilePicture(id);
+            string str = "Edit/" + id;
+            return RedirectToAction(str);
         }
 
         protected override void Dispose(bool disposing)

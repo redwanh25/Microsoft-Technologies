@@ -365,6 +365,7 @@
     <Content Include="Image\loader1.gif" />
     <Content Include="Image\loader4.gif" />
     <Content Include="Image\Lock3.gif" />
+    <Content Include="Image\mountain-1.jpg" />
     <Content Include="Image\no-image.jpg" />
     <Content Include="Image\twitter.png" />
     <Content Include="Image\web-development.png" />
@@ -562,6 +563,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Image_ProfilePicture\" />
     <Folder Include="Views\RequestToAdmin\" />
     <Folder Include="Views\temp\" />
   </ItemGroup>

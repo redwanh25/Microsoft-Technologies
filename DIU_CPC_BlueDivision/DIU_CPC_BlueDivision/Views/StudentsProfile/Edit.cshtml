@@ -1,78 +1,395 @@
 ﻿@model DIU_CPC_BlueDivision.Models.Student
 
 @{
+    /**/
+
+    /**/
+
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<style>
+    #header {
+        background: url('../../Image/mountain-1.jpg') center no-repeat;
+        height: 200px;
+        width: 100%;
+        /*background-color: antiquewhite;*/
+    }
+
+        #header #personalProfile {
+            position: relative;
+            padding-top: 130px;
+            padding-left: 320px;
+            color: white;
+        }
+
+        #header #profilePic {
+            position: relative;
+            margin-top: -110px;
+            padding-left: 80px;
+        }
+
+    #header1 {
+        background: url('../../Image/mountain-1.jpg') center no-repeat;
+        height: 150px;
+        width: 100%; /*background-color: antiquewhite;*/
+    }
+
+        #header1 #personalProfile1 {
+            position: relative;
+            padding-top: 110px;
+            padding-left: 170px;
+            color: white;
+        }
+
+        #header1 #profilePic1 {
+            position: relative;
+            margin-top: -70px;
+            padding-left: 30px;
+        }
+
+    #save {
+        padding-top: 20px;
+    }
+
+    #imgUpload {
+        position: relative;
+        margin-left: 90px;
+        top: 30px;
+    }
+
+    #imgRemove {
+        position: relative;
+        margin-left: 236px;
+        top: 0px;
+    }
+
+    #imgUpload1 {
+        position: relative;
+        margin-left: 32px;
+        top: 6px;
+    }
+
+    #imgRemove1 {
+        position: relative;
+        margin-left: 113px;
+        top: -24px;
+    }
+</style>
+
+<div id="header" class="hidden-xs" style="border-radius:10px">
+    <h1 id="personalProfile">@Model.UserName</h1>
+    <div id="profilePic">
+        @if (Model.StudentImage != null)
+        {
+            var imgSrc = "";
+            var base64 = Convert.ToBase64String(Model.StudentImage);
+            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <img src="@imgSrc" width="200" height="200" style="border-radius:30px" />
+        }
+        else
+        {
+            <img id="targetImg" src="~/Image/no-image.jpg" width="200" height="200" style="border-radius:30px" />
+        }
+
+    </div>
+</div>
+
+<div id="header1" class="hidden-sm hidden-md hidden-lg" style="border-radius:10px">
+    <h4 id="personalProfile1">@Model.UserName</h4>
+    <div id="profilePic1">
+        @if (Model.StudentImage != null)
+        {
+            var imgSrc = "";
+            var base64 = Convert.ToBase64String(Model.StudentImage);
+            imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+            <img src="@imgSrc" width="120" height="120" style="border-radius:20px" />
+        }
+        else
+        {
+            <img id="targetImg1" src="~/Image/no-image.jpg" width="120" height="120" style="border-radius:20px" />
+        }
+
+    </div>
+</div>
+
+@using (Html.BeginForm("UploadProfilePic", "StudentsProfile", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <label id="imgUpload" class="btn btn-default btn-sm hidden-xs" style="border-radius:25px">
+        <span class="glyphicon glyphicon-open"></span>
+        <input id="imageBrowes" type="file" name="image1" style="display:none" />
+        <input id="imageBrowesSubmit" type="submit" value="submit" style="display:none" />
+    </label>
+}
+@using (Html.BeginForm("RemoveProfilePic", "StudentsProfile", new { id = Model.Id }))
+{
+    if (Model.StudentImage != null)
+    {
+        <label id="imgRemove" class="btn btn-danger btn-sm hidden-xs" style="border-radius:25px">
+            <span class="glyphicon glyphicon-trash"></span>
+            <input type="submit" value="submit" style="display:none" onclick="return confirm('are you sure you want to Remove Profile Picture ID = @Model.Id?')" />
+        </label>
+    }
+}
+
+@using (Html.BeginForm("UploadProfilePic", "StudentsProfile", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    <label id="imgUpload1" class="btn btn-default btn-sm hidden-sm hidden-md hidden-lg" style="border-radius:25px">
+        <span class="glyphicon glyphicon-open"></span>
+        <input id="imageBrowes1" type="file" name="image1" style="display:none" />
+        <input id="imageBrowesSubmit1" type="submit" value="submit" style="display:none" />
+    </label>
+}
+@using (Html.BeginForm("RemoveProfilePic", "StudentsProfile", new { id = Model.Id }))
+{
+    if (Model.StudentImage != null)
+    {
+        <label id="imgRemove1" class="btn btn-danger btn-sm hidden-sm hidden-md hidden-lg" style="border-radius:25px">
+            <span class="glyphicon glyphicon-trash"></span>
+            <input type="submit" value="submit" style="display:none" onclick="return confirm('are you sure you want to Remove Profile Picture ID = @Model.Id?')" />
+        </label>
+    }
+}
+
 
 @using (Html.BeginForm())
 {
+    <div id="save" style="position:relative" class="pull-right">
+        <input type="submit" value="Save" class="btn btn-default btn-sm" />
+    </div>
+    <br />
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Student</h4>
-        <hr />
+
+    <div class="row" style="margin-top:70px; font-size:17px;">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
-
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @readonly="true" } })
-                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        <div class="col-xs-12 col-sm-6">
+            <div style="overflow-x:auto;">
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.DisplayFor(model => model.UserName)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.EmailAddress)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.DisplayFor(model => model.EmailAddress)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.StudentId)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.EditorFor(model => model.StudentId, new { htmlAttributes = new { @class = "form-control", @style = "height:24px" } })
+                            @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.FullName)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @style = "height:24px" } })
+                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control", @style = "height:24px" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
-                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>*@
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.StudentId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.StudentId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.StudentId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.CodeForcesId, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CodeForcesId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CodeForcesId, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        <div class="col-xs-12 col-sm-6">
+            <div style="overflow-x:auto;">
+                <table class="table table-hover">
+                    <tr>
+                        <td>
+                            BlueSheet Name
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.DisplayFor(model => model.Semester)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.SolveCount)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.DisplayFor(model => model.SolveCount)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.CodeForcesId)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @Html.EditorFor(model => model.CodeForcesId, new { htmlAttributes = new { @class = "form-control", @style = "height:24px" } })
+                            @Html.ValidationMessageFor(model => model.CodeForcesId, "", new { @class = "text-danger" })
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Status
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @{
+                                if (Model.MuteOrUnmute == "Unmute")
+                                {
+                                    <span style="color:green" title="You have access in BlueSheet.">Active</span>
+                                }
+                                else
+                                {
+                                    <span style="color:red" title="Rquest to the Admin for Active you.">Disable</span>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(model => model.Request)
+                        </td>
+                        <td>:</td>
+                        <td>
+                            @{
+                                if (Model.Request == 0 && Model.MuteOrUnmute == "Unmute")
+                                {
+                                    <span style="color:green">Request Accepted</span>
+                                }
+                                else if (Model.Request == 0 && Model.MuteOrUnmute == "Mute")
+                                {
+                                    <span style="color:orange">Not Requested</span>
+                                }
+                                else if (Model.Request == 1 && Model.MuteOrUnmute == "Mute")
+                                {
+                                    <span style="color:orange">Request Pending</span>
+                                }
+                            }
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+}
+<button class="btn btn-default btn-sm" type="button" onclick="location.href='@Url.Action("Index", "StudentsProfile")'"> Back to List </button>
+
+<script type="text/javascript">
+    $('#imageBrowesSubmit').click(function () {
+        var extension = $('#imageBrowes').val().split('.').pop().toLowerCase();
+        if ($('#imageBrowes').val() == '') {
+            return true;
+        }
+        else if ($.inArray(extension, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
+            //alert('Sorry, You can only upload an image.');
+            swal("Sorry!", "You can only upload an image!", "error");     //swal dile kaj kore na.
+            return false;
+        }
+    });
+
+    $('#imageBrowesSubmit1').click(function () {
+        var extension = $('#imageBrowes1').val().split('.').pop().toLowerCase();
+        if ($('#imageBrowes1').val() == '') {
+            return true;
+        }
+        else if ($.inArray(extension, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
+            //alert('Sorry, You can only upload an image.');
+            swal("Sorry!", "You can only upload an image!", "error");     //swal dile kaj kore na.
+            return false;
+        }
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#imageBrowes").change(function () {
+            $('#imageBrowesSubmit').trigger('click');
+            var File = this.files;
+            if (File && File[0]) {
+                ReadImage(File[0]);
+            }
+        })
+    })
+    var ReadImage = function (file) {
+        var reader = new FileReader;
+        var image = new Image;
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                //var height = this.height;
+                //var width = this.width;
+                //var type = file.type;
+                //var size = ~~(file.size / 1024) + "KB";
+                //$("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+
+                $("#targetImg").attr('src', _file.target.result);
+                $("#imgPreview").show();
+            }
+        }
+    }
+    //var ClearPreview = function () {
+    //    $("#imageBrowes").val('');
+    //    $("#description").text('');
+    //    $("#imgPreview").hide();
+    //}
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#imageBrowes1").change(function () {
+            $('#imageBrowesSubmit1').trigger('click');
+            var File = this.files;
+            if (File && File[0]) {
+                ReadImage1(File[0]);
+            }
+        })
+    })
+    var ReadImage1 = function (file) {
+        var reader = new FileReader;
+        var image = new Image;
+        reader.readAsDataURL(file);
+        reader.onload = function (_file) {
+            image.src = _file.target.result;
+            image.onload = function () {
+
+                //var height = this.height;
+                //var width = this.width;
+                //var type = file.type;
+                //var size = ~~(file.size / 1024) + "KB";
+                //$("#description").text("Size:" + size + ", " + height + "X " + width + ", " + type + "");
+
+                $("#targetImg1").attr('src', _file.target.result);
+                $("#imgPreview1").show();
+            }
+        }
+    }
+    //var ClearPreview = function () {
+    //    $("#imageBrowes").val('');
+    //    $("#description").text('');
+    //    $("#imgPreview").hide();
+    //}
+</script>

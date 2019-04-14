@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        #header {
+            width: 600px;
+            height: 2000px;
+            background-color: black;
+        }
+
+            #header #headerbar {
+                position: fixed;
+                /*top:50px;*/ /*browser theke top 50. no matter kothay ase.*/
+                width: 500px;
+                height: 100px;
+                background-color: red;
+                z-index: 999;
+            }
+
+                #header #headerbar h1 {
+                    position: relative; /*relative deoya mane normal kora.*/
+                    left: 50px; /*ralative use na korle left right top bottom aigula kaj korbe na.*/
+                }
+
+            #header #head1 {
+                position: relative;
+                color: white;
+                top: 550px;
+                left:150px;
+            }
+
+        #d1 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: silver;
+            top: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <br /><br />
+    <h2>Index</h2>
+
+    <div id="header">
+        <div id="headerbar">
+            <h1>mysite.com</h1>
+        </div>
+        <h1 id="head1">Learning is simple</h1>
+        <div id="d1">
+
+        </div>
+    </div>
+</body>
+</html>

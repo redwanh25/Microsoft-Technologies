@@ -53,6 +53,7 @@
           <Property Name="CodeForcesId" Type="nvarchar" MaxLength="100" />
           <Property Name="MuteOrUnmute" Type="nvarchar" MaxLength="100" />
           <Property Name="Request" Type="int" />
+          <Property Name="StudentImage" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK__Problems__BlueSh__6C190EBB">
           <End Role="BlueSheets" Type="Self.BlueSheets" Multiplicity="0..1" />
@@ -196,6 +197,7 @@
           <NavigationProperty Name="ProblemsStudents" Relationship="DIU_CPC_BlueDivisionModel1.FK__ProblemsS__Stude__123EB7A3" FromRole="Student" ToRole="ProblemsStudent" />
           <Property Name="MuteOrUnmute" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Request" Type="Int32" />
+          <Property Name="StudentImage" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK__ProblemsS__Probl__114A936A">
           <End Type="DIU_CPC_BlueDivisionModel1.Problem" Role="Problem" Multiplicity="1" />
@@ -265,6 +267,7 @@
           <EntitySetMapping Name="Students">
             <EntityTypeMapping TypeName="DIU_CPC_BlueDivisionModel1.Student">
               <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentImage" ColumnName="StudentImage" />
                 <ScalarProperty Name="Request" ColumnName="Request" />
                 <ScalarProperty Name="MuteOrUnmute" ColumnName="MuteOrUnmute" />
                 <ScalarProperty Name="CodeForcesId" ColumnName="CodeForcesId" />
