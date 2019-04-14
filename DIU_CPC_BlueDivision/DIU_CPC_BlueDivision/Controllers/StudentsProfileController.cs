@@ -107,6 +107,13 @@ namespace DIU_CPC_BlueDivision.Controllers
         {
             StudentsInformation_Retrive sir = new StudentsInformation_Retrive();
             sir.DeleteProfilePicture(id);
+
+            var filename = Server.MapPath("~/Image_ProfilePicture/" + id + ".jpg");
+            if (System.IO.File.Exists(filename))
+            {
+                System.IO.File.Delete(filename);
+            }
+
             string str = "Edit/" + id;
             return RedirectToAction(str);
         }
