@@ -21,6 +21,10 @@
     }
 }
 
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
 <style>
     table.fixed td:nth-of-type(3) {
         width: 10px;
@@ -36,6 +40,13 @@
 
     .info {
         font-size: 25px;
+    }
+</style>
+
+@*amcharts clock*@
+<style>
+    #chartdiv {
+        height: 180px;
     }
 </style>
 
@@ -56,7 +67,7 @@
 
 }
 
-<br /><br />
+
 
 <div class="row">
     @{
@@ -70,16 +81,34 @@
         //    dateTime = p1.retriveDateTime(blueSheetId);
         //}
     }
-    <div class="pull-right hidden-xs">
-        <div class="countdownContainer text-center">
-            <p style="font-size:25px">
-                <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
-            </p>
-            <p class="info">
-                <span style="color:orchid"><b>@dateTime</b></span>
-            </p>
+    <div class="row">
+        @*amcharts clock*@
+        <div class="col-sm-3 col-md-3 col-lg-2 col-sm-offset-1 col-md-offset-2 col-lg-offset-5">
+            <div id="chartdiv"></div>
+        </div>
+        <div class="col-sm-8 col-md-7 col-lg-5">
+            <div class="hidden-xs">
+                <br /><br />
+                @if (secureCode != student)
+                {
+                <div class="pull-right hidden-xs" style="padding-top:15px; padding-right:30px">
+                    <input id="Problem" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px" />
+                    <input id="Day" type="text" placeholder="Minute*" class="form-control" style="width:80px; height:25px; margin-top:5px" />
+                    <input id="setValue" type="submit" value="Set" class="btn btn-warning btn-sm" style="width:80px; height:25px; margin-top:5px" />
+                </div>
+                }
+                <div class="countdownContainer text-center">
+                    <p style="font-size:25px">
+                        <span>You have to Solve <span style="color:red; font-size:30px"> <b>@problem</b> </span>problems</span>
+                    </p>
+                    <p class="info">
+                        <span style="color:orchid"><b>@dateTime</b></span>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
+
     <div class="hidden-sm hidden-md hidden-lg">
         <div class="countdownContainer text-center">
             <p style="font-size:25px">
@@ -90,24 +119,22 @@
             </p>
         </div>
     </div>
+
     @{
         if (secureCode != student)
         {
-            <div class="pull-right hidden-xs" style="padding-top:15px; padding-right:30px">
-                <input id="Problem" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px" />
-                <input id="Day" type="text" placeholder="Minute*" class="form-control" style="width:80px; height:25px; margin-top:5px" />
-                <input id="setValue" type="submit" value="Set" class="btn btn-warning btn-sm" style="width:80px; height:25px; margin-top:5px" />
-            </div>
             <div class="hidden-sm hidden-md hidden-lg" style="padding-top:15px">
                 <div align="center">
                     <input id="Problem1" type="text" placeholder="Problem*" class="form-control" style="width:80px; height:25px; display:inline" />
                     <input id="Day1" type="text" placeholder="Day*" class="form-control" style="width:80px; height:25px; display:inline" />
                     <input id="setValue1" type="submit" value="Set" class="btn btn-warning btn-sm" style="width:80px; height:25px; display:inline" />
                 </div>
-                <br /><br />
             </div>
         }
     }
+</div>
+<div class="hidden-lg">
+    <br /><br />
 </div>
 
 <div class="container">
@@ -271,9 +298,9 @@
                                         if (comment != "")
                                         {
                                             <button type="button" style="border:none; padding:0; outline:none" class="btn btn-sm btn-default btnPopover" title="Admin's Comment" data-content="@comment"
-                                                        data-trigger="focus" data-toggle="popover">
-                                                    <span class="glyphicon glyphicon-info-sign"></span>
-                                                </button>
+                                                    data-trigger="focus" data-toggle="popover">
+                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                            </button>
                                         }
                                     }
                                 </td>
@@ -351,6 +378,109 @@
         @item.UserName
         <br />
     }*@
+
+@*amcharts clock*@
+<script>
+    /**
+     * ---------------------------------------
+     * This demo was created using amCharts 4.
+     *
+     * For more information visit:
+     * https://www.amcharts.com/
+     *
+     * Documentation is available at:
+     * https://www.amcharts.com/docs/v4/
+     * ---------------------------------------
+     */
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    // create chart
+    var chart = am4core.create("chartdiv", am4charts.GaugeChart);
+    //chart.exporting.menu = new am4core.ExportMenu();
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+
+    chart.startAngle = -90;
+    chart.endAngle = 270;
+
+    var axis = chart.xAxes.push(new am4charts.ValueAxis());
+    axis.min = 0;
+    axis.max = 12;
+    axis.strictMinMax = true;
+
+    axis.renderer.line.strokeWidth = 2;
+    axis.renderer.line.strokeOpacity = 1;
+    axis.renderer.minLabelPosition = 0.05; // hides 0 label
+    axis.renderer.inside = true;
+    axis.renderer.labels.template.radius = 20;
+    axis.renderer.axisFills.template.disabled = true;
+    axis.renderer.grid.template.disabled = true;
+    axis.renderer.ticks.template.length = 12;
+    axis.renderer.ticks.template.strokeOpacity = 1;
+
+    // serves as a clock face fill
+    var range = axis.axisRanges.create();
+    range.startValue = 0;
+    range.endValue = 12;
+    range.grid.visible = false;
+    range.tick.visible = false;
+    range.label.visible = false;
+
+    var axisFill = range.axisFill;
+    axisFill.fillOpacity = 1;
+    axisFill.disabled = false;
+    axisFill.fill = new am4core.InterfaceColorSet().getFor("fill");
+
+    // hands
+    var hourHand = chart.hands.push(new am4charts.ClockHand());
+    hourHand.radius = am4core.percent(40);
+    hourHand.startWidth = 4;
+    hourHand.endWidth = 1;
+    hourHand.rotationDirection = "clockWise";
+    hourHand.pin.radius = 3;
+    hourHand.zIndex = 0;
+
+    var minutesHand = chart.hands.push(new am4charts.ClockHand());
+    minutesHand.rotationDirection = "clockWise";
+    minutesHand.startWidth = 3;
+    minutesHand.endWidth = 1;
+    minutesHand.radius = am4core.percent(60);
+    minutesHand.zIndex = 1;
+    minutesHand.pin.radius = 3;
+
+    var secondsHand = chart.hands.push(new am4charts.ClockHand());
+    secondsHand.fill = am4core.color("#DD0000");
+    secondsHand.stroke = am4core.color("#DD0000");
+    secondsHand.radius = am4core.percent(70);
+    secondsHand.rotationDirection = "clockWise";
+    secondsHand.pin.radius = 3;
+    secondsHand.zIndex = 2;
+    secondsHand.startWidth = 1;
+
+    updateHands();
+
+    setInterval(() => {
+        updateHands();
+    }, 1000);
+
+    function updateHands() {
+        // get current date
+        var now = new Date();
+        var date = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+        var hours = date.getHours() + 6;
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+
+        // set hours
+        hourHand.showValue(hours + minutes / 60, 0);
+        // set minutes
+        minutesHand.showValue(12 * (minutes + seconds / 60) / 60, 0);
+        // set seconds
+        secondsHand.showValue(12 * date.getSeconds() / 60, 300);
+    }
+</script>
 
 <script type="text/javascript">
 
