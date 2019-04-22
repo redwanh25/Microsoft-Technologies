@@ -17,6 +17,8 @@ namespace Programming.Collections_STL.List_L
             list.Add(new KeyValuePair<int, string>(3, "Aatan"));
             list.Add(new KeyValuePair<int, string>(2, "Aatan"));
 
+            Console.WriteLine(list[4].Key);
+
             list.Sort((p1, p2) => p1.Key.CompareTo(p2.Key));
 
             IEnumerator<KeyValuePair<int, string>> itt = list.GetEnumerator();

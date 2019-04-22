@@ -11,8 +11,8 @@ namespace Programming.Array_All.Array2D
         public static void Main(String[] args)
         {
             //double[][] ServicePoint = new double[10][9]; // <-- gives an error (1)
-            //double[][] ServicePoint = new double[10][]; // <-- ok (2)
-            //double[,] ServicePoint = new double[10, 9]; // <-- ok (3)
+            //double[][] ServicePoint = new double[10][];  // <-- ok (2)
+            //double[,] ServicePoint = new double[10, 9];  // <-- ok (3)
 
             //int[] p = { 1, 2, 3 };
             //int[] q = { 4, 5, 6 };

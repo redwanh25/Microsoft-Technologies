@@ -20,8 +20,9 @@ namespace Programming.Collections_STL.Dictionary_D
 //            List<KeyValuePair<string, string>> myList = names.ToList();
             var myList = names.ToList();
             myList.Sort((pair1, pair2) => pair1.Value.CompareTo(pair2.Value));
-// two way
-            //names = names.OrderBy(i => i.Value);  // its not gonna work
+            // two way
+            //names = names.OrderBy(i => i.Value);                  // its not gonna work
+            //var ordered = names.OrderBy(x => x.Value).ToList();   // it is working
             var ordered = names.OrderBy(x => x.Value);
 // three way
             List<KeyValuePair<string, string>> my = names.ToList();

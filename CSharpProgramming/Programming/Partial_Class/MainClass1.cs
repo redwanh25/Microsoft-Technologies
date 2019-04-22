@@ -17,9 +17,9 @@ namespace Programming.Partial_Class
             Console.WriteLine(fullName1);
 
             PartialCustomer pc = new PartialCustomer();
-            cus.FirstName = "Shihab";
-            cus.LastName = "Khan";
-            string fullName2 = cus.GetFullName();
+            pc.FirstName = "Shihab";
+            pc.LastName = "Khan";
+            string fullName2 = pc.GetFullName();
             Console.WriteLine(fullName2);
         }
         

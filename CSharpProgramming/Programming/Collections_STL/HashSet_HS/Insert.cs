@@ -23,7 +23,7 @@ namespace Programming.Collections_STL.HashSet_HS
                 Console.WriteLine(name);
             }
 
-            names = new HashSet<string>(names.OrderBy(i => i));     // Ascending order sort
+            names = names.OrderBy(i => i).ToHashSet();     // Ascending order sort
             foreach (var name in names)
             {
                 Console.WriteLine(name);

@@ -39,7 +39,7 @@ namespace Programming.Object_Oriented.Constructor
             StaticConstructor sc = new StaticConstructor(1, "redwan", 2, 4.5);
             Console.WriteLine("{0} {1} {2} {3}", sc.a, sc.str, sc.ln, sc.lf);
 
-            Console.WriteLine(f);   // aitai holo static constructor er shubidha.
+            Console.WriteLine(StaticConstructor.f);   // aitai holo static constructor er shubidha.
             f = 1.2f;
             dl = 23.99;
             Console.WriteLine(f + " " + dl);

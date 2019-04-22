@@ -24,7 +24,7 @@ namespace Programming.Object_Oriented.ObjectCopy
             obj2 = obj1;          // hashcode dui object er e same hobe. mane dui tar address e same hobe.
           //  Obj obj2 = obj1;
 
-            obj1.i = 1;
+            obj1.i = 10;
             Console.WriteLine(obj1.i + " " + obj1.j);
             Console.WriteLine(obj2.i + " " + obj2.j);
 

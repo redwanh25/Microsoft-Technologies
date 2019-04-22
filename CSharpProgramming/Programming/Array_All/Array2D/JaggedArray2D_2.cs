@@ -8,12 +8,12 @@ namespace Programming.Array_All.Array2D
 {
     class JaggedArray2D_2
     {
-        public static void Main(String[] arg)
+        public static void Main(string[] arg)
         {
             int[][] arr = new int[2][];
 
-         //   arr = arr.Select(i => new int[4]).ToArray();
-            
+            //   arr = arr.Select(i => new int[4]).ToArray();
+
             arr[0] = new int[4];        // ami jodi user theke input na niye kono value assign kori taile amk ai vabe declere kore dite hobe.
             arr[1] = new int[6];        // noile error hobe.  mane ai dui ta line na likhe amra arr[0][1] = 5; aita likhte partam na.
 
