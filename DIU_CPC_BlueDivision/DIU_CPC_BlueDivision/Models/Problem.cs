@@ -11,8 +11,7 @@ namespace DIU_CPC_BlueDivision.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Problem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,7 @@ namespace DIU_CPC_BlueDivision.Models
         }
     
         public int Id { get; set; }
-        [Required]
         public string ProblemName { get; set; }
-        [Required]
         public string ProblemLink { get; set; }
         public string Comment { get; set; }
         public Nullable<int> BlueSheetId { get; set; }

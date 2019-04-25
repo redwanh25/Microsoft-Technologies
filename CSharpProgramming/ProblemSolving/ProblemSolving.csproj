@@ -60,12 +60,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeForces\File_Name_978_problem_B.cs" />
-    <Compile Include="CodeForces\Phone_numbers .cs" />
-    <Compile Include="CodeForces\Pizza_979_problem_A.cs" />
-    <Compile Include="CodeForces\PointsInSegments.cs" />
-    <Compile Include="CodeForces\Polycarps.cs" />
-    <Compile Include="CodeForces\Remove_Duplicates_978_problem_A.cs" />
+    <Compile Include="CodeForces\contest_1152_problem_A.cs" />
+    <Compile Include="CodeForces_Diff\File_Name_978_problem_B.cs" />
+    <Compile Include="CodeForces_Diff\Phone_numbers .cs" />
+    <Compile Include="CodeForces_Diff\Pizza_979_problem_A.cs" />
+    <Compile Include="CodeForces_Diff\PointsInSegments.cs" />
+    <Compile Include="CodeForces_Diff\Polycarps.cs" />
+    <Compile Include="CodeForces_Diff\Remove_Duplicates_978_problem_A.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,5 +84,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -20,6 +20,7 @@ namespace DIU_CPC_BlueDivision.Models
         public string StudentId { get; set; }
         public string SolutionLink { get; set; }
         public string ShareSolutionLink { get; set; }
+        public Nullable<System.DateTime> SubmitDate { get; set; }
     
         public virtual Problem Problem { get; set; }
         public virtual Student Student { get; set; }

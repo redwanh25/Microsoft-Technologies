@@ -319,7 +319,7 @@
                                             {
                                                 if (ps.IsSolved == "Accepted")
                                                 {
-                                                    <input checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
+                                                    <input onclick="return false;" checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" title="You Can not Unchecked. you have to contact with admin."/>
                                                 }
                                                 else
                                                 {
@@ -554,7 +554,7 @@
     $('#ExcelFileInputButton').click(function () {
         var extension = $('#ExcelFileInput').val().split('.').pop().toLowerCase();
         if ($('#ExcelFileInput').val() != '') {
-            if ($.inArray(extension, ['xls', 'xlsx']) == -1) {
+            if ($.inArray(extension, ['xls', 'xlsx', 'csv']) == -1) {
                 //alert('Sorry, You can only upload an image.');
                 swal("Sorry!", "You can only upload a Excel File!", "error");
                 return false;

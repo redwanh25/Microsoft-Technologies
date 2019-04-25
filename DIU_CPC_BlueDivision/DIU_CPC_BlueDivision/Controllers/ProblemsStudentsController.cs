@@ -293,6 +293,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                         problemsStudent.ProblemId = problemId;
                         problemsStudent.StudentId = userId;
                         problemsStudent.IsSolved = "Accepted";
+                        problemsStudent.SubmitDate = DateTime.UtcNow.AddHours(+6);
 
                         db.ProblemsStudents.Add(problemsStudent);
                         db.SaveChanges();
