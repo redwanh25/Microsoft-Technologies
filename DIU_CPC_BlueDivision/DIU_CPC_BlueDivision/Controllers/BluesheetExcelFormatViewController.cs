@@ -16,6 +16,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
         private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
         private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
 
         // GET: BluesheetExcelFormatView
         public ActionResult Index(string semester)
@@ -43,11 +44,15 @@ namespace DIU_CPC_BlueDivision.Controllers
                 }
                 
             }
-            else
+            else if(str == superAdmin || str == admin)
             {
                 //ProblemSolvingRanking problemSolvingRanking = new ProblemSolvingRanking();
                 //problemSolvingRanking.updateStudentsForSolveCount("Accepted", semester);
                 ViewBag.semester = semester;
+            }
+            else
+            {
+                throw new Exception();
             }
 
             BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();

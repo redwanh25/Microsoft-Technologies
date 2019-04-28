@@ -18,6 +18,7 @@ namespace DIU_CPC_BlueDivision.Controllers
     {
         private BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
         string student = ConfigurationManager.AppSettings["Student"].ToString();
+        string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
 
         // GET: RequestStudents
         public ActionResult Index()
@@ -30,7 +31,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (secureCode == student)
+            if (secureCode == student || secureCode == admin_1)
             {
                 throw new Exception();
             }

@@ -21,6 +21,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
         private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
         private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
 
         // GET: ListOfStudents
         public ActionResult Index(string SearchName, string SelectSemester)
@@ -36,7 +37,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }

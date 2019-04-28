@@ -16,6 +16,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
         private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
         private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
 
         public ActionResult Index()
         {

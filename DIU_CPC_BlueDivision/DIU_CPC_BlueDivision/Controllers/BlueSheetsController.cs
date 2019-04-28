@@ -21,6 +21,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
         private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
         private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
 
         // GET: BlueSheets
         public ActionResult Index()
@@ -33,7 +34,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }
@@ -53,7 +54,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }
@@ -81,7 +82,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }
@@ -105,7 +106,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 UserName = aspNetUsersBusinessLayer.GetUserName(str);
                 secureCode = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (secureCode == student)
+            if (secureCode == student || secureCode == admin_1)
             {
                 throw new Exception();
             }
@@ -219,7 +220,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }
@@ -249,7 +250,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
                 str = aspNetUsersBusinessLayer.GetSecureCode(str);
             }
-            if (str == student)
+            if (str == student || str == admin_1)
             {
                 throw new Exception();
             }
