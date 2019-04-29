@@ -1,0 +1,229 @@
+﻿@model DIU_CPC_BlueDivision.Models.Contest_Contestants_ContestContestant
+@using DIU_CPC_BlueDivision.Models;
+@using System.Text;
+@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.DifferentLayout_Database;
+@using DIU_CPC_BlueDivision.DatabaseConnection;
+
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "Index";
+}
+<style>
+    /*table.fixed {
+        table-layout: fixed;
+        width:2000px;
+    }*/
+
+    table.fixed td {
+        overflow: hidden;
+    }
+
+        table.fixed td:nth-of-type(2) {
+            min-width: 300px;
+        }
+</style>
+
+<br /><br /><br />
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6">
+        <h4>Select Number of Rows</h4>
+        <div class="form-group">
+            <select name="state" id="maxRows" class="form-control" style="width:150px;">
+                <option value="50000">Show All</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="50">50</option>
+                <option value="75">75</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div style="overflow-x:auto;">
+            <table class="table table-hover table-bordered table-responsive table-striped fixed" style="font-size:16px;" id="mytable">
+                @*<tr class="success text-center" style="font-weight: bold;">
+            <td colspan="4">Standing</td>
+        </tr>*@
+                <tr class="success text-center" style="font-weight: bold;">
+                    <td colspan="4">Student ID</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.StudentId</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Name</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.ContestantsName</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">CF Handle</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.CFHandle</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Score (Contest solve+ 0.25 upsolve)</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.Score</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Total solve</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.TotalSolve</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Total participation</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.TotalParticipation</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Online participation </td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.OnlineParticipation</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4"></td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td>Onsite</td>
+                        <td>Upsolves</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Solve count</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td>@contestantsTable.SolveCountOnsite</td>
+                        <td>@contestantsTable.SolveCountUpsolves</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td colspan="4">Average solve per contest</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        <td colspan="2">@contestantsTable.AverageSolvePerContest</td>
+                    }
+                </tr>
+                <tr class="success text-center" style="font-weight: bold">
+                    <td>Contest Name</td>
+                    <td>Date</td>
+                    <td>Problems</td>
+                    <td>Participation</td>
+                </tr>
+
+                @foreach (ContestTable contestTable in Model.contestTables.ToList())
+                {
+                <tr>
+                    <td>@contestTable.ContestName</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => contestTable.Date)
+                    </td>
+                    <td>@contestTable.NumberOfProblems</td>
+                    <td>@contestTable.Participation</td>
+
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    {
+                        foreach (ContestContestant contestContestant in Model.contestContestants.ToList())
+                        {
+                            if (contestContestant.ContestId == contestTable.Id && contestContestant.ContestantId == contestantsTable.Id)
+                            {
+                                <td>@contestContestant.ContestTimeSolve</td>
+                                <td>@contestContestant.UpSolve</td>
+                            }
+                        }
+
+                    }
+
+                </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+<br />
+<div class="pagination-container" align="center">
+    <nav>
+        <ul class="pagination"></ul>
+    </nav>
+</div>
+
+<script type="text/javascript">
+    var table = '#mytable'
+    $('#maxRows').on('change', function () {
+        $('.pagination').html('');
+        var trnum = 0
+        var maxRows = parseInt($(this).val())
+        var totalRows = $(table + ' tbody tr').length
+
+        // hide column 5 select korle 5 ta row show korbe
+        $(table + ' tr:gt(0)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+
+        // show pagination
+        if (totalRows > maxRows) {
+            var pagenum = Math.ceil(totalRows / maxRows);
+            //$('.pagination').append('<li><a href="#">&laquo;</a></li>').show();
+            for (var i = 1; i <= pagenum;) {
+                $('.pagination').append('<li data-page="' + i + '">\<span>' + i++ + '<span class="sr-only">(current)</span></span>\</li>').show()
+            }
+            //$('.pagination').append('<li><a href="#">&raquo;</a></li>').show();
+        }
+        // first value ta active rakhe always
+        $('.pagination li:first-child').addClass('active')
+
+        // page a click korar pore column kore show kore
+        $('.pagination li').on('click', function () {
+            var pageNum = $(this).attr('data-page')
+            var trIndex = 0;
+            $('.pagination li').removeClass('active')
+            $(this).addClass('active');
+            $(table + ' tr:gt(0)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
+        })
+    })
+    // get serial no
+    $(function () {
+        $('table tr:eq(0)').prepend('<td class="text-center">No</td>')
+        var id = 0;
+        $('table tr:gt(0)').each(function () {
+            id++
+            $(this).prepend('<td style="font-size:19px"  class="text-center">' + id + '</td>')
+        })
+    })
+</script>

@@ -241,6 +241,10 @@
     <Compile Include="Controllers\BluesheetExcelFormatViewController.cs" />
     <Compile Include="Controllers\BlueSheetRegisterStudentsController.cs" />
     <Compile Include="Controllers\BlueSheetsController.cs" />
+    <Compile Include="Controllers\ContestantsTablesController.cs" />
+    <Compile Include="Controllers\ContestContestantsController.cs" />
+    <Compile Include="Controllers\ContestSheetExcelFormatViewController.cs" />
+    <Compile Include="Controllers\ContestTablesController.cs" />
     <Compile Include="Controllers\CutOffStudentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -324,6 +328,31 @@
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Blue_Prob_ProbStu_Stu.cs" />
+    <Compile Include="Models\ContestAndContestantsTable_Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestAndContestantsTable_Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestAndContestantsTable_Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestAndContestantsTable_Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContestAndContestantsTable_Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestantsTable.cs">
+      <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestContestant.cs">
+      <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestTable.cs">
+      <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Contest_Contestants_ContestContestant.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Problem.cs">
       <DependentUpon>BlueSheetsProblemsStudents_Model.tt</DependentUpon>
@@ -413,6 +442,16 @@
       <DependentUpon>BlueSheetsProblemsStudents_Model.edmx</DependentUpon>
       <LastGenOutput>BlueSheetsProblemsStudents_Model.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\ContestAndContestantsTable_Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContestAndContestantsTable_Model.edmx</DependentUpon>
+      <LastGenOutput>ContestAndContestantsTable_Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ContestAndContestantsTable_Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ContestAndContestantsTable_Model.edmx</DependentUpon>
+      <LastGenOutput>ContestAndContestantsTable_Model.cs</LastGenOutput>
+    </Content>
     <Content Include="RegistrationAndLoginPage\Logout.js" />
     <Content Include="RegistrationAndLoginPage\RegisterAndLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -471,6 +510,13 @@
     </Content>
     <Content Include="Excel_Files\ExcelFileDemo1.xlsx" />
     <Content Include="Excel_Files\ExcelFileDemo2.xlsx" />
+    <EntityDeploy Include="Models\ContestAndContestantsTable_Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ContestAndContestantsTable_Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ContestAndContestantsTable_Model.edmx.diagram">
+      <DependentUpon>ContestAndContestantsTable_Model.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\diucpc.pubxml" />
     <None Include="Properties\PublishProfiles\redwan.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -563,6 +609,22 @@
     <Content Include="Views\StudentsProfile\Index.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_Unauthorize.cshtml" />
+    <Content Include="Views\ContestTables\Create.cshtml" />
+    <Content Include="Views\ContestTables\Delete.cshtml" />
+    <Content Include="Views\ContestTables\Details.cshtml" />
+    <Content Include="Views\ContestTables\Edit.cshtml" />
+    <Content Include="Views\ContestTables\Index.cshtml" />
+    <Content Include="Views\ContestantsTables\Create.cshtml" />
+    <Content Include="Views\ContestantsTables\Delete.cshtml" />
+    <Content Include="Views\ContestantsTables\Details.cshtml" />
+    <Content Include="Views\ContestantsTables\Edit.cshtml" />
+    <Content Include="Views\ContestantsTables\Index.cshtml" />
+    <Content Include="Views\ContestContestants\Create.cshtml" />
+    <Content Include="Views\ContestContestants\Delete.cshtml" />
+    <Content Include="Views\ContestContestants\Details.cshtml" />
+    <Content Include="Views\ContestContestants\Edit.cshtml" />
+    <Content Include="Views\ContestContestants\Index.cshtml" />
+    <Content Include="Views\ContestSheetExcelFormatView\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
