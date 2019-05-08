@@ -41,5 +41,37 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteReader();
             }
         }
+
+        public void deleteContest(int contestId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Delete_Contest_Procedure";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = con;
+                con.Open();
+                cmd.Parameters.AddWithValue("@contestId", contestId);
+
+                cmd.ExecuteReader();
+            }
+        }
+
+        public void deleteContestant(int contestantId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Delete_Contestant_Procedure";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = con;
+                con.Open();
+                cmd.Parameters.AddWithValue("@contestantId", contestantId);
+
+                cmd.ExecuteReader();
+            }
+        }
     }
 }
