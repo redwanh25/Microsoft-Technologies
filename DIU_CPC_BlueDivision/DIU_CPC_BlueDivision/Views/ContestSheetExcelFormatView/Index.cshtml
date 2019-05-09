@@ -74,7 +74,9 @@
                     <td colspan="4">CF Handle</td>
                     @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
                     {
-                        <td colspan="2">@contestantsTable.CFHandle</td>
+                        <td colspan="2">
+                            <a target="_blank" href="@contestantsTable.CFHandleLink">@contestantsTable.CFHandle</a>
+                        </td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
@@ -147,7 +149,7 @@
                 @foreach (ContestTable contestTable in Model.contestTables.ToList())
                 {
                 <tr>
-                    <td>@contestTable.ContestName</td>
+                    <td><a target="_blank" href="@contestTable.ContestLink">@contestTable.ContestName</a></td>                    
                     <td>
                         @Html.DisplayFor(modelItem => contestTable.Date)
                     </td>

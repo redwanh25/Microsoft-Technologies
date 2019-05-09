@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.ContestantsTable>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                /**/
+
+                ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -23,71 +27,77 @@
         <th>
             @Html.DisplayNameFor(model => model.CFHandleLink)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Score)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalSolve)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TotalParticipation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OnlineParticipation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SolveCountOnsite)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SolveCountUpsolves)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AverageSolvePerContest)
-        </th>
-        <th></th>
+        <th>Action</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContestantsName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StudentId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CFHandle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CFHandleLink)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Score)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalSolve)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TotalParticipation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OnlineParticipation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SolveCountOnsite)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContestantsName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CFHandle)
+            </td>
+            <td>
+                <a target="_blank" href="@item.CFHandleLink">@Html.DisplayFor(modelItem => item.CFHandleLink)</a>
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
+
+@*<th>
+    @Html.DisplayNameFor(model => model.Score)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.TotalSolve)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.TotalParticipation)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.OnlineParticipation)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.SolveCountOnsite)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+</th>
+<th>
+    @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+</th>
+
+<td>
+    @Html.DisplayFor(modelItem => item.Score)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.TotalSolve)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.TotalParticipation)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.OnlineParticipation)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.SolveCountOnsite)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
+</td>
+<td>
+    @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
+</td>*@

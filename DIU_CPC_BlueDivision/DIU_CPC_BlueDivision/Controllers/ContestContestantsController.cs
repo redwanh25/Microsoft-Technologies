@@ -21,47 +21,49 @@ namespace DIU_CPC_BlueDivision.Controllers
             return View(contestContestants.ToList());
         }
 
-        // GET: ContestContestants/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ContestContestant contestContestant = db.ContestContestants.Find(id);
-            if (contestContestant == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contestContestant);
-        }
+        //[NonAction]
+        //// GET: ContestContestants/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    ContestContestant contestContestant = db.ContestContestants.Find(id);
+        //    if (contestContestant == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(contestContestant);
+        //}
 
-        // GET: ContestContestants/Create
-        public ActionResult Create()
-        {
-            ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName");
-            ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName");
-            return View();
-        }
+        //// GET: ContestContestants/Create
+        //[NonAction]
+        //public ActionResult Create()
+        //{
+        //    ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName");
+        //    ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName");
+        //    return View();
+        //}
 
         // POST: ContestContestants/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ContestId,ContestantId,ContestTimeSolve,UpSolve")] ContestContestant contestContestant)
-        {
-            if (ModelState.IsValid)
-            {
-                db.ContestContestants.Add(contestContestant);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+        //[HttpPost] [NonAction]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,ContestId,ContestantId,ContestTimeSolve,UpSolve")] ContestContestant contestContestant)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.ContestContestants.Add(contestContestant);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
 
-            ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName", contestContestant.ContestantId);
-            ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName", contestContestant.ContestId);
-            return View(contestContestant);
-        }
+        //    ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName", contestContestant.ContestantId);
+        //    ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName", contestContestant.ContestId);
+        //    return View(contestContestant);
+        //}
 
         // GET: ContestContestants/Edit/5
         public ActionResult Edit(int? id)
@@ -99,30 +101,31 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ContestContestants/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ContestContestant contestContestant = db.ContestContestants.Find(id);
-            if (contestContestant == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contestContestant);
-        }
+        //[NonAction]
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    ContestContestant contestContestant = db.ContestContestants.Find(id);
+        //    if (contestContestant == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(contestContestant);
+        //}
 
-        // POST: ContestContestants/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            ContestContestant contestContestant = db.ContestContestants.Find(id);
-            db.ContestContestants.Remove(contestContestant);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //// POST: ContestContestants/Delete/5
+        //[HttpPost, ActionName("Delete")] [NonAction]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    ContestContestant contestContestant = db.ContestContestants.Find(id);
+        //    db.ContestContestants.Remove(contestContestant);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {

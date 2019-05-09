@@ -47,7 +47,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest")] ContestantsTable contestantsTable)
+        public ActionResult Create([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink")] ContestantsTable contestantsTable)        // ,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest
         {
             if (ModelState.IsValid)
             {

@@ -40,68 +40,13 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CFHandleLink)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Score)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Score)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalSolve)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TotalSolve)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TotalParticipation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TotalParticipation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OnlineParticipation)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OnlineParticipation)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SolveCountOnsite)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SolveCountOnsite)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SolveCountUpsolves)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SolveCountUpsolves)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AverageSolvePerContest)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AverageSolvePerContest)
+            <a target="_blank" href="@Model.CFHandleLink">@Html.DisplayFor(model => model.CFHandleLink)</a>
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -110,3 +55,62 @@
         </div>
     }
 </div>
+
+
+
+
+@*<dt>
+    @Html.DisplayNameFor(model => model.Score)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.Score)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.TotalSolve)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.TotalSolve)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.TotalParticipation)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.TotalParticipation)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.OnlineParticipation)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.OnlineParticipation)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.SolveCountOnsite)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.SolveCountOnsite)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.SolveCountUpsolves)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+</dt>
+
+<dd>
+    @Html.DisplayFor(model => model.AverageSolvePerContest)
+</dd>*@

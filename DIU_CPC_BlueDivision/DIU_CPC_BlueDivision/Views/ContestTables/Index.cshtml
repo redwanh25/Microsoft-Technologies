@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.ContestName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ContestLink)
+            <a target="_blank" href="@item.ContestLink">@Html.DisplayFor(modelItem => item.ContestLink)</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Date)
