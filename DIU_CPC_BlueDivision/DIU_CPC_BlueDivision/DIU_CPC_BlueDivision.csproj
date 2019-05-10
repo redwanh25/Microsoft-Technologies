@@ -261,6 +261,7 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
     <Compile Include="DatabaseConnection\BlueSheetNameRetrive.cs" />
+    <Compile Include="DatabaseConnection\ContestClass.cs" />
     <Compile Include="DatabaseConnection\DeleteDataFromDatabase.cs" />
     <Compile Include="DatabaseConnection\StudentsInformation_Retrive.cs" />
     <Compile Include="DatabaseConnection\ListOfAllAdminsAndStudents.cs" />

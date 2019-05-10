@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.Models;
 
 namespace DIU_CPC_BlueDivision.Controllers
@@ -77,8 +78,9 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName", contestContestant.ContestantId);
-            ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName", contestContestant.ContestId);
+            ContestContestant concon = db.ContestContestants.FirstOrDefault(per => per.Id == id);
+            ViewBag.ContestantId = new SelectList(db.ContestantsTables.Where(per => per.Id == concon.ContestantId), "Id", "ContestantsName", contestContestant.ContestantId);
+            ViewBag.ContestId = new SelectList(db.ContestTables.Where(per => per.Id == concon.ContestId), "Id", "ContestName", contestContestant.ContestId);
             return View(contestContestant);
         }
 
@@ -89,6 +91,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ContestId,ContestantId,ContestTimeSolve,UpSolve")] ContestContestant contestContestant)
         {
+            ContestClass contestClass = new ContestClass();
+            contestContestant.ContestId = contestClass.contestId(contestContestant.Id);
+            contestContestant.ContestantId = contestClass.contestantId(contestContestant.Id);
             if (ModelState.IsValid)
             {
                 db.Entry(contestContestant).State = EntityState.Modified;
