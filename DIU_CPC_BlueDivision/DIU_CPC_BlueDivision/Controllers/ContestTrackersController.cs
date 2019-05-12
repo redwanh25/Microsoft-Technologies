@@ -6,117 +6,111 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.Models;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
-    public class ContestTablesController : Controller
+    public class ContestTrackersController : Controller
     {
         private ContestAndContestantsEntities db = new ContestAndContestantsEntities();
 
-        // GET: ContestTables
-        public ActionResult Index(int cTrackerId)
+        // GET: ContestTrackers
+        public ActionResult Index()
         {
-            List<ContestTable> list = db.ContestTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
-            return View(list);
+            return View(db.ContestTrackers.ToList());
         }
 
-        // GET: ContestTables/Details/5
+        // GET: ContestTrackers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContestTable contestTable = db.ContestTables.Find(id);
-            if (contestTable == null)
+            ContestTracker contestTracker = db.ContestTrackers.Find(id);
+            if (contestTracker == null)
             {
                 return HttpNotFound();
             }
-            return View(contestTable);
+            return View(contestTracker);
         }
 
-        // GET: ContestTables/Create
-        public ActionResult Create(int ContestTrackerId)
+        // GET: ContestTrackers/Create
+        public ActionResult Create()
         {
-            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == ContestTrackerId), "Id", "ContestYear");
             return View();
         }
 
-        // POST: ContestTables/Create
+        // POST: ContestTrackers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ContestName,ContestLink,Date,NumberOfProblems,Participation,ContestTrackerId")] ContestTable contestTable)
+        public ActionResult Create([Bind(Include = "Id,ContestYear,Date,CreatedBy")] ContestTracker contestTracker)
         {
             if (ModelState.IsValid)
             {
-                db.ContestTables.Add(contestTable);
+                db.ContestTrackers.Add(contestTracker);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(contestTable);
+            return View(contestTracker);
         }
 
-        // GET: ContestTables/Edit/5
+        // GET: ContestTrackers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContestTable contestTable = db.ContestTables.Find(id);
-            if (contestTable == null)
+            ContestTracker contestTracker = db.ContestTrackers.Find(id);
+            if (contestTracker == null)
             {
                 return HttpNotFound();
             }
-            return View(contestTable);
+            return View(contestTracker);
         }
 
-        // POST: ContestTables/Edit/5
+        // POST: ContestTrackers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ContestName,ContestLink,Date,NumberOfProblems,Participation")] ContestTable contestTable)
+        public ActionResult Edit([Bind(Include = "Id,ContestYear,Date,CreatedBy")] ContestTracker contestTracker)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(contestTable).State = EntityState.Modified;
+                db.Entry(contestTracker).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(contestTable);
+            return View(contestTracker);
         }
 
-        // GET: ContestTables/Delete/5
+        // GET: ContestTrackers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ContestTable contestTable = db.ContestTables.Find(id);
-            if (contestTable == null)
+            ContestTracker contestTracker = db.ContestTrackers.Find(id);
+            if (contestTracker == null)
             {
                 return HttpNotFound();
             }
-            return View(contestTable);
+            return View(contestTracker);
         }
 
-        // POST: ContestTables/Delete/5
+        // POST: ContestTrackers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            DeleteDataFromDatabase deleteDataFromDatabase = new DeleteDataFromDatabase();
-            deleteDataFromDatabase.deleteContest(id);
-
-            ContestTable contestTable = db.ContestTables.Find(id);
-            db.ContestTables.Remove(contestTable);
+            ContestTracker contestTracker = db.ContestTrackers.Find(id);
+            db.ContestTrackers.Remove(contestTracker);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

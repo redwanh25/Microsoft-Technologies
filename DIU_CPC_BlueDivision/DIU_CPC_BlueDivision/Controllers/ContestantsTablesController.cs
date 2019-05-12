@@ -16,9 +16,10 @@ namespace DIU_CPC_BlueDivision.Controllers
         private ContestAndContestantsEntities db = new ContestAndContestantsEntities();
 
         // GET: ContestantsTables
-        public ActionResult Index()
+        public ActionResult Index(int cTrackerId)
         {
-            return View(db.ContestantsTables.ToList());
+            List<ContestantsTable> list = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
+            return View(list);
         }
 
         // GET: ContestantsTables/Details/5
@@ -37,8 +38,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ContestantsTables/Create
-        public ActionResult Create()
+        public ActionResult Create(int ContestTrackerId)
         {
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == ContestTrackerId), "Id", "ContestYear");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink")] ContestantsTable contestantsTable)        // ,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest
+        public ActionResult Create([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink,ContestTrackerId")] ContestantsTable contestantsTable)        // ,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest
         {
             if (ModelState.IsValid)
             {

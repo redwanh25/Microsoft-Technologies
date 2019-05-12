@@ -245,6 +245,7 @@
     <Compile Include="Controllers\ContestContestantsController.cs" />
     <Compile Include="Controllers\ContestSheetExcelFormatViewController.cs" />
     <Compile Include="Controllers\ContestTablesController.cs" />
+    <Compile Include="Controllers\ContestTrackersController.cs" />
     <Compile Include="Controllers\CutOffStudentsController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -351,6 +352,9 @@
       <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ContestTable.cs">
+      <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContestTracker.cs">
       <DependentUpon>ContestAndContestantsTable_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Contest_Contestants_ContestContestant.cs" />
@@ -626,6 +630,11 @@
     <Content Include="Views\ContestContestants\Edit.cshtml" />
     <Content Include="Views\ContestContestants\Index.cshtml" />
     <Content Include="Views\ContestSheetExcelFormatView\Index.cshtml" />
+    <Content Include="Views\ContestTrackers\Create.cshtml" />
+    <Content Include="Views\ContestTrackers\Delete.cshtml" />
+    <Content Include="Views\ContestTrackers\Details.cshtml" />
+    <Content Include="Views\ContestTrackers\Edit.cshtml" />
+    <Content Include="Views\ContestTrackers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

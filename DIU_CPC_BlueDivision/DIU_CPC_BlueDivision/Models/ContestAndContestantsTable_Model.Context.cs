@@ -28,5 +28,6 @@ namespace DIU_CPC_BlueDivision.Models
         public virtual DbSet<ContestantsTable> ContestantsTables { get; set; }
         public virtual DbSet<ContestContestant> ContestContestants { get; set; }
         public virtual DbSet<ContestTable> ContestTables { get; set; }
+        public virtual DbSet<ContestTracker> ContestTrackers { get; set; }
     }
 }

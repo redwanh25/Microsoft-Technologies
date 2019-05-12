@@ -1,17 +1,21 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.ContestantsTable>
 
 @{
-                /**/
-
-                /**/
-
-                ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+@{
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('=');
+    int Id = 0;
+    Id = Convert.ToInt32(arr[1]);
+
+}
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "ContestantsTables", new { ContestTrackerId = Id })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
 </p>
 <table class="table">
     <tr>
@@ -59,45 +63,45 @@
 
 
 @*<th>
-    @Html.DisplayNameFor(model => model.Score)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.TotalSolve)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.TotalParticipation)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.OnlineParticipation)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.SolveCountOnsite)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.SolveCountUpsolves)
-</th>
-<th>
-    @Html.DisplayNameFor(model => model.AverageSolvePerContest)
-</th>
+        @Html.DisplayNameFor(model => model.Score)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.TotalSolve)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.TotalParticipation)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.OnlineParticipation)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.SolveCountOnsite)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+    </th>
 
-<td>
-    @Html.DisplayFor(modelItem => item.Score)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.TotalSolve)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.TotalParticipation)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.OnlineParticipation)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.SolveCountOnsite)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
-</td>
-<td>
-    @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
-</td>*@
+    <td>
+        @Html.DisplayFor(modelItem => item.Score)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalSolve)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.TotalParticipation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.OnlineParticipation)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SolveCountOnsite)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
+    </td>*@

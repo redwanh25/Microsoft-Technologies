@@ -16,9 +16,12 @@ namespace DIU_CPC_BlueDivision.Controllers
         private ContestAndContestantsEntities db = new ContestAndContestantsEntities();
 
         // GET: ContestContestants
-        public ActionResult Index()
+        public ActionResult Index(int cTrackerId)
         {
-            var contestContestants = db.ContestContestants.Include(c => c.ContestantsTable).Include(c => c.ContestTable);
+
+            var contestContestants = db.ContestContestants.Include(c => c.ContestantsTable).Where(per => per.ContestantsTable.ContestTrackerId == cTrackerId).Include(c => c.ContestTable).Where(per => per.ContestTable.ContestTrackerId == cTrackerId);
+            ViewBag.count = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).Count();
+            ViewBag.contestTrackerId = cTrackerId;
             return View(contestContestants.ToList());
         }
 

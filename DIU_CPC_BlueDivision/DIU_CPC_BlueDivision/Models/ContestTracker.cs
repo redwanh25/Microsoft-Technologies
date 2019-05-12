@@ -13,25 +13,24 @@ namespace DIU_CPC_BlueDivision.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public partial class ContestTable
+    public partial class ContestTracker
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ContestTable()
+        public ContestTracker()
         {
-            this.ContestContestants = new HashSet<ContestContestant>();
+            this.ContestTables = new HashSet<ContestTable>();
+            this.ContestantsTables = new HashSet<ContestantsTable>();
         }
     
         public int Id { get; set; }
-        public string ContestName { get; set; }
-        public string ContestLink { get; set; }
+        public string ContestYear { get; set; }
         [DataType(DataType.Date)]
         public Nullable<System.DateTime> Date { get; set; }
-        public Nullable<int> NumberOfProblems { get; set; }
-        public Nullable<int> Participation { get; set; }
-        public Nullable<int> ContestTrackerId { get; set; }
+        public string CreatedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ContestContestant> ContestContestants { get; set; }
-        public virtual ContestTracker ContestTracker { get; set; }
+        public virtual ICollection<ContestTable> ContestTables { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ContestantsTable> ContestantsTables { get; set; }
     }
 }

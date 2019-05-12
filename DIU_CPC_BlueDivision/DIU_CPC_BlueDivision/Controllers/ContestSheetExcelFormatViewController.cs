@@ -10,12 +10,12 @@ namespace DIU_CPC_BlueDivision.Controllers
     public class ContestSheetExcelFormatViewController : Controller
     {
         // GET: ContestSheetExcelFormatView
-        public ActionResult Index()
+        public ActionResult Index(int cTrackerId)
         {
             ContestAndContestantsEntities db = new ContestAndContestantsEntities();
             Contest_Contestants_ContestContestant ccc = new Contest_Contestants_ContestContestant();
-            ccc.contestTables = db.ContestTables.ToList();
-            ccc.contestantsTables = db.ContestantsTables.ToList();
+            ccc.contestTables = db.ContestTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
+            ccc.contestantsTables = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
             ccc.contestContestants = db.ContestContestants.ToList();
             return View(ccc);
         }

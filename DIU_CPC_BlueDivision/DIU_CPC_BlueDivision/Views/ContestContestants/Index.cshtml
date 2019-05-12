@@ -9,7 +9,8 @@
     ContestAndContestantsEntities db = new ContestAndContestantsEntities();
     List<string> list = new List<string>();
 
-    int numberOfContestants = db.ContestantsTables.Count();
+    int numberOfContestants = ViewBag.count;
+    int cTrackerId = ViewBag.contestTrackerId;
 }
 
 <style>
@@ -25,9 +26,14 @@
 <br /><br />
 <h2>Index</h2>
 
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>*@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="pull-right">
+            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Index", "ContestSheetExcelFormatView")'"><span class="glyphicon glyphicon-edit"></span> ContestSheetExcelFormatView </button>
+        </div>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <h4>Select Number of Rows</h4>
@@ -61,7 +67,7 @@
                 <tr class="success">
                     <td></td>
                     <td></td>
-                    @foreach (var cName in db.ContestantsTables)
+                    @foreach (var cName in db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).ToList())
                     {
                         <td colspan="3">
                             @cName.ContestantsName
