@@ -11,7 +11,8 @@ namespace DIU_CPC_BlueDivision.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class ContestContestant
     {
         public int Id { get; set; }

@@ -289,7 +289,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 return RedirectToAction("Index", "Problems", new { id_Or_SheetName = problem.BlueSheetId });
             }
 
-            ViewBag.BlueSheetId = new SelectList(db.BlueSheets, "Id", "BlueSheetName", problem.BlueSheetId);
+            ViewBag.BlueSheetId = new SelectList(db.BlueSheets.Where(per => per.Id == problem.BlueSheetId), "Id", "BlueSheetName", problem.BlueSheetId);
             return View(problem);
         }
 

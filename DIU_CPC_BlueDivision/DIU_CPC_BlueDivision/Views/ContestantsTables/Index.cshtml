@@ -17,91 +17,92 @@
 <p>
     <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "ContestantsTables", new { ContestTrackerId = Id })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContestantsName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CFHandle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CFHandleLink)
-        </th>
-        <th>Action</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<div style="overflow-x:auto;">
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ContestantsName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StudentId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CFHandle)
-            </td>
-            <td>
-                <a target="_blank" href="@item.CFHandleLink">@Html.DisplayFor(modelItem => item.CFHandleLink)</a>
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.ContestantsName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CFHandle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CFHandleLink)
+            </th>
+            <th>Action</th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContestantsName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StudentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CFHandle)
+                </td>
+                <td>
+                    <a target="_blank" href="@item.CFHandleLink">@Html.DisplayFor(modelItem => item.CFHandleLink)</a>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
 
 
 
+    @*<th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalSolve)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalParticipation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OnlineParticipation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolveCountOnsite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+        </th>
 
-@*<th>
-        @Html.DisplayNameFor(model => model.Score)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TotalSolve)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.TotalParticipation)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.OnlineParticipation)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.SolveCountOnsite)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.SolveCountUpsolves)
-    </th>
-    <th>
-        @Html.DisplayNameFor(model => model.AverageSolvePerContest)
-    </th>
-
-    <td>
-        @Html.DisplayFor(modelItem => item.Score)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalSolve)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.TotalParticipation)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.OnlineParticipation)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SolveCountOnsite)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
-    </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalSolve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalParticipation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OnlineParticipation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SolveCountOnsite)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SolveCountUpsolves)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AverageSolvePerContest)
+        </td>*@

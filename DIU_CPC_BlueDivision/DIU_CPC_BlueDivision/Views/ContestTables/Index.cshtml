@@ -6,7 +6,7 @@
 
 <h2>Index</h2>
 
-@{ 
+@{
     string appPath = "";
     appPath = string.Format("{0}", Request.Url.AbsoluteUri);
     string[] arr = appPath.Split('=');
@@ -17,49 +17,52 @@
 <p>
     <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "ContestTables", new { ContestTrackerId = Id })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ContestName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContestLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumberOfProblems)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Participation)
-        </th>
-        <th></th>
-    </tr>
+<div style="overflow-x:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContestName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContestLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfProblems)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Participation)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContestName)
-        </td>
-        <td>
-            <a target="_blank" href="@item.ContestLink">@Html.DisplayFor(modelItem => item.ContestLink)</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumberOfProblems)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Participation)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ContestName)
+                </td>
+                <td>
+                    <a target="_blank" href="@item.ContestLink">@Html.DisplayFor(modelItem => item.ContestLink)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfProblems)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Participation)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

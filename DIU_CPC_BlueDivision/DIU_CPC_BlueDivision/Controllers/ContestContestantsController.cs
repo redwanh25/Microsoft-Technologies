@@ -103,8 +103,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ContestantId = new SelectList(db.ContestantsTables, "Id", "ContestantsName", contestContestant.ContestantId);
-            ViewBag.ContestId = new SelectList(db.ContestTables, "Id", "ContestName", contestContestant.ContestId);
+            ViewBag.ContestantId = new SelectList(db.ContestantsTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestantsName", contestContestant.ContestantId);
+            ViewBag.ContestId = new SelectList(db.ContestTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestName", contestContestant.ContestId);
             return View(contestContestant);
         }
 
