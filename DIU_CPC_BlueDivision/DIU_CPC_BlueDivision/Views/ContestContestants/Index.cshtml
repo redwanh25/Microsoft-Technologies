@@ -67,7 +67,9 @@
                 <tr class="success">
                     <td></td>
                     <td></td>
-                    @foreach (var cName in db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackId).ToList())
+                    @foreach (var cName in db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackId).ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="3">
                             @cName.ContestantsName
@@ -80,6 +82,9 @@
                     </td>
                     @for (int i = 0; i < numberOfContestants; i++)
                     {
+                        @*<td>
+                            ContestantName
+                        </td>*@
                         <td>
                             Onsite
                         </td>
@@ -91,25 +96,27 @@
                     }
                 </tr>
 
-
-                @foreach (var item in Model.OrderBy(per => per.ContestId))
-                {
-                    list.Add(item.ContestTable.ContestName);
+                @{
+                    List<ContestTable> conList = db.ContestTables.Where(per => per.ContestTrackerId == cTrackId).ToList();
                 }
-                @foreach (var item1 in list.Distinct())
+                @foreach (var item1 in conList)
                 {
                     <tr>
                         <td>
-                            @item1
+                            @item1.ContestName
                         </td>
 
-                        @foreach (var item in Model.OrderBy(per => per.ContestId))
+                        @foreach (var item in Model.OrderByDescending(per => per.ContestantsTable.Score)
+                            .ThenByDescending(per => per.ContestantsTable.SolveCountOnsite)
+                            .ThenByDescending(per => per.ContestantsTable.AverageSolvePerContest)
+                            .ThenByDescending(per => per.ContestantsTable.TotalParticipation)
+                            .ThenByDescending(per => per.ContestantsTable.TotalSolve))
                         {
-                            if (item1 == item.ContestTable.ContestName)
+                            if (item1.ContestName == item.ContestTable.ContestName)
                             {
                                 @*<td>
-                                        @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)
-                                    </td>*@
+                                    @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)
+                                </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ContestTimeSolve)
                                 </td>
@@ -121,7 +128,7 @@
                                 </td>
 
                                 @*<td>
-                                        @Html.DisplayFor(modelItem => item.ContestTable.ContestName)
+                                            @Html.DisplayFor(modelItem => item.ContestTable.ContestName)
                                     </td>*@
                             }
 

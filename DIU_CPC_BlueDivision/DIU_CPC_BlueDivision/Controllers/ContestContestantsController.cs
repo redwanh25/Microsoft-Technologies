@@ -18,9 +18,13 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestContestants
         public ActionResult Index(int cTrackerId)
         {
-
-            var contestContestants = db.ContestContestants.Include(c => c.ContestantsTable).Where(per => per.ContestantsTable.ContestTrackerId == cTrackerId).Include(c => c.ContestTable).Where(per => per.ContestTable.ContestTrackerId == cTrackerId);
+            var contestContestants = db.ContestContestants.Include(c => c.ContestantsTable).Where(per => per.ContestantsTable.ContestTrackerId == cTrackerId)
+                .Include(c => c.ContestTable).Where(per => per.ContestTable.ContestTrackerId == cTrackerId);
             ViewBag.count = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).Count();
+
+            ContestClass contestClass = new ContestClass();
+            contestClass.updateContestant(cTrackerId);
+
             ViewBag.contestTrackerId = cTrackerId;
             return View(contestContestants.ToList());
         }
@@ -97,10 +101,12 @@ namespace DIU_CPC_BlueDivision.Controllers
             ContestClass contestClass = new ContestClass();
             contestContestant.ContestId = contestClass.contestId(contestContestant.Id);
             contestContestant.ContestantId = contestClass.contestantId(contestContestant.Id);
+            int cTrackerId = (int)db.ContestantsTables.FirstOrDefault(per => per.Id == contestContestant.ContestantId).ContestTrackerId;
             if (ModelState.IsValid)
             {
                 db.Entry(contestContestant).State = EntityState.Modified;
                 db.SaveChanges();
+                //contestClass.updateContestant(cTrackerId);
                 return RedirectToAction("Index");
             }
             ViewBag.ContestantId = new SelectList(db.ContestantsTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestantsName", contestContestant.ContestantId);

@@ -33,6 +33,8 @@
 
 <br /><br /><br />
 
+
+
 <div class="row">
     <div class="col-xs-12 col-sm-6">
         <h4>Select Number of Rows</h4>
@@ -47,32 +49,40 @@
         </div>
     </div>
 </div>
+<h4 style="color:red">
+    Sorting Rule: Score > Contest Time Solve Count > Avg Solve > Total participation > Total Solve
+</h4>
 <br />
-
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div style="overflow-x:auto;">
             <table class="table table-hover table-bordered table-responsive table-striped fixed text-center" style="font-size:16px;" id="mytable">
                 @*<tr class="success text-center" style="font-weight: bold;">
-            <td colspan="4">Standing</td>
-        </tr>*@
+                        <td colspan="4">Standing</td>
+                    </tr>*@
                 <tr class="success" style="font-weight: bold;">
                     <td colspan="4">Student ID</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.StudentId</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">Name</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.ContestantsName</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">CF Handle</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">
                             <a target="_blank" href="@contestantsTable.CFHandleLink">@contestantsTable.CFHandle</a>
@@ -80,36 +90,46 @@
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
-                    <td colspan="4">Score (Contest solve+ 0.25 upsolve)</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    <td colspan="4">Score (Contest solve + 0.25 upsolve)</td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.Score</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">Total solve</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.TotalSolve</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">Total participation</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.TotalParticipation</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
-                    <td colspan="4">Online participation </td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    <td colspan="4">Online participation (You Can Max Solve <span style="color:red">3</span>) </td>
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.OnlineParticipation</td>
                     }
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4"></td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td>Onsite</td>
                         <td>Upsolves</td>
@@ -117,7 +137,9 @@
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">Solve count</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td>@contestantsTable.SolveCountOnsite</td>
                         <td>@contestantsTable.SolveCountUpsolves</td>
@@ -125,7 +147,9 @@
                 </tr>
                 <tr class="success" style="font-weight: bold">
                     <td colspan="4">Average solve per contest</td>
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
                         <td colspan="2">@contestantsTable.AverageSolvePerContest</td>
                     }
@@ -136,40 +160,42 @@
                     <td>Problems</td>
                     <td>Participation</td>
                     @*@{
-                        int count = 0;
-                        foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
-                        {
-                            count++;
-                        }
-                        count *= 2;
-                        <td colspan="@count"></td>
-                    }*@
+                            int count = 0;
+                            foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
+                            {
+                                count++;
+                            }
+                            count *= 2;
+                            <td colspan="@count"></td>
+                        }*@
                 </tr>
 
                 @foreach (ContestTable contestTable in Model.contestTables.ToList())
                 {
-                <tr>
-                    <td><a target="_blank" href="@contestTable.ContestLink">@contestTable.ContestName</a></td>                    
-                    <td>
-                        @Html.DisplayFor(modelItem => contestTable.Date)
-                    </td>
-                    <td>@contestTable.NumberOfProblems</td>
-                    <td>@contestTable.Participation</td>
+                    <tr>
+                        <td><a target="_blank" href="@contestTable.ContestLink">@contestTable.ContestName</a></td>
+                        <td>
+                            @Html.DisplayFor(modelItem => contestTable.Date)
+                        </td>
+                        <td>@contestTable.NumberOfProblems</td>
+                        <td>@contestTable.Participation</td>
 
-                    @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList())
-                    {
-                        foreach (ContestContestant contestContestant in Model.contestContestants.ToList())
+                        @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()
+                            .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                            .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                         {
-                            if (contestContestant.ContestId == contestTable.Id && contestContestant.ContestantId == contestantsTable.Id)
+                            foreach (ContestContestant contestContestant in Model.contestContestants.ToList())
                             {
-                                <td>@contestContestant.ContestTimeSolve</td>
-                                <td>@contestContestant.UpSolve</td>
+                                if (contestContestant.ContestId == contestTable.Id && contestContestant.ContestantId == contestantsTable.Id)
+                                {
+                                    <td>@contestContestant.ContestTimeSolve</td>
+                                    <td>@contestContestant.UpSolve</td>
+                                }
                             }
+
                         }
 
-                    }
-
-                </tr>
+                    </tr>
                 }
 
             </table>
@@ -237,7 +263,7 @@
         $('table tr:gt(0)').each(function () {
             id++
             if (id > 10) {
-                $(this).prepend('<td style="font-size:19px"  class="text-center">' + parseInt(parseInt(id)-10) + '</td>')
+                $(this).prepend('<td style="font-size:19px"  class="text-center">' + parseInt(parseInt(id) - 10) + '</td>')
             }
             else if (id == 10) {
                 $(this).prepend('<td style="font-size:19px"  class="text-center">No</td>')
@@ -245,7 +271,7 @@
             else {
                 $(this).prepend('<td style="font-size:19px"  class="text-center"></td>')
             }
-            
+
         })
     })
 </script>

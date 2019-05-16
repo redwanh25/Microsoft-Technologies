@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -43,6 +44,22 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 conId = (int)cmd.ExecuteScalar();
             }
             return conId;
+        }
+
+        public void updateContestant(int cTrackerId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "ContestantScoreSolveParticipationUpdate_Procedure";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = con;
+                con.Open();
+                cmd.Parameters.AddWithValue("@cTrackerId", cTrackerId);
+
+                cmd.ExecuteReader();
+            }
         }
     }
 }

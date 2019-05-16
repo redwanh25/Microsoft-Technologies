@@ -1,4 +1,5 @@
-﻿using DIU_CPC_BlueDivision.Models;
+﻿using DIU_CPC_BlueDivision.DatabaseConnection;
+using DIU_CPC_BlueDivision.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestSheetExcelFormatView
         public ActionResult Index(int cTrackerId)
         {
+            ContestClass contestClass = new ContestClass();
+            contestClass.updateContestant(cTrackerId);
+
             ContestAndContestantsEntities db = new ContestAndContestantsEntities();
             Contest_Contestants_ContestContestant ccc = new Contest_Contestants_ContestContestant();
             ccc.contestTables = db.ContestTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
