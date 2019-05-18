@@ -1,7 +1,17 @@
 ﻿@model DIU_CPC_BlueDivision.Models.ContestTable
+@using DIU_CPC_BlueDivision.Models;
 
 @{
     ViewBag.Title = "Details";
+
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('/');
+    int id = Convert.ToInt32(arr[5]);
+
+    ContestAndContestantsEntities db = new ContestAndContestantsEntities();
+    ContestTable contestTable = db.ContestTables.Find(id);
+    int cTrId = (int)contestTable.ContestTrackerId;
 }
 
 <h2>Details</h2>
@@ -54,5 +64,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { cTrackerId = cTrId })
 </p>

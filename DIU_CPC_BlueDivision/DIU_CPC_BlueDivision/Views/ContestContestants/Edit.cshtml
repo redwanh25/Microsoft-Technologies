@@ -1,7 +1,18 @@
 ﻿@model DIU_CPC_BlueDivision.Models.ContestContestant
-
+@using DIU_CPC_BlueDivision.Models;
 @{
     ViewBag.Title = "Edit";
+
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('/');
+    int id = Convert.ToInt32(arr[5]);
+
+    ContestAndContestantsEntities db = new ContestAndContestantsEntities();
+    ContestContestant contestContestant = db.ContestContestants.Find(id);
+    ContestTable contestTable = db.ContestTables.FirstOrDefault(per => per.Id == contestContestant.ContestId);
+    int cTrId = (int)contestTable.ContestTrackerId;
+
 }
 
 <h2>Edit</h2>
@@ -9,7 +20,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>ContestContestant</h4>
         <hr />
@@ -57,5 +68,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { cTrackerId = cTrId })
 </div>

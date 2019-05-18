@@ -101,13 +101,13 @@ namespace DIU_CPC_BlueDivision.Controllers
             ContestClass contestClass = new ContestClass();
             contestContestant.ContestId = contestClass.contestId(contestContestant.Id);
             contestContestant.ContestantId = contestClass.contestantId(contestContestant.Id);
-            int cTrackerId = (int)db.ContestantsTables.FirstOrDefault(per => per.Id == contestContestant.ContestantId).ContestTrackerId;
+            int cTId = (int)db.ContestantsTables.FirstOrDefault(per => per.Id == contestContestant.ContestantId).ContestTrackerId;
             if (ModelState.IsValid)
             {
                 db.Entry(contestContestant).State = EntityState.Modified;
                 db.SaveChanges();
                 //contestClass.updateContestant(cTrackerId);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ContestContestants", new { cTrackerId = cTId });
             }
             ViewBag.ContestantId = new SelectList(db.ContestantsTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestantsName", contestContestant.ContestantId);
             ViewBag.ContestId = new SelectList(db.ContestTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestName", contestContestant.ContestId);

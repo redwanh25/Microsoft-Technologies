@@ -55,7 +55,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 db.ContestantsTables.Add(contestantsTable);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ContestantsTables", new { cTrackerId = contestantsTable.ContestTrackerId });
             }
             ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestantsTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestantsTable);
@@ -89,7 +89,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 db.Entry(contestantsTable).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "ContestantsTables", new { cTrackerId = contestantsTable.ContestTrackerId });
             }
             ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestantsTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestantsTable);
@@ -119,9 +119,10 @@ namespace DIU_CPC_BlueDivision.Controllers
             deleteDataFromDatabase.deleteContestant(id);
 
             ContestantsTable contestantsTable = db.ContestantsTables.Find(id);
+            int cTId = (int)contestantsTable.ContestTrackerId;
             db.ContestantsTables.Remove(contestantsTable);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "ContestantsTables", new { cTrackerId = cTId });
         }
 
         protected override void Dispose(bool disposing)

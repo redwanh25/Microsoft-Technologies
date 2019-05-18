@@ -73,5 +73,21 @@ namespace DIU_CPC_BlueDivision.DatabaseConnection
                 cmd.ExecuteReader();
             }
         }
+
+        public void deleteContestTracker(int cTrackerId)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Delete_ContestTracker_Procedure";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Connection = con;
+                con.Open();
+                cmd.Parameters.AddWithValue("@cTrackerId", cTrackerId);
+
+                cmd.ExecuteReader();
+            }
+        }
     }
 }

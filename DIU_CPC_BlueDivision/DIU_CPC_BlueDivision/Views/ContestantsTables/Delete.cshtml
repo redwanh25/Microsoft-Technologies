@@ -1,7 +1,17 @@
 ﻿@model DIU_CPC_BlueDivision.Models.ContestantsTable
+@using DIU_CPC_BlueDivision.Models;
 
 @{
     ViewBag.Title = "Delete";
+
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('/');
+    int id = Convert.ToInt32(arr[5]);
+
+    ContestAndContestantsEntities db = new ContestAndContestantsEntities();
+    ContestantsTable contestantsTable = db.ContestantsTables.Find(id);
+    int cTrId = (int)contestantsTable.ContestTrackerId;
 }
 
 <h2>Delete</h2>
@@ -51,7 +61,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", new { cTrackerId = cTrId })
         </div>
     }
 </div>
@@ -60,57 +70,57 @@
 
 
 @*<dt>
-    @Html.DisplayNameFor(model => model.Score)
-</dt>
+        @Html.DisplayNameFor(model => model.Score)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.Score)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.Score)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.TotalSolve)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.TotalSolve)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.TotalSolve)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.TotalSolve)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.TotalParticipation)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.TotalParticipation)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.TotalParticipation)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.TotalParticipation)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.OnlineParticipation)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.OnlineParticipation)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.OnlineParticipation)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.OnlineParticipation)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.SolveCountOnsite)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.SolveCountOnsite)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.SolveCountOnsite)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.SolveCountOnsite)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.SolveCountUpsolves)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.SolveCountUpsolves)
-</dd>
+    <dd>
+        @Html.DisplayFor(model => model.SolveCountUpsolves)
+    </dd>
 
-<dt>
-    @Html.DisplayNameFor(model => model.AverageSolvePerContest)
-</dt>
+    <dt>
+        @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+    </dt>
 
-<dd>
-    @Html.DisplayFor(model => model.AverageSolvePerContest)
-</dd>*@
+    <dd>
+        @Html.DisplayFor(model => model.AverageSolvePerContest)
+    </dd>*@

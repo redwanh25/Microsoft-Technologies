@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.Models;
 
 namespace DIU_CPC_BlueDivision.Controllers
@@ -109,6 +110,9 @@ namespace DIU_CPC_BlueDivision.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            DeleteDataFromDatabase deleteDataFromDatabase = new DeleteDataFromDatabase();
+            deleteDataFromDatabase.deleteContestTracker(id);
+
             ContestTracker contestTracker = db.ContestTrackers.Find(id);
             db.ContestTrackers.Remove(contestTracker);
             db.SaveChanges();
