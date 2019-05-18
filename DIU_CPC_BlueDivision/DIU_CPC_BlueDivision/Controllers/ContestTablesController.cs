@@ -57,7 +57,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestTable);
         }
 
@@ -73,6 +73,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
+            ContestTable contestTable1 = db.ContestTables.FirstOrDefault(per => per.Id == id);
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestTable1.ContestTrackerId), "Id", "ContestYear");
             return View(contestTable);
         }
 
@@ -81,7 +83,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ContestName,ContestLink,Date,NumberOfProblems,Participation")] ContestTable contestTable)
+        public ActionResult Edit([Bind(Include = "Id,ContestName,ContestLink,Date,NumberOfProblems,Participation,ContestTrackerId")] ContestTable contestTable)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +91,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestTable);
         }
 

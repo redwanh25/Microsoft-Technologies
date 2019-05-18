@@ -112,7 +112,7 @@
                             .ThenByDescending(per => per.ContestantsTable.TotalParticipation)
                             .ThenByDescending(per => per.ContestantsTable.TotalSolve))
                         {
-                            if (item1.ContestName == item.ContestTable.ContestName)
+                            if (item1.Id == item.ContestTable.Id)
                             {
                                 @*<td>
                                     @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)

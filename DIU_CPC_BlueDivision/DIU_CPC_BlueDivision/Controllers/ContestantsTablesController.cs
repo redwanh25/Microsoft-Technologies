@@ -57,7 +57,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestantsTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestantsTable);
         }
 
@@ -73,6 +73,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 return HttpNotFound();
             }
+            ContestantsTable contestantsTable1 = db.ContestantsTables.FirstOrDefault(per => per.Id == id);
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestantsTable1.ContestTrackerId), "Id", "ContestYear");
             return View(contestantsTable);
         }
 
@@ -81,7 +83,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest")] ContestantsTable contestantsTable)
+        public ActionResult Edit([Bind(Include = "Id,ContestantsName,StudentId,CFHandle,CFHandleLink,Score,TotalSolve,TotalParticipation,OnlineParticipation,SolveCountOnsite,SolveCountUpsolves,AverageSolvePerContest,ContestTrackerId")] ContestantsTable contestantsTable)
         {
             if (ModelState.IsValid)
             {
@@ -89,6 +91,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestantsTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestantsTable);
         }
 

@@ -23,9 +23,11 @@ namespace DIU_CPC_BlueDivision.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string ContestYear { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)] [Required]
         public Nullable<System.DateTime> Date { get; set; }
+        [Required]
         public string CreatedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

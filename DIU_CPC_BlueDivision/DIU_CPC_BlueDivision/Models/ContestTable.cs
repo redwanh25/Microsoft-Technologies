@@ -22,11 +22,15 @@ namespace DIU_CPC_BlueDivision.Models
         }
     
         public int Id { get; set; }
+        [Required]
         public string ContestName { get; set; }
+        [Required]
         public string ContestLink { get; set; }
-        [DataType(DataType.Date)]
+        [DataType(DataType.Date)] [Required]
         public Nullable<System.DateTime> Date { get; set; }
+        [Required]
         public Nullable<int> NumberOfProblems { get; set; }
+        [Required]
         public Nullable<int> Participation { get; set; }
         public Nullable<int> ContestTrackerId { get; set; }
     
