@@ -1,7 +1,18 @@
 ﻿@model DIU_CPC_BlueDivision.Models.Problem
+@using DIU_CPC_BlueDivision.Models;
 
 @{
     ViewBag.Title = "Delete";
+
+    string appPath = "";
+    appPath = string.Format("{0}", Request.Url.AbsoluteUri);
+    string[] arr = appPath.Split('/');
+    int id = Convert.ToInt32(arr[5]);
+
+    BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
+    Problem problem = db.Problems.Find(id);
+    int blueId = (int) problem.BlueSheetId;
+
 }
 
 <h2>Delete</h2>
@@ -45,12 +56,13 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", new { id_Or_SheetName = blueId })
         </div>
     }
 </div>
