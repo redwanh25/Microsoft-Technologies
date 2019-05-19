@@ -8,6 +8,7 @@
     str = User.Identity.GetUserId();
     string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
     string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+    string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
     string student = ConfigurationManager.AppSettings["Student"].ToString();
     if (!string.IsNullOrEmpty(str))
     {
@@ -21,6 +22,10 @@
     else if (str == admin)
     {
         Layout = "~/Views/Shared/_Layout_For_Admin.cshtml";
+    }
+    else if (str == admin_1)
+    {
+        Layout = "~/Views/Shared/_Layout_For_Admin_1.cshtml";
     }
     else if (str == student)
     {

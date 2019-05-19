@@ -635,6 +635,7 @@
     <Content Include="Views\ContestTrackers\Details.cshtml" />
     <Content Include="Views\ContestTrackers\Edit.cshtml" />
     <Content Include="Views\ContestTrackers\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_For_Admin_1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

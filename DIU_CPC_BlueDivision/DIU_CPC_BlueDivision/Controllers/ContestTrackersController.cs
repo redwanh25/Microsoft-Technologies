@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -7,7 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DIU_CPC_BlueDivision.DatabaseConnection;
+using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -15,15 +18,35 @@ namespace DIU_CPC_BlueDivision.Controllers
     {
         private ContestAndContestantsEntities db = new ContestAndContestantsEntities();
 
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
+
         // GET: ContestTrackers
         public ActionResult Index()
         {
             return View(db.ContestTrackers.ToList());
+
         }
 
         // GET: ContestTrackers/Details/5
+        [NonAction]
         public ActionResult Details(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +62,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestTrackers/Create
         public ActionResult Create()
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             return View();
         }
 
@@ -60,8 +96,22 @@ namespace DIU_CPC_BlueDivision.Controllers
         }
 
         // GET: ContestTrackers/Edit/5
+        [NonAction]
         public ActionResult Edit(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -78,6 +128,7 @@ namespace DIU_CPC_BlueDivision.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [NonAction]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,ContestYear,Date,CreatedBy")] ContestTracker contestTracker)
         {
@@ -93,6 +144,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestTrackers/Delete/5
         public ActionResult Delete(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

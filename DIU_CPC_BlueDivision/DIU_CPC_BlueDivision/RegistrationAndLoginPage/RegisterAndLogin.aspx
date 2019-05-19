@@ -330,8 +330,8 @@
                         </div>
                     </div>
                     <%
-                        bool show = false;
-                        if (show)
+                        bool show = false;          // false dile super admin er registration ta hide hobe login page a
+                        if (show)                   // ture dile super admin er registration ta open hobe login page a
                         {
                     %>
                     <%--============================================================--%>

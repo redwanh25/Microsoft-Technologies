@@ -368,6 +368,30 @@ namespace DIU_CPC_BlueDivision.Controllers
             return Ok();
         }
 
+        // POST api/Account/Admin_1Register
+        [AllowAnonymous]
+        [Route("Admin_1Register")]
+        public async Task<IHttpActionResult> Admin_1Register(RegisterBindingModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            string secureCodeForAdmin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
+            string semesterForAdmin_1 = ConfigurationManager.AppSettings["Admin_1Semester"].ToString();
+
+            var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, PhoneNumber = model.PhoneNumber, SecureCode = secureCodeForAdmin_1, JoinSemester = semesterForAdmin_1 };
+
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+            {
+                return GetErrorResult(result);
+            }
+
+            return Ok();
+        }
+
         // POST api/Account/BlueSheetRegister
         [AllowAnonymous]
         [Route("BlueSheetRegister")]

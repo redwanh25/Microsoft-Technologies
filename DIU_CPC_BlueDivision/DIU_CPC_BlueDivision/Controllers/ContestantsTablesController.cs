@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -7,7 +8,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DIU_CPC_BlueDivision.DatabaseConnection;
+using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -15,9 +18,27 @@ namespace DIU_CPC_BlueDivision.Controllers
     {
         private ContestAndContestantsEntities db = new ContestAndContestantsEntities();
 
+        private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
+        private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
+        private string student = ConfigurationManager.AppSettings["Student"].ToString();
+        private string admin_1 = ConfigurationManager.AppSettings["Admin_1"].ToString();
+
         // GET: ContestantsTables
         public ActionResult Index(int cTrackerId)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             List<ContestantsTable> list = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).ToList();
             return View(list);
         }
@@ -25,6 +46,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestantsTables/Details/5
         public ActionResult Details(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -40,6 +74,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestantsTables/Create
         public ActionResult Create(int ContestTrackerId)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == ContestTrackerId), "Id", "ContestYear");
             return View();
         }
@@ -64,6 +111,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestantsTables/Edit/5
         public ActionResult Edit(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -98,6 +158,19 @@ namespace DIU_CPC_BlueDivision.Controllers
         // GET: ContestantsTables/Delete/5
         public ActionResult Delete(int? id)
         {
+            string U_id = "", str = "";
+            U_id = User.Identity.GetUserId();
+
+            if (!string.IsNullOrEmpty(U_id))
+            {
+                AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
+                str = aspNetUsersBusinessLayer.GetSecureCode(U_id);
+            }
+            if (str == student)
+            {
+                throw new Exception();
+            }
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

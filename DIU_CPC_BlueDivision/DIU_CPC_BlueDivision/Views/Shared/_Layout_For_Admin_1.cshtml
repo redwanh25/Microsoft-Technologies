@@ -1,10 +1,10 @@
-﻿
+﻿@using Microsoft.AspNet.Identity;
+@using DIU_CPC_BlueDivision.Models;
+
 @{
     /**/
 
-    /**/
-
-    ViewBag.Title = "_Layout_For_All";
+    ViewBag.Title = "_Layout_For_Admin_1";
 }
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">*@
-    <title>_Layout_For_All</title>
+    <title>_Layout_For_Admin</title>
     <link rel="icon" type="image/png" href="~/Image/cpc_logo_xxl.png">
 
     <script src="~/jquery_Bootstrap_SweetAlert_IHover_Animation/jQuery/uncompressed/jquery-3.3.1.js"></script>
@@ -123,24 +123,8 @@
                 margin-left: 50px;
             }
     </style>
+
 </head>
-
-@using Microsoft.AspNet.Identity;
-@using DIU_CPC_BlueDivision.DifferentLayout_Database;
-@using DIU_CPC_BlueDivision.DatabaseConnection;
-@{
-
-    string str = "", joinSemester = "";
-    str = User.Identity.GetUserId();
-
-    if (!string.IsNullOrEmpty(str))
-    {
-        AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-        joinSemester = aspNetUsersBusinessLayer.GetJoinSemester(str);
-    }
-    ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
-    string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(str);
-}
 <body style="padding-top:90px; font-family:  Lora ">
     <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:19px; min-height:88px">
         <div class="container">
@@ -159,25 +143,17 @@
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle zoom-effect" data-toggle="dropdown">
-                            Diu CPC Club
+                            CPC Club-1
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" style="font-size:16px">
                             <li><a class="zoom-effect" href="@Url.Action("Index", "Blog")">Blog</a></li>
-                            <li><a class="zoom-effect" href="@Url.Action("Index", "ContestTrackers")">ContestTracker</a></li>
-                            <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
+                            <li><a class="zoom-effect" href="@Url.Action("Index", "ContestTrackers")">ContestTrackers </a></li>
+                            <li></li>
                         </ul>
                     </li>
-                    @*<li><a class="zoom-effect" href="@Url.Action("Index", "Students", new {semester = joinSemester})"> SolveRanking </a></li>*@
-                    <li><a class="zoom-effect" href="@Url.Action("Index", "BluesheetExcelFormatView")"> Full Sheet view </a></li>
-                    @if (check == "Mute")
-                    {
-                        <li><a id="RequestToAdmin" style="color:red" class="zoom-effect" href="#"> Request To Admin </a></li>
-                    }
-                    @*<li><a class="zoom-effect" href="@Url.Action("Index", "CutOffStudents")"> CutOffStudents </a></li>*@
-                    @*<li role="presentation"><a class="zoom-effect" href="#">Message <span class="badge">42</span></a></li>*@
+                    <li><a class="zoom-effect" target="_blank" href="http://daffodilvarsity.edu.bd/">Our Website </a></li>
                 </ul>
-
                 <div class="nav navbar-nav navbar-right">
                     <div class="btn-group" style="padding-top:13px">
                         <a id="btnLogoff" class="btn btn-sm btn-default" style="width: 80px; font-size: 12px">Logout</a>
@@ -196,7 +172,7 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li style="padding-right:20px"><a class="zoom-effect" href="@Url.Action("Index", "StudentsProfile")"><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
+                    <li style="padding-right:20px"><a class="zoom-effect" href="#"><span class="glyphicon glyphicon-user" style="padding-right:10px"></span><b id="spanUserName" class="text-muted" style="color:black;"></b></a></li>
                     @*<li><a class="zoom-effect" href="#" id="btnLogoff"> Log Off </a></li>*@
                 </ul>
             </div>
@@ -206,29 +182,6 @@
     <div class="body-content container">
         @RenderBody()
         <br /> <br />
-    </div>
-
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '377299629711169',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v2.11'
-            });
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-
-    <div class="fb-customerchat"
-         page_id="988929474635855"
-         minimized="true">
     </div>
 
     <footer id="footer">
@@ -297,7 +250,7 @@
     }
 </script>
 
-@using Microsoft.AspNet.Identity;
+
 
 <script>
     $(document).ready(function () {
@@ -373,25 +326,4 @@
     });
 </script>
 
-<script>
-    $(document).ready(function () {
-        $('#RequestToAdmin').click(function () {
-            $.ajax({
-                url: '/Controllers/RequestToAdmin/RequestToAdminForUnmute',
-                method: 'POST',
-                data: {
-                    
-                },
-
-                success: function (response) {
-                    swal("Request To Admin!", "We Will Contact With You.", "success");
-                },
-
-                error: function (jqXHR) {
-
-                }
-            });
-        });
-    });
-</script>
 
