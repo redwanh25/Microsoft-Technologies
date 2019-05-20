@@ -330,7 +330,8 @@
                         </div>
                     </div>
                     <%
-                        bool show = false;          // false dile super admin er registration ta hide hobe login page a
+                        string showReg = ConfigurationManager.AppSettings["ShowSupAdminRegForm"].ToString();
+                        bool show = Convert.ToBoolean(showReg);          // false dile super admin er registration ta hide hobe login page a
                         if (show)                   // ture dile super admin er registration ta open hobe login page a
                         {
                     %>

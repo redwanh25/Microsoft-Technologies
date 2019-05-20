@@ -9,12 +9,13 @@ namespace DIU_CPC_BlueDivision.Controllers
 {
     public class UnlockRegistrationFormController : Controller
     {
+        private string unlock = ConfigurationManager.AppSettings["UnlockSupAdminRegForm"].ToString();
 
         [HttpPost]
         [Route("Controllers/UnlockRegistrationForm/Unlock")]
         public ActionResult Unlock(string secureCode)
         {
-            if (secureCode == "1234_U")
+            if (secureCode == unlock)
             {
                 return Json(new { status = "Success" });
             }
