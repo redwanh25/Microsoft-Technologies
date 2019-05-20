@@ -250,6 +250,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ListOfAdminsController.cs" />
+    <Compile Include="Controllers\ListOfAdmin_1sController.cs" />
     <Compile Include="Controllers\ListOfStudentsController.cs" />
     <Compile Include="Controllers\ProblemsController.cs" />
     <Compile Include="Controllers\ProblemSolvingRankingController.cs" />
@@ -636,6 +637,11 @@
     <Content Include="Views\ContestTrackers\Edit.cshtml" />
     <Content Include="Views\ContestTrackers\Index.cshtml" />
     <Content Include="Views\Shared\_Layout_For_Admin_1.cshtml" />
+    <Content Include="Views\ListOfAdmin_1s\Create.cshtml" />
+    <Content Include="Views\ListOfAdmin_1s\Delete.cshtml" />
+    <Content Include="Views\ListOfAdmin_1s\Details.cshtml" />
+    <Content Include="Views\ListOfAdmin_1s\Edit.cshtml" />
+    <Content Include="Views\ListOfAdmin_1s\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
