@@ -70,13 +70,13 @@
 
                     @if (str != student)
                     {
-                        <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestTables", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Contests</button>
+                        <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestTables", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Contests</button>
                         <button class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestantsTables", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Contestants</button>
                     }
-                    <button style="margin-top:5px; margin-bottom:5px" class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestSheetExcelFormatView", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> ExcelFormatView</button>
+                    <button style="margin-top:5px; margin-bottom:5px" class="btn btn-primary btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestSheetExcelFormatView", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> ExcelFormatView</button>
                     @if (str != student)
                     {
-                        <button style="margin-top:5px; margin-bottom:5px" class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestContestants", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
+                        <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ContestContestants", new { cTrackerId = item.Id })'"> <span class="glyphicon glyphicon-pencil"> </span> Edit</button>
                         <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "ContestTrackers", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete ContestTracker</button>
                     }
                 </div>
@@ -86,7 +86,6 @@
     }
 
 </div>
-
 
 @*<td>
         @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |

@@ -65,7 +65,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             ProblemsClass pc = new ProblemsClass();
 
             //---------------
-            if(str == admin_1)
+            if (str == admin_1)
             {
                 throw new Exception();
             }
@@ -101,7 +101,7 @@ namespace DIU_CPC_BlueDivision.Controllers
                 //    //ViewBag.student = students1;
                 //}
             }
-            else if(str == student)
+            else if (str == student)
             {
                 ListOfAllAdminsAndStudents listOfAllAdminsAndStudents = new ListOfAllAdminsAndStudents();
                 string check = listOfAllAdminsAndStudents.CheckMuteOrUnmute(U_id);
@@ -341,7 +341,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
-            
+
             ProblemsClass prob = new ProblemsClass();
             int id = prob.BlueSheetIdRetrive(problem.Id);
             problem.BlueSheetId = id;
@@ -524,7 +524,6 @@ namespace DIU_CPC_BlueDivision.Controllers
         public void InputFromExcelFileAjax(int blueSheetId, int number)
         {
             string path = Server.MapPath("~/Excel_Files/ExcelFileDemo1.xlsx");
-
             if (!System.IO.File.Exists(path))
             {
                 throw new Exception();
@@ -573,41 +572,48 @@ namespace DIU_CPC_BlueDivision.Controllers
         {
 
             string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
-            if (System.IO.File.Exists(path))
+            try
+            {
+                if (System.IO.File.Exists(path))
+                {
+                    System.IO.File.Delete(path);
+                }
+                excelfile.SaveAs(path);
+
+                // read data from excel file
+
+                using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
+                {
+                    WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
+                    IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
+                    string relationshipId = sheets.First().Id.Value;
+                    WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
+                    Worksheet workSheet = worksheetPart.Worksheet;
+                    SheetData sheetData = workSheet.GetFirstChild<SheetData>();
+                    List<Row> rows = sheetData.Descendants<Row>().ToList();
+
+                    for (int i = 0; i < rows.Count(); i++) //this will also include your header row...
+                    {
+                        Problem problem = new Problem();
+                        problem.ProblemName = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(0));
+                        problem.ProblemLink = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(1));
+                        if (rows[i].Count() == 3)
+                        {
+                            problem.Comment = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(2));
+                        }
+                        problem.BlueSheetId = blueSheetId;
+                        //problem.uploadFromWhere = "Excel_File";
+                        db.Problems.Add(problem);
+                    }
+                    db.SaveChanges();
+                }
+                System.IO.File.Delete(path);
+            }
+            catch (Exception)
             {
                 System.IO.File.Delete(path);
             }
-            excelfile.SaveAs(path);
 
-            // read data from excel file
-
-            using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
-            {
-                WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
-                IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
-                string relationshipId = sheets.First().Id.Value;
-                WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
-                Worksheet workSheet = worksheetPart.Worksheet;
-                SheetData sheetData = workSheet.GetFirstChild<SheetData>();
-                List<Row> rows = sheetData.Descendants<Row>().ToList();
-
-                for (int i = 0; i < rows.Count(); i++) //this will also include your header row...
-                {
-                    Problem problem = new Problem();
-                    problem.ProblemName = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(0));
-                    problem.ProblemLink = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(1));
-                    if (rows[i].Count() == 3)
-                    {
-                        problem.Comment = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(2));
-                    }
-                    problem.BlueSheetId = blueSheetId;
-                    //problem.uploadFromWhere = "Excel_File";
-                    db.Problems.Add(problem);
-                }
-                db.SaveChanges();
-            }
-
-            System.IO.File.Delete(path);
             return RedirectToAction("Index", "Problems", new { id_Or_SheetName = blueSheetId });
 
         }

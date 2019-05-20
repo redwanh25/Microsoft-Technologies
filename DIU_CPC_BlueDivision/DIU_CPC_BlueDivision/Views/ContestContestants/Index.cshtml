@@ -33,6 +33,18 @@
         </div>
     </div>
 </div>
+<br />
+@using (Html.BeginForm("InputFromExcelFile", "ContestContestants", new { cTId = cTrackId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-xs-8 col-lg-4 col-md-5">
+        <input id="ExcelFileInput" type="file" name="excelFile" class="form-control" required />
+    </div>
+    <div class="col-xs-4 col-lg-2 col-md-2">
+        <input id="ExcelFileInputButton" type="submit" value="Input From Excel File" class="btn btn-warning btn-sm" />
+    </div>
+}
+
+<br /><br /><br />
 
 <div class="row">
     <div class="col-xs-12 col-sm-6">
@@ -83,8 +95,8 @@
                     @for (int i = 0; i < numberOfContestants; i++)
                     {
                         @*<td>
-                            ContestantName
-                        </td>*@
+                                ContestantName
+                            </td>*@
                         <td>
                             Onsite
                         </td>
@@ -115,8 +127,8 @@
                             if (item1.Id == item.ContestTable.Id)
                             {
                                 @*<td>
-                                    @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)
-                                </td>*@
+                                        @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)
+                                    </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ContestTimeSolve)
                                 </td>
@@ -147,6 +159,19 @@
         <ul class="pagination"></ul>
     </nav>
 </div>
+
+<script type="text/javascript">
+    $('#ExcelFileInputButton').click(function () {
+        var extension = $('#ExcelFileInput').val().split('.').pop().toLowerCase();
+        if ($('#ExcelFileInput').val() != '') {
+            if ($.inArray(extension, ['xls', 'xlsx', 'csv']) == -1) {
+                //alert('Sorry, You can only upload an image.');
+                swal("Sorry!", "You can only upload a Excel File!", "error");
+                return false;
+            }
+        }
+    });
+</script>
 
 <script type="text/javascript">
     var table = '#mytable'
