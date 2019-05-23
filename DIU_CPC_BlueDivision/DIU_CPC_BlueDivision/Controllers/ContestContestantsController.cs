@@ -45,8 +45,8 @@ namespace DIU_CPC_BlueDivision.Controllers
                 .Include(c => c.ContestTable).Where(per => per.ContestTable.ContestTrackerId == cTrackerId);
             ViewBag.count = db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackerId).Count();
 
-            ContestClass contestClass = new ContestClass();
-            contestClass.updateContestant(cTrackerId);
+            //ContestClass contestClass = new ContestClass();
+            //contestClass.updateContestant(cTrackerId);
 
             ViewBag.contestTrackerId = cTrackerId;
             return View(contestContestants.ToList());
