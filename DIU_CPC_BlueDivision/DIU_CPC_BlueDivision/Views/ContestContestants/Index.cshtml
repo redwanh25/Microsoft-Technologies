@@ -104,7 +104,7 @@
                 {
                     <tr>
                         <td>
-                            @item1.ContestName
+                            <a target="_blank" href="@item1.ContestLink">@item1.ContestName</a>
                         </td>
 
                         @foreach (var item in Model.OrderByDescending(per => per.ContestantsTable.Score)
