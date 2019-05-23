@@ -1,0 +1,106 @@
+﻿@model InputFromExcelFile.Models.ContestantsTable
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContestantsTable</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContestantsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContestantsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CFHandle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CFHandle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CFHandleLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CFHandleLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalSolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalSolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalParticipation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalParticipation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OnlineParticipation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OnlineParticipation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolveCountOnsite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolveCountOnsite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolveCountUpsolves)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolveCountUpsolves)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageSolvePerContest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageSolvePerContest)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

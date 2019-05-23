@@ -1,0 +1,50 @@
+﻿@model InputFromExcelFile.Models.ContestContestant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ContestContestant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContestTimeSolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContestTimeSolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpSolve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpSolve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContestantsTable.ContestantsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContestantsTable.ContestantsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContestTable.ContestName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContestTable.ContestName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

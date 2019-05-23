@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
@@ -102,7 +104,7 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 db.ContestTables.Add(contestTable);
                 db.SaveChanges();
-                return RedirectToAction("Index", "ContestTables", new { cTrackerId = contestTable.ContestTrackerId});
+                return RedirectToAction("Index", "ContestTables", new { cTrackerId = contestTable.ContestTrackerId });
             }
             ViewBag.ContestTrackerId = new SelectList(db.ContestTrackers.Where(per => per.Id == contestTable.ContestTrackerId), "Id", "ContestYear");
             return View(contestTable);
@@ -192,10 +194,78 @@ namespace DIU_CPC_BlueDivision.Controllers
             deleteDataFromDatabase.deleteContest(id);
 
             ContestTable contestTable = db.ContestTables.Find(id);
-            int cTId = (int) contestTable.ContestTrackerId;
+            int cTId = (int)contestTable.ContestTrackerId;
             db.ContestTables.Remove(contestTable);
             db.SaveChanges();
             return RedirectToAction("Index", "ContestTables", new { cTrackerId = cTId });
+        }
+
+        [HttpPost]
+        public ActionResult InputFromExcelFile(int cTId, HttpPostedFileBase excelfile)
+        {
+            string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            excelfile.SaveAs(path);
+
+            // read data from excel file
+
+            using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
+            {
+                WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
+                IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
+                string relationshipId = sheets.First().Id.Value;
+                WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
+                Worksheet workSheet = worksheetPart.Worksheet;
+                SheetData sheetData = workSheet.GetFirstChild<SheetData>();
+                List<Row> rows = sheetData.Descendants<Row>().ToList();
+
+                for (int i = 12; i < rows.Count(); i++)     // start with 0 index
+                {
+                    ContestTable contestTable = new ContestTable();
+                    try
+                    {
+                        string contestName = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(0));
+                        string date = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(1));
+                        string numberOfProblems = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(2));
+                        string participation = GetCellValue(spreadSheetDocument, rows[i].Descendants<Cell>().ElementAt(3));
+
+                        contestTable.ContestName = contestName;
+                        //contestTable.Date = Convert.ToDateTime(date);
+                        double d = Convert.ToDouble(numberOfProblems);
+                        contestTable.NumberOfProblems = Convert.ToInt32(d);
+                        contestTable.Participation = Convert.ToInt32(participation);
+                        contestTable.ContestTrackerId = cTId;
+
+                        db.ContestTables.Add(contestTable);
+                    }
+                    catch (Exception)
+                    {
+                        //break;
+                    }
+                }
+                db.SaveChanges();
+            }
+            System.IO.File.Delete(path);
+
+            return RedirectToAction("Index", "ContestTables", new { cTrackerId = cTId });
+        }
+
+        public static string GetCellValue(SpreadsheetDocument document, Cell cell)
+        {
+            SharedStringTablePart stringTablePart = document.WorkbookPart.SharedStringTablePart;
+            string value = cell.CellValue.InnerXml;
+
+            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            {
+                return stringTablePart.SharedStringTable.ChildElements[Int32.Parse(value)].InnerText;
+            }
+            else
+            {
+                return value;
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InputFromExcelFileDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContestantsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContestantsName" Type="nvarchar" MaxLength="500" />
+          <Property Name="StudentId" Type="nvarchar" MaxLength="500" />
+          <Property Name="CFHandle" Type="nvarchar" MaxLength="500" />
+          <Property Name="CFHandleLink" Type="nvarchar" MaxLength="500" />
+          <Property Name="Score" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TotalSolve" Type="int" />
+          <Property Name="TotalParticipation" Type="int" />
+          <Property Name="OnlineParticipation" Type="int" />
+          <Property Name="SolveCountOnsite" Type="int" />
+          <Property Name="SolveCountUpsolves" Type="int" />
+          <Property Name="AverageSolvePerContest" Type="numeric" Precision="5" Scale="2" />
+        </EntityType>
+        <EntityType Name="ContestContestants">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContestId" Type="int" />
+          <Property Name="ContestantId" Type="int" />
+          <Property Name="ContestTimeSolve" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpSolve" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ContestTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContestName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="ContestLink" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Date" Type="date" />
+          <Property Name="NumberOfProblems" Type="int" />
+          <Property Name="Participation" Type="int" />
+        </EntityType>
+        <Association Name="FK__ContestCo__Conte__49C3F6B7">
+          <End Role="ContestTable" Type="Self.ContestTable" Multiplicity="0..1" />
+          <End Role="ContestContestants" Type="Self.ContestContestants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContestTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContestContestants">
+              <PropertyRef Name="ContestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContestCo__Conte__4AB81AF0">
+          <End Role="ContestantsTable" Type="Self.ContestantsTable" Multiplicity="0..1" />
+          <End Role="ContestContestants" Type="Self.ContestContestants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContestantsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContestContestants">
+              <PropertyRef Name="ContestantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InputFromExcelFileDBModelStoreContainer">
+          <EntitySet Name="ContestantsTable" EntityType="Self.ContestantsTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContestContestants" EntityType="Self.ContestContestants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContestTable" EntityType="Self.ContestTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ContestCo__Conte__49C3F6B7" Association="Self.FK__ContestCo__Conte__49C3F6B7">
+            <End Role="ContestTable" EntitySet="ContestTable" />
+            <End Role="ContestContestants" EntitySet="ContestContestants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContestCo__Conte__4AB81AF0" Association="Self.FK__ContestCo__Conte__4AB81AF0">
+            <End Role="ContestantsTable" EntitySet="ContestantsTable" />
+            <End Role="ContestContestants" EntitySet="ContestContestants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InputFromExcelFileDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContestantsTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContestantsName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="StudentId" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CFHandle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CFHandleLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Score" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalSolve" Type="Int32" />
+          <Property Name="TotalParticipation" Type="Int32" />
+          <Property Name="OnlineParticipation" Type="Int32" />
+          <Property Name="SolveCountOnsite" Type="Int32" />
+          <Property Name="SolveCountUpsolves" Type="Int32" />
+          <Property Name="AverageSolvePerContest" Type="Decimal" Precision="5" Scale="2" />
+          <NavigationProperty Name="ContestContestants" Relationship="Self.FK__ContestCo__Conte__3C69FB99" FromRole="ContestantsTable" ToRole="ContestContestants" />
+        </EntityType>
+        <EntityType Name="ContestContestant">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContestId" Type="Int32" />
+          <Property Name="ContestantId" Type="Int32" />
+          <Property Name="ContestTimeSolve" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="UpSolve" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ContestantsTable" Relationship="Self.FK__ContestCo__Conte__3C69FB99" FromRole="ContestContestants" ToRole="ContestantsTable" />
+          <NavigationProperty Name="ContestTable" Relationship="Self.FK__ContestCo__Conte__3B75D760" FromRole="ContestContestants" ToRole="ContestTable" />
+        </EntityType>
+        <EntityType Name="ContestTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContestName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="ContestLink" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="NumberOfProblems" Type="Int32" />
+          <Property Name="Participation" Type="Int32" />
+          <NavigationProperty Name="ContestContestants" Relationship="Self.FK__ContestCo__Conte__3B75D760" FromRole="ContestTable" ToRole="ContestContestants" />
+        </EntityType>
+        <Association Name="FK__ContestCo__Conte__3C69FB99">
+          <End Role="ContestantsTable" Type="Self.ContestantsTable" Multiplicity="0..1" />
+          <End Role="ContestContestants" Type="Self.ContestContestant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContestantsTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContestContestants">
+              <PropertyRef Name="ContestantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ContestCo__Conte__3B75D760">
+          <End Role="ContestTable" Type="Self.ContestTable" Multiplicity="0..1" />
+          <End Role="ContestContestants" Type="Self.ContestContestant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContestTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContestContestants">
+              <PropertyRef Name="ContestId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ConConEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContestantsTables" EntityType="Self.ContestantsTable" />
+          <EntitySet Name="ContestContestants" EntityType="Self.ContestContestant" />
+          <EntitySet Name="ContestTables" EntityType="Self.ContestTable" />
+          <AssociationSet Name="FK__ContestCo__Conte__3C69FB99" Association="Self.FK__ContestCo__Conte__3C69FB99">
+            <End Role="ContestantsTable" EntitySet="ContestantsTables" />
+            <End Role="ContestContestants" EntitySet="ContestContestants" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ContestCo__Conte__3B75D760" Association="Self.FK__ContestCo__Conte__3B75D760">
+            <End Role="ContestTable" EntitySet="ContestTables" />
+            <End Role="ContestContestants" EntitySet="ContestContestants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InputFromExcelFileDBModelStoreContainer" CdmEntityContainer="ConConEntities">
+          <EntitySetMapping Name="ContestantsTables">
+            <EntityTypeMapping TypeName="InputFromExcelFileDBModel.ContestantsTable">
+              <MappingFragment StoreEntitySet="ContestantsTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContestantsName" ColumnName="ContestantsName" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="CFHandle" ColumnName="CFHandle" />
+                <ScalarProperty Name="CFHandleLink" ColumnName="CFHandleLink" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="TotalSolve" ColumnName="TotalSolve" />
+                <ScalarProperty Name="TotalParticipation" ColumnName="TotalParticipation" />
+                <ScalarProperty Name="OnlineParticipation" ColumnName="OnlineParticipation" />
+                <ScalarProperty Name="SolveCountOnsite" ColumnName="SolveCountOnsite" />
+                <ScalarProperty Name="SolveCountUpsolves" ColumnName="SolveCountUpsolves" />
+                <ScalarProperty Name="AverageSolvePerContest" ColumnName="AverageSolvePerContest" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContestContestants">
+            <EntityTypeMapping TypeName="InputFromExcelFileDBModel.ContestContestant">
+              <MappingFragment StoreEntitySet="ContestContestants">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContestId" ColumnName="ContestId" />
+                <ScalarProperty Name="ContestantId" ColumnName="ContestantId" />
+                <ScalarProperty Name="ContestTimeSolve" ColumnName="ContestTimeSolve" />
+                <ScalarProperty Name="UpSolve" ColumnName="UpSolve" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContestTables">
+            <EntityTypeMapping TypeName="InputFromExcelFileDBModel.ContestTable">
+              <MappingFragment StoreEntitySet="ContestTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContestName" ColumnName="ContestName" />
+                <ScalarProperty Name="ContestLink" ColumnName="ContestLink" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NumberOfProblems" ColumnName="NumberOfProblems" />
+                <ScalarProperty Name="Participation" ColumnName="Participation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

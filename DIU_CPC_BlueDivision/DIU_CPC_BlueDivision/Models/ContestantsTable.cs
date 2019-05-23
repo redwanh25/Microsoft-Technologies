@@ -28,7 +28,7 @@ namespace DIU_CPC_BlueDivision.Models
         public string StudentId { get; set; }
         [Required]
         public string CFHandle { get; set; }
-        [Required]
+        //[Required]
         public string CFHandleLink { get; set; }
         public Nullable<decimal> Score { get; set; }
         public Nullable<int> TotalSolve { get; set; }
@@ -37,6 +37,7 @@ namespace DIU_CPC_BlueDivision.Models
         public Nullable<int> SolveCountOnsite { get; set; }
         public Nullable<int> SolveCountUpsolves { get; set; }
         public Nullable<decimal> AverageSolvePerContest { get; set; }
+        [Required]
         public Nullable<int> ContestTrackerId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

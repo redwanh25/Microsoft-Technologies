@@ -41,10 +41,11 @@
         <div class="form-group">
             <select name="state" id="maxRows" class="form-control" style="width:150px;">
                 <option value="50000">Show All</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
-                <option value="50">50</option>
             </select>
         </div>
     </div>
@@ -218,7 +219,7 @@
         var totalRows = $(table + ' tbody tr').length
 
         // hide column 5 select korle 5 ta row show korbe
-        $(table + ' tr:gt(0)').each(function () {
+        $(table + ' tr:gt(10)').each(function () {
             trnum++
             if (trnum > maxRows) {
                 $(this).hide()
@@ -246,7 +247,7 @@
             var trIndex = 0;
             $('.pagination li').removeClass('active')
             $(this).addClass('active');
-            $(table + ' tr:gt(0)').each(function () {
+            $(table + ' tr:gt(10)').each(function () {
                 trIndex++;
                 if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
                     $(this).hide();

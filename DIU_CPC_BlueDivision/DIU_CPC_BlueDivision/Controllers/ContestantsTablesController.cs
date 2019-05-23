@@ -10,6 +10,8 @@ using System.Web.Mvc;
 using DIU_CPC_BlueDivision.DatabaseConnection;
 using DIU_CPC_BlueDivision.DifferentLayout_Database;
 using DIU_CPC_BlueDivision.Models;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNet.Identity;
 
 namespace DIU_CPC_BlueDivision.Controllers
@@ -196,6 +198,71 @@ namespace DIU_CPC_BlueDivision.Controllers
             db.ContestantsTables.Remove(contestantsTable);
             db.SaveChanges();
             return RedirectToAction("Index", "ContestantsTables", new { cTrackerId = cTId });
+        }
+
+        [HttpPost]
+        public ActionResult InputFromExcelFile(int cTId, HttpPostedFileBase excelfile)
+        {
+            string path = Server.MapPath("~/Excel_Files/" + excelfile.FileName);
+            if (System.IO.File.Exists(path))
+            {
+                System.IO.File.Delete(path);
+            }
+            excelfile.SaveAs(path);
+
+            // read data from excel file
+
+            using (SpreadsheetDocument spreadSheetDocument = SpreadsheetDocument.Open(path, false))
+            {
+                WorkbookPart workbookPart = spreadSheetDocument.WorkbookPart;
+                IEnumerable<Sheet> sheets = spreadSheetDocument.WorkbookPart.Workbook.GetFirstChild<Sheets>().Elements<Sheet>();
+                string relationshipId = sheets.First().Id.Value;
+                WorksheetPart worksheetPart = (WorksheetPart)spreadSheetDocument.WorkbookPart.GetPartById(relationshipId);
+                Worksheet workSheet = worksheetPart.Worksheet;
+                SheetData sheetData = workSheet.GetFirstChild<SheetData>();
+                List<Row> rows = sheetData.Descendants<Row>().ToList();
+
+                for (int col = 5; col < rows[3].Count(); col++)         // start with 0 index
+                {
+                    ContestantsTable contestantsTable = new ContestantsTable();
+                    try
+                    {
+                        string studentId = GetCellValue(spreadSheetDocument, rows[3].Descendants<Cell>().ElementAt(col));
+                        string contestantsName = GetCellValue(spreadSheetDocument, rows[4].Descendants<Cell>().ElementAt(col));
+                        string cFHandle = GetCellValue(spreadSheetDocument, rows[5].Descendants<Cell>().ElementAt(col));
+
+                        contestantsTable.ContestantsName = contestantsName;
+                        contestantsTable.StudentId = studentId;
+                        contestantsTable.CFHandle = cFHandle;
+                        contestantsTable.ContestTrackerId = cTId;
+
+                        db.ContestantsTables.Add(contestantsTable);
+                    }
+                    catch (Exception)
+                    {
+                        //break;
+                    }
+                }
+                db.SaveChanges();
+            }
+            System.IO.File.Delete(path);
+
+            return RedirectToAction("Index", "ContestantsTables", new { cTrackerId = cTId });
+        }
+
+        public static string GetCellValue(SpreadsheetDocument document, Cell cell)
+        {
+            SharedStringTablePart stringTablePart = document.WorkbookPart.SharedStringTablePart;
+            string value = cell.CellValue.InnerXml;
+
+            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            {
+                return stringTablePart.SharedStringTable.ChildElements[Int32.Parse(value)].InnerText;
+            }
+            else
+            {
+                return value;
+            }
         }
 
         protected override void Dispose(bool disposing)

@@ -15,9 +15,24 @@
     Id = Convert.ToInt32(arr[1]);
 
 }
+
+<br />
+@using (Html.BeginForm("InputFromExcelFile", "ContestantsTables", new { cTId = Id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="col-xs-4 col-lg-2 col-md-2 pull-right">
+        <input id="ExcelFileInputButton" type="submit" value="Import From Excel File" class="btn btn-warning btn-sm" />
+    </div>
+    <div class="col-xs-8 col-lg-4 col-md-5 pull-right">
+        <input id="ExcelFileInput" type="file" name="excelFile" class="form-control" required />
+    </div>
+}
+
+<br /><br /><br />
+
 <p>
     <button class="btn btn-success btn-sm" type="button" onclick="location.href='@Url.Action("Create", "ContestantsTables", new { ContestTrackerId = Id })'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
 </p>
+<br />
 <div style="overflow-x:auto;">
     <table class="table">
         <tr>
@@ -62,7 +77,18 @@
     </table>
 </div>
 
-
+<script type="text/javascript">
+    $('#ExcelFileInputButton').click(function () {
+        var extension = $('#ExcelFileInput').val().split('.').pop().toLowerCase();
+        if ($('#ExcelFileInput').val() != '') {
+            if ($.inArray(extension, ['xls', 'xlsx', 'csv']) == -1) {
+                //alert('Sorry, You can only upload an image.');
+                swal("Sorry!", "You can only upload a Excel File!", "error");
+                return false;
+            }
+        }
+    });
+</script>
 
 @*<th>
         @Html.DisplayNameFor(model => model.Score)
