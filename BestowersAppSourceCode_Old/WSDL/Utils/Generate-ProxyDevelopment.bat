@@ -1,1 +1,0 @@
-..\Tools\wsdl.exe http://EOS/BFWS/OrcaWebServices.asmx /namespace:CIS.Lib.Utils /out:OrcaWebProxy.cs
