@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="BFServices.asmx.cs" Class="BFWS.Service1" %>
