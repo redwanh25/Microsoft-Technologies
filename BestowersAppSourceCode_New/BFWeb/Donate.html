@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1"><title>
+	Bestower Foundation
+</title><link rel="stylesheet" type="text/css" href="Themes/drupal.css" />
+<link rel="STYLESHEET" type="text/css" href="Themes/tablesort.css" />
+<link REL="icon" HREF="./LIB/Images/bestowerfdn_logo.png" TYPE="image/gif">
+    <script src="./Lib/JS/tablesort.js" type="text/javascript"></script>
+    <script language="javascript" src="./Lib/JS/base.js"></script>
+      <script language="javascript">
+    <!--
+
+          //User defined variables - change these variables to alter the behaviour of the script
+          var QuoteArray = new Array(); //List of text to use
+          QuoteArray[0] = 'By no means shall you attain righteousness unless you spend of that which you love. [3:92]\n';
+          QuoteArray[1] = 'Who is it that would loan Allah a goodly loan so He may multiply it for him many times over? And it is Allah who withholds and grants abundance, and to Him you will be returned. [2:245]';
+          QuoteArray[2] = 'The example of those who spend their wealth in the way of Allah is like a seed [of grain] which grows seven spikes; in each spike is a hundred grains. And Allah multiplies [His reward] for whom He wills. And Allah is all-Encompassing and Knowing. [2:261]';
+          QuoteArray[3] = 'Those who spend their wealth in the way of Allah and then do not follow up what they have spent with reminders [of it] or [other] injury will have their reward with their Lord, and there will be no fear concerning them, nor will they grieve. [2:262]';
+          QuoteArray[4] = 'O you who have believed, indeed many of the scholars and the monks devour the wealth of people unjustly and avert [them] from the way of Allah . And those who hoard gold and silver and spend it not in the way of Allah - give them tidings of a painful punishment. [9:34]';
+          QuoteArray[5] = 'If you disclose your charitable expenditures, they are good; but if you conceal them and give them to the poor, it is better for you, and He will remove from you some of your misdeeds [thereby]. And Allah , with what you do, is [fully] Acquainted. [2:271]';
+          QuoteArray[6] = 'Alms are for the poor and the needy, and those employed to administer the (funds); for those whose hearts have been (recently) reconciled (to Truth); for those in bondage and in debt; in the cause of Allah; and for the wayfarer: (thus is it) ordained by Allah, and Allah is full of knowledge and wisdom. [9:60]';
+          QuoteArray[7] = 'Take, [O, Mu?hammad], from their wealth a charity by which you purify them and cause them increase, and invoke [ Allah\'s blessings] upon them. Indeed, your invocations are reassurance for them. And Allah is Hearing and Knowing. [9:103]';
+          QuoteArray[8] = 'And He it is who causes gardens to grow, [both] trellised and untrellised, and palm trees and crops of different [kinds of] food and olives and pomegranates, similar and dissimilar. Eat of [each of] its fruit when it yields and give its due [zakah] on the day of its harvest. And be not excessive. Indeed, He does not like those who commit excess. [6:141]';
+          QuoteArray[9] = 'O you who have believed, do not invalidate your charities with reminders or injury as does one who spends his wealth [only] to be seen by the people and does not believe in Allah and the Last Day. His example is like that of a [large] smooth stone upon which is dust and is hit by a downpour that leaves it bare. They are unable [to keep] anything of what they have earned. And Allah does not guide the disbelieving people.[2:264]';
+          QuoteArray[10] = 'O you who have believed, spend from the good things which you have earned and from that which We have produced for you from the earth. And do not aim toward the defective therefrom, spending [from that] while you would not take it [yourself] except with closed eyes. And know that Allah is Free of need and Praiseworthy.[2:267] ';
+          QuoteArray[11] = 'Satan threatens you with poverty and orders you to immorality, while Allah promises you forgiveness from Him and bounty. And Allah is all-Encompassing and Knowing.[2:268]';
+          QuoteArray[12] = 'And they give food, inspite of their love for it, to the poor, the orphan, and the captive (saying): \"We feed you seeking Allah\'s Face only. We wish for no reward, nor thanks from you.[76:8-9]';
+          QuoteArray[13] = 'And among them are those who made a covenant with Allah , [saying], \"If He should give us from His bounty, we will surely spend in charity, and we will surely be among the righteous.\" But when he gave them from His bounty, they were stingy with it and turned away while they refused. [9:75-76]';
+          QuoteArray[14] = 'By no means shall you attain righteousness unless you spend of that which you love. [3:92]\n';
+
+          //QuoteArray[0] = 'Life is like riding a bike. To keep your balance, you must keep moving. - Albert Einstein';
+          //QuoteArray[1] = 'One can succeed at almost anything for which he has enthusiasm. -- Charles Schwab';
+          //QuoteArray[2] = 'Leadership and learning are indispensable to each other. --John F. Kennedy';
+          //QuoteArray[3] = 'When we are planning for posterity, we ought to remember that virtue is not hereditary. --Thomas Paine';
+          //QuoteArray[4] = 'To begin with the end in mind means to start with a clear understanding of your destination. --Steven Covey';
+
+          //Internal variables (do not change these unless you know what you are doing)
+          var IsValidBrowser = false;
+          var BannerAdCode = 0;
+          var NumberOfQuotes = QuoteArray.length;
+          var DisplayInterval = 8000;
+
+          function InitialiseBannerAdRotator() {
+              //Determine the browser name and version
+              //The script will only work on Netscape 3+ and Internet Explorer 4+
+              var BrowserType = navigator.appName;
+              var BrowserVersion = parseInt(navigator.appVersion);
+              if (BrowserType == "Netscape" && (BrowserVersion >= 3)) {
+                  IsValidBrowser = true;
+              }
+              if (BrowserType == "Microsoft Internet Explorer" && (BrowserVersion >= 4)) {
+                  IsValidBrowser = true;
+              }
+
+              if (IsValidBrowser) {
+                  TimerObject = setTimeout("ChangeQuote()", DisplayInterval);
+              }
+          } //InitialiseBannerAdRotator()
+
+          //Function to change the text of the quote
+          function ChangeQuote() {
+              if (IsValidBrowser) {
+                  BannerAdCode = BannerAdCode + 1;
+                  if (BannerAdCode == NumberOfQuotes) {
+                      BannerAdCode = 0;
+                  }
+                  var oQuote = findDOM('spquote', 0);
+                  oQuote.innerHTML = QuoteArray[BannerAdCode];
+                  TimerObject = setTimeout("ChangeQuote()", DisplayInterval);
+              }
+          } // ChangeQuote()
+
+// -->
+</script>
+
+    </head>
+<body onload="InitialiseBannerAdRotator()">
+    <form name="aspnetForm" method="post" action="https://www.paypal.com/cgi-bin/webscr" id="aspnetForm">
+
+
+
+        <table width="100%">
+        <tr><td width="100%">
+         <table border="0" cellpadding="0" bgcolor="#ffffff" width="100%" summary="Main Menu">
+	        <tr>
+		        <td  nowrap="nowrap" align="left" valign="middle" width="2%" rowspan="3"><img src="LIB/Images/bestowerfdn_logo.png" alt="Bestower Foundation" border="0" width="100"/>
+		        </td>
+		        <td colspan="2" height="10" align="left" valign="top" wrap="yes"><span id="spquote" class="copyright">By no means shall you attain righteousness unless you spend of that which you love. [3:92]</span></td>
+		    </tr>
+		     <tr>
+		        <td valign="middle" width="98%" nowrap="nowrap">
+
+
+                    <span id="title">
+		              <div style="display:block; margin-bottom:4px;">Bestower Foundation&trade;</div>
+		              <div style="letter-spacing:4px; font-size:10px;">Spend out of what Lord has provided for you!</div>
+	                </span>
+
+		        </td>
+
+
+                <td align="right" width="2%" valign="bottom" nowrap="nowrap">
+                    <!-- paypal button begins --->
+                    <a href="./Donate.html"><image src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" alt="Donate to Bestower Foundation"></a>
+                    <!-- paypal button end --->
+
+	             </td>
+
+			 </tr>
+			 <tr>
+		        <td colspan="2" align="right" valign="top" wrap="yes">
+
+		        		   <span id="ctl00_lblHeader"><a href='Default.aspx'>About Us</a>&nbsp;|&nbsp;<a href='JoinTheFoundation.aspx'>Join</a>&nbsp;|&nbsp;<a href='Services.aspx'>Community Services</a>&nbsp;|&nbsp;<a href='ApplicationForms.aspx'>Forms</a>&nbsp;|&nbsp;<a href='Grants.aspx'>Grants</a>&nbsp;|&nbsp;<a href='Scholarships.aspx'>Scholarship</a>&nbsp;|&nbsp;<a href='News.aspx'>News</a>&nbsp;|&nbsp;<a href='ContactUs.aspx'>Contact Us</a>&nbsp;|&nbsp;<a href='Login.aspx'>Login</a></span>
+
+		        </td>
+
+			 </tr>
+
+        </table>
+        </td></tr>
+        <tr><td width="100%">
+
+
+
+	<!-- show the content -->
+	<table cellspacing="0" class="lightbannercell" cellpadding="0" border="0" width="100%">
+		<tr valign="bottom" align="center">
+			<td>
+				<table cellspacing="0" cellpadding="0" width="100%" border="0">
+					<tr class="lightbannercell" valign="top">
+						<td>
+							<table cellspacing="2" cellpadding="0" width="99%" border="0">
+								<tr>
+									<td class="bannertext" valign="bottom" align="left">DONATE SECURELY USING PAYPAL</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		<tr valign="top" align="left">
+			<td>
+				<table cellspacing="1" cellpadding="3" width="100%" border="0">
+					<tr>
+						<td width="100%" class="navback">
+							<!-- this is content table comes in -->
+							<table><tr><td>
+							<span class="valuetextsmall">
+
+<b>Pay Online:</b><br />
+Bestower Foundation uses PayPal to process credit cards for donations. Be assured that the transaction is very secure and that we do not store any user information. You can donate now by clicking the button below. May Lord accept your effort!
+<br />
+
+
+<TABLE>
+<TR><TD class="valuetextsmall">
+<input type="hidden" name="cmd" value="_s-xclick">
+
+
+
+<input type="radio" name="hosted_button_id" value="4Q9RCNB8X74EW">Scholarship for Students Fund<br />
+<input type="radio" name="hosted_button_id" value="ZB9W8WL6DN7RL">Grants for Rohingya Refugees<br />
+<input type="radio" name="hosted_button_id" value="CQ6U98XJD2HKY">Grants for the Needy Fund<br />
+<input type="radio" name="hosted_button_id" value="4FPKQTG4F3QJY">Grants for Religious Institution Fund<br />
+<input type="radio" name="hosted_button_id" value="WUTEAYNQ46CJU">Zakat Fund<br />
+<input type="radio" name="hosted_button_id" value="WPT656EUXP8KU">Affiliation Fund<br />
+<input type="radio" name="hosted_button_id" value="38K9QRLJ677D4">General Fund<br />
+<input type="radio" name="hosted_button_id" value="TB7AGL5SZ8W46">"Ramadan Grant" Fund<br />
+<input type="radio" name="hosted_button_id" value="UCVS5XHAR3PJ2" checked>"The Patient Person of the Year" Fund [Zakat-ul-fitr and/or Zakat]<br />
+<input type="radio" name="hosted_button_id" value="DERJMAPGSXX4Q">Iftar Fund<br />
+
+
+</TD>
+<TR><TD class="valuetextsmall">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+
+
+</TD>
+</TR>
+</TABLE>
+
+
+
+<br />
+
+If you would rather mail a check or do a wire transfer, please follow the informaiton below: <br />
+<br />
+<b>Mail a check:</b><br />
+Please send your check to the <u>current mailing address</u> below.<br />
+Bestower Foundation<br />
+1502 Kingfisher Dr<br />
+Marietta, GA 30062<br />
+USA<br /><br />
+<b>Wire Transfer:</b><br />
+If you prefer to do wire transfer direclty to Bestower Foundation bank account, please e-mail <a href="maito:info@bestower.org">info@bestower.org</a> to obtain the wire transfer information (e.g. routing number, account number etc.) needed by your bank.
+
+<br /><br />
+<br />
+<b>Paypal Frequently Asked Questions:</b><br /><br />
+<TABLE>
+<tr>
+<td class="valuetextsmall" colspan="2">
+<b>Q1:&nbsp;I am using Internet Explorer and when I click the "Donate" button, I get "Fatal Failure". How can I resolve this?</b></td>
+</tr>
+<tr>
+<td class="valuetextsmall" colspan="2">
+PayPal requires a cookie-enabled browser to make donations online. By default, all major broswers (e.g. Mozilla, Safari, Chrome etc) accept cookies except IE. Hence, you need to enable cookies in your Internet Explorer browser. Please follow the steps outlined at <a href="EnableCookiesIE.aspx">How to Enable Cookies in Internet Explorer</a> web page. After enabling cookies, please make sure to close the current browser and open a new browser session.</td>
+</tr>
+
+<tr>
+<td class="valuetextsmall" colspan="2">&nbsp;</td></tr>
+
+<tr>
+<td class="valuetextsmall" colspan="2">
+<b>Q2:&nbsp;I made sure my browser is set to accept cookies. However, I am still getting "Fatal Failure" when I clicked on "Donate" button. What can I do?</b></td>
+</tr>
+<tr>
+<td class="valuetextsmall" colspan="2">
+Please contact technical support at <a href="mailto:support@bestower.org">support@bestower.org</a></td>
+</tr>
+
+</TABLE>
+
+
+
+
+							</span>
+							</td></tr></table>
+							<!-- end content table -->
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<!-- show the content end --->
+
+
+
+        </td></tr>
+        <tr><td width="100%">
+          <table border="0" cellspacing="0" cellpadding="0" width="100%" summary="footer of the page" align="center">
+
+
+	        <tr>
+		        <td>
+			        <table border="0" width="100%" cellspacing="0" summary="CpsWeb Footer" ID="Table1">
+				        <tr class="footerbannercell">
+					        <td align="center" class="copyright">
+					        <span id="ctl00_lblFooter"><a href='PrivacyPolicy.aspx'>Privacy Policy</a>&nbsp;|&nbsp;<a href='TermsOfService.aspx'>Terms of Service</a></span>
+
+					        </td>
+				        </tr>
+			        </table>
+		        </td>
+	        </tr>
+	        <tr>
+		         <td align="center"><span class="copyright">&copy; 2014 This bestower.org website is developed and maintained by <a href="http://bestower.com" target="_new">Bestower Corporation</a>&trade;</span></td>
+	        </tr>
+        </table>
+        </td>
+        </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>
+
+
+
+
+
+
