@@ -58,9 +58,16 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div style="overflow-x:auto;">
             <table class="table table-hover table-bordered table-responsive table-striped fixed text-center" style="font-size:16px;" id="mytable">
-                @*<tr class="success text-center" style="font-weight: bold;">
-                        <td colspan="4">Standing</td>
-                    </tr>*@
+                <tr class="success text-center" style="font-weight: bold;">
+                    <td colspan="4">Standing</td>
+                    @{
+                        int count = Convert.ToInt32(Model.contestantsTables.Count());
+                    }
+                    @for (int i = 1; i <= count; i++)
+                    {
+                        <td colspan="2">@i</td>
+                    }
+                </tr>
                 <tr class="success" style="font-weight: bold;">
                     <td colspan="4">Student ID</td>
                     @foreach (ContestantsTable contestantsTable in Model.contestantsTables.ToList()

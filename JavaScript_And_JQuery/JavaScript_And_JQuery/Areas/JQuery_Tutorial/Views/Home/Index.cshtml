@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "JQuery_Tutorial";
+}
+
+<h2>JQuery_Tutorial</h2>
+
+<table>
+    <tr>
+        <td>
+            @Html.ActionLink("Main", "Index", "Home", new { area = "" }, null)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("JavaScript_Tutorial", "Index", "Home", new { area = "JavaScript_Tutorial" }, null)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("JQuery_Tutorial", "Index", "Home", new { area = "JQuery_Tutorial" }, null)
+        </td>
+    </tr>
+</table>

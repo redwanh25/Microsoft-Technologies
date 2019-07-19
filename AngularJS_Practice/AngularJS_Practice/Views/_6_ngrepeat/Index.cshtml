@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/CSS_And_Script_File/jQuery/uncompressed/jquery-3.3.1.js"></script>
+<script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
+<script src="~/CSS_And_Script_File/Bootstrap/Bootstrap-3.3.7/js/bootstrap.js"></script>
+<h2>Index</h2>
+<div ng-app="myModule">
+    <div ng-controller="myController">
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr class="success">
+                    <td>FirstName</td>
+                    <td>LastName</td>
+                    <td>Age</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.FirstName}}</td>
+                    <td>{{employee.LastName}}</td>
+                    <td>{{employee.Age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br />
+    @*nested loop*@
+    <div ng-controller="myController1">
+        <ul>
+            <li ng-repeat="employee in employees1" ng-init="parentIndex=$index">
+                {{employee.city}} - Index={{$index}}
+                <ul ng-repeat="detail in employee.details">
+                    <li> {{detail.FirstName}} - ParentIndex={{parentIndex}} - Index={{$index}}</li>
+                    <li> {{detail.LastName}} - ParentIndex={{parentIndex}} - Index={{$index}}</li>
+                    <li> {{detail.Age}} - ParentIndex={{$parent.$index}} - Index={{$index}}</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var myApp = angular.module("myModule", [])
+        .controller("myController", function ($scope) {
+
+            //single loop
+            var emp = [
+                { FirstName: "redwan", LastName: "hossain", Age: 21 },
+                { FirstName: "rifat", LastName: "ahmed", Age: 22 },
+                { FirstName: "shihab", LastName: "khan", Age: 23 },
+            ];
+            $scope.employees = emp;
+        });
+
+    myApp.controller("myController1", function ($scope) {
+
+        //nested loop
+        var emp = [
+            {
+                city: "Dhaka",
+                details: [
+                    { FirstName: "redwan", LastName: "hossain", Age: 21 }
+                ]
+            },
+            {
+                city: "Rajshahi",
+                details: [
+                    { FirstName: "rifat", LastName: "ahmed", Age: 22 }
+                ]
+            },
+            {
+                city: "Bogra",
+                details: [
+                    { FirstName: "shihab", LastName: "khan", Age: 23 }
+                ]
+            },
+        ];
+        $scope.employees1 = emp;
+    });
+</script>
+
+<script type="text/javascript">
+
+</script>
+

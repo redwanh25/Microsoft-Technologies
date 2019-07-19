@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
+<h2>Index</h2>
+<div ng-app="myModule">
+    <div ng-controller="myController">
+        <table class="table table-hover text-center table-bordered">
+            <tr>
+                <td>name</td>
+                <td>like</td>
+                <td>dislike</td>
+                <td>action</td>
+            </tr>
+            <tr ng-repeat="technology in technologys">
+                <td>{{technology.name}}</td>
+                <td>{{technology.like}}</td>
+                <td>{{technology.dislike}}</td>
+                <td>
+                    <input type="button" value="like" ng-click="likeIncrement(technology)" class="btn btn-sm"/>
+                    <input type="button" value="dislike" ng-click="dislikeIncrement(technology)"  class="btn btn-sm"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<iframe src="http://www.botlibre.com/embedded?chat=165&message=How+may+I+help+you&avatar=true"
+        width="500" height="400" frameborder="0" scrolling="auto"></iframe>
+
+<script type="text/javascript">
+    var myApp = angular.module("myModule", [])
+        .controller("myController", function ($scope) {
+            var technology = [
+                { name: "C#", like: 0, dislike: 0 },
+                { name: "C++", like: 0, dislike: 0 }
+            ]
+            $scope.technologys = technology;
+
+            $scope.likeIncrement = function (technology) {
+                technology.like++;
+            }
+            $scope.dislikeIncrement = function (techno) {
+                techno.dislike++;
+            }
+        });
+</script>
+

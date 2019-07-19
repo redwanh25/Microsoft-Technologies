@@ -100,6 +100,8 @@
     <Content Include="image\next upload pic.jpg" />
     <Content Include="image\nomaa-logo-125-63.png" />
     <Content Include="image\redwan_enan.jpg" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Ajax\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\Animation\Animate.css" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.css" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\css\bootstrap.css" />
@@ -108,6 +110,8 @@
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.js" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\bootstrap.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert\Bootstrap\js\npm.js" />
+    <Content Include="jquery_Bootstrap_SweetAlert\GalleryGrid\gallery-grid.css" />
+    <Content Include="jquery_Bootstrap_SweetAlert\IHover\ihover.css" />
     <Content Include="jquery_Bootstrap_SweetAlert\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="jquery_Bootstrap_SweetAlert\jQuery\uncompressed\jquery-3.3.1.js" />
     <Content Include="jquery_Bootstrap_SweetAlert\SweetAlert\sweetalert.min.js" />
@@ -281,6 +285,14 @@
     <Folder Include="ASP_Tutorial\ASP_70_To_80\" />
     <Folder Include="ASP_Tutorial\ASP_80_To_90\" />
     <Folder Include="ASP_Tutorial\ASP_90_To_100\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_11_To_20\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_1_To_10\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_21_To_30\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_31_To_40\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_41_To_50\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_51_To_60\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_61_To_70\" />
+    <Folder Include="JavaScript_Tutorial\JavaScript_71_To_80\" />
     <Folder Include="jQuery_Tutorial\jQuery_10_To_20\" />
     <Folder Include="jQuery_Tutorial\jQuery_1_To_10\" />
     <Folder Include="jQuery_Tutorial\jQuery_20_To_30\" />

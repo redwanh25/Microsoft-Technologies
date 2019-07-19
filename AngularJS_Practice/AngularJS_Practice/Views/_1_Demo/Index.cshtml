@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/CSS_And_Script_File/AngularJS/Angular.min.js"></script>
+<h2>Index</h2>
+
+<div ng-app>
+    @*ng-app er moddhe ja likha hobe tai e angular er moddhe dhora hobe.. er bahire kono kisu likhle angular kaj korbe na.*@
+    1 + 2 = {{ 1 + 2 }}
+    <br />
+    {{ 1 == 1}} <br /> {{ 1 == 2}}
+    <br />
+    {{ {name: "redwan", age:'30'} }}
+    <br />
+    {{ {name: 'redwan', age:'30'}.name }}
+    <br />
+    {{ ['redwan', 'hossain', 'email'] }}
+    <br />
+    {{ ['redwan', 'hossain', 'email'][1] }}
+</div>
+
+<div>  @*angular js er moddhe include na*@
+    1 + 2 = {{ 1 + 2 }}
+</div>

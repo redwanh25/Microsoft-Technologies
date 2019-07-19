@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
+@*<script src="~/CSS_And_Script_File/AngularJS/Angular.min.js"></script>*@
+
+<h2>Index</h2>
+
+@*
+    google chrome a inspect emement diye jokhon error check kora hoy tokhon minified virsion use korai valo. korle error
+    valo vabe bujha jay na.. er jonno amader Angular.js ta use korte hobe.. taile google chrome a error ta valo vabe
+    bujha jabe.
+    best for practice with Angular.js
+    best for professionally with Angular.min.js
+*@
+
+<div ng-app="myModule">
+    <div ng-controller="myController">
+        <div>
+            name : {{ employee.name }}
+        </div>
+        <div>
+            age : {{ employee.age }}
+        </div>
+        <div>
+            gender : {{ employee.gender }}
+        </div>
+        <img src="~/Image/mid term exam routine.jpg" height="150" width="200"/>
+        <img ng-src="{{ employee.picture }}" height="150" width="200"/>   @*ng-src dile 404 server not found dibe na.*@
+    </div>
+</div>
+
+<script type="text/javascript">
+    var myApp = angular
+        .module("myModule", [])
+        .controller("myController", function ($scope) {
+            var emp = {
+                name: "redwan hossain",
+                age: 21,
+                gender: "male",
+                picture: "/Image/mid term exam routine.jpg"
+            }
+            $scope.employee = emp;
+        })
+</script>

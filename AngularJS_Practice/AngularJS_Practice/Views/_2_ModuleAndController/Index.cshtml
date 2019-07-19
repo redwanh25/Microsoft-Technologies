@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/CSS_And_Script_File/AngularJS/Angular.min.js"></script>
+<h2>Index</h2>
+
+<div ng-app="myModule">
+    <div ng-controller="myController">
+        1 + 2 = {{ 1 + 2 }}
+        {{ message }}
+    </div>
+    <div ng-controller="myController1">
+        1 + 2 = {{ 1 + 2 }}
+        {{ message}} {{ message1 }}
+    </div>
+
+    <br />
+
+    1 + 2 = {{ 1 + 2 }}
+    {{ message }}
+</div>
+
+<script type="text/javascript">
+    // create the module
+    var myApp = angular.module("myModule", []);
+
+    //create the controller
+    var myController = function ($scope) {      // be careful "$scope" e likhte hobe.. onnno kono kisu likhle hobe na.
+        $scope.message = "AngularJS Tutorial 1";
+    }
+
+    //Register the Controller with the module
+    myApp.controller("myController", myController);
+
+    //-------------------- another way -------------------------
+
+    myApp.controller("myController1", function ($scope) {
+        $scope.message = "AngularJS Tutorial 2"
+        $scope.message1 = "AngularJS Tutorial 3"
+    })
+
+
+</script>
