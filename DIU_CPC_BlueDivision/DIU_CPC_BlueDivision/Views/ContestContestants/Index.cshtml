@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<DIU_CPC_BlueDivision.Models.ContestContestant>
 @using DIU_CPC_BlueDivision.Models;
+@using System.Text;
 
 @{
     ViewBag.Title = "Index";
@@ -18,9 +19,23 @@
         overflow: hidden;
     }
 
-        table.fixed td:nth-of-type(2) {
-            min-width: 300px;
-        }
+    #mytable.fixed td:nth-of-type(2) {
+        min-width: 300px;
+    }
+
+    tr td {
+        padding: 0 !important;
+    }
+
+    span.glyphicon-pencil {
+        cursor: pointer;
+        font-size: 10px;
+    }
+
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
 </style>
 
 <br /><br />
@@ -29,7 +44,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="pull-right">
-            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Index", "ContestSheetExcelFormatView", new { cTrackerId = cTrackId })'"><span class="glyphicon glyphicon-edit"></span> ContestSheetExcelFormatView </button>
+            <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Index", "ContestSheetExcelFormatView" , new { cTrackerId=cTrackId })'"><span class="glyphicon glyphicon-edit"></span> ContestSheetExcelFormatView </button>
         </div>
     </div>
 </div>
@@ -52,49 +67,97 @@
 <br />
 
 <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="col-md-4 col-sm-5 col-xs-5 padding-0">
         <div style="overflow-x:auto;">
             <table class="table table-hover table-bordered table-responsive table-striped fixed text-center" style="font-size:16px;" id="mytable">
                 <tr class="success text-center" style="font-weight: bold;">
                     <td></td>
-                    <td>Standing</td>
+                    <td style="color:red">Standing</td>
+                </tr>
+                @*
+                    <tr class="success">
+                        <td></td>
+                        <td></td>
+                        @for (int i = 0; i < numberOfContestants; i++)
+                        {
+                        <td colspan="3">
+                            @Html.DisplayNameFor(model => model.ContestantsTable.ContestantsName)
+                        </td>
+                        }
+                    </tr>*@
+                <tr class="success">
+                    <td></td>
+                    <td>
+                        @Html.DisplayNameFor(model => model.ContestTable.ContestName)
+                    </td>
+                </tr>
+                <tr class="success">
+                    <td></td>
+                </tr>
+                @{
+                    List<ContestTable> conList = db.ContestTables.Where(per => per.ContestTrackerId == cTrackId).ToList();
+                }
+                @foreach (var item1 in conList)
+                {
+                    <tr>
+                        <td>
+                            <a target="_blank" href="@item1.ContestLink">@item1.ContestName</a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+    <div class="col-md-8 col-sm-7 col-xs-7 padding-0">
+        <div style="overflow-x:auto;">
+            <table class="table table-hover table-bordered table-responsive table-striped fixed text-center" style="font-size:16px;" id="mytable1">
+                <tr class="success text-center" style="font-weight: bold;">
                     @{
                         int count = Convert.ToInt32(db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackId).Count());
 
                         for (int i = 1; i <= count; i++)
                         {
-                            <td colspan="3">@i</td>
+                            <td colspan="3" style="color:red;">@i</td>
                         }
                     }
                 </tr>
-                <tr class="success">
-                    <td></td>
-                    <td></td>
-                    @for (int i = 0; i < numberOfContestants; i++)
-                    {
+                @*
+                    <tr class="success">
+                        <td></td>
+                        <td></td>
+                        @for (int i = 0; i < numberOfContestants; i++)
+                        {
                         <td colspan="3">
                             @Html.DisplayNameFor(model => model.ContestantsTable.ContestantsName)
                         </td>
-                    }
-                </tr>
+                        }
+                    </tr>*@
                 <tr class="success">
-                    <td></td>
                     @foreach (var cName in db.ContestantsTables.Where(per => per.ContestTrackerId == cTrackId).ToList()
-                        .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
-                        .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
+                    .OrderByDescending(per => per.Score).ThenByDescending(per => per.SolveCountOnsite).ThenByDescending(per => per.AverageSolvePerContest)
+                    .ThenByDescending(per => per.TotalParticipation).ThenByDescending(per => per.TotalSolve))
                     {
-                        <td colspan="3">
-                            @cName.ContestantsName
-                        </td>
+                        {
+                            string str = cName.ContestantsName.ToString();
+                            if (str.Length > 13)
+                            {
+                                StringBuilder sb = new StringBuilder(str);
+                                sb.Remove(13, sb.Length - 13);
+                                str = sb.ToString() + "...";
+                            }
+                            <td colspan="3">
+                                @str
+                            </td>
+                        }
+
                     }
                 </tr>
                 <tr class="success">
-                    <td>
-                        @Html.DisplayNameFor(model => model.ContestTable.ContestName)
-                    </td>
                     @for (int i = 0; i < numberOfContestants; i++)
                     {
-                        @*<td>
+                        @*
+                            <td>
                                 ContestantName
                             </td>*@
                         <td>
@@ -109,26 +172,21 @@
                 </tr>
 
                 @{
-                    List<ContestTable> conList = db.ContestTables.Where(per => per.ContestTrackerId == cTrackId).ToList();
+                    List<ContestTable> conList1 = db.ContestTables.Where(per => per.ContestTrackerId == cTrackId).ToList();
                 }
-                @foreach (var item1 in conList)
+                @foreach (var item1 in conList1)
                 {
-                    <tr>
-                        <td>
-                            <a target="_blank" href="@item1.ContestLink">@item1.ContestName</a>
-                        </td>
+                    <tr style="height:28px">
 
                         @foreach (var item in Model.OrderByDescending(per => per.ContestantsTable.Score)
-                            .ThenByDescending(per => per.ContestantsTable.SolveCountOnsite)
-                            .ThenByDescending(per => per.ContestantsTable.AverageSolvePerContest)
-                            .ThenByDescending(per => per.ContestantsTable.TotalParticipation)
-                            .ThenByDescending(per => per.ContestantsTable.TotalSolve))
+                        .ThenByDescending(per => per.ContestantsTable.SolveCountOnsite)
+                        .ThenByDescending(per => per.ContestantsTable.AverageSolvePerContest)
+                        .ThenByDescending(per => per.ContestantsTable.TotalParticipation)
+                        .ThenByDescending(per => per.ContestantsTable.TotalSolve))
                         {
                             if (item1.Id == item.ContestTable.Id)
                             {
-                                @*<td>
-                                        @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName)
-                                    </td>*@
+                                @*<td> @Html.DisplayFor(modelItem => item.ContestantsTable.ContestantsName) </td>*@
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ContestTimeSolve)
                                 </td>
@@ -136,12 +194,12 @@
                                     @Html.DisplayFor(modelItem => item.UpSolve)
                                 </td>
                                 <td>
-                                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                                    @*<span class="glyphicon glyphicon-pencil" onclick="location.href='@Url.Action("Edit", "ContestContestants", new { id = item.Id })'"></span>*@
+                                    @*@Html.ActionLink("Edit", "Edit", new { id = item.Id })*@
+                                    <span class="glyphicon glyphicon-pencil" onclick="window.open('@Url.Action("Edit", "ContestContestants", new { id = item.Id })', '_blank', 'toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=0,width=400,height=600')"></span>
                                 </td>
 
-                                @*<td>
-                                            @Html.DisplayFor(modelItem => item.ContestTable.ContestName)
-                                    </td>*@
+                                @*<td> @Html.DisplayFor(modelItem => item.ContestTable.ContestName) </td>*@
                             }
 
                         }
@@ -162,14 +220,26 @@
 
 <script type="text/javascript">
     var table = '#mytable'
+    var table1 = '#mytable1'
     $('#maxRows').on('change', function () {
         $('.pagination').html('');
-        var trnum = 0
+        var trnum = 0;
         var maxRows = parseInt($(this).val())
         var totalRows = $(table + ' tbody tr').length
 
         // hide column 5 select korle 5 ta row show korbe
         $(table + ' tr:gt(2)').each(function () {
+            trnum++
+            if (trnum > maxRows) {
+                $(this).hide()
+            }
+            if (trnum <= maxRows) {
+                $(this).show()
+            }
+        })
+        trnum = 0;
+        // hide column 5 select korle 5 ta row show korbe
+        $(table1 + ' tr:gt(2)').each(function () {
             trnum++
             if (trnum > maxRows) {
                 $(this).hide()
@@ -205,6 +275,15 @@
                     $(this).show();
                 }
             })
+            trIndex = 0;
+            $(table1 + ' tr:gt(2)').each(function () {
+                trIndex++;
+                if (trIndex > (maxRows * pageNum) || trIndex <= ((maxRows * pageNum) - maxRows)) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            })
         })
     })
     // get serial no
@@ -226,9 +305,9 @@
     //    })
     //})
     $(function () {
-        $('table tr:eq(2)').prepend('<td class="text-center">No</td>')
+        $('#mytable tr:eq(2)').prepend('<td class="text-center">No</td>')
         var id = 0;
-        $('table tr:gt(2)').each(function () {
+        $('#mytable tr:gt(2)').each(function () {
             id++
             $(this).prepend('<td style="font-size:19px">' + id + '</td>')
         })

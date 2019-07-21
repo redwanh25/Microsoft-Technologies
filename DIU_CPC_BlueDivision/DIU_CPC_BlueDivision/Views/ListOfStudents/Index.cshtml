@@ -178,17 +178,30 @@
 </div>
 
 <script>
-    window.addEventListener("keydown", checkKeyPress, false);
+    //window.addEventListener("keydown", checkKeyPress, false);
+    //function checkKeyPress(key) {
+    //    if (key.keyCode == "13" && $('#userNameStudent').val() != '' && $("#SelectSemesterStudent option:selected").val() != '') {
+    //        $('#btnsearch').trigger('click');
+    //        event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+    //    }
+    //    else if (key.keyCode == "13" && $('#userNameStudent').val() != '') {
+    //        $('#btnsearch').trigger('click');
+    //        event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+    //    }
+    //    else if (key.keyCode == "13" && $("#SelectSemesterStudent option:selected").val() != '') {
+    //        $('#btnsearch').trigger('click');
+    //        event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
+    //    }
+    //}
+
+
+    $('#SelectSemesterStudent').on('change', function () {
+        $('#btnsearch').trigger('click');
+        event.preventDefault();
+    })
+
     function checkKeyPress(key) {
-        if (key.keyCode == "13" && $('#userNameStudent').val() != '' && $("#SelectSemesterStudent option:selected").val() != '') {
-            $('#btnsearch').trigger('click');
-            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
-        }
-        else if (key.keyCode == "13" && $('#userNameStudent').val() != '') {
-            $('#btnsearch').trigger('click');
-            event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
-        }
-        else if (key.keyCode == "13" && $("#SelectSemesterStudent option:selected").val() != '') {
+        if (key.keyCode == "13" && $('#userNameStudent').val() != '') {
             $('#btnsearch').trigger('click');
             event.preventDefault();         // aita dile page refresh nibe na Enter press korle.
         }

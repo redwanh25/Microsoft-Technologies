@@ -13,6 +13,8 @@ using DIU_CPC_BlueDivision.Models;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.AspNet.Identity;
+using PagedList.Mvc;
+using PagedList;
 
 namespace DIU_CPC_BlueDivision.Controllers
 {
@@ -144,10 +146,18 @@ namespace DIU_CPC_BlueDivision.Controllers
                 db.Entry(contestContestant).State = EntityState.Modified;
                 db.SaveChanges();
                 //contestClass.updateContestant(cTrackerId);
-                return RedirectToAction("Index", "ContestContestants", new { cTrackerId = cTId });
+
+                return Content(@"<body>
+                       <script type='text/javascript'>
+                         window.close();
+                       </script>
+                     </body> ");
+
+                //return RedirectToAction("Index", "ContestContestants", new { cTrackerId = cTId });
             }
             ViewBag.ContestantId = new SelectList(db.ContestantsTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestantsName", contestContestant.ContestantId);
             ViewBag.ContestId = new SelectList(db.ContestTables.Where(per => per.Id == contestContestant.ContestantId), "Id", "ContestName", contestContestant.ContestId);
+
             return View(contestContestant);
         }
 
