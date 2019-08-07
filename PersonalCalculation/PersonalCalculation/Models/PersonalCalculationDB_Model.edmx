@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PersonalCalculationDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Expence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cost" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Purpose" Type="nvarchar" MaxLength="500" />
+          <Property Name="Date" Type="date" />
+          <Property Name="ProjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="GetFromRentMan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ReceiveMoney" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="DueMoney" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Rent" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Date" Type="date" />
+          <Property Name="ProjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Description" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Invest" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Rent" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="PartnerNumber" Type="int" />
+          <Property Name="Date" Type="date" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ProjectMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PartnerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="SpendMoney" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="DueMoney" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ShareBy" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ProjectId" Type="int" />
+        </EntityType>
+        <EntityType Name="TotalMoneyCalculationForRentMan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TotalPayable" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TotalPaid" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TotalDue" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="TotalCost" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="Profit" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="ProjectId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Expence__Project__5DCAEF64">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Expence" Type="Self.Expence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expence">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GetFromRe__Proje__60A75C0F">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="GetFromRentMan" Type="Self.GetFromRentMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GetFromRentMan">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectMe__Proje__5AEE82B9">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="ProjectMember" Type="Self.ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TotalMone__Proje__6B24EA82">
+          <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="TotalMoneyCalculationForRentMan" Type="Self.TotalMoneyCalculationForRentMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TotalMoneyCalculationForRentMan">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PersonalCalculationDBModelStoreContainer">
+          <EntitySet Name="Expence" EntityType="Self.Expence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GetFromRentMan" EntityType="Self.GetFromRentMan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectMember" EntityType="Self.ProjectMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TotalMoneyCalculationForRentMan" EntityType="Self.TotalMoneyCalculationForRentMan" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Expence__Project__5DCAEF64" Association="Self.FK__Expence__Project__5DCAEF64">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Expence" EntitySet="Expence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GetFromRe__Proje__60A75C0F" Association="Self.FK__GetFromRe__Proje__60A75C0F">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="GetFromRentMan" EntitySet="GetFromRentMan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectMe__Proje__5AEE82B9" Association="Self.FK__ProjectMe__Proje__5AEE82B9">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="ProjectMember" EntitySet="ProjectMember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TotalMone__Proje__6B24EA82" Association="Self.FK__TotalMone__Proje__6B24EA82">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="TotalMoneyCalculationForRentMan" EntitySet="TotalMoneyCalculationForRentMan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PersonalCalculationDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PersonalCalculationDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Expences" EntityType="PersonalCalculationDBModel.Expence" />
+          <EntitySet Name="GetFromRentMen" EntityType="PersonalCalculationDBModel.GetFromRentMan" />
+          <EntitySet Name="Projects" EntityType="PersonalCalculationDBModel.Project" />
+          <EntitySet Name="ProjectMembers" EntityType="PersonalCalculationDBModel.ProjectMember" />
+          <AssociationSet Name="FK__Expence__Project__5DCAEF64" Association="PersonalCalculationDBModel.FK__Expence__Project__5DCAEF64">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Expence" EntitySet="Expences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GetFromRe__Proje__60A75C0F" Association="PersonalCalculationDBModel.FK__GetFromRe__Proje__60A75C0F">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="GetFromRentMan" EntitySet="GetFromRentMen" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjectMe__Proje__5AEE82B9" Association="PersonalCalculationDBModel.FK__ProjectMe__Proje__5AEE82B9">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="ProjectMember" EntitySet="ProjectMembers" />
+          </AssociationSet>
+          <EntitySet Name="TotalMoneyCalculationForRentMen" EntityType="PersonalCalculationDBModel.TotalMoneyCalculationForRentMan" />
+          <AssociationSet Name="FK__TotalMone__Proje__6B24EA82" Association="PersonalCalculationDBModel.FK__TotalMone__Proje__6B24EA82">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="TotalMoneyCalculationForRentMan" EntitySet="TotalMoneyCalculationForRentMen" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Expence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Purpose" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="Project" Relationship="PersonalCalculationDBModel.FK__Expence__Project__5DCAEF64" FromRole="Expence" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="GetFromRentMan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ReceiveMoney" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DueMoney" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Rent" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="Project" Relationship="PersonalCalculationDBModel.FK__GetFromRe__Proje__60A75C0F" FromRole="GetFromRentMan" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Invest" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Rent" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="PartnerNumber" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Expences" Relationship="PersonalCalculationDBModel.FK__Expence__Project__5DCAEF64" FromRole="Project" ToRole="Expence" />
+          <NavigationProperty Name="GetFromRentMen" Relationship="PersonalCalculationDBModel.FK__GetFromRe__Proje__60A75C0F" FromRole="Project" ToRole="GetFromRentMan" />
+          <NavigationProperty Name="ProjectMembers" Relationship="PersonalCalculationDBModel.FK__ProjectMe__Proje__5AEE82B9" FromRole="Project" ToRole="ProjectMember" />
+          <NavigationProperty Name="TotalMoneyCalculationForRentMen" Relationship="PersonalCalculationDBModel.FK__TotalMone__Proje__6B24EA82" FromRole="Project" ToRole="TotalMoneyCalculationForRentMan" />
+        </EntityType>
+        <EntityType Name="ProjectMember">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PartnerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SpendMoney" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DueMoney" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ShareBy" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="Project" Relationship="PersonalCalculationDBModel.FK__ProjectMe__Proje__5AEE82B9" FromRole="ProjectMember" ToRole="Project" />
+        </EntityType>
+        <Association Name="FK__Expence__Project__5DCAEF64">
+          <End Type="PersonalCalculationDBModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="PersonalCalculationDBModel.Expence" Role="Expence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Expence">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GetFromRe__Proje__60A75C0F">
+          <End Type="PersonalCalculationDBModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="PersonalCalculationDBModel.GetFromRentMan" Role="GetFromRentMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GetFromRentMan">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjectMe__Proje__5AEE82B9">
+          <End Type="PersonalCalculationDBModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="PersonalCalculationDBModel.ProjectMember" Role="ProjectMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProjectMember">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TotalMoneyCalculationForRentMan">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TotalPayable" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalPaid" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalDue" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="TotalCost" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Profit" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ProjectId" Type="Int32" />
+          <NavigationProperty Name="Project" Relationship="PersonalCalculationDBModel.FK__TotalMone__Proje__6B24EA82" FromRole="TotalMoneyCalculationForRentMan" ToRole="Project" />
+        </EntityType>
+        <Association Name="FK__TotalMone__Proje__6B24EA82">
+          <End Type="PersonalCalculationDBModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="PersonalCalculationDBModel.TotalMoneyCalculationForRentMan" Role="TotalMoneyCalculationForRentMan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TotalMoneyCalculationForRentMan">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PersonalCalculationDBModelStoreContainer" CdmEntityContainer="PersonalCalculationDBEntities">
+          <EntitySetMapping Name="Expences">
+            <EntityTypeMapping TypeName="PersonalCalculationDBModel.Expence">
+              <MappingFragment StoreEntitySet="Expence">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GetFromRentMen">
+            <EntityTypeMapping TypeName="PersonalCalculationDBModel.GetFromRentMan">
+              <MappingFragment StoreEntitySet="GetFromRentMan">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="DueMoney" ColumnName="DueMoney" />
+                <ScalarProperty Name="ReceiveMoney" ColumnName="ReceiveMoney" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="PersonalCalculationDBModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="PartnerNumber" ColumnName="PartnerNumber" />
+                <ScalarProperty Name="Rent" ColumnName="Rent" />
+                <ScalarProperty Name="Invest" ColumnName="Invest" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectMembers">
+            <EntityTypeMapping TypeName="PersonalCalculationDBModel.ProjectMember">
+              <MappingFragment StoreEntitySet="ProjectMember">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="ShareBy" ColumnName="ShareBy" />
+                <ScalarProperty Name="DueMoney" ColumnName="DueMoney" />
+                <ScalarProperty Name="SpendMoney" ColumnName="SpendMoney" />
+                <ScalarProperty Name="PartnerName" ColumnName="PartnerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TotalMoneyCalculationForRentMen">
+            <EntityTypeMapping TypeName="PersonalCalculationDBModel.TotalMoneyCalculationForRentMan">
+              <MappingFragment StoreEntitySet="TotalMoneyCalculationForRentMan">
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Profit" ColumnName="Profit" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+                <ScalarProperty Name="TotalPaid" ColumnName="TotalPaid" />
+                <ScalarProperty Name="TotalPayable" ColumnName="TotalPayable" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

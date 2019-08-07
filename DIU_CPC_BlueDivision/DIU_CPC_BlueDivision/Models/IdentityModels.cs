@@ -15,6 +15,7 @@ namespace DIU_CPC_BlueDivision.Models
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
+            
             // Add custom user claims here
             userIdentity.AddClaim(new Claim("SecureCode", SecureCode.ToString()));
             userIdentity.AddClaim(new Claim("JoinSemester", JoinSemester.ToString()));

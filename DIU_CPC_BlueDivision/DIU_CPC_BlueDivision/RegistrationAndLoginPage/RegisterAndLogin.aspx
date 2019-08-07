@@ -158,7 +158,7 @@
     </style>
 
 </head>
-<body style="padding-top: 50px; font-family: Lora">
+<body style="padding-top: 50px; font-family: Lora" oncontextmenu="return false;">
     <form id="form1" runat="server">
         <nav class="navbar navbar-default navbar-fixed-top shadow_B">
             <div class="container">

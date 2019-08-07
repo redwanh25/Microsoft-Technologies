@@ -1,0 +1,64 @@
+﻿@model IEnumerable<PersonalCalculation.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .inner {
+        overflow: hidden;
+    }
+
+        .inner img {
+            transition: all 1.0s ease;
+        }
+
+        .inner:hover img {
+            transform: scale(1.3);
+        }
+</style>
+<br /><br />
+<div class="container">
+    <div align="center">
+        <p style="font-size:30px; color:orange; font-family:Impact">Project Create</p>
+        <hr style="border: 4px solid; color: #F5F3F1">
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right">
+                <button class="btn btn-success" type="button" onclick="location.href='@Url.Action("Create", "Projects")'"><span class="glyphicon glyphicon-edit"></span> Create New</button>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+
+    @foreach (var item in Model)
+    {
+        <div class="col-xs-9 col-sm-6 col-md-4 col-lg-3 countClass">
+            <div class="thumbnail shadow_B">
+                <div class="inner" align="center">
+                    <img src="~/Image/Cover-Photo.jpg" alt="This person did not post with an image" style="border-radius: 10px; height:100px; width:350px" class="img-responsive" />       @*height:100px; width:150px*@
+                </div>
+                <hr style="color: black; border:1px solid; width:200px; margin-bottom:0px">
+                <div class="caption text-center">
+                    <span style="color:red; font-size:17px">Project: </span> <span style="font-size:17px">@Html.DisplayFor(modelItem => item.ProjectName) </span><br />
+                    <span style="color:red; font-size:17px">Date: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Date) </span><br />
+                    <span style="color:red; font-size:17px">Invest: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Invest) /= </span><br />
+                    <span style="color:red; font-size:17px">Rent: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Rent) /=</span><br />
+                    @*<span style="color:red; font-size:17px">Partner Number: </span> <span style="font-size:17px">@Html.DisplayFor(modelItem => item.PartnerNumber) </span><br />*@
+                    @*<span style="color:red; font-size:17px">Description: </span><span style="font-size:17px"> @Html.DisplayFor(modelItem => item.Description) </span><br />*@
+
+                    <hr style="color: black; border:1px solid; width:200px; margin-top:8px">
+
+                    <button class="btn btn-success btn-xs" type="button" onclick="location.href='@Url.Action("Edit", "Projects", new { id = item.Id })'"><span class="glyphicon glyphicon-pencil"></span> Edit</button>
+                    <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "ProjectMembers", new { projId = item.Id})'"> <span class="glyphicon glyphicon-pencil"> </span> Partners</button>
+                    <button class="btn btn-danger btn-xs" type="button" onclick="location.href='@Url.Action("Delete", "Projects", new { id = item.Id })'"> <span class="glyphicon glyphicon-trash"> </span> Delete</button>
+                    <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "Expences", new { projId = item.Id})'"> <span class="glyphicon glyphicon-pencil"> </span> Expences</button>
+                    <button class="btn btn-info btn-xs" type="button" onclick="location.href='@Url.Action("Index", "GetFromRentMen", new { projId = item.Id})'"> <span class="glyphicon glyphicon-pencil"> </span> GetFromRentMen</button>
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

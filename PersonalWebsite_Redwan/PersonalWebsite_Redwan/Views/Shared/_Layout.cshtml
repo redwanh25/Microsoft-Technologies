@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <script src="~/CSS_And_Script_File/jQuery/uncompressed/jquery-3.3.1.js"></script>
+    <script src="~/CSS_And_Script_File/SweetAlert/sweetalert.min.js"></script>
+    <link href="~/CSS_And_Script_File/IHover/ihover.css" rel="stylesheet" />
+    <script src="~/CSS_And_Script_File/Bootstrap/Bootstrap-3.3.7/js/bootstrap.js"></script>
+    <link href="~/CSS_And_Script_File/Bootstrap/Bootstrap-3.3.7/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/CSS_And_Script_File/Animation/Animate.css" rel="stylesheet" />
+    <script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
+    <script src="~/CSS_And_Script_File/Ajax/jquery.unobtrusive-ajax.min.js"></script>
+
+    <style>
+        #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover {
+            color: orange;
+        }
+    </style>
+
+
+
+</head>
+<body style="background:#272727; color:white">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("REDWAN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:orange" })
+            </div>
+            <div class="navbar-collapse collapse pull-right">
+                <b>
+                    <ul class="nav navbar-nav" style="font-size:15px">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { }, new { @id = "btn1", @style = "" })</li>
+                        <li><a id="btn2" href="#About">About</a></li>
+                        <li><a id="btn3" href="#Education">Education</a></li>
+                        <li><a id="btn4" href="#Services">Services</a></li>
+                        <li><a id="btn5" href="#Skills">Skills</a></li>
+                        <li><a id="btn6" href="#Projects">Projects</a></li>
+                        <li><a id="btn7" href="#Contact">Contact</a></li>
+                    </ul>
+                </b>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" id="img-car">
+        <div class="row">
+            <div id="imageCarousel" class="carousel" data-interval="5000" data-ride="carousel" data-pause="false" data-wrap="true">
+                <ol class="carousel-indicators">
+                    <li data-target="#imageCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#imageCarousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img style="width:100%; min-height: 240px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <p style="font-size:50px" class="animated bounceInDown hidden-xs hidden-sm hidden-md"><b>Hello, <br /> I'm <span style="color: orange">Redwan Hossain</span></b></p>
+                            <p style="font-size:35px" class="animated bounceInDown hidden-xs hidden-sm hidden-lg"><b>Hello, <br /> I'm <span style="color: orange">Redwan Hossain</span></b></p>
+                            <p style="font-size:35px" class="animated bounceInDown hidden-xs hidden-md hidden-lg"><b>Hello, <br /> I'm <span style="color: orange">Redwan Hossain</span></b></p>
+                            <p style="font-size:25px" class="animated bounceInDown hidden-sm hidden-md hidden-lg"><b>Hello, <br /> I'm <span style="color: orange">Redwan Hossain</span></b></p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img style="width:100%; min-height: 240px; max-height: 370px; opacity: 100" src="~/Image/mountain-1.jpg" class="img-responsive">
+                        <div class="carousel-caption">
+                            <p style="font-size:50px" class="animated bounceInDown hidden-xs hidden-sm hidden-md"><b>I'm a <span style="color: orange">.NET Web Developer</span></b></p>
+                            <p style="font-size:30px" class="animated bounceInDown hidden-xs hidden-sm hidden-lg"><b>I'm a <span style="color: orange">.NET Web Developer</span></b></p>
+                            <p style="font-size:30px" class="animated bounceInDown hidden-xs hidden-md hidden-lg"><b>I'm a <span style="color: orange">.NET Web Developer</span></b></p>
+                            <p style="font-size:18px" class="animated bounceInDown hidden-sm hidden-md hidden-lg"><b>I'm a <span style="color: orange">.NET Web Developer</span></b></p>
+
+                            <p style="font-size:20px" class="animated bounceInDown hidden-xs hidden-sm hidden-md"><b>Very good knowledge at <span style="color: burlywood">C# </span>, <span style="color: burlywood"> MS SQL Server </span>, <span style="color: burlywood"> ASP.NET MVC <br /> </span> <span style="color: white"> and I have good experience in real life work.</span></b></p>
+                            <p style="font-size:16px" class="animated bounceInDown hidden-xs hidden-sm hidden-lg"><b>Very good knowledge at <span style="color: burlywood">C# </span>, <span style="color: burlywood"> MS SQL Server </span>, <span style="color: burlywood"> ASP.NET MVC <br /> </span> <span style="color: white"> and I have good experience in real life work.</span></b></p>
+                            <p style="font-size:16px" class="animated bounceInDown hidden-xs hidden-md hidden-lg"><b>Very good knowledge at <span style="color: burlywood">C# </span>, <span style="color: burlywood"> MS SQL Server </span>, <span style="color: burlywood"> ASP.NET MVC <br /> </span> <span style="color: white"> and I have good experience in real life work.</span></b></p>
+                            <p style="font-size:13px" class="animated bounceInDown hidden-sm hidden-md hidden-lg"><b>Very good knowledge at <br /> <span style="color: burlywood">C# </span>, <span style="color: burlywood"> MS SQL Server </span>, <span style="color: burlywood"> ASP.NET MVC <br /> </span> <span style="color: white"> and I have good experience in real life work.</span></b></p>
+                        </div>
+                    </div>
+
+                    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        <br /><br /><br />
+        @RenderBody()
+        <br /><br /><br />
+    </div>
+
+    <footer id="footer" style="background-color: #3A3A3D; width: 100%">
+        <div class="footer-bottom">
+            <div class="container">
+                <br />
+                <div class="row" style="color: white">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Redwan Hossain</h4>
+                        <hr />
+                        <p style="color: gainsboro">
+                            @*do not write over 122 letter*@
+                            Use this document as a way to quickly start any new project.
+                            All you get is this text and a mostly barebones HTML document.
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>At A Glance</h4>
+                        <table class="table" style="margin-top: 20px">
+                            <tr>
+                                <td><a style="color: orange; text-decoration:none" href="#About">About</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange; text-decoration:none" href="#Skills">Skills</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange; text-decoration:none" href="#Projects">Projects</a> </td>
+                            </tr>
+                            <tr>
+                                <td><a style="color: orange; text-decoration:none" href="#Contact">Contact </a> </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Follow Me</h4>
+                        <hr />
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100004911679186"><img id="ImageButton1" src="~/Image/facebook.png" style="width: 35px; height: 35px" /></a>
+                        <a target="_blank" href="https://twitter.com/Redwan97029281"><img id="ImageButton2" src="~/Image/twitter.png" style="width: 35px; height: 35px" /></a>
+                        <a target="_blank" href="https://www.instagram.com/redwan5523/"><img id="ImageButton3" src="~/Image/instagram.png" style="width: 35px; height: 35px" /></a>
+                        <a target="_blank" href="https://github.com/redwanh25"><img id="ImageButton5" src="~/Image/github.png" style="width: 35px; height: 35px" /></a>
+                        <a target="_blank" href="https://www.linkedin.com/in/redwan-hossain-253548136/"><img id="ImageButton5" src="~/Image/linkedin.png" style="width: 35px; height: 35px" /></a>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                        <h4>Address</h4>
+                        <hr />
+                        <div style="color: orange">
+                            <p>6/20, Block-B, Humayon Road, Mohammad Pur.</p>
+                            <p>Dhaka, Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <p class="pull-right" style="color:white">&copy; @DateTime.Now.Year - Developed By <a style="color:orange;" href="https://www.linkedin.com/in/redwan-hossain-253548136/" target="_blank">Redwan Hossain</a></p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

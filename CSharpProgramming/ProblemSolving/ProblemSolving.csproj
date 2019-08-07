@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>ProblemSolving.CodeForces.PointsInSegments</StartupObject>
+    <StartupObject>ProblemSolving.CodeForces_Diff.BeautifulYear</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeForces\contest_1152_problem_A.cs" />
+    <Compile Include="CodeForces_Diff\BeautifulYear.cs" />
     <Compile Include="CodeForces_Diff\File_Name_978_problem_B.cs" />
     <Compile Include="CodeForces_Diff\Phone_numbers .cs" />
     <Compile Include="CodeForces_Diff\Pizza_979_problem_A.cs" />

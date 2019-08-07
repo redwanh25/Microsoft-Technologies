@@ -1,0 +1,66 @@
+﻿@model IEnumerable<PersonalCalculation.Models.ProjectMember>
+@using PersonalCalculation.Models;
+@{
+    ViewBag.Title = "Index";
+    PersonalCalculationDBEntities db = new PersonalCalculationDBEntities();
+    int projId = ViewBag.ProjectId;
+    Project project = db.Projects.FirstOrDefault(per => per.Id == projId);
+}
+
+<h2>Index</h2>
+<h2 class="text-center">Invest: @project.Invest || Rent: @project.Rent</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { projId = Request.QueryString["projId"] })
+</p>
+
+<div style="overflow-x:auto;">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PartnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpendMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShareBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project.ProjectName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartnerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpendMoney)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DueMoney)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShareBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project.ProjectName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id, projId = Request.QueryString["projId"] }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id, projId = Request.QueryString["projId"] }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, projId = Request.QueryString["projId"] })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>
