@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -27,7 +28,8 @@ namespace PersonalWebsite_Redwan.Controllers
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(subject) && !string.IsNullOrEmpty(message))
             {
                 string textEmail = "Name: " + name + ".<br>Email: " + email + ".<br>Subject: " + subject + ".<br><br>Message: " + message;
-                result = sendMailForGmail(subject, textEmail);
+                //result = sendMailForGmail(subject, textEmail);
+                result = sendMailForPersonal(name, email, subject, message);
 
                 if (result == true)
                 {
@@ -73,7 +75,7 @@ namespace PersonalWebsite_Redwan.Controllers
             }
         }
 
-        public bool sendMailForPersonal(string subject, string emailBody)
+        public bool sendMailForPersonal(string name, string email, string subject, string message)
         {
             try
             {
@@ -87,7 +89,7 @@ namespace PersonalWebsite_Redwan.Controllers
                 msg.From = new MailAddress(senderEmail);
                 msg.To.Add(receiverEmail);
                 msg.Subject = subject;
-                msg.Body = emailBody;
+                msg.Body = CreateBody(name, email, subject, message);
                 msg.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient(smtpClient, smtpPort);
                 smtp.Credentials = new NetworkCredential(senderEmail, senderPassword);
@@ -101,5 +103,18 @@ namespace PersonalWebsite_Redwan.Controllers
                 return false;
             }
         }
+        public string CreateBody(string name, string email, string subject, string message)
+        {
+            string body = "";
+            using (StreamReader reader = new StreamReader(Server.MapPath("~/Html_Page/EmailTamplate.html")))
+            {
+                body = reader.ReadToEnd();
+            }
+            body = body.Replace("{name}", name);
+            body = body.Replace("{email}", email);
+            body = body.Replace("{subject}", subject);
+            body = body.Replace("{message}", message);
+            return body;
         }
+    }
 }

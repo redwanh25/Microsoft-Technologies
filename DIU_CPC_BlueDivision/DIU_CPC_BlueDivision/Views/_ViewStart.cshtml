@@ -13,7 +13,14 @@
     if (!string.IsNullOrEmpty(str))
     {
         AspNetUsersBusinessLayer aspNetUsersBusinessLayer = new AspNetUsersBusinessLayer();
-        str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        try {
+            str = aspNetUsersBusinessLayer.GetSecureCode(str);
+        }
+        catch (Exception)
+        {
+            // first jokhon server a code ta upload kora hobe tokhon to aspnetuser table gula thakbe na tai ai khane exception
+            // throw korbe.
+        }
     }
     if (str == superAdmin)
     {

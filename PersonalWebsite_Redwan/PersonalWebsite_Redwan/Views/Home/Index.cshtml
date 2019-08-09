@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Redwan Hossain";
 }
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe" crossorigin="anonymous">
+
 <style>
     #content {
         position: absolute;
@@ -29,7 +29,8 @@
                 width: 300px;
             }
 
-    .well#well1, .well#well2, .well#well3, .well#well4, .well#well5, .well#well6, .well#well7, .well#well8 {
+    .well#well1, .well#well2, .well#well3, .well#well4, .well#well5, .well#well6, .well#well7, .well#well8,
+    .well#well9, .well#well10, .well#well11, .well#well12 {
         background-color: #0d0d0d;
         border: black;
     }
@@ -49,389 +50,638 @@
     #well4:hover {
         background-color: gray;
     }
+
+    #bg-image1 {
+        background: url(../Image/mountain-3.jpg) no-repeat center fixed;
+        display: table;
+        height: 350px;
+        width: 100%;
+        position: relative;
+        background-size: cover;
+    }
+
+    #bg-image2 {
+        background: url(../Image/mountain-3.jpg) no-repeat center fixed;
+        display: table;
+        height: 200px;
+        width: 100%;
+        position: relative;
+        background-size: cover;
+    }
+
+    .landing-text {
+        display: table-cell;
+        /*text-align: center;*/
+        vertical-align: middle;
+    }
 </style>
 
+<div class="container">
 
-
-<div class="row" id="About">
-    <div class="col-md-4 col-xs-12 col-md-offset-1">
-        <br />
-        <img class="img-responsive hidden-sm hidden-xs" style="max-height:270px; width:240px; border-radius:20px" src="~/Image/bg_1.png" />
-        <div class="hidden-lg hidden-md" align="center">
-            <div class="col-xs-3">
-                <b style="font-size:17px; color:orange">R<br />E<br />D<br />W<br />A<br />N</b>
-            </div>
-            <div class="col-xs-6">
-                <img class="img-responsive" style="max-height:145px; width:135px; border-radius:10px" src="~/Image/bg_1.png" />
-                <br /><br />
-            </div>
-            <div class="col-xs-3">
-                <b style="font-size:15px; color:orange">H<br />O<br />S<br />S<br />A<br />I<br />N</b>
-            </div>
-
-        </div>
+    <div class="hidden-xs">
+        <br /><br />
     </div>
-    <div class="col-md-7 col-xs-12">
-        <p id="content" style="font-size:25px; padding-top:20px;"><b>About Me</b></p>
-        <p id="content" style="font-size:16px; padding-top:65px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-        <p id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>About</b></p>
-        <div style="overflow-x:auto">
-            <table style="font-size:16px; border-collapse:separate; border-spacing: 0px 10px" class="fixed">
-                <tr>
-                    <td>Name </td>
-                    <td> : </td>
-                    <td style="color:gray"> Redwan Hossain </td>
-                </tr>
-                <tr>
-                    <td>Date of birth </td>
-                    <td> : </td>
-                    <td style="color:gray"> 12-Feb-1999 </td>
-                </tr>
-                <tr>
-                    <td>Address </td>
-                    <td> : </td>
-                    <td style="color:gray"> 6/20, Humayon Road, Mohammandpur </td>
-                </tr>
-                <tr>
-                    <td>Email </td>
-                    <td> : </td>
-                    <td style="color:gray"> contact@redwan.pro </td>
-                </tr>
-                <tr>
-                    <td>Phone </td>
-                    <td> : </td>
-                    <td style="color:gray"> +8801767409798 </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</div>
 
-<br /><br /><br /><br /><br />
-
-<div id="Education">
-    <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Education</b></p>
-    <div class="text-center">
-        <p style="font-size:30px; margin-top:-105px;"><b>Education</b></p>
-        <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-70px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-    </div>
-    <br /><br />
-    <div class="row">
-        <div class="col-md-6 col-xs-12">
-            <div class="well" style="background: #202020">
-                <p style="font-size:18px; color:orange"><b>2006 - 2014</b></p>
-                <p style="font-size:20px; color:white"><b>Naogaon K.D Government High School</b></p>
-                <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>Secondary School Certificate (Science)</b></p>
-                <p style="font-size:16px; color:gray">
-                    A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                </p>
-            </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-            <div class="well" style="background: #202020">
-                <p style="font-size:18px; color:orange"><b>2015 - 2016</b></p>
-                <p style="font-size:20px; color:white"><b>Bogra Cantonment Public School and College</b></p>
-                <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>Higher School Secondary Certificate (Science)</b></p>
-                <p style="font-size:16px; color:gray">
-                    A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6 col-xs-12 col-md-offset-3">
-            <div class="well" style="background: #202020">
-                <p style="font-size:18px; color:orange"><b>2017 - 2020</b></p>
-                <p style="font-size:20px; color:white"><b>Daffodil International University</b></p>
-                <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>B.Sc in Computer Science and Engineering</b></p>
-                <p style="font-size:16px; color:gray">
-                    A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<br /><br /><br /><br /><br />
-
-<div id="Services">
-    <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Services</b></p>
-    <div class="text-center">
-        <p style="font-size:30px; margin-top:-105px;"><b>Services</b></p>
-        <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-70px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-    </div>
-    <br /><br />
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            <div id="well1" class="well text-center">
-                <i class="fas fa-laptop-code" style="font-size:50px"></i>
-                <br /><br />
-                <p style="font-size:18px; color:orange"><b>Web Application</b></p>
-                <hr style="border: 2px solid; color: #F5F3F1" />
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            <div id="well2" class="well text-center">
-                <i class="fab fa-windows" style="font-size:50px"></i>
-                <br /><br />
-                <p style="font-size:18px; color:orange"><b>ASP.NET MVC</b></p>
-                <hr style="border: 2px solid; color: #F5F3F1" />
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            <div id="well3" class="well text-center">
-                <i class="fas fa-database" style="font-size:50px"></i>
-                <br /><br />
-                <p style="font-size:18px; color:orange"><b>MS SQL Server</b></p>
-                <hr style="border: 2px solid; color: #F5F3F1" />
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            <div id="well4" class="well text-center">
-                <i class="fas fa-globe" style="font-size:50px"></i>
-                <br /><br />
-                <p style="font-size:18px; color:orange"><b>ASP.NET Core</b></p>
-                <hr style="border: 2px solid; color: #F5F3F1" />
-            </div>
-        </div>
-    </div>
-</div>
-
-<br /><br /><br /><br /><br />
-
-<div id="Skills">
-    <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Skills</b></p>
-    <div class="text-center">
-        <p style="font-size:30px; margin-top:-105px;"><b>Skills</b></p>
-        <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-70px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-    </div>
-    <br /><br />
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <span style="font-size:17px">Web Application</span>
-            <b style="font-size:17px" class="pull-right">85%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
-                    <b style="color:black;">Ajax, jQuery, HTML, CSS</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Programming Language</span>
-            <b style="font-size:17px" class="pull-right">95%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
-                    <b style="color:black">Problem Solving Skill (C#, Java, C++, C)</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Mobile Development</span>
-            <b style="font-size:17px" class="pull-right">50%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
-                    <b style="color:black">Android</b>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <span style="font-size:17px">Framework</span>
-            <b style="font-size:17px" class="pull-right">80%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                    <b style="color:black">ASP.NET MVC, AngularJS, Bootstrap</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Algorithms And Data Structures</span>
-            <b style="font-size:17px" class="pull-right">85%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
-                    <b style="color:black">DP, Backtracking, Greedy, Brute Force</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Database</span>
-            <b style="font-size:17px" class="pull-right">80%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
-                    <b style="color:black">Microsoft SQL Server</b>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <span style="font-size:17px">Others</span>
-            <b style="font-size:17px" class="pull-right">90%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                    <b style="color:black">ADO.NET, Entity Framework, LINQ</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Restful Web Services</span>
-            <b style="font-size:17px" class="pull-right">65%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">
-                    <b style="color:black">Web API, ASP.NET Core</b>
-                </div>
-            </div>
-            <span style="font-size:17px">Microsoft Office</span>
-            <b style="font-size:17px" class="pull-right">75%</b>
-            <div class="progress" style="height:16px;">
-                <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                    <b style="color:black">Word, Excel, PowerPoint</b>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<br /><br /><br /><br /><br />
-
-<div id="Projects">
-    <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Projects</b></p>
-    <div class="text-center">
-        <p style="font-size:30px; margin-top:-105px;"><b>Projects</b></p>
-        <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-70px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-    </div>
-    <br /><br />
-    <div class="row" align="center">
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
-            <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:0px; border:0px">
-                <a href="http://www.nomaa.se/" target="_blank">
-                    <div class="img">
-                        <img src="~/Image/bridge.jpg" alt="did not load" class="img-responsive" />
-                    </div>
-                    <div class="info">
-                        <h3>Nomaa IT Farm</h3>
-                        <p>
-                            <span style="color:orange; font-size:12px">
-                                This application is developed by using ASP.NET MVC. Nomaa IT Farm (Sweden) host this project into their own domain.
-                                <br /><br />
-                                => http://www.nomaa.se <br />
-                                => http://software.nomaa.se
-                            </span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
-            <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:0px; border:0px">
-                <a>
-                    <div class="img">
-                        <img src="~/Image/benches.jpg" alt="did not load" class="img-responsive" />
-                    </div>
-                    <div class="info">
-                        <h3>DIU ACM Monitoring System</h3>
-                        <p>
-                            <span style="color:orange; font-size:12px">This application is developed by using ASP.NET MVC. This is an ACM Monitoring System. Only Daffodil International University’s Students and Teachers can use this application. This Application is developed for ACM Monitoring who is attend for ACM ICPC.</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 hidden-xs hidden-sm" style="padding-bottom:30px">
-            <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:0px; border:0px">
-                <a href="http://tanvirsir.redwan.pro" target="_blank">
-                    <div class="img">
-                        <img src="~/Image/park.jpg" alt="did not load" class="img-responsive" />
-                    </div>
-                    <div class="info">
-                        <h3>Personal Calculation</h3>
-                        <br />
-                        <p>
-                            <span style="color: orange; font-size:12px">
-                                This is a personal calculation web application.
-                                when a person will start her/his business then the application will help very much.
-                            </span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<br /><br /><br /><br /><br />
-
-<div id="Contact">
-    <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Contact</b></p>
-    <div class="text-center">
-        <p style="font-size:30px; margin-top:-105px;"><b>Contact</b></p>
-        <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-70px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-    </div>
-    <br /><br />
-    <div class="row">
-        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1">
+    <div class="row" id="About">
+        <div class="col-md-4 col-xs-12 col-md-offset-1">
             <br />
-            <div class="row" align="center">
-                <div class="col-xs-6">
-                    <div class="well" id="well5" style="border-radius:50px; width:100px;"><i class="fas fa-address-card" style="font-size:40px"></i></div>
-                    <b>ADDRESS</b>
-                    <br /><br />
-                    <p style="color:gray">6/20, Humayon Road, Mohammandpur</p>
+            <img class="img-responsive hidden-sm hidden-xs" style="max-height:270px; width:240px; border-radius:20px" src="~/Image/bg_1.png" />
+            <div class="hidden-lg hidden-md" align="center">
+                <div class="col-xs-3">
+                    <b style="font-size:17px; color:orange">R<br />E<br />D<br />W<br />A<br />N</b>
                 </div>
                 <div class="col-xs-6">
-                    <div class="well" id="well6" style="border-radius:50px; width:100px;"><i class="fas fa-phone-alt" style="font-size:40px"></i></div>
-                    <b>CONTACT NUMBER</b>
+                    <img class="img-responsive" style="max-height:145px; width:135px; border-radius:10px" src="~/Image/bg_1.png" />
                     <br /><br />
-                    <p style="color:gray">+8801767409798</p>
+                </div>
+                <div class="col-xs-3">
+                    <b style="font-size:15px; color:orange">H<br />O<br />S<br />S<br />A<br />I<br />N</b>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-7 col-xs-12">
+            <div class="hidden-xs hidden-sm">
+                <p id="content" style="font-size:37px; padding-top:10px;"><b>About Me</b></p>
+                <p id="content" style="font-size:16px; padding-top:60px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p id="bg-text" style="color: #1A1A1A; font-size: 90px;"><b>About</b></p>
+            </div>
+            <div class="hidden-md hidden-lg">
+                <p id="content" style="font-size:25px; padding-top:20px;"><b>About Me</b></p>
+                <p id="content" style="font-size:16px; padding-top:65px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>About</b></p>
+            </div>
+
+            <div style="overflow-x:auto">
+                <table style="font-size:16px; border-collapse:separate; border-spacing: 0px 10px" class="fixed">
+                    <tr>
+                        <td>Name </td>
+                        <td> : </td>
+                        <td style="color:gray"> Redwan Hossain </td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth </td>
+                        <td> : </td>
+                        <td style="color:gray"> 12-Feb-1999 </td>
+                    </tr>
+                    <tr>
+                        <td>Address </td>
+                        <td> : </td>
+                        <td style="color:gray"> 6/20, Humayon Road, Mohammandpur </td>
+                    </tr>
+                    <tr>
+                        <td>Email </td>
+                        <td> : </td>
+                        <td style="color:gray"> contact@redwan.pro </td>
+                    </tr>
+                    <tr>
+                        <td>Phone </td>
+                        <td> : </td>
+                        <td style="color:gray"> +8801767409798 </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-xs">
+        <br /><br />
+    </div>
+    <br /><br /><br /><br /><br />
+
+    <div id="Education">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Education</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Education</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Education</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Education</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+
+        <br /><br />
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="well" style="background: #202020">
+                    <p style="font-size:18px; color:orange"><b>2006 - 2014</b></p>
+                    <p style="font-size:20px; color:white"><b>Naogaon K.D Government High School</b></p>
+                    <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>Secondary School Certificate (Science)</b></p>
+                    <p style="font-size:16px; color:gray">
+                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    </p>
                 </div>
             </div>
-            <br /><br />
-            <div class="row" align="center">
-                <div class="col-xs-6">
-                    <div class="well" id="well7" style="border-radius:50px; width:100px;"><i class="fas fa-envelope" style="font-size:40px"></i></div>
-                    <b>EMAIL ADDRESS</b>
-                    <br /><br />
-                    <p style="color:gray">contact@redwan.pro</p>
-                </div>
-                <div class="col-xs-6">
-                    <div class="well" id="well8" style="border-radius:50px; width:100px;"><i class="fas fa-globe" style="font-size:40px"></i></div>
-                    <b>WEBSITE</b>
-                    <br /><br />
-                    <a href="http://www.redwan.pro/" target="_blank" style="text-decoration:none; color:gray">www.redwan.pro</a>
+            <div class="col-md-6 col-xs-12">
+                <div class="well" style="background: #202020">
+                    <p style="font-size:18px; color:orange"><b>2015 - 2016</b></p>
+                    <p style="font-size:20px; color:white"><b>Bogra Cantonment Public School and College</b></p>
+                    <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>Higher School Secondary Certificate (Science)</b></p>
+                    <p style="font-size:16px; color:gray">
+                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    </p>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1">
-            <div class="hidden-lg hidden-md hidden-sm">
-                <br /><br /><br />
-                <p style="font-size:20px; color:orange" class="text-center"><b>Full Free To Contact With Me</b></p>
+        <div class="row">
+            <div class="col-md-6 col-xs-12 col-md-offset-3">
+                <div class="well" style="background: #202020">
+                    <p style="font-size:18px; color:orange"><b>2017 - 2020</b></p>
+                    <p style="font-size:20px; color:white"><b>Daffodil International University</b></p>
+                    <p style="font-size:14px; color:gray; font-family: 'Agency FB'"><b>B.Sc in Computer Science and Engineering</b></p>
+                    <p style="font-size:16px; color:gray">
+                        A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-xs">
+        <br /><br />
+    </div>
+    <br /><br /><br /><br /><br />
+
+    <div id="Services">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Services</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Services</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Services</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Services</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <div id="well1" class="well text-center">
+                    <i class="fas fa-laptop-code" style="font-size:50px"></i>
+                    <br /><br />
+                    <p style="font-size:18px; color:orange"><b>Web Application</b></p>
+                    <hr style="border: 2px solid; color: #F5F3F1" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <div id="well2" class="well text-center">
+                    <i class="fab fa-windows" style="font-size:50px"></i>
+                    <br /><br />
+                    <p style="font-size:18px; color:orange"><b>ASP.NET MVC</b></p>
+                    <hr style="border: 2px solid; color: #F5F3F1" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <div id="well3" class="well text-center">
+                    <i class="fas fa-database" style="font-size:50px"></i>
+                    <br /><br />
+                    <p style="font-size:18px; color:orange"><b>MS SQL Server</b></p>
+                    <hr style="border: 2px solid; color: #F5F3F1" />
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                <div id="well4" class="well text-center">
+                    <i class="fas fa-globe" style="font-size:50px"></i>
+                    <br /><br />
+                    <p style="font-size:18px; color:orange"><b>ASP.NET Core</b></p>
+                    <hr style="border: 2px solid; color: #F5F3F1" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-xs">
+        <br /><br />
+    </div>
+    <br /><br /><br /><br /><br />
+
+    <div id="Experiences">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Experiences</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Experiences</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Experiences</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Experiences</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="well" style="background: #202020">
+                    <p style="font-size:20px; color:white">.NET Web Developer At Bestower Corporation</p>
+                    <p style="font-size:14px; color:orange; font-family: 'Agency FB'"><b>Jun 2019 - Present</b></p>
+                    <p style="font-size:16px; color:gray">
+                        I am a part time .NET Web Developer at Bestower Corporation. My job is to create Web Application.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-xs-12">
+                <div class="well" style="background: #202020">
+                    <p style="font-size:20px; color:white">Lab Prefect At Daffodil International University</p>
+                    <p style="font-size:14px; color:orange; font-family: 'Agency FB'"><b>Jan 2018 - Present</b></p>
+                    <p style="font-size:16px; color:gray">
+                        I am a Lab Prefect at Daffodil International University. I take lab class with my senior teacher.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hidden-xs">
+        <br /><br />
+    </div>
+    <br /><br /><br /><br /><br />
+
+    <div id="Skills">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Skills</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Skills</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Skills</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Skills</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <span style="font-size:17px">Web Application</span>
+                <b style="font-size:17px" class="pull-right">85%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                        <b style="color:black;">Ajax, jQuery, HTML, CSS</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Programming Language</span>
+                <b style="font-size:17px" class="pull-right">95%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%;">
+                        <b style="color:black">Problem Solving Skill (C#, Java, C++, C)</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Mobile Development</span>
+                <b style="font-size:17px" class="pull-right">50%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+                        <b style="color:black">Android</b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <span style="font-size:17px">Framework</span>
+                <b style="font-size:17px" class="pull-right">80%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                        <b style="color:black">ASP.NET MVC, AngularJS, Bootstrap</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Algorithms And Data Structures</span>
+                <b style="font-size:17px" class="pull-right">85%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 85%;">
+                        <b style="color:black">DP, Backtracking, Greedy, Brute Force</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Database</span>
+                <b style="font-size:17px" class="pull-right">80%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;">
+                        <b style="color:black">Microsoft SQL Server</b>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <span style="font-size:17px">Others</span>
+                <b style="font-size:17px" class="pull-right">90%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
+                        <b style="color:black">ADO.NET, Entity Framework, LINQ</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Restful Web Services</span>
+                <b style="font-size:17px" class="pull-right">65%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 65%;">
+                        <b style="color:black">Web API, ASP.NET Core</b>
+                    </div>
+                </div>
+                <span style="font-size:17px">Microsoft Office</span>
+                <b style="font-size:17px" class="pull-right">75%</b>
+                <div class="progress" style="height:16px;">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
+                        <b style="color:black">Word, Excel, PowerPoint</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container hidden-sm hidden-md hidden-lg" id="apsc2">
+    <br /><br /><br /><br /><br /><br />
+    <div align="center">
+        <div class="col-xs-6">
+            <div id="well9" class="well">
+                <p style="color:orange; font-size:25px" class="num" data-from="0" data-to="2"></p>
+                <p style="color:gainsboro; font-size:15px">Awards</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="well9" class="well">
+                <p style="color:orange; font-size:25px" class="num" data-from="0" data-to="7"></p>
+                <p style="color:gainsboro; font-size:15px">Projects</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="well9" class="well">
+                <p style="color:orange; font-size:25px" class="num" data-from="0" data-to="25"></p>
+                <p style="color:gainsboro; font-size:15px">Skills</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div id="well9" class="well">
+                <p style="color:orange; font-size:25px" class="num" data-from="0" data-to="13"></p>
+                <p style="color:gainsboro; font-size:15px">Courses</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div id="bg-image2" class="hidden-sm hidden-md hidden-lg">
+    <div class="landing-text">
+        <div class="text-center">
+            <p style="color: orange; font-size:25px"><b>I'm <span style="color:white">Available</span> for freelancing</b></p>
+            <br />
+            <a class="btn btn-default btn" href="#fullfreetocontact">Hire Me</a>
+        </div>
+    </div>
+</div>
+
+<div id="bg-image1" class="hidden-xs" style="margin-top:210px">
+    <div class="landing-text">
+        <br /><br /><br /><br /><br />
+        <div align="center">
+            <div class="container" style="margin-top:-265px" id="apsc1">
+                <div class="col-sm-3 col-md-3">
+                    <div id="well9" class="well">
+                        <span style="color:orange; font-size:30px" class="num" data-from="0" data-to="2"></span>
+                        <p style="color:gainsboro; font-size:20px">Awards</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div id="well9" class="well">
+                        <span style="color:orange; font-size:30px" class="num" data-from="0" data-to="7"></span>
+                        <p style="color:gainsboro; font-size:20px">Projects</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div id="well9" class="well">
+                        <span style="color:orange; font-size:30px" class="num" data-from="0" data-to="25"></span>
+                        <p style="color:gainsboro; font-size:20px">Skills</p>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div id="well9" class="well">
+                        <span style="color:orange; font-size:30px" class="num" data-from="0" data-to="13"></span>
+                        <p style="color:gainsboro; font-size:20px">Courses</p>
+                    </div>
+                </div>
+            </div>
+
+            <br /><br /><br />
+
+            <div>
+                <p style="color: orange; font-size:40px"><b>I'm <span style="color:white">Available</span> for freelancing</b></p>
+                <a class="btn btn-default btn-lg" href="#Contact">Hire Me</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br /><br /><br /><br /><br /><br />
+
+<div class="container">
+
+    <div id="Projects">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Projects</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Projects</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Projects</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Projects</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row" align="center">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
+                <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
+                    <a href="http://www.nomaa.se/" target="_blank">
+                        <div class="img">
+                            <img src="~/Image/bridge.jpg" alt="did not load" class="img-responsive" />
+                        </div>
+                        <div class="info">
+                            <h3>Nomaa IT Farm</h3>
+                            <p>
+                                <span style="color:orange; font-size:12px">
+                                    This application is developed by using ASP.NET MVC. Nomaa IT Farm (Sweden) host this project into their own domain.
+                                    <br /><br />
+                                    => http://www.nomaa.se <br />
+                                    => http://software.nomaa.se
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
+                <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
+                    <a href="http://bluedivision.redwan.pro/" target="_blank">
+                        <div class="img">
+                            <img src="~/Image/benches.jpg" alt="did not load" class="img-responsive" />
+                        </div>
+                        <div class="info">
+                            <h3>DIU ACM Monitoring System</h3>
+                            <p>
+                                <span style="color:orange; font-size:12px">This application is developed by using ASP.NET MVC. This is an ACM Monitoring System. Only Daffodil International University’s Students and Teachers can use this application. This Application is developed for ACM Monitoring who is attend for ACM ICPC.</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 hidden-xs hidden-sm" style="padding-bottom:30px">
+                <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
+                    <a href="http://tanvirsir.redwan.pro" target="_blank">
+                        <div class="img">
+                            <img src="~/Image/park.jpg" alt="did not load" class="img-responsive" />
+                        </div>
+                        <div class="info">
+                            <h3>Personal Calculation</h3>
+                            <br />
+                            <p>
+                                <span style="color: orange; font-size:12px">
+                                    This is a personal calculation web application.
+                                    when a person will start her/his business then the application will help very much.
+                                </span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br /><br /><br /><br /><br />
+
+    <div id="Contact">
+        <div class="hidden-xs hidden-sm">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>Contact</b></p>
+            <div class="text-center">
+                <p style="font-size:37px; margin-top:-130px;"><b>Contact</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <div class="hidden-md hidden-lg">
+            <p class="text-center" id="bg-text" style="color: #1A1A1A; font-size: 50px;"><b>Contact</b></p>
+            <div class="text-center">
+                <p style="font-size:30px; margin-top:-90px;"><b>Contact</b></p>
+                <p style="font-size:16px; padding-top:65px; color: gray; margin-top:-65px">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1">
                 <br />
-            </div>
-            <div class="form-group has-warning">
-                <label>Name</label>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </span>
-                    <input type="text" id="txtName" class="form-control" placeholder="Enter Your Name" required />
+                <div class="row" align="center">
+                    <div class="col-xs-6">
+                        <div class="well" id="well5" style="border-radius:55px; width:75px;"><i class="fas fa-address-card" style="font-size:30px"></i></div>
+                        <b>ADDRESS</b>
+                        <br /><br />
+                        <p style="color:gray">6/20, Humayon Road, Mohammandpur</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="well" id="well6" style="border-radius:55px; width:75px;"><i class="fas fa-phone-alt" style="font-size:30px"></i></div>
+                        <b>CONTACT NUMBER</b>
+                        <br /><br />
+                        <p style="color:gray">+8801767409798</p>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row" align="center">
+                    <div class="col-xs-6">
+                        <div class="well" id="well7" style="border-radius:55px; width:75px;"><i class="fas fa-envelope" style="font-size:30px"></i></div>
+                        <b>EMAIL ADDRESS</b>
+                        <br /><br />
+                        <p style="color:gray">contact@redwan.pro</p>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="well" id="well8" style="border-radius:55px; width:75px;"><i class="fas fa-globe" style="font-size:30px"></i></div>
+                        <b>WEBSITE</b>
+                        <br /><br />
+                        <a href="http://www.redwan.pro/" target="_blank" style="text-decoration:none; color:gray">www.redwan.pro</a>
+                    </div>
                 </div>
             </div>
-            <div class="form-group has-warning">
-                <label>Email</label>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-envelope"></span>
-                    </span>
-                    <input type="text" id="txtEmail" class="form-control" placeholder="Enter Your Email" required />
+            <div class="col-xs-12 col-sm-7 col-md-5 col-lg-5 col-md-offset-1 col-lg-offset-1">
+                <div class="hidden-lg hidden-md hidden-sm" id="fullfreetocontact">
+                    <br /><br /><br />
+                    <p style="font-size:20px; color:orange" class="text-center"><b>Full Free To Contact With Me</b></p>
+                    <br />
                 </div>
-            </div>
-            <div class="form-group has-warning">
-                <label>Subject</label>
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-envelope"></span>
-                    </span>
-                    <input type="text" id="txtSubject" class="form-control" placeholder="Subject" required />
+                <div class="form-group has-warning">
+                    <label>Name</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        <input type="text" id="txtName" class="form-control" placeholder="Enter Your Name" required />
+                    </div>
                 </div>
+                <div class="form-group has-warning">
+                    <label>Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="text" id="txtEmail" class="form-control" placeholder="Enter Your Email" required />
+                    </div>
+                </div>
+                <div class="form-group has-warning">
+                    <label>Subject</label>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="text" id="txtSubject" class="form-control" placeholder="Subject" required />
+                    </div>
+                </div>
+                <div class="form-group has-warning">
+                    <label>Message </label>
+                    <textarea id="txtMessage" class="form-control" rows=4 placeholder="Enter Your Message" required></textarea>
+                </div>
+                <br />
+                <input id="contactId" type="submit" style="border-radius: 30px; outline: none; font-size: 15px" value="Send Your Message" class="btn btn-default btn-block" />
             </div>
-            <div class="form-group has-warning">
-                <label>Message </label>
-                <textarea id="txtMessage" class="form-control" rows=4 placeholder="Enter Your Message" required></textarea>
-            </div>
-            <br />
-            <input id="contactId" type="submit" style="border-radius: 30px; outline: none; font-size: 15px" value="Send Your Message" class="btn btn-default btn-block" />
         </div>
     </div>
+
 </div>
 
 <br /><br /><br /><br />
+
+@*aita shobar last a na dile kaj kore na.*@
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="~/Scripts/scrollRevealFile.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var isshow = localStorage.getItem('isshow');
+        if (isshow == null) {
+            localStorage.setItem('isshow', 1);
+
+            Swal.fire({
+                title: 'আসসালামু আলাইকুম',
+                text: 'You Are Warmly Welcome To Visit My Website...!',
+                animation: false,
+                customClass: {
+                    popup: 'animated tada'
+                }
+            })
+
+            //swal("Thank You So Much!", "For Visiting My Website.", "success");
+        }
+    });
+
+    $('.num').countTo({ speed: 2500 });
+</script>
 
 
 <script>
@@ -449,17 +699,24 @@
 
                 success: function (response) {
                     if (response.status == "Success") {
-                        swal("Thank You!", "For Sending Message. I Will Contact With You In A Few Minutes.", "success");    
+                        Swal.fire(
+                            "Thank You!", "For Sending Message. I Will Contact With You In A Few Minutes.", "success"
+                        )
                     }
                     else {
-                        swal("Opps!", "Something Is Wrong.", "error");
+                        Swal.fire(
+                            "Opps!", "Something Is Wrong.", "error"
+                        )
                     }
                 },
 
                 error: function (data) {
-                    swal("Opps!", "May Be You Are Miss Any Fields. All Fields Are Required. Please Provide Your Name, Email, Subject and Message. Do Not Miss Anything.", "error");
+                    Swal.fire(
+                        "Opps!", "May Be You Are Miss Any Fields. All Fields Are Required. Please Provide Your Name, Email, Subject and Message. Do Not Miss Anything.", "error"
+                    )
                 }
             });
         });
     });
 </script>
+

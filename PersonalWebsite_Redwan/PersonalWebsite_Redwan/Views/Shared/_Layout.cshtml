@@ -13,6 +13,10 @@
     <link href="~/CSS_And_Script_File/Animation/Animate.css" rel="stylesheet" />
     <script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
     <script src="~/CSS_And_Script_File/Ajax/jquery.unobtrusive-ajax.min.js"></script>
+    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>*@
+    <script src="~/CSS_And_Script_File/SweetAlert/sweetalert2.js"></script>
+    <script src="~/CSS_And_Script_File/JqueryCountTo/jquery.countTo.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe" crossorigin="anonymous">
 
     <style>
         #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover {
@@ -20,10 +24,8 @@
         }
     </style>
 
-
-
 </head>
-<body style="background:#272727; color:white">
+<body style="background:#272727; color:white; overflow-x:hidden">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -92,7 +94,7 @@
         </div>
     </div>
 
-    <div class="container body-content">
+    <div class="body-content">
         <br /><br /><br />
         @RenderBody()
         <br /><br /><br />
