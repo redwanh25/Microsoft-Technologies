@@ -159,6 +159,9 @@
     <Content Include="CSS_And_Script_File\jQuery\compressed\jquery-3.3.1.min.js" />
     <Content Include="CSS_And_Script_File\jQuery\uncompressed\jquery-3.3.1.js" />
     <Content Include="CSS_And_Script_File\SweetAlert\sweetalert2.js" />
+    <Content Include="Image\favicon_logo.png" />
+    <Content Include="Image\logo.png" />
+    <Content Include="Image\logo_small.png" />
     <Content Include="Scripts\scrollRevealFile.js" />
     <Content Include="CSS_And_Script_File\SweetAlert\sweetalert.min.js" />
     <Content Include="favicon.ico" />
@@ -174,7 +177,6 @@
     <Content Include="Image\github.png" />
     <Content Include="Image\google.png" />
     <Content Include="Image\instagram.png" />
-    <Content Include="Image\lifestyle.png" />
     <Content Include="Image\linkedin.png" />
     <Content Include="Image\mountain-3.jpg" />
     <Content Include="Image\myImage.jpg" />
@@ -219,6 +221,7 @@
     <Content Include="CSS_And_Script_File\jQuery\desktop.ini" />
     <Content Include="CSS_And_Script_File\jQuery\uncompressed\desktop.ini" />
     <Content Include="CSS_And_Script_File\SweetAlert\desktop.ini" />
+    <Content Include="My_CV\Redwan Hossain %28CV%29.pdf" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -230,7 +233,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

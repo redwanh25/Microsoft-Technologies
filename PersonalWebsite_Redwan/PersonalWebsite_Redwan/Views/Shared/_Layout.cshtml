@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
 
+    <link rel="icon" type="image/png" href="~/Image/favicon_logo.png">
+
     <script src="~/CSS_And_Script_File/jQuery/uncompressed/jquery-3.3.1.js"></script>
     <script src="~/CSS_And_Script_File/SweetAlert/sweetalert.min.js"></script>
     <link href="~/CSS_And_Script_File/IHover/ihover.css" rel="stylesheet" />
@@ -13,13 +15,12 @@
     <link href="~/CSS_And_Script_File/Animation/Animate.css" rel="stylesheet" />
     <script src="~/CSS_And_Script_File/AngularJS/Angular.js"></script>
     <script src="~/CSS_And_Script_File/Ajax/jquery.unobtrusive-ajax.min.js"></script>
-    @*<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>*@
     <script src="~/CSS_And_Script_File/SweetAlert/sweetalert2.js"></script>
     <script src="~/CSS_And_Script_File/JqueryCountTo/jquery.countTo.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.1/css/all.css" integrity="sha384-wxqG4glGB3nlqX0bi23nmgwCSjWIW13BdLUEYC4VIMehfbcro/ATkyDsF/AbIOVe" crossorigin="anonymous">
 
     <style>
-        #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover, #btn7:hover {
+        #btn1:hover, #btn2:hover, #btn3:hover, #btn4:hover, #btn5:hover, #btn6:hover {
             color: orange;
         }
     </style>
@@ -34,18 +35,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("REDWAN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:orange" })
+                <a href="@Url.Action("Index","Home")"><img src="~/Image/logo_small.png" height="35" style="margin-top:8px" /> </a>
+                @*@Html.ActionLink("REDWAN", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:orange" })*@
             </div>
             <div class="navbar-collapse collapse pull-right">
                 <b>
                     <ul class="nav navbar-nav" style="font-size:15px">
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { }, new { @id = "btn1", @style = "" })</li>
-                        <li><a id="btn2" href="#About">About</a></li>
-                        <li><a id="btn3" href="#Education">Education</a></li>
-                        <li><a id="btn4" href="#Services">Services</a></li>
-                        <li><a id="btn5" href="#Skills">Skills</a></li>
-                        <li><a id="btn6" href="#Projects">Projects</a></li>
-                        <li><a id="btn7" href="#Contact">Contact</a></li>
+                        <li><a id="btn1" href="#About">About</a></li>
+                        <li><a id="btn2" href="#Education">Education</a></li>
+                        <li><a id="btn3" href="#Services">Services</a></li>
+                        <li><a id="btn4" href="#Skills">Skills</a></li>
+                        <li><a id="btn5" href="#Projects">Projects</a></li>
+                        <li><a id="btn6" href="#Contact">Contact</a></li>
                     </ul>
                 </b>
             </div>

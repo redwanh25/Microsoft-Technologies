@@ -6,6 +6,12 @@ sr.reveal('#About', {
     distance: '150px'
 });
 
+sr.reveal('#CV', {
+    origin: 'bottom',
+    duration: 1000,
+    distance: '150px'
+});
+
 sr.reveal('#Education', {
     origin: 'bottom',
     duration: 1000,

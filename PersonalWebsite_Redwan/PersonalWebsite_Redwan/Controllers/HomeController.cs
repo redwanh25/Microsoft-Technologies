@@ -20,6 +20,12 @@ namespace PersonalWebsite_Redwan.Controllers
             return View();
         }
 
+        public ActionResult RedwanHossain_CV()
+        {
+            string filePath = "~/My_CV/Redwan Hossain (CV).pdf";
+            return File(filePath, "application/pdf");
+        } 
+
         [HttpPost]
         [Route("Controllers/Home/Contact")]
         public ActionResult ContactPopUp(string name, string email, string subject, string message)
@@ -103,6 +109,7 @@ namespace PersonalWebsite_Redwan.Controllers
                 return false;
             }
         }
+
         public string CreateBody(string name, string email, string subject, string message)
         {
             string body = "";
@@ -116,5 +123,6 @@ namespace PersonalWebsite_Redwan.Controllers
             body = body.Replace("{message}", message);
             return body;
         }
+
     }
 }
