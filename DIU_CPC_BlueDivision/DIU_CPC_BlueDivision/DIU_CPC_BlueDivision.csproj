@@ -266,6 +266,7 @@
     <Compile Include="Controllers\RequestToAdminController.cs" />
     <Compile Include="Controllers\StudentsProfileController.cs" />
     <Compile Include="Controllers\UnlockRegistrationFormController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DatabaseConnection\BlogImageContains.cs" />
     <Compile Include="DatabaseConnection\BlueSheetNameRetrive.cs" />
@@ -277,6 +278,7 @@
     <Compile Include="DatabaseConnection\ProblemSolvingRanking.cs" />
     <Compile Include="DatabaseConnection\ProblemsStudentsClass.cs" />
     <Compile Include="DifferentLayout_Database\AspNetUsersBusinessLayer.cs" />
+    <Compile Include="ForgetPasswordClass\EmailClassic.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -396,6 +398,11 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="ForgetPasswordHTML\AngularJS\angular.js" />
+    <Content Include="ForgetPasswordHTML\AngularJS\forgot-password.js" />
+    <Content Include="ForgetPasswordHTML\AngularJS\reset-password.js" />
+    <Content Include="ForgetPasswordHTML\reset-password.html" />
+    <Content Include="ForgetPasswordHTML\style.css" />
     <Content Include="Global.asax" />
     <Content Include="Image\404-NotFound.gif" />
     <Content Include="Image\Accepted.png" />
@@ -655,6 +662,7 @@
     <Folder Include="Image_ProfilePicture\" />
     <Folder Include="Views\RequestToAdmin\" />
     <Folder Include="Views\temp\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

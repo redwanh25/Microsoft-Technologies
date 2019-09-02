@@ -33,12 +33,24 @@
                 <div class="col-md-9">
                     @Html.DropDownList("BlueSheetName", new List<SelectListItem>
                     {
+                        new SelectListItem { Text = "Fall-19", Value = "Fall-19" },
+                        new SelectListItem { Text = "Summer-19", Value = "Summer-19" },
+                        new SelectListItem { Text = "Spring-19", Value = "Spring-19" },
                         new SelectListItem { Text = "Fall-20", Value = "Fall-20" },
                         new SelectListItem { Text = "Summer-20", Value = "Summer-20" },
                         new SelectListItem { Text = "Spring-20", Value = "Spring-20" },
-                        new SelectListItem { Text = "Fall-19", Value = "Fall-19" },
-                        new SelectListItem { Text = "Summer-19", Value = "Summer-19" },
-                        new SelectListItem { Text = "Spring-19", Value = "Spring-19" }
+                        new SelectListItem { Text = "Fall-21", Value = "Fall-21" },
+                        new SelectListItem { Text = "Summer-21", Value = "Summer-21" },
+                        new SelectListItem { Text = "Spring-21", Value = "Spring-21" },
+                        new SelectListItem { Text = "Fall-22", Value = "Fall-22" },
+                        new SelectListItem { Text = "Summer-22", Value = "Summer-22" },
+                        new SelectListItem { Text = "Spring-22", Value = "Spring-22" },
+                        new SelectListItem { Text = "Fall-23", Value = "Fall-23" },
+                        new SelectListItem { Text = "Summer-20", Value = "Summer-23" },
+                        new SelectListItem { Text = "Spring-23", Value = "Spring-23" },
+                        new SelectListItem { Text = "Fall-24", Value = "Fall-24" },
+                        new SelectListItem { Text = "Summer-24", Value = "Summer-24" },
+                        new SelectListItem { Text = "Spring-24", Value = "Spring-24" }
                     }, "Blue Sheet Name", new { @class = "form-control", @id = "BlueSheetNameId",
                         @title="Be carefull. Next time you cannot change BlueSheetName."})
                     <span id="icon-hover" class='glyphicon glyphicon-info-sign form-control-feedback' style='font-size: 16px'> </span>

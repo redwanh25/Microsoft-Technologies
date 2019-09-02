@@ -34,6 +34,10 @@ namespace DIU_CPC_BlueDivision
                 RequireLowercase = true,
                 RequireUppercase = true,
             };
+
+            // Code for send mail.
+            manager.EmailService = new ForgetPasswordClass.EMail();
+
             var dataProtectionProvider = options.DataProtectionProvider;
             if (dataProtectionProvider != null)
             {

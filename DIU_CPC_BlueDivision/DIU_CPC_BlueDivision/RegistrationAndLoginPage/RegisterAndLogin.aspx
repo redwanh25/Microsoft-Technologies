@@ -18,8 +18,9 @@
     <%--<script src="../JavaScriptFile/Register.js"></script>--%>
     <%--<script src="../JavaScriptFile/Login.js"></script>--%>
 
-    <%--<script src="../HTML/AngularJS/angular.js"></script>
-    <script src="../HTML/AngularJS/forgot-password.js"></script>--%>
+    <script src="../ForgetPasswordHTML/AngularJS/angular.js"></script>
+    <script src="../ForgetPasswordHTML/AngularJS/forgot-password.js"></script>
+
 
     <style>
         .sidenav {

@@ -471,15 +471,7 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                         <div class="form-group has-success">
                                             <label>Select Join BlueSheet</label>
-                                            @Html.DropDownList("SelectJoinSemester", new List<SelectListItem>
-                                                {
-                                                    new SelectListItem{Text="Fall-20", Value="Fall-20"},
-                                                    new SelectListItem{Text="Summer-20", Value="Summer-20"},
-                                                    new SelectListItem{Text="Spring-20", Value="Spring-20"},
-                                                    new SelectListItem{Text="Fall-19", Value="Fall-19"},
-                                                    new SelectListItem{Text="Summer-19", Value="Summer-19"},
-                                                    new SelectListItem{Text="Spring-19", Value="Spring-19"}
-                                                }, "Select BlueSheet", new { @class = "form-control", @id = "SelectJoinSemesterStudent" })
+                                            @Html.DropDownList("SelectJoinSemester", null, "Select BlueSheet", new { @class = "form-control", @id = "SelectJoinSemesterStudent" })
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-md-4 col-sm-4 col-xs-6 col-lg-offset-2 col-sm-offset-2 col-xs-offset-5">

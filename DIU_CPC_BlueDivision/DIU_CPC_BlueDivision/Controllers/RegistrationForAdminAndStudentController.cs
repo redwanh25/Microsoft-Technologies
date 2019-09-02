@@ -1,4 +1,5 @@
 ﻿using DIU_CPC_BlueDivision.DifferentLayout_Database;
+using DIU_CPC_BlueDivision.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace DIU_CPC_BlueDivision.Controllers
     public class RegistrationForAdminAndStudentController : Controller
     {
         // GET: RegistrationForAdminAndStudent
+        BlueSheetsProblemsStudentsEntities db = new BlueSheetsProblemsStudentsEntities();
 
         private string superAdmin = ConfigurationManager.AppSettings["SuperAdmin"].ToString();
         private string admin = ConfigurationManager.AppSettings["Admin"].ToString();
@@ -32,6 +34,8 @@ namespace DIU_CPC_BlueDivision.Controllers
             {
                 throw new Exception();
             }
+
+            ViewBag.SelectJoinSemester = new SelectList(db.BlueSheets, "BlueSheetName", "BlueSheetName");
             return View();
         }
     }

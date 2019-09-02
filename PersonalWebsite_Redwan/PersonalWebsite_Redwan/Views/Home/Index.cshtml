@@ -103,12 +103,12 @@
         <div class="col-md-7 col-xs-12">
             <div class="hidden-xs hidden-sm">
                 <p id="content" style="font-size:37px; padding-top:10px;"><b>About Me</b></p>
-                <p id="content" style="font-size:16px; padding-top:60px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p id="content" style="font-size:16px; padding-top:70px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 <p id="bg-text" style="color: #1A1A1A; font-size: 90px;"><b>About</b></p>
             </div>
             <div class="hidden-md hidden-lg">
                 <p id="content" style="font-size:25px; padding-top:20px;"><b>About Me</b></p>
-                <p id="content" style="font-size:16px; padding-top:65px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+                <p id="content" style="font-size:16px; padding-top:60px;color: gray;">A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 <p id="bg-text" style="color: #1A1A1A; font-size: 80px;"><b>About</b></p>
             </div>
 
@@ -119,11 +119,11 @@
                         <td> : </td>
                         <td style="color:gray"> Redwan Hossain </td>
                     </tr>
-                    <tr>
-                        <td>Date of birth </td>
+                    @*<tr>
+                        <td>Profession </td>
                         <td> : </td>
-                        <td style="color:gray"> 12-Feb-1999 </td>
-                    </tr>
+                        <td style="color:gray"> Student </td>
+                    </tr>*@
                     <tr>
                         <td>Address </td>
                         <td> : </td>
@@ -144,7 +144,7 @@
         </div>
     </div>
 
-    <br /><br />
+    <br /><br /><br />
     <div id="CV">
         <div align="center" class="hidden-xs">
             <button class="btn btn btn-warning" style="border-radius:40px; outline:none; color:black; padding-left:40px; padding-right:40px; padding-top:10px; padding-bottom:10px" onclick="location.href='@Url.Action("RedwanHossain_CV", "Home")'"><b>Watch My CV</b></button>
@@ -153,9 +153,9 @@
         </div>
 
         <div align="center" class="hidden-lg hidden-md hidden-sm">
-            <button class="btn btn btn-warning" style="border-radius:40px; outline:none; color:black; padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px" onclick="location.href='@Url.Action("RedwanHossain_CV", "Home")'">Watch My CV</button>
-            <span style="padding:10px"></span>
-            <button class="btn btn btn-warning" style="border-radius:40px; outline:none; color:black; padding-left:30px; padding-right:30px; padding-top:10px; padding-bottom:10px" onclick="location.href='@Url.Action("RedwanHossain_CV", "Home")'">Download My CV</button>
+            <button class="btn btn btn-warning" style="border-radius:40px; outline:none; color:black; padding-left:20px; padding-right:20px; padding-top:5px; padding-bottom:5px" onclick="location.href='@Url.Action("RedwanHossain_CV", "Home")'">Watch My CV</button>
+            <span style="padding:5px"></span>
+            <button class="btn btn btn-warning" style="border-radius:40px; outline:none; color:black; padding-left:20px; padding-right:20px; padding-top:5px; padding-bottom:5px" onclick="location.href='@Url.Action("RedwanHossain_CV", "Home")'">Download My CV</button>
         </div>
     </div>
     <div class="hidden-xs">
@@ -242,7 +242,8 @@
                 <div id="well1" class="well text-center">
                     <i class="fas fa-laptop-code" style="font-size:50px"></i>
                     <br /><br />
-                    <p style="font-size:18px; color:orange"><b>Web Application</b></p>
+                    <p class="hidden-xs" style="font-size:18px; color:orange"><b>Web Application</b></p>
+                    <p class="hidden-sm hidden-md hidden-lg" style="font-size:15px; color:orange"><b>Web Application</b></p>
                     <hr style="border: 2px solid; color: #F5F3F1" />
                 </div>
             </div>
@@ -250,7 +251,8 @@
                 <div id="well2" class="well text-center">
                     <i class="fab fa-windows" style="font-size:50px"></i>
                     <br /><br />
-                    <p style="font-size:18px; color:orange"><b>ASP.NET MVC</b></p>
+                    <p class="hidden-xs" style="font-size:18px; color:orange"><b>ASP.NET MVC</b></p>
+                    <p class="hidden-sm hidden-md hidden-lg" style="font-size:15px; color:orange"><b>ASP.NET MVC</b></p>
                     <hr style="border: 2px solid; color: #F5F3F1" />
                 </div>
             </div>
@@ -258,7 +260,8 @@
                 <div id="well3" class="well text-center">
                     <i class="fas fa-database" style="font-size:50px"></i>
                     <br /><br />
-                    <p style="font-size:18px; color:orange"><b>MS SQL Server</b></p>
+                    <p class="hidden-xs" style="font-size:18px; color:orange"><b>MS SQL Server</b></p>
+                    <p class="hidden-sm hidden-md hidden-lg" style="font-size:15px; color:orange"><b>MS SQL Server</b></p>
                     <hr style="border: 2px solid; color: #F5F3F1" />
                 </div>
             </div>
@@ -266,7 +269,8 @@
                 <div id="well4" class="well text-center">
                     <i class="fas fa-globe" style="font-size:50px"></i>
                     <br /><br />
-                    <p style="font-size:18px; color:orange"><b>ASP.NET Core</b></p>
+                    <p class="hidden-xs" style="font-size:18px; color:orange"><b>ASP.NET Core</b></p>
+                    <p class="hidden-sm hidden-md hidden-lg" style="font-size:15px; color:orange"><b>ASP.NET Core</b></p>
                     <hr style="border: 2px solid; color: #F5F3F1" />
                 </div>
             </div>
@@ -521,7 +525,7 @@
                 <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
                     <a href="http://www.nomaa.se/" target="_blank">
                         <div class="img">
-                            <img src="~/Image/bridge.jpg" alt="did not load" class="img-responsive" />
+                            <img src="~/Image/Nomaa.PNG" alt="did not load" class="img-responsive" style="width:320px; height:220px;" />
                         </div>
                         <div class="info">
                             <h3>Nomaa IT Farm</h3>
@@ -539,24 +543,9 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
                 <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
-                    <a href="http://bluedivision.redwan.pro/" target="_blank">
-                        <div class="img">
-                            <img src="~/Image/benches.jpg" alt="did not load" class="img-responsive" />
-                        </div>
-                        <div class="info">
-                            <h3>DIU ACM Monitoring System</h3>
-                            <p>
-                                <span style="color:orange; font-size:12px">This application is developed by using ASP.NET MVC. This is an ACM Monitoring System. Only Daffodil International University’s Students and Teachers can use this application. This Application is developed for ACM Monitoring who is attend for ACM ICPC.</span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 hidden-xs hidden-sm" style="padding-bottom:30px">
-                <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
                     <a href="http://tanvirsir.redwan.pro" target="_blank">
                         <div class="img">
-                            <img src="~/Image/park.jpg" alt="did not load" class="img-responsive" />
+                            <img src="~/Image/TanvirSir.PNG" alt="did not load" class="img-responsive" style="width:320px; height:220px;" />
                         </div>
                         <div class="info">
                             <h3>Personal Calculation</h3>
@@ -571,6 +560,22 @@
                     </a>
                 </div>
             </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4" style="padding-bottom:30px">
+                <div class="ih-item square effect6 from_top_and_bottom" style="border-radius:10px; border:0px">
+                    <a href="http://diucpc.redwan.pro/" target="_blank">
+                        <div class="img">
+                            <img src="~/Image/CPC.PNG" alt="did not load" class="img-responsive" style="width:320px; height:220px;" />
+                        </div>
+                        <div class="info">
+                            <h3>DIU ACM Monitoring System</h3>
+                            <p>
+                                <span style="color:orange; font-size:12px">This application is developed by using ASP.NET MVC. This is an ACM Monitoring System. Only Daffodil International University’s Students and Teachers can use this application. This Application is developed for ACM Monitoring who is attend for ACM ICPC.</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -734,4 +739,31 @@
         });
     });
 </script>
+
+@*it does not work without web server*@
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '227214878173409',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.11'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-customerchat"
+     page_id="100968211279558"
+     minimized="true"
+     theme_color="#272727"
+     logged_in_greeting="Hi! I'm Redwan Hossain. How can i help you...?"
+     logged_out_greeting="Hi! I'm Redwan Hossain. How can i help you...?">
+</div>
 
