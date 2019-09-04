@@ -97,6 +97,47 @@
         }
     </style>
 
+    @*Menu bar sidebar*@
+    <style>
+        .sidenav_Menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 50px;
+            left: 0;
+            background-color: #EDEDED;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 8px;
+        }
+
+            .sidenav_Menu a {
+                padding: 15px 8px 8px 17px;
+                text-decoration: none;
+                font-size: 18px;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+            }
+
+                .sidenav_Menu a:hover {
+                    color: #363636;
+                }
+
+            .sidenav_Menu .closebtn {
+                position: absolute;
+                top: 0;
+                right: 25px;
+                font-size: 36px;
+                margin-left: 50px;
+            }
+        /*@@media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }*/
+    </style>
+
     @*change password sidebar*@
     <style>
         .sidenav {
@@ -123,7 +164,8 @@
     </style>
 
 </head>
-<body style="padding-top:90px; font-family:  Lora " oncontextmenu="return false;">
+<body style="padding-top:90px; font-family:  Lora ">
+    @*oncontextmenu="return false;"*@
     <nav class="navbar navbar-default navbar-fixed-top shadow_B" style="font-size:19px; min-height:88px">
         <div class="container">
             <div class="navbar-header">
@@ -132,7 +174,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*<span class="navbar-brand" style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776;</span>*@
+                <span class="navbar-brand" id="openmenu" style="font-size:25px;cursor:pointer;padding-top:26px" onclick="openNav_Menu()">&#9776;</span>
                 <a class="navbar-brand zoom-effect" style="margin-right:30px" href="@Url.Action("Index", "Home")">
                     <img class="animated fadeInDown" id="imgnav" src="../../Image/cpc_logo_xxl.png" height="60" />
                 </a>
@@ -196,6 +238,29 @@
             </div>
         </div>
     </nav>
+
+    <div id="mySidenav_Menu" class="sidenav_Menu shadow_B">
+        <a style="padding-top:50px" href="javascript:void(0)" class="closebtn" onclick="closeNav_Menu()">&times;</a>
+        <div class="row" style="padding-top:50px">
+            <div style="padding-left:30px">
+                <h3 style="color:orange">DIU CPC</h3>
+            </div>
+        </div>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span>CPC Club - 1</a>
+        <div style="padding-left:32px">
+            <a href="@Url.Action("Index", "BlueSheets")" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span>Blue Sheets</a>
+            <a href="@Url.Action("Index", "ContestTrackers")" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Contest Trackers</a>
+            <a href="@Url.Action("Index", "BlogPost")" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span>Blog Post</a>
+            <a href="http://daffodilvarsity.edu.bd/" target="_blank" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>Our Website</a>
+        </div>
+        <a href="#" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span>CPC Club - 2</a>
+        <div style="padding-left:32px">
+            <a href="@Url.Action("Index", "RegistrationForAdminAndStudent")" class="zoom-effect"> <span class="glyphicon glyphicon-phone-alt" style="padding-right:15px"></span>Registration</a>
+            <a href="@Url.Action("Index", "ListOfAdmins")" class="zoom-effect"> <span class="glyphicon glyphicon-home" style="padding-right:15px"></span>List Of Admins</a>
+            <a href="@Url.Action("Index", "ListOfAdmin_1s")" class="zoom-effect"> <span class="glyphicon glyphicon-leaf" style="padding-right:15px"></span>List Of Ad. Cont.</a>
+            <a href="@Url.Action("Index", "ListOfStudents")" class="zoom-effect"> <span class="glyphicon glyphicon-user" style="padding-right:15px"></span>List Of Students</a>
+        </div>
+    </div>
 
     <div class="body-content container">
         @RenderBody()
@@ -266,6 +331,14 @@
     function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
     }
+
+    function openNav_Menu() {
+        document.getElementById("mySidenav_Menu").style.width = "250px";
+    }
+
+    function closeNav_Menu() {
+        document.getElementById("mySidenav_Menu").style.width = "0";
+    }
 </script>
 
 
@@ -318,6 +391,7 @@
                 $('.navbar').css("min-height", "");
                 $('#navbutt').removeAttr("style");
                 $('#navdiv').removeAttr("style");
+                $('#openmenu').css("padding-top", "");
 
                 //$('#imgnav').removeClass("fadeInDown");
                 $('#imgnav').addClass("fadeInUp");
@@ -332,6 +406,7 @@
                 $('.navbar').css("min-height", "88px");
                 $('#navbutt').css("margin-top", "45px");
                 $('#navdiv').css("padding-top", "20px");
+                $('#openmenu').css("padding-top", "26px");
 
                 $('#imgnav').removeClass("fadeInUp");
                 //$('#imgnav').addClass("fadeInDown");

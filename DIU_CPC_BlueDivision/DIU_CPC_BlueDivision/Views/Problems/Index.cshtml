@@ -312,26 +312,27 @@
                                 </td>
                                 @if (secureCode == student)
                                 {
-                                    <td align="center">
-                                        @{
-                                            ProblemsStudent ps = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == item.Id && per.StudentId == str);
-                                            try
+                                <td align="center">
+                                    @{
+                                        ProblemsStudent ps = db.ProblemsStudents.FirstOrDefault(per => per.ProblemId == item.Id && per.StudentId == str);
+                                        try
+                                        {
+                                            if (ps.IsSolved == "Accepted")
                                             {
-                                                if (ps.IsSolved == "Accepted")
-                                                {
-                                                    <input onclick="return false;" checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" title="You Can not Unchecked. you have to contact with admin."/>
-                                                }
-                                                else
-                                                {
-                                                    <input style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
-                                                }
+                                                @*<input onclick="return false;" checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" title="You Can not Unchecked. you have to contact with admin." />*@
+                                                <input checked style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
                                             }
-                                            catch (Exception)
+                                            else
                                             {
                                                 <input style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
                                             }
                                         }
-                                    </td>
+                                        catch (Exception)
+                                        {
+                                            <input style="width:20px; height:20px;" class="form-control" type="checkbox" name="verdict" id="verdict" value="@item.Id" />
+                                        }
+                                    }
+                                </td>
 
                                 }
                                 else
