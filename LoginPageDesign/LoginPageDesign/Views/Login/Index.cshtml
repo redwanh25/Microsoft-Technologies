@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+
+    body {
+        background-image: url('Image/backgroundImage.png');
+    }
+    .shadow_B {
+            box-shadow: -2px 4px 22px #000
+        }
+</style>
+<div id="loginPage">
+    <br /><br /><br /><br /><br />
+    <div class="container">
+        <div class="row" style="margin-bottom: 50px">
+            <div class="col-lg-6 col-md-6 col-lg-offset-3 col-md-offset-3">
+                <div class="well shadow_B">
+                    <div align="center">
+                        <img src="~/Image/factory.jpg" style="border-radius: 200px; height: 100px; width: 100px" />
+                        <br />
+                        <h2 style="font-family: Impact">Login Page</h2>
+                    </div>
+                    <br />
+                    <form>
+                        <div class="form-horizontal table">
+                            <div class="form-group h4 has-warning">
+                                <span class="control-label col-lg-3 col-md-3 col-sm-4">UserName</span>
+                                <div class="col-lg-8 col-md-9 col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" style="height: 10px">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                        </span>
+                                        <input id="Textbox1" placeholder="Enter Your UserName" class="form-control" type="text" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-horizontal table">
+                            <div class="form-group h4 has-warning">
+                                <span class="control-label col-lg-3 col-md-3 col-sm-4">Password</span>
+                                <div class="col-lg-8 col-md-9 col-sm-6">
+                                    <div class="input-group">
+                                        <span class="input-group-addon" style="height: 10px">
+                                            <span class="glyphicon glyphicon-lock"></span>
+                                        </span>
+                                        <input id="Textbox2" placeholder="Enter Your Password" class="form-control" type="password" required />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" value="remember" />Remeber me
+                            </label>
+                        </div>
+
+                        <br />
+
+                        <div class="text-center">
+                            <input id="loginBtn" type="submit" class="btn btn-warning" style="border-radius: 20px; width: 200px; outline: none" value="Login" />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <p style="color: gray">or login with</p>
+                        </div>
+                    </form>
+                    <br />
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6 col-lg-offset-1">
+                            <a id="btn1" href="#">
+                                <img src="~/Image/facebook.png" class="img-responsive" style="border-radius: 8px; min-height:35px" />
+                            </a>
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-sm-6 col-xs-6">
+                            <a id="btn2" href="#">
+                                <img src="~/Image/google.png" class="img-responsive" style="border-radius: 8px; min-height:35px" />
+                            </a>
+                        </div>
+                    </div>
+                    <br /><br /><br /><br />
+                    <div class="text-center">
+                        <label>Not a member? <a href="#" style="text-decoration: none">Sign up now</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#btn1').click(function () {
+                swal("Opps!", "Something Went Wrong!", "error");
+            });
+            $('#btn2').click(function () {
+                swal("Opps!", "Something Went Wrong!", "error");
+            });
+        });
+</script>

@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>PracticeCode.NewFolder2.GenerateAUniqueId</StartupObject>
+    <StartupObject>PracticeCode.NewFolder2.OutputShowInTextFile</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,6 +52,7 @@
     <Compile Include="NewFolder2\BinaryDigite.cs" />
     <Compile Include="NewFolder2\Class1.cs" />
     <Compile Include="NewFolder2\GenerateAUniqueId.cs" />
+    <Compile Include="NewFolder2\OutputShowInTextFile.cs" />
     <Compile Include="NewFolder2\SingleDoubleAndOr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

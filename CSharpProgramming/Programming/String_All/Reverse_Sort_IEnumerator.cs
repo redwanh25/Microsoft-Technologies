@@ -11,7 +11,11 @@ namespace Programming.String_All
     {
         public static void Main(String[] args)
         {
-            string str = "redwan hossain";
+            string str = "redwan  hos sain";
+
+            int a = str.Where(p => p.Equals(' ')).Count();
+            Console.WriteLine(a);
+
             char[] ch = str.ToArray();
 
             string s2 = new string(ch);
@@ -22,7 +26,7 @@ namespace Programming.String_All
             Array.Sort(st);
             
             Console.WriteLine(ch);
-            Console.WriteLine(s2 + " " + ch.Length);
+            Console.WriteLine(s2.Length + " " + ch.Length);
 
             string srr = "";
             IEnumerator it = st.GetEnumerator();

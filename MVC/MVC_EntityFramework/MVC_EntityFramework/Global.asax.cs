@@ -16,6 +16,8 @@ namespace MVC_EntityFramework
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            BundleTable.EnableOptimizations = true;     // aita use korte hobe. korle inspact element a css script file ta optimize hobe.
         }
     }
 }

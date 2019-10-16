@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeCode", "PracticeCod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiuAlgorithmAssignment", "DiuAlgorithmAssignment\DiuAlgorithmAssignment.csproj", "{B9D5A94B-22B7-40D9-B408-96924BE1D966}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HackerEarth", "HackerEarth\HackerEarth.csproj", "{EC72CB8E-AE26-40E4-BEAC-57989A552541}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeForces", "CodeForces\CodeForces.csproj", "{D4644BFF-96BD-4999-BC50-CE9EF913A0A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{B9D5A94B-22B7-40D9-B408-96924BE1D966}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9D5A94B-22B7-40D9-B408-96924BE1D966}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9D5A94B-22B7-40D9-B408-96924BE1D966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC72CB8E-AE26-40E4-BEAC-57989A552541}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC72CB8E-AE26-40E4-BEAC-57989A552541}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC72CB8E-AE26-40E4-BEAC-57989A552541}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC72CB8E-AE26-40E4-BEAC-57989A552541}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4644BFF-96BD-4999-BC50-CE9EF913A0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4644BFF-96BD-4999-BC50-CE9EF913A0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4644BFF-96BD-4999-BC50-CE9EF913A0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4644BFF-96BD-4999-BC50-CE9EF913A0A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

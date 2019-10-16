@@ -11,7 +11,7 @@ namespace Programming.Array_All
         public static void Main(String[] arg)
         {
             int[] arr = { 1, 2, 3, 4, 5 };
-            int index1 = Array.BinarySearch(arr, 0, 3, 2);          // BinarySearch(Array, Int32(inclusive), Int32(exclusive), Object)
+            int index1 = Array.BinarySearch(arr, 0, 3, 4);          // BinarySearch(Array, Int32(inclusive), Int32(exclusive), Object)
             int index2 = Array.BinarySearch(arr, 4);                // BinarySearch(Array, Object)
             int index3 = Array.BinarySearch(arr, 9);
             Console.WriteLine("{0} {1} {2}", index1, index2, index3);

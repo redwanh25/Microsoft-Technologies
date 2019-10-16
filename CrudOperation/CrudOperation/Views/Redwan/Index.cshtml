@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+<br />
+<h2>Index</h2>
+<br />
+
+<style>
+    span.field-validation-error {
+        color: red;
+    }
+</style>
+
+<div style="overflow-x:auto" class="tableContainer">
+    <a class="popup btn btn-primary" style="margin-bottom:30px" href="/Redwan/Save/0"> Add new Employee</a>
+    <table id="myDataTable">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Id</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        var oTable = $('#myDataTable').DataTable({
+            "ajax": {
+                "url": "/Redwan/GetEmployees",
+                "type": "get",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "FirstName", "autoWidth": true },
+                { "data": "LastName", "autoWidth": true },
+                { "data": "EmailId", "autoWidth": true },
+                { "data": "City", "autoWidth": true },
+                { "data": "Country", "autoWidth": true },
+                {
+                    "data": "Id", "width": "50px", "render": function (data) {
+                        return '<a class="popup" href="/Redwan/Save/' + data + '">Edit</a>'
+                    }
+                },
+                {
+                    "data": "Id", "width": "50px", "render": function (data) {
+                        return '<a class="popup" href="/Redwan/Delete/' + data + '">Delete</a>'
+                    }
+                }
+
+
+            ]
+        });
+
+        $('.tableContainer').on('click', 'a.popup', function (e) {
+            e.preventDefault();
+            OpenPopUp($(this).attr('href'));
+        });
+
+        function OpenPopUp(pageUrl) {
+            var $pageContent = $('<div/>');
+            $pageContent.load(pageUrl, function () {
+                $('#popupForm', $pageContent).removeData('validator');
+                $('#popupForm', $pageContent).removeData('unobtrusiveValidation');
+                $.validator.unobtrusive.parse('form');
+            });
+
+            $dialog = $('<div class="popupWindow col-lg-12 col-md-12 col-sm-12" style="overflow:auto"></div>')
+                .html($pageContent)
+                .dialog({                 
+                    draggable: true,
+                    autoOpen: false,
+                    resizable: true,
+                    modal: true,
+                    title: 'Popup Dialog',
+                    height: 600,
+                    width: 450,
+                    close: function () {
+                        $dialog.dialog('destroy').remove();
+                    }
+                });
+            $('.popupWindow').on('submit', '#popupForm', function (e) {
+                var url = $('#popupForm')[0].action;
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: $('#popupForm').serialize(),
+                    success: function (data) {
+                        if (data.status) {
+                            $dialog.dialog('close');
+                            oTable.ajax.reload();
+                        }
+                    }
+                });
+                e.preventDefault();
+            });
+            $dialog.dialog('open');
+        }
+    });
+</script>

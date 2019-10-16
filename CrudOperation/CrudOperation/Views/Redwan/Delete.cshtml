@@ -1,0 +1,33 @@
+﻿@model CrudOperation.Models.Employee
+
+<h3>Are you sure you want to delete this?</h3>
+
+@using (Html.BeginForm("Delete", "Redwan", FormMethod.Post, new { id = "popupForm" }))
+{
+    @Html.HiddenFor(a => a.Id)
+
+    <div class="form-group">
+        <label>First Name</label>
+        <p>@Model.FirstName</p>
+    </div>
+    <div class="form-group">
+        <label>Last Name</label>
+        <p>@Model.LastName</p>
+    </div>
+    <div class="form-group">
+        <label>Email Id</label>
+        <p>@Model.EmailId</p>
+    </div>
+    <div class="form-group">
+        <label>City</label>
+        <p>@Model.City</p>
+    </div>
+    <div class="form-group">
+        <label>Country</label>
+        <p>@Model.Country</p>
+    </div>
+
+    <div>
+        <input type="submit" value="Delete"/>
+    </div>
+}

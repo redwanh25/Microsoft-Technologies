@@ -8,7 +8,7 @@ namespace Programming.Array_All.Array2D
 {
     class Char1D
     {
-        public static void Main(String[] arg)
+        public static void Main(string[] arg)
         {
             //char[] ch = new char[6];
             //for(int i = 0; i < ch.Length; i++)

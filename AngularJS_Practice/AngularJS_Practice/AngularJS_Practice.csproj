@@ -162,7 +162,13 @@
     <Content Include="CSS_And_Script_File\GalleryGrid\gallery-grid.css" />
     <Content Include="CSS_And_Script_File\IHover\ihover.css" />
     <Content Include="CSS_And_Script_File\jQuery\compressed\jquery-3.3.1.min.js" />
+    <Content Include="CSS_And_Script_File\jQuery\uncompressed\jquery-ui-1.12.1.js" />
+    <Content Include="CSS_And_Script_File\jQuery\compressed\jquery-ui-1.12.1.min.js" />
+    <Content Include="CSS_And_Script_File\jQuery\compressed\jquery.validate.min.js" />
+    <Content Include="CSS_And_Script_File\jQuery\compressed\jquery.validate.unobtrusive.min.js" />
     <Content Include="CSS_And_Script_File\jQuery\uncompressed\jquery-3.3.1.js" />
+    <Content Include="CSS_And_Script_File\jQuery\uncompressed\jquery.validate.js" />
+    <Content Include="CSS_And_Script_File\jQuery\uncompressed\jquery.validate.unobtrusive.js" />
     <Content Include="CSS_And_Script_File\SweetAlert\sweetalert.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
