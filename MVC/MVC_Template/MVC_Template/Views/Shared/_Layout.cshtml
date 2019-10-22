@@ -6,9 +6,12 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
 
     @Styles.Render("~/CSS_And_Script_File/css")
+    @Scripts.Render("~/CSS_And_Script_File/script")
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/8909a24a8f.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
 
 </head>
 <body>
@@ -62,10 +65,6 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/CSS_And_Script_File/script")
-    @RenderSection("scripts", required: false)
 
-    <script src="https://kit.fontawesome.com/8909a24a8f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js"></script>
 </body>
 </html>

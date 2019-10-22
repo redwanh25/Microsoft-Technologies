@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "A_5_ElementSelector";
+}
+
+<h2>A_5_ElementSelector</h2>
+
+<br />
+<div class="row">
+    <button id="btn1" class="btn btn-outline-danger col mr-4">Danger</button>
+    <button id="btn2" class="btn btn-outline-primary col mr-4">Primary</button>
+    <button id="btn3" class="btn btn-outline-info col">Info</button>
+</div>
+
+<br />
+<br />
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>C#</th>
+            <th>ASP.NET</th>
+            <th>SQL Server</th>
+        </tr>
+    </thead>
+    <tr>
+        <td>ADO.NET</td>
+        <td>jQuery</td>
+        <td>JavaScript</td>
+    </tr>
+    <tr>
+        <td>AJAX</td>
+        <td>CSS</td>
+        <td>HTML</td>
+    </tr>
+    <tr>
+        <td>VB</td>
+        <td>Dot NET</td>
+        <td>Visual C++</td>
+    </tr>
+    <tr>
+        <td>Oracle</td>
+        <td>Java</td>
+        <td>J2EE</td>
+    </tr>
+</table>
+
+<script>
+    $(document).ready(function () {
+        $('#btn1').click(function () {
+            $('table tr').each(function () {
+                alert($(this).html())
+            });
+        });
+        
+        $('#btn2').click(function () {
+            alert($('table tr').html())
+        });
+    });
+</script>
