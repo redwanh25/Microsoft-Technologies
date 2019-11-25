@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "A_26_EachMethod";
+}
+
+<h2>A_26_EachMethod</h2>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var jsObject = {
+            'USA': 'Washington D.C.',
+            'India': 'New Delhi',
+            'UK': 'London',
+            'Australia': 'Canberra'
+        };
+
+        var result = '';
+
+        $.each(jsObject, function (key, value) {
+            result += key + ' - ' + value + '<br/>';
+        });
+
+        //$('.ulclass li').each(function (index, element) {
+        //    result += 'Index = ' + index + ', Value = ' + $(element).text() + '<br/>';
+        //    //or
+        //    //result += 'Index = ' + index + ', Value = ' + $(this).text() + '<br/>';
+        //});
+        $('#resultDiv').html(result);
+    });
+</script>
+<div class="ulclass">
+    <ul>
+        <li>US</li>
+        <li>India</li>
+        <li>UK</li>
+        <li>Canada</li>
+        <li>Australia</li>
+    </ul>
+</div>
+
+<div id="resultDiv"></div>

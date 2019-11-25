@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "A_22_WrapElements";
+}
+
+<h2>A_22_WrapElements</h2>
+
+<div id="div1">
+    DIV 1
+</div>
+<div id="div2">
+    DIV 2
+</div>
+<div id="div3">
+    DIV 3
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#div1').wrap('<div class="redwan"></div>');
+        $('.redwan').wrap('<div class="redwan1"></div>');
+        $('#div1').unwrap();
+    });
+</script>
+

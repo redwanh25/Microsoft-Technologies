@@ -340,6 +340,10 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\All_In_One_\A_5_ElementSelector.cshtml" />
+    <Content Include="Views\All_In_One_\A_22_WrapElements.cshtml" />
+    <Content Include="Views\All_In_One_\A_25_AddorRemoveClass.cshtml" />
+    <Content Include="Views\All_In_One_\A_26_EachMethod.cshtml" />
+    <Content Include="Views\All_In_One_\A_Array_Push_Join_Substr_Map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

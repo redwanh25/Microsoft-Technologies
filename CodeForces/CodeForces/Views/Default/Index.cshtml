@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div>
+    <span id="spanId" style="font-size:40px"></span>
+</div>
+<br />
+<button id="idcheck" class="btn btn-dark"> value </button>
+
+@*
+    http://codeforces.com/api/user.status?handle=Redwan_hossain ai link a giye shob gulo json data copy kore
+    http://jsonviewer.stack.hu/ ai link a giye paste kore dile json ta onek shundor format hoye jabe. jeta
+    manusher pora readable hobe.
+
+    for this line ===>
+    $('#spanId').html(data.result[0].problem.name + ' ' + data.result[0].author.members[0].handle);
+*@
+
+<script>
+    $(document).ready(function () {
+        $('#idcheck').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "http://codeforces.com/api/user.status?handle=Redwan_hossain",
+                dataType: 'json',          // json ta nibe na.. jsonp dite hobe. er jonno https://www.youtube.com/watch?v=WKZLVqwpoiE&t=178s ai tutorial ta dekho.
+                success: function (data) {
+                    $('#spanId').html(data.result[0].problem.name + ' : ' + data.result[0].author.members[0].handle);
+                },
+                error: function (data) {
+                    alert('error');
+                }
+            })
+        });
+
+    });
+</script>

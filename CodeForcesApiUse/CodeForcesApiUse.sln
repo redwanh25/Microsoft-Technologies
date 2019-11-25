@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeForcesApiUse", "CodeForcesApiUse\CodeForcesApiUse.csproj", "{0842D2D6-66C8-4760-976D-308179F62469}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0842D2D6-66C8-4760-976D-308179F62469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0842D2D6-66C8-4760-976D-308179F62469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0842D2D6-66C8-4760-976D-308179F62469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0842D2D6-66C8-4760-976D-308179F62469}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {25F7AE33-59F7-4E63-A58B-2DE90017D62C}
+	EndGlobalSection
+EndGlobal
