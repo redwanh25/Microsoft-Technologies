@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Customer Details</h2>
+
+@*@Html.Hidden("Get", Url.Action("Get", "Customer"))*@
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Customer Name</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody id="tblInfo">
+    </tbody>
+</table>
+
+<script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+<script src="~/signalr/hubs" type="text/javascript"></script>
+
+<script type="text/javascript">
+        $(function () {
+
+            // Proxy created on the fly
+            var cus = $.connection.customerHub;     // be careful. customerHub er 'c' small letter hobe. capital letter dile hobe na.
+
+            // Declare a function on the job hub so the server can invoke it
+            cus.client.displayCustomer = function () {
+                getData();
+            };
+
+            // Start the connection
+            $.connection.hub.start();
+            getData();
+        });
+
+        function getData() {
+            var $tbl = $('#tblInfo');
+            $.ajax({
+                url: '/Customer/Get_1',       // $('#Get').val()
+                type: 'GET',
+                datatype: 'json',
+                success: function (data) {
+                    $tbl.empty();
+
+                    $.each(data.listCus, function (i, model) {
+                        $tbl.append
+                            (
+                                '<tr>' +
+                                '<td>' + model.Id + '</td>' +
+                                '<td>' + model.CustomerName + '</td>' +
+                                '<td>' + model.Status + '</td>' +
+                                '<tr>'
+                            );
+                    });
+                }
+            });
+        }
+
+</script>

@@ -1,0 +1,1058 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @*@Styles.Render("~/CSS_And_Script_File/css");*@
+
+    <!--begin::Web font -->
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Poppins:300,400,500,600,700"] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+    <!--end::Web font -->
+    <!--begin::Page Vendors Styles(used by this page) -->
+    <link href="~/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Page Vendors Styles -->
+    <!--begin:: Global Mandatory Vendors -->
+    <link href="~/assets/vendors/general/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin:: Global Optional Vendors -->
+    <link href="~/assets/vendors/general/tether/dist/css/tether.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-datetime-picker/css/bootstrap-datetimepicker.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-timepicker/css/bootstrap-timepicker.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-select/dist/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/nouislider/distribute/nouislider.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/owl.carousel/dist/assets/owl.carousel.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/owl.carousel/dist/assets/owl.theme.default.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/summernote/dist/summernote.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/animate.css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/toastr/build/toastr.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/morris.js/morris.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/sweetalert2/dist/sweetalert2.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/general/socicon/css/socicon.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/custom/vendors/line-awesome/css/line-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/custom/vendors/flaticon/flaticon.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/custom/vendors/flaticon2/flaticon.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/vendors/custom/vendors/fontawesome5/css/all.min.css" rel="stylesheet" type="text/css" />
+    <!--end:: Global Optional Vendors -->
+    <!--begin::Global Theme Styles(used by all pages) -->
+    <link href="~/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles -->
+    <!--begin::Layout Skins(used by all pages) -->
+    <link href="~/assets/demo/default/skins/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/demo/default/skins/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/demo/default/skins/brand/navy.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/demo/default/skins/aside/navy.css" rel="stylesheet" type="text/css" />
+    <!--end::Layout Skins -->
+
+    <link href="~/CSS/footer-design.css" rel="stylesheet" />
+</head>
+
+<!-- begin::Body -->
+<body class="k-header--fixed k-header-mobile--fixed k-aside--enabled k-aside--fixed">
+
+    <!-- begin:: Page -->
+    <!-- begin:: Header Mobile -->
+    <div id="k_header_mobile" class="k-header-mobile  k-header-mobile--fixed ">
+        <div class="k-header-mobile__logo">
+            <a href="index.html">
+                <img alt="Logo" src="~/assets/media/logos/logo-6.png" />
+            </a>
+        </div>
+        <div class="k-header-mobile__toolbar">
+            <button class="k-header-mobile__toolbar-toggler k-header-mobile__toolbar-toggler--left" id="k_aside_mobile_toggler"><span></span></button>
+            <button class="k-header-mobile__toolbar-toggler" id="k_header_mobile_toggler"><span></span></button>
+            <button class="k-header-mobile__toolbar-topbar-toggler" id="k_header_mobile_topbar_toggler"><i class="flaticon-more"></i></button>
+        </div>
+    </div>
+
+    <!-- end:: Header Mobile -->
+    <div class="k-grid k-grid--hor k-grid--root">
+        <div class="k-grid__item k-grid__item--fluid k-grid k-grid--ver k-page">
+
+            <!-- begin:: Aside -->
+            <button class="k-aside-close " id="k_aside_close_btn"><i class="la la-close"></i></button>
+            <div class="k-aside  k-aside--fixed 	k-grid__item k-grid k-grid--desktop k-grid--hor-desktop" id="k_aside">
+
+                <!-- begin::Aside Brand -->
+                <div class="k-aside__brand	k-grid__item " id="k_aside_brand">
+                    <div class="k-aside__brand-logo">
+                        <a href="#">
+                            <img alt="Logo" src="~/assets/media/logos/logo-6.png" />
+                        </a>
+                    </div>
+                    <div class="k-aside__brand-tools">
+                        <button class="k-aside__brand-aside-toggler k-aside__brand-aside-toggler--left" id="k_aside_toggler"><span></span></button>
+                    </div>
+                </div>
+
+                <!-- end:: Aside Brand -->
+                <!-- begin:: Aside Menu -->
+                <div class="k-aside-menu-wrapper	k-grid__item k-grid__item--fluid" id="k_aside_menu_wrapper">
+                    <div id="k_aside_menu" class="k-aside-menu " data-kmenu-vertical="1" data-kmenu-scroll="1" data-kmenu-dropdown-timeout="500">
+                        <ul class="k-menu__nav ">
+                            <li class="k-menu__item  k-menu__item--submenu k-menu__item--open k-menu__item--here" aria-haspopup="true" data-kmenu-submenu-toggle="hover">
+                                <a href="@Url.Action("Dashboard","Home")" class="k-menu__link k-menu__toggle"><i class="k-menu__link-icon flaticon2-graphic"></i><span class="k-menu__link-text">Dashboards</span></a>
+                            </li>
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="#" class="k-menu__link "><i class="k-menu__link-icon flaticon2-gear"></i><span class="k-menu__link-text">Layout Builder</span></a>
+                            </li>
+
+                            <li class="k-menu__section ">
+                                <h4 class="k-menu__section-text">Components</h4>
+                                <i class="k-menu__section-icon flaticon-more-v2"></i>
+                            </li>
+
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="#" class="k-menu__link ">
+                                    <i class="k-menu__link-icon flaticon2-pie-chart-4"></i>
+                                    <span class="k-menu__link-text">Widgets</span>
+                                </a>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu" aria-haspopup="true" data-kmenu-submenu-toggle="hover">
+                                <a href="javascript:;" class="k-menu__link k-menu__toggle"><i class="k-menu__link-icon flaticon2-calendar-2"></i><span class="k-menu__link-text">Calendar</span><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+                                <div class="k-menu__submenu ">
+                                    <span class="k-menu__arrow"></span>
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--parent" aria-haspopup="true"><span class="k-menu__link"><span class="k-menu__link-text">Calendar</span></span></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Basic</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">List View</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Agenda Week View</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Google Calendar</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">External Events</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Event Rendering</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu" aria-haspopup="true" data-kmenu-submenu-toggle="hover">
+                                <a href="javascript:;" class="k-menu__link k-menu__toggle"><i class="k-menu__link-icon flaticon2-graph-1"></i><span class="k-menu__link-text">Charts</span><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+                                <div class="k-menu__submenu ">
+                                    <span class="k-menu__arrow"></span>
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--parent" aria-haspopup="true"><span class="k-menu__link"><span class="k-menu__link-text">Charts</span></span></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Flot Charts</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Google Charts</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Morris Charts</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Chart JS</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                            <li class="k-menu__section ">
+                                <h4 class="k-menu__section-text">Home</h4>
+                                <i class="k-menu__section-icon flaticon-more-v2"></i>
+                            </li>
+
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="@Url.Action("About","Home")" class="k-menu__link ">
+                                    <i class="k-menu__link-icon flaticon2-pie-chart-4"></i>
+                                    <span class="k-menu__link-text">About</span>
+                                </a>
+                            </li>
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="@Url.Action("Contact","Home")" class="k-menu__link ">
+                                    <i class="k-menu__link-icon flaticon2-pie-chart-4"></i>
+                                    <span class="k-menu__link-text">Contact</span>
+                                </a>
+                            </li>
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="@Url.Action("Index","Home")" class="k-menu__link ">
+                                    <i class="k-menu__link-icon flaticon2-pie-chart-4"></i>
+                                    <span class="k-menu__link-text">Index</span>
+                                </a>
+                            </li>
+                            <li class="k-menu__item " aria-haspopup="true">
+                                <a href="@Url.Action("Summernote","Home")" class="k-menu__link ">
+                                    <i class="k-menu__link-icon flaticon2-pie-chart-4"></i>
+                                    <span class="k-menu__link-text">Summernote</span>
+                                </a>
+                            </li>
+
+                            <li class="k-menu__section ">
+                                <h4 class="k-menu__section-text">Custom</h4>
+                                <i class="k-menu__section-icon flaticon-more-v2"></i>
+                            </li>
+
+                            <li class="k-menu__item  k-menu__item--submenu" aria-haspopup="true" data-kmenu-submenu-toggle="hover">
+                                <a href="javascript:;" class="k-menu__link k-menu__toggle"><i class="k-menu__link-icon flaticon2-open-text-book"></i><span class="k-menu__link-text">Pricing</span><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+                                <div class="k-menu__submenu ">
+                                    <span class="k-menu__arrow"></span>
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--parent" aria-haspopup="true"><span class="k-menu__link"><span class="k-menu__link-text">Pricing</span></span></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Pricing v1</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Pricing v2</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="k-menu__item  k-menu__item--submenu" aria-haspopup="true" data-kmenu-submenu-toggle="hover">
+                                <a href="javascript:;" class="k-menu__link k-menu__toggle"><i class="k-menu__link-icon flaticon2-bell-1"></i><span class="k-menu__link-text">Invoices</span><i class="k-menu__ver-arrow la la-angle-right"></i></a>
+                                <div class="k-menu__submenu ">
+                                    <span class="k-menu__arrow"></span>
+                                    <ul class="k-menu__subnav">
+                                        <li class="k-menu__item  k-menu__item--parent" aria-haspopup="true"><span class="k-menu__link"><span class="k-menu__link-text">Invoices</span></span></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Invoice v1</span></a></li>
+                                        <li class="k-menu__item " aria-haspopup="true"><a href="#" class="k-menu__link "><i class="k-menu__link-bullet k-menu__link-bullet--dot"><span></span></i><span class="k-menu__link-text">Invoice v2</span></a></li>
+                                    </ul>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- end:: Aside Menu -->
+                <!-- begin:: Aside Footer -->
+                <div class="k-aside__footer		k-grid__item" id="k_aside_footer">
+                    <div class="k-aside__footer-nav">
+                        <div class="k-aside__footer-item">
+                            <a href="#" class="btn btn-icon"><i class="flaticon2-gear"></i></a>
+                        </div>
+                        <div class="k-aside__footer-item">
+                            <a href="#" class="btn btn-icon"><i class="flaticon2-cube"></i></a>
+                        </div>
+                        <div class="k-aside__footer-item">
+                            <a href="#" class="btn btn-icon"><i class="flaticon2-bell-alarm-symbol"></i></a>
+                        </div>
+                        <div class="k-aside__footer-item">
+                            <button type="button" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="flaticon2-add"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-left">
+                                <ul class="k-nav">
+                                    <li class="k-nav__section k-nav__section--first">
+                                        <span class="k-nav__section-text">Export Tools</span>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <i class="k-nav__link-icon la la-print"></i>
+                                            <span class="k-nav__link-text">Print</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <i class="k-nav__link-icon la la-copy"></i>
+                                            <span class="k-nav__link-text">Copy</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <i class="k-nav__link-icon la la-file-excel-o"></i>
+                                            <span class="k-nav__link-text">Excel</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <i class="k-nav__link-icon la la-file-text-o"></i>
+                                            <span class="k-nav__link-text">CSV</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <i class="k-nav__link-icon la la-file-pdf-o"></i>
+                                            <span class="k-nav__link-text">PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="k-aside__footer-item">
+                            <a href="#" class="btn btn-icon"><i class="flaticon2-calendar-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- end:: Aside Footer-->
+            </div>
+
+            <!-- end:: Aside -->
+            <div class="k-grid__item k-grid__item--fluid k-grid k-grid--hor k-wrapper" id="k_wrapper">
+
+                <!-- begin:: Header -->
+                <div id="k_header" class="k-header k-grid__item  k-header--fixed ">
+
+                    <!-- begin: Header Menu -->
+                    <button class="k-header-menu-wrapper-close" id="k_header_menu_mobile_close_btn"><i class="la la-close"></i></button>
+                    <div class="k-header-menu-wrapper" id="k_header_menu_wrapper">
+                        <div id="k_header_menu" class="k-header-menu k-header-menu-mobile ">
+                            <ul class="k-menu__nav ">
+                                <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel k-menu__item--active" data-kmenu-submenu-toggle="click" data-kmenu-link-redirect="1" aria-haspopup="true">
+                                    <a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Pages</span></a>
+
+                                </li>
+                                <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" data-kmenu-link-redirect="1" aria-haspopup="true">
+                                    <a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Reports</span></a>
+
+                                </li>
+                                <li class="k-menu__item  k-menu__item--submenu k-menu__item--rel" data-kmenu-submenu-toggle="click" data-kmenu-link-redirect="1" aria-haspopup="true">
+                                    <a href="javascript:;" class="k-menu__link k-menu__toggle"><span class="k-menu__link-text">Apps</span></a>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- end: Header Menu -->
+                    <!-- begin:: Header Topbar -->
+                    <div class="k-header__topbar">
+
+                        <!--begin: Notifications -->
+                        <div class="k-header__topbar-item dropdown">
+                            <div class="k-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px -2px">
+                                <span class="k-header__topbar-icon"><i class="far fa-bell"></i></span>
+                                <span class="k-badge k-badge--dot k-badge--notify k-badge--sm k-badge--brand"></span>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+                                <div class="k-head" style="background-image: url(../assets/media/misc/head_bg_sm.jpg)">
+                                    <h3 class="k-head__title">User Notifications</h3>
+                                    <div class="k-head__sub"><span class="k-head__desc">23 new notifications</span></div>
+                                </div>
+                                <div class="k-notification k-margin-t-30 k-margin-b-20 k-scroll" data-scroll="true" data-height="270" data-mobile-height="220">
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-line-chart k-font-success"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New order has been received
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                2 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-box-1 k-font-brand"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New customer is registered
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                3 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item k-notification__item--read">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-safe k-font-primary"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                Company meeting canceled
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                19 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-psd k-font-success"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New report has been received
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                23 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon-download-1 k-font-danger"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                Finance report has been generated
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                25 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon-security k-font-warning"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New customer comment recieved
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                2 days ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--end: Notifications -->
+                        <!--begin: Messages -->
+                        <div class="k-header__topbar-item dropdown">
+                            <div class="k-header__topbar-wrapper" data-toggle="dropdown" data-offset="30px -2px">
+                                <span class="k-header__topbar-icon"><i class="far fa-envelope"></i></span>
+                                <span class="k-badge k-badge--dot k-badge--notify k-badge--sm k-badge--brand"></span>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
+                                <div class="k-head" style="background-image: url(../assets/media/misc/head_bg_sm.jpg)">
+                                    <h3 class="k-head__title">User Messages</h3>
+                                    <div class="k-head__sub"><span class="k-head__desc">15 new messages</span></div>
+                                </div>
+                                <div class="k-notification k-margin-t-30 k-margin-b-20 k-scroll" data-scroll="true" data-height="270" data-mobile-height="220">
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-line-chart k-font-success"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New order has been received
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                2 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-box-1 k-font-brand"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New customer is registered
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                3 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item k-notification__item--read">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-safe k-font-primary"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                Company meeting canceled
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                19 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon2-psd k-font-success"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New report has been received
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                23 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon-download-1 k-font-danger"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                Finance report has been generated
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                25 hrs ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="k-notification__item">
+                                        <div class="k-notification__item-icon">
+                                            <i class="flaticon-security k-font-warning"></i>
+                                        </div>
+                                        <div class="k-notification__item-details">
+                                            <div class="k-notification__item-title">
+                                                New customer comment recieved
+                                            </div>
+                                            <div class="k-notification__item-time">
+                                                2 days ago
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--end: Notifications -->
+                        <!--begin: Language bar -->
+                        <div class="k-header__topbar-item k-header__topbar-item--langs">
+                            <div class="k-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px -2px">
+                                <span class="k-header__topbar-icon">
+                                    <img class="" src="~/assets/media/flags/020-flag.svg" alt="" />
+                                </span>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround">
+                                <ul class="k-nav k-margin-t-10 k-margin-b-10">
+                                    <li class="k-nav__item k-nav__item--active">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><img src="~/assets/media/flags/020-flag.svg" alt="" /></span>
+                                            <span class="k-nav__link-text">English</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><img src="~/assets/media/flags/021-bangladesh.jpg" alt="" /></span>
+                                            <span class="k-nav__link-text">Bangla</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--end: Language bar -->
+                        <!--begin: User bar -->
+                        <div class="k-header__topbar-item k-header__topbar-item--user">
+                            <div class="k-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px -2px">
+                                <div class="k-header__topbar-user">
+                                    <span class="k-header__topbar-welcome k-hidden-mobile"></span>
+                                    <span class="k-header__topbar-username k-hidden-mobile">Redwan</span>
+                                    <img alt="Pic" src="~/assets/media/users/default.jpg" />
+
+                                    <!--use below badge element instead the user avatar to display username's first letter(remove k-hidden class to display it) -->
+                                    <span class="k-badge k-badge--username k-badge--lg k-badge--brand k-hidden">A</span>
+                                </div>
+                            </div>
+                            <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-md">
+                                <div class="k-user-card k-margin-b-50 k-margin-b-30-tablet-and-mobile" style="background-image: url(../assets/media/misc/head_bg_sm.jpg)">
+                                    <div class="k-user-card__wrapper">
+                                        <div class="k-user-card__pic">
+                                            <img alt="Pic" src="~/assets/media/users/default.jpg" />
+                                        </div>
+                                        <div class="k-user-card__details">
+                                            <div class="k-user-card__name">Redwan</div>
+                                            <div class="k-user-card__position">(+88) 01767-409798</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="k-nav k-margin-b-10">
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><i class="flaticon2-calendar-3"></i></span>
+                                            <span class="k-nav__link-text">My Profile</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><i class="flaticon2-browser-2"></i></span>
+                                            <span class="k-nav__link-text">My Tasks</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><i class="flaticon2-mail"></i></span>
+                                            <span class="k-nav__link-text">Messages</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item">
+                                        <a href="#" class="k-nav__link">
+                                            <span class="k-nav__link-icon"><i class="flaticon2-gear"></i></span>
+                                            <span class="k-nav__link-text">Settings</span>
+                                        </a>
+                                    </li>
+                                    <li class="k-nav__item k-nav__item--custom k-margin-t-15">
+                                        <a href="#" class="btn btn-outline-metal btn-hover-brand btn-upper btn-font-dark btn-sm btn-bold">Sign Out</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!--end: User bar -->
+                        <!--begin: Quick panel toggler -->
+                        <div class="k-header__topbar-item k-header__topbar-item--quick-panel" data-toggle="k-tooltip" title="" data-placement="right">
+                            <span class="k-header__topbar-icon" id="k_quick_panel_toggler_btn">
+                                <i class="flaticon2-grids"></i>
+                            </span>
+                        </div>
+
+                        <!--end: Quick panel toggler -->
+                    </div>
+
+                    <!-- end:: Header Topbar -->
+                </div>
+
+                <!-- end:: Header -->
+                <!-- begin:: Content -->
+                <div class="k-content	k-grid__item k-grid__item--fluid k-grid k-grid--hor" id="k_content">
+                    <br /><br />
+                    @RenderBody()
+
+                </div>
+                <!-- end:: Content -->
+                <!-- begin:: Footer -->
+                <div style="background-color:white">
+                    <footer class="text-center mt-5 mb-5">
+                        <div class="social pb-3">
+                            <a href="https://www.facebook.com/profile.php?id=100004911679186" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/Redwan97029281" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/redwan-hossain-253548136/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                        <ul class="list-inline footer-text pb-3">
+                            <li class="list-inline-item"><a href="#">Home</a></li>
+                            <li class="list-inline-item"><a href="#">Services</a></li>
+                            <li class="list-inline-item"><a href="#">About</a></li>
+                            <li class="list-inline-item"><a href="#">Terms</a></li>
+                            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        </ul>
+                        <p><a href="http://redwan.pro/" target="_blank" style=" color:inherit; font-size:13px">&copy; @DateTime.Now.Year - Developed by Redwan Hossain</a></p>
+                    </footer>
+                </div>
+                <!-- end:: Footer -->
+            </div>
+        </div>
+    </div>
+
+    <!-- end:: Page -->
+    <!-- begin::Quick Panel -->
+    <div id="k_quick_panel" class="k-quick-panel">
+        <div class="k-quick-panel__nav">
+            <ul class="nav nav-pills" role="tablist">
+                <li class="nav-item active">
+                    <a class="nav-link active" data-toggle="tab" href="#k_quick_panel_tab_notifications" role="tab">Notifications</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#k_quick_panel_tab_messages" role="tab">Messages</a>
+                </li>
+            </ul>
+            <button class="k-quick-panel__close" id="k_quick_panel_close_btn"><i class="la la-close"></i></button>
+        </div>
+        <div class="k-quick-panel__content">
+            <div class="tab-content">
+                <div class="tab-pane fade show k-scroll active" id="k_quick_panel_tab_notifications" role="tabpanel">
+
+                    <!--Begin::Timeline -->
+                    <div class="k-timeline">
+
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--success">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon-feed k-font-success"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">02:30 PM</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                KeenThemes created new layout whith tens of new options for Keen Admin panel
+                            </a>
+                            <div class="k-timeline__item-info">
+                                HTML,CSS,VueJS
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--danger">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon-safe-shield-protection k-font-danger"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">01:20 AM</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                New secyrity alert by Firewall & order to take aktion on User Preferences
+                            </a>
+                            <div class="k-timeline__item-info">
+                                Security, Fieewall
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--brand">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon2-box k-font-brand"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">Yestardey</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                FlyMore design mock-ups been uploadet by designers Bob, Naomi, Richard
+                            </a>
+                            <div class="k-timeline__item-info">
+                                PSD, Sketch, AJ
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--warning">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon-pie-chart-1 k-font-warning"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">Aug 13,2018</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                Meeting with Ken Digital Corp ot Unit14, 3 Edigor Buildings, George Street, Loondon<br> England, BA12FJ
+                            </a>
+                            <div class="k-timeline__item-info">
+                                Meeting, Customer
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--info">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon-notepad k-font-info"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">May 09, 2018</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                KeenThemes created new layout whith tens of new options for Keen Admin panel
+                            </a>
+                            <div class="k-timeline__item-info">
+                                HTML,CSS,VueJS
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                        <!--Begin::Item -->
+                        <div class="k-timeline__item k-timeline__item--accent">
+                            <div class="k-timeline__item-section">
+                                <div class="k-timeline__item-section-border">
+                                    <div class="k-timeline__item-section-icon">
+                                        <i class="flaticon-bell k-font-accent"></i>
+                                    </div>
+                                </div>
+                                <span class="k-timeline__item-datetime">01:20 AM</span>
+                            </div>
+                            <a href="" class="k-timeline__item-text">
+                                New secyrity alert by Firewall & order to take aktion on User Preferences
+                            </a>
+                            <div class="k-timeline__item-info">
+                                Security, Fieewall
+                            </div>
+                        </div>
+
+                        <!--End::Item -->
+                    </div>
+
+                    <!--End::Timeline -->
+                </div>
+                <div class="tab-pane fade k-scroll" id="k_quick_panel_tab_messages" role="tabpanel">
+
+                    <!--begin::Portlet-->
+                    <div class="k-portlet k-portlet--solid-success">
+                        <div class="k-portlet__head">
+                            <div class="k-portlet__head-label">
+                                <span class="k-portlet__head-icon k-hide"><i class="flaticon-stopwatch"></i></span>
+                                <h3 class="k-portlet__head-title">Recent Bills</h3>
+                            </div>
+                            <div class="k-portlet__head-toolbar">
+                                <div class="k-portlet__head-group">
+                                    <div class="dropdown dropdown-inline">
+                                        <button type="button" class="btn btn-sm btn-font-light btn-outline-hover-light btn-circle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="flaticon-more"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="k-portlet__body">
+                            <div class="k-portlet__content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting simply dummy text of the printing industry.
+                            </div>
+                        </div>
+                        <div class="k-portlet__foot k-portlet__foot--sm k-align-right">
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">Dismiss</a>
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">View</a>
+                        </div>
+                    </div>
+
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+                    <div class="k-portlet k-portlet--solid-focus">
+                        <div class="k-portlet__head">
+                            <div class="k-portlet__head-label">
+                                <span class="k-portlet__head-icon k-hide"><i class="flaticon-stopwatch"></i></span>
+                                <h3 class="k-portlet__head-title">Latest Orders</h3>
+                            </div>
+                            <div class="k-portlet__head-toolbar">
+                                <div class="k-portlet__head-group">
+                                    <div class="dropdown dropdown-inline">
+                                        <button type="button" class="btn btn-sm btn-font-light btn-outline-hover-light btn-circle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="flaticon-more"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="k-portlet__body">
+                            <div class="k-portlet__content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting simply dummy text of the printing industry.
+                            </div>
+                        </div>
+                        <div class="k-portlet__foot k-portlet__foot--sm k-align-right">
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">Dismiss</a>
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">View</a>
+                        </div>
+                    </div>
+
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+                    <div class="k-portlet k-portlet--solid-info">
+                        <div class="k-portlet__head">
+                            <div class="k-portlet__head-label">
+                                <h3 class="k-portlet__head-title">Latest Invoices</h3>
+                            </div>
+                            <div class="k-portlet__head-toolbar">
+                                <div class="k-portlet__head-group">
+                                    <div class="dropdown dropdown-inline">
+                                        <button type="button" class="btn btn-sm btn-font-light btn-outline-hover-light btn-circle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="flaticon-more"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="k-portlet__body">
+                            <div class="k-portlet__content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting simply dummy text of the printing industry.
+                            </div>
+                        </div>
+                        <div class="k-portlet__foot k-portlet__foot--sm k-align-right">
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">Dismiss</a>
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">View</a>
+                        </div>
+                    </div>
+
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+                    <div class="k-portlet k-portlet--solid-warning">
+                        <div class="k-portlet__head">
+                            <div class="k-portlet__head-label">
+                                <h3 class="k-portlet__head-title">New Comments</h3>
+                            </div>
+                            <div class="k-portlet__head-toolbar">
+                                <div class="k-portlet__head-group">
+                                    <div class="dropdown dropdown-inline">
+                                        <button type="button" class="btn btn-sm btn-font-light btn-outline-hover-light btn-circle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="flaticon-more"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="k-portlet__body">
+                            <div class="k-portlet__content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting simply dummy text of the printing industry.
+                            </div>
+                        </div>
+                        <div class="k-portlet__foot k-portlet__foot--sm k-align-right">
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">Dismiss</a>
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">View</a>
+                        </div>
+                    </div>
+
+                    <!--end::Portlet-->
+                    <!--begin::Portlet-->
+                    <div class="k-portlet k-portlet--solid-brand">
+                        <div class="k-portlet__head">
+                            <div class="k-portlet__head-label">
+                                <h3 class="k-portlet__head-title">Recent Posts</h3>
+                            </div>
+                            <div class="k-portlet__head-toolbar">
+                                <div class="k-portlet__head-group">
+                                    <div class="dropdown dropdown-inline">
+                                        <button type="button" class="btn btn-sm btn-font-light btn-outline-hover-light btn-circle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="flaticon-more"></i>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Separated link</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="k-portlet__body">
+                            <div class="k-portlet__content">
+                                Lorem Ipsum is simply dummy text of the printing and typesetting simply dummy text of the printing industry.
+                            </div>
+                        </div>
+                        <div class="k-portlet__foot k-portlet__foot--sm k-align-right">
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">Dismiss</a>
+                            <a href="#" class="btn btn-bold btn-upper btn-sm btn-font-light btn-outline-hover-light">View</a>
+                        </div>
+                    </div>
+
+                    <!--end::Portlet-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end::Quick Panel -->
+    <!-- begin::Scrolltop -->
+    <div id="k_scrolltop" class="k-scrolltop">
+        <i class="la la-arrow-up"></i>
+    </div>
+    <!-- end::Scrolltop -->
+    <!-- begin::Global Config -->
+    <script>
+        var KAppOptions = {
+            "colors": {
+                "state": {
+                    "brand": "#5d78ff",
+                    "metal": "#c4c5d6",
+                    "light": "#ffffff",
+                    "accent": "#00c5dc",
+                    "primary": "#5867dd",
+                    "success": "#34bfa3",
+                    "info": "#36a3f7",
+                    "warning": "#ffb822",
+                    "danger": "#fd3995",
+                    "focus": "#9816f4"
+                },
+                "base": {
+                    "label": ["#c5cbe3", "#a1a8c3", "#3d4465", "#3e4466"],
+                    "shape": ["#f0f3ff", "#d9dffa", "#afb4d4", "#646c9a"]
+                }
+            }
+        };
+    </script>
+    <!-- end::Global Config -->
+    @*@Scripts.Render("~/CSS_And_Script_File/script")*@
+
+    <!--begin:: Global Mandatory Vendors -->
+    <script src="~/assets/vendors/general/jquery/dist/jquery.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/popper.js/dist/umd/popper.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/js-cookie/src/js.cookie.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/moment/min/moment.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/tooltip.js/dist/umd/tooltip.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/perfect-scrollbar/dist/perfect-scrollbar.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/sticky-js/dist/sticky.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/wnumb/wNumb.js" type="text/javascript"></script>
+    <!--end:: Global Mandatory Vendors -->
+    <!--begin:: Global Optional Vendors -->
+    <script src="~/assets/vendors/general/jquery-form/dist/jquery.form.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/block-ui/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/theme/framework/vendors/bootstrap-datepicker/init.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-datetime-picker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/theme/framework/vendors/bootstrap-timepicker/init.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-maxlength/src/bootstrap-maxlength.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/vendors/bootstrap-multiselectsplitter/bootstrap-multiselectsplitter.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-select/dist/js/bootstrap-select.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/typeahead.js/dist/typeahead.bundle.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/handlebars/dist/handlebars.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/inputmask/dist/jquery.inputmask.bundle.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/inputmask/dist/inputmask/inputmask.date.extensions.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/inputmask/dist/inputmask/inputmask.numeric.extensions.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/inputmask/dist/inputmask/inputmask.phone.extensions.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/nouislider/distribute/nouislider.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/owl.carousel/dist/owl.carousel.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/autosize/dist/autosize.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/clipboard/dist/clipboard.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/dropzone/dist/dropzone.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/summernote/dist/summernote.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/markdown/lib/markdown.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/theme/framework/vendors/bootstrap-markdown/init.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/jquery-validation/dist/jquery.validate.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/jquery-validation/dist/additional-methods.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/theme/framework/vendors/jquery-validation/init.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/toastr/build/toastr.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/raphael/raphael.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/morris.js/morris.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/chart.js/dist/Chart.bundle.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/vendors/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/vendors/jquery-idletimer/idle-timer.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/waypoints/lib/jquery.waypoints.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/counterup/jquery.counterup.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/es6-promise-polyfill/promise.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/custom/theme/framework/vendors/sweetalert2/init.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/jquery.repeater/src/lib.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/jquery.repeater/src/jquery.input.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/jquery.repeater/src/repeater.js" type="text/javascript"></script>
+    <script src="~/assets/vendors/general/dompurify/dist/purify.js" type="text/javascript"></script>
+    <!--end:: Global Optional Vendors -->
+    <!--begin::Global Theme Bundle(used by all pages) -->
+    <script src="~/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <!--end::Global Theme Bundle -->
+    <!--begin::Page Vendors(used by this page) -->
+    <script src="~/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
+
+    <!--end::Page Vendors -->
+    <!--begin::Page Scripts(used by this page) -->
+    <script src="~/assets/app/scripts/custom/dashboard.js" type="text/javascript"></script>
+    <script src="~/assets/demo/default/custom/components/forms/widgets/summernote.js" type="text/javascript"></script>
+    <!--end::Page Scripts -->
+    <!--begin::Global App Bundle(used by all pages) -->
+    <script src="~/assets/app/scripts/bundle/app.bundle.js" type="text/javascript"></script>
+    <!--end::Global App Bundle -->
+
+</body>
+<!-- end::Body -->
+
+</html>

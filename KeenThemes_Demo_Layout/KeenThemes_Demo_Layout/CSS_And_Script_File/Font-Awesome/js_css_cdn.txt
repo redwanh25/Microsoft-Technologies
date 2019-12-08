@@ -1,0 +1,2 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/8909a24a8f.js" crossorigin="anonymous"></script>

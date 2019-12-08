@@ -1,0 +1,41 @@
+﻿footer .social > a {
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin: 0 8px;
+    color: inherit;
+    opacity: 0.8;
+}
+
+    footer .social > a:hover {
+        opacity: 1;
+        color:cadetblue;
+    }
+
+footer .footer-text {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+    footer .footer-text li {
+        padding: 0 6px;
+    }
+
+    footer .footer-text a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.8;
+    }
+
+        footer .footer-text a:hover {
+            opacity: 1;
+            color: cadetblue;
+        }
