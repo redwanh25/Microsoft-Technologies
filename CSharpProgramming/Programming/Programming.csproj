@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Others.NullCoalescing</StartupObject>
+    <StartupObject>Programming.Collections_STL.List_L.Sort</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -93,6 +93,7 @@
     <Compile Include="Collections_STL\List_L\KeyValuePair_Demo.cs" />
     <Compile Include="Collections_STL\List_L\ReferenceTypeSort.cs" />
     <Compile Include="Collections_STL\List_L\Remove_RemoveAll_RemoveAt_RemoveRange.cs" />
+    <Compile Include="Collections_STL\List_L\Sort.cs" />
     <Compile Include="Collections_STL\List_L\ToArray_CopyTo_ConvertAll.cs" />
     <Compile Include="Collections_STL\List_L\Tuple_Sort_Reverse.cs" />
     <Compile Include="Collections_STL\Queue_Q\Enqueue_Dequeue_Peek.cs" />

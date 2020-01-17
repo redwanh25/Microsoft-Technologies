@@ -54,7 +54,7 @@ namespace SignalR_SqlDependency.Controllers
                 }
             }
         }
-
+ 
         // Using Entity Framework
         public ActionResult Get_1()
         {
@@ -82,6 +82,12 @@ namespace SignalR_SqlDependency.Controllers
                         con.Open();
 
                     SqlDataReader reader = cmd.ExecuteReader();
+
+                    // for realtime data retrive. upor er ai gula na korle o data retrive hobe. but, page reload dite hobe.
+                    // r likhle data auto retrive hobe withoyt reload. like realtime.
+                    //================================================================================================
+
+
                     List<CustomerInfo> customerList = db.CustomerInfoes.ToList();   // .Where(x => x.Status == true)
 
                     return Json(new { listCus = customerList }, JsonRequestBehavior.AllowGet);

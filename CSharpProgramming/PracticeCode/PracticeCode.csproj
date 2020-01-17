@@ -53,6 +53,7 @@
     <Compile Include="NewFolder2\Class1.cs" />
     <Compile Include="NewFolder2\GenerateAUniqueId.cs" />
     <Compile Include="NewFolder2\OutputShowInTextFile.cs" />
+    <Compile Include="NewFolder2\PasswordHash.cs" />
     <Compile Include="NewFolder2\SingleDoubleAndOr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

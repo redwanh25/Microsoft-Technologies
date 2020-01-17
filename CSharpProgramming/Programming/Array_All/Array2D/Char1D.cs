@@ -19,12 +19,14 @@ namespace Programming.Array_All.Array2D
             String str = Console.ReadLine();
             char[] ch = new char[str.Length];
 
-            for(int i = 0; i < str.Length; i++)
+            for (int i = 0; i < str.Length; i++)
             {
                 ch[i] = str[i];
             }
 
-            foreach(char i in ch)
+            //char[] ch = str.ToCharArray();
+
+            foreach (char i in ch)
             {
                 Console.Write(i);
             }

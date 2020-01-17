@@ -33,7 +33,6 @@
             cus.client.displayCustomer = function () {
                 getData();
             };
-
             // Start the connection
             $.connection.hub.start();
             getData();
@@ -58,6 +57,9 @@
                                 '<tr>'
                             );
                     });
+                },
+                error: function () {
+                    alert('error');
                 }
             });
         }
