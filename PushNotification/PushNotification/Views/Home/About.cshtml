@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+<input id="Button1" type="button" value="button" />
+
+<script>
+    Notification.requestPermission();
+    $('#Button1').click(function () {
+        Push.create("Hello world!", {
+            body: "hi redwan",
+            icon: '/push.js-1.0.11/small_logo.png',
+            timeout: 5000,
+            onClick: function () {
+                window.focus();
+                this.close();
+            }
+        });
+    })
+
+    //function notification() {
+    //    Push.create("Hello world!", {
+    //        body: "hi redwan",
+    //        icon: '/push.js-1.0.11/small_logo.png',
+    //        timeout: 5000,
+    //        onClick: function () {
+    //            window.focus();
+    //            this.close();
+    //        }
+    //    });
+    //}
+    //setInterval(notification, 7000);
+
+    //new Notification("hello redwan hossain");
+    //function notifyMe() {
+    //    if (!("Notification" in window)) {
+    //        alert("This browser does not support system notifications");
+    //    }
+    //    else if (Notification.permission === "granted") {
+    //        notify();
+    //    }
+    //    else if (Notification.permission !== 'denied') {
+    //        Notification.requestPermission(function (permission) {
+    //            if (permission === "granted") {
+    //                notify();
+    //            }
+    //        });
+    //    }
+
+    //    function notify() {
+    //        var notification = new Notification('TITLE OF NOTIFICATION', {
+    //            icon: 'http://carnes.cc/jsnuggets_avatar.jpg',
+    //            body: "Hey! You are on notice!",
+    //        });
+
+    //        notification.onclick = function () {
+    //            window.open("http://carnes.cc");
+    //        };
+    //        setTimeout(notification.close.bind(notification), 7000);
+    //    }
+
+    //}
+    //setInterval(notifyMe, 7000);
+</script>
