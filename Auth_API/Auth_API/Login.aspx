@@ -9,6 +9,7 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div class="col-md-6 col-md-offset-3">
