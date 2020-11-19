@@ -16,14 +16,14 @@ namespace CrystalReportsProject.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class EmployeeInfoReport : ReportClass {
+    public class CrystalReport1 : ReportClass {
         
-        public EmployeeInfoReport() {
+        public CrystalReport1() {
         }
         
         public override string ResourceName {
             get {
-                return "EmployeeInfoReport.rpt";
+                return "CrystalReport1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "CrystalReportsProject.CrystalReports.EmployeeInfoReport.rpt";
+                return "CrystalReportsProject.CrystalReports.CrystalReport1.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,7 +82,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
                 return this.ReportDefinition.Sections[4];
             }
@@ -90,23 +90,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
-            get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_rptName {
+        public CrystalDecisions.Shared.IParameterField Parameter_MyParameter {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -114,7 +98,7 @@ namespace CrystalReportsProject.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_My_Parameter {
+        public CrystalDecisions.Shared.IParameterField Parameter_CrystalSubReport1_MyParameterSub {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
@@ -122,9 +106,9 @@ namespace CrystalReportsProject.CrystalReports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEmployeeInfoReport : Component, ICachedReport {
+    public class CachedCrystalReport1 : Component, ICachedReport {
         
-        public CachedEmployeeInfoReport() {
+        public CachedCrystalReport1() {
         }
         
         [Browsable(false)]
@@ -161,7 +145,7 @@ namespace CrystalReportsProject.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            EmployeeInfoReport rpt = new EmployeeInfoReport();
+            CrystalReport1 rpt = new CrystalReport1();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -28,6 +28,8 @@ namespace CrystalReportsProject.Controllers
             reportParams.RptFileName = "EmployeeInfoReport.rpt";
             Session["ReportType"] = "EmployeeInfoReport";
             Session["ReportParam"] = reportParams;
+
+            Session["sSql"] = "select * from EmployeeView where DepartmentID = 1";
         }
 
         public List<Employee> GetAllEmployee()
