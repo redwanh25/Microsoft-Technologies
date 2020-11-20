@@ -25,6 +25,8 @@ namespace CrystalReportsProject.Report
             reportDocument.SetDataSource(dataSource);
             reportDocument.SetParameterValue("@rptName", reportParam.ReportTitle);
             //reportDocument.SetParameterValue("My Parameter", "Redwan Hossain");
+            reportDocument.SetParameterValue("SelectionRecord", 4000);
+            
             reportDocument.DataDefinition.FormulaFields["ReportName"].Text = "{CrystalReportsProject_Models_Employee.Name}";
             CrystalReportViewer.ReportSource = reportDocument;
         }
