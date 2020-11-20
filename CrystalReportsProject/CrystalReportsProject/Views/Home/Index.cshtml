@@ -5,24 +5,47 @@
 <div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><button id="ShowReportButtonId" class="btn btn-primary btn-lg">Show Report</button></p>
+    <p><button id="ShowReportButtonId1" class="btn btn-primary btn-lg">Show Report1</button></p>
+    <p><button id="ShowReportButtonId2" class="btn btn-primary btn-lg">Show Report2</button></p>
 </div>
 
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 
 <script>
     $(document).ready(function () {
-        $('#ShowReportButtonId').click(function () {
-            ReportManager.LoadReport();
+        $('#ShowReportButtonId1').click(function () {
+            ReportManager.LoadReport1();
+        })
+        $('#ShowReportButtonId2').click(function () {
+            ReportManager.LoadReport2();
         })
     });
 
     var ReportManager = {
-        LoadReport: function () {
+        LoadReport1: function () {
             var serviceUrl = "../Employees/EmployeeReport";
-            ReportManager.GetReport(serviceUrl);
+            ReportManager.GetReport1(serviceUrl);
         },
-        GetReport: function (serviceUrl) {
+        GetReport1: function (serviceUrl) {
+            $.ajax({
+                url: serviceUrl,
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    //alert('Hello');
+                    window.open('../Report/ReportViewer.aspx', '_newtab');
+                    //window.open('../Report/WebForm1.aspx', '_newtab');
+                },
+                error: function (ex) {
+                    alert('Error');
+                }
+            });
+        },
+        LoadReport2: function () {
+            var serviceUrl = "../Employees/EmployeeReport";
+            ReportManager.GetReport2(serviceUrl);
+        },
+        GetReport2: function (serviceUrl) {
             $.ajax({
                 url: serviceUrl,
                 type: "POST",

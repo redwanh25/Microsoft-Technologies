@@ -53,13 +53,13 @@ namespace CrystalReportsProject.Report
                 //reportDocument.SetDatabaseLogon("sa", "manager", sqlConnection.DataSource, sqlConnection.Database);
                 //reportDocument.Subreports[0].SetDatabaseLogon("sa", "manager", sqlConnection.DataSource, sqlConnection.Database);
 
-                reportDocument.SetParameterValue("MyParameter", "Hello World");
+                //reportDocument.SetParameterValue("MyParameter", "Hello World");
                 //reportDocument.SetParameterValue("MyParameterSub", "Hello World Sub", reportDocument.Subreports[0].Name.ToString());
-                reportDocument.SetParameterValue("MyParameterSub", "Hello World Sub", "CrystalSubReport1");
+                //reportDocument.SetParameterValue("MyParameterSub", "Hello World Sub", "CrystalSubReport1");
 
-                //reportDocument.DataDefinition.FormulaFields["ReportName"].Text = "Best Manufacturing Company Limited";
-
-
+                reportDocument.DataDefinition.FormulaFields["ReportName"].Text = "{EmployeeView.Gender}";
+                reportDocument.Subreports[0].DataDefinition.FormulaFields["ReportNameSub"].Text = "{tblDepartment.Location}";
+                
                 CrystalReportViewer1.ReportSource = reportDocument;
                 CrystalReportViewer1.DataBind();
                 CrystalReportViewer1.RefreshReport();
