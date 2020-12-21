@@ -1,0 +1,97 @@
+﻿@using RND.Models;
+@model IEnumerable<RND.Models.Employee>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<button id="clickMe">clickMe</button>
+<div class="row" style="margin-top:20px">
+    <div class="col-sm-12">
+        <div style="overflow-x:auto;">
+            <table id="datatable_Employee" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Gender
+                        </th>
+                        <th>
+                            Salary
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+
+    <script>
+        bindDatatable();
+
+        $('#clickMe').click(function () {
+            $.ajax({
+                url: '/Employee/FindByDate',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    startId: 200,
+                    endId: 500,
+                },
+                success: function (data) {
+                    $('#datatable_Employee').DataTable().ajax.reload();
+                },
+                error: function (ex) {
+                    alert('Error')
+                }
+            });
+        })
+
+        function bindDatatable() {
+            datatable = $('#datatable_Employee')
+                .DataTable({
+                    "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+                    "sAjaxSource": "/Employee/ListOfEmployee",
+                    "bServerSide": true,
+                    "bProcessing": true,
+                    "bSearchable": true,
+                    "order": [[0, 'asc']],
+                    "language": {
+                        "emptyTable": "No record found.",
+                        "processing":
+                            '<i class="fa fa-spinner fa-spin fa-3x fa-fw" style="color:#2a2b2b;"></i><span class="sr-only">Loading...</span> '
+                    },
+                    "columns": [
+                        {
+                            "data": "Id",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Name",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Gender",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                        {
+                            "data": "Salary",
+                            "autoWidth": true,
+                            "searchable": true
+                        },
+                    ]
+                });
+        }
+    </script>
+}
