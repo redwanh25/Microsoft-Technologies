@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreResearch", "DotNetCoreResearch\DotNetCoreResearch.csproj", "{22DF6E2E-BABA-45C7-943D-4D6895A6581C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{1710B326-B04C-466E-99CC-372958290053}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22DF6E2E-BABA-45C7-943D-4D6895A6581C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22DF6E2E-BABA-45C7-943D-4D6895A6581C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22DF6E2E-BABA-45C7-943D-4D6895A6581C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22DF6E2E-BABA-45C7-943D-4D6895A6581C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1710B326-B04C-466E-99CC-372958290053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1710B326-B04C-466E-99CC-372958290053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1710B326-B04C-466E-99CC-372958290053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1710B326-B04C-466E-99CC-372958290053}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5CC06B5-20EE-40EB-85B8-6770A01D14D6}
+	EndGlobalSection
+EndGlobal

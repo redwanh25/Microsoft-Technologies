@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreMVC_RND", "DotNetCoreMVC_RND\DotNetCoreMVC_RND.csproj", "{5E2F4D8A-C589-469A-9D54-CCF56936C003}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5E2F4D8A-C589-469A-9D54-CCF56936C003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E2F4D8A-C589-469A-9D54-CCF56936C003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E2F4D8A-C589-469A-9D54-CCF56936C003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E2F4D8A-C589-469A-9D54-CCF56936C003}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABBA6816-2B1C-411D-9F2E-A8E5040B3788}
+	EndGlobalSection
+EndGlobal
