@@ -20,3 +20,4 @@ namespace Technical_Assessment.Models
         public string Result { get; set; }
     }
 }
+

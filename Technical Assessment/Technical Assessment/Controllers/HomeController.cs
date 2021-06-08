@@ -43,8 +43,7 @@ namespace Technical_Assessment.Controllers
                     listOfData2.Add(ccc2);
                 }
             }
-
-            
+         
             //=========== Server Side Pagination ==============
 
             if (!string.IsNullOrEmpty(param.sSearch))
