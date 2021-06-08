@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div class="row mt-5">
+    <div class="col-12 mb-5">
+        <table id="datatable" class="table table-hover text-center">
+            <thead>
+                <tr>
+                    <th>
+                        BlogPost_Column
+                    </th>
+                    <th>
+                        Comment_Column
+                    </th>
+                    <th>
+                        User_Column
+                    </th>
+                    <th>
+                        Date_Column
+                    </th>
+                    <th>
+                        Result
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    $('#datatable').dataTable({
+        "aaSorting": [[0, 'asc']],
+        "lengthMenu": [[10, 25, 50, 100], [10, 25, 50, 100]],
+
+        "sAjaxSource": "/Home/GetResult",
+        "bServerSide": true,
+        "bProcessing": true,
+        "bSearchable": true,
+
+        "columns": [
+            { 'data': 'BlogPost' },
+            { 'data': 'Comment' },
+            { 'data': 'User' },
+            {
+                'data': 'Date',
+                'render': function (date) {
+                    return dateFormat(new Date(parseInt(date.substr(6))));
+                }
+            },
+            { 'data': 'Result' },
+        ]
+    });
+
+    function dateFormat(d) {
+        return (d.getDate() + "").padStart(2, "0") + "/" + ((d.getMonth()+1) + "").padStart(2, "0") + "/" + d.getFullYear();
+    }
+</script>

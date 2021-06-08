@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5133798e92b3431abccab7e3f6b05794" Name="Diagram1">
+        <EntityTypeShape EntityType="TechnicalAssessmentDBModel.BlogPost" Width="1.5" PointX="3.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechnicalAssessmentDBModel.BlogPostComment" Width="1.5" PointX="8.625" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TechnicalAssessmentDBModel.User" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="TechnicalAssessmentDBModel.FK__BlogPost__UserId__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="TechnicalAssessmentDBModel.FK__BlogPostC__BlogP__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TechnicalAssessmentDBModel.FK__BlogPostC__UserI__4CA06362" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
