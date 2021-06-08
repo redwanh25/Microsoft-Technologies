@@ -13,7 +13,7 @@ namespace Technical_Assessment.Models
         public string User { get; set; }
         public DateTime BlogPostDate { get; set; }
         public DateTime CommentDate { get; set; }
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         public int Like { get; set; }
         public int Dislike { get; set; }
         public int CommentCount { get; set; }

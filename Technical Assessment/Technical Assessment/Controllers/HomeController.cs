@@ -27,7 +27,7 @@ namespace Technical_Assessment.Controllers
                 ccc1.BlogPost = list.BlogPost;
                 ccc1.Comment = "";
                 ccc1.User = list.User;
-                ccc1.Date = list.BlogPostDate;
+                ccc1.Date = list.BlogPostDate.ToString("dd/MM/yyyy");
                 ccc1.Result = list.Result;
                 listOfData2.Add(ccc1);
 
@@ -38,7 +38,7 @@ namespace Technical_Assessment.Controllers
                     ccc2.BlogPost = "";
                     ccc2.Comment = bpc.Text;
                     ccc2.User = bpc.User.UserName;
-                    ccc2.Date = (DateTime) bpc.Date;
+                    ccc2.Date = ((DateTime) bpc.Date).ToString("dd/MM/yyyy");
                     ccc2.Result = "Like (" + bpc.Like + ") Dislike (" + bpc.Dislike + ")";
                     listOfData2.Add(ccc2);
                 }
@@ -52,7 +52,7 @@ namespace Technical_Assessment.Controllers
                 listOfData2 = listOfData2.Where(x => (x.BlogPost != null && x.BlogPost.Contains(param.sSearch.ToLower()))
                                               || (x.Comment != null && x.Comment.ToLower().Contains(param.sSearch.ToLower()))
                                               || (x.User != null && x.User.ToLower().Contains(param.sSearch.ToLower()))
-                                              || (x.CommentDate != null && x.CommentDate.ToString().ToLower().Contains(param.sSearch.ToLower()))
+                                              || (x.Date != null && x.Date.ToString().ToLower().Contains(param.sSearch.ToLower()))
                                               || (x.Result != null && x.Result.ToLower().Contains(param.sSearch.ToLower()))).ToList();
             }
 
