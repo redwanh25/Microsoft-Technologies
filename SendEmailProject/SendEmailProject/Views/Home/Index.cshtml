@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div style="margin-top:20px;">
+    <button class="btn btn-default btn-lg" onclick="Template('SalesOrder')">SalesOrder Template</button>
+    <button class="btn btn-default btn-lg" onclick="Template('Receipt')">Receipt Template</button>
+</div>
+
+<script src="~/CSS_And_Script_File/jQuery/js/jquery-3.4.1.js"></script>
+<script src="~/CSS_And_Script_File/Ajax/js/jquery.unobtrusive-ajax.min.js"></script>
+<script src="~/CSS_And_Script_File/SweetAlert/js/sweetalert2.all.js"></script>
+
+<script>
+    function Template(_value) {
+        $.ajax({
+            url: '/Home/Template',
+            type: 'post',
+            data: {
+                value: _value
+            },
+            success: function (data) {
+                Swal.fire({
+                    type: 'success',
+                    title: 'Success!',
+                    text: 'Email Send Successfully!',
+                    onClose: () => {
+                        //location.reload();
+                    }
+                });
+            },
+            error: function (ex) {
+                alert('Error Email Send');
+            }
+        });
+    }
+</script>
