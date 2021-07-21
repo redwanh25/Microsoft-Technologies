@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Others.DuplicateOperation_veryImportant</StartupObject>
+    <StartupObject>Programming.Object_Oriented.Others.Override</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -132,6 +132,7 @@
     <Compile Include="Object_Oriented\Others\GetType_typeof.cs" />
     <Compile Include="Object_Oriented\Others\ObjectCopy.cs" />
     <Compile Include="Object_Oriented\Others\ObsoleteAttributeDemo.cs" />
+    <Compile Include="Object_Oriented\Others\Override.cs" />
     <Compile Include="Object_Oriented\Polymorphism\Downcasting.cs" />
     <Compile Include="Object_Oriented\Polymorphism\UpCasting.cs" />
     <Compile Include="Object_Oriented\Others\ReadonlyConst.cs" />
