@@ -4,15 +4,15 @@ using System.Text;
 
 namespace Models
 {
-    public class Category
+    public class Shop
     {
-        public Category()
+        public Shop()
         {
             Products = new List<Product>();
         }
         public int Id { get; set; }
-        public string Code { get; set; }
         public string Name { get; set; }
+        public string Address { get; set; }
 
         public List<Product> Products { get; set; }
     }

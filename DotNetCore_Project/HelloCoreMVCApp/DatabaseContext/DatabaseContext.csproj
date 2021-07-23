@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="microsoft.entityframeworkcore" Version="5.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="5.0.8" />
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="5.0.8" />
     <PackageReference Include="microsoft.entityframeworkCore.tools" Version="5.0.8">
       <PrivateAssets>all</PrivateAssets>
