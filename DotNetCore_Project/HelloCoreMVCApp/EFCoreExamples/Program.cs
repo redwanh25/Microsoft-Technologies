@@ -32,20 +32,22 @@ namespace EFCoreExamples
 
             //product.Category = category;
 
-            //CustomerRepository repo = new CustomerRepository();
-            //Customer customer = repo.GetCutomerById(2);
-            //customer.ContactNo = "01767409798";
-            //Console.WriteLine(customer.CustomerName);
-            //Console.WriteLine(customer.Address);
+            CustomerRepository repo1 = new CustomerRepository();
+            Customer customer = repo1.GetById(2);
+            customer.ContactNo = "01767409798";
+            Console.WriteLine(customer.CustomerName);
+            Console.WriteLine(customer.Address);
+
+            Console.WriteLine();
 
             //ProductRepository repo = new ProductRepository();
 
 
             //customer.Address = "437/3, Senpara Parbata, Mirpur-10";
 
-            //bool isSaved = repo.AddCutomer(customer);
-            //bool isSaved = repo.UpdateCutomer(customer);
-            //bool isSaved = repo.DeleteCustomer(customer);
+            //bool isSaved = repo.Add(customer);
+            //bool isSaved = repo.Update(customer);
+            //bool isSaved = repo.Delete(customer);
             //if (isSaved)
             //{
             //    Console.WriteLine("Saved!");
@@ -54,7 +56,7 @@ namespace EFCoreExamples
             //===================================================================
 
             CategoryRepository repo = new CategoryRepository();
-            List<Category> categories = repo.GetAllCategory();
+            List<Category> categories = repo.GetAll();
             repo.LoadProduct(categories);
 
             if (categories != null && categories.Any())

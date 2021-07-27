@@ -1,6 +1,7 @@
 ﻿using DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Models;
+using Repositories.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Repositories
 {
-    public class CategoryRepository
+    public class CategoryRepository : Repository<Category>
     {
         CustomerDbContext db = new CustomerDbContext();
 
@@ -17,7 +18,7 @@ namespace Repositories
             Category category = db.Categories.Find(id);
             return category;
         }
-        public List<Category> GetAllCategory()
+        public override List<Category> GetAll()
         {
             //Eager Loading
             //return db.Categories.Include(c => c.Products).ToList();
@@ -44,24 +45,6 @@ namespace Repositories
                 db.Entry(category).Collection(c => c.Products).Query().Where(p => p.IsActive == true).Load();
                 //db.Entry(category).Collection(c => c.Order).Query().Where(o => o.OrderNo == "123").Load();
             }
-        }
-
-        public bool AddCategory(Category category)
-        {
-            db.Entry(category).State = EntityState.Added;
-            return db.SaveChanges() > 0;
-        }
-
-        public bool UpdateCategory(Category category)
-        {
-            db.Entry(category).State = EntityState.Modified;
-            return db.SaveChanges() > 0;
-        }
-
-        public bool DeleteCategory(Category category)
-        {
-            db.Entry(category).State = EntityState.Deleted;
-            return db.SaveChanges() > 0;
         }
     }
 }
