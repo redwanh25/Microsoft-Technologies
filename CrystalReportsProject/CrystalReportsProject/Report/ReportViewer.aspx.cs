@@ -39,6 +39,14 @@ namespace CrystalReportsProject.Report
             //Response.ContentType = "application/pdf";
             //Response.WriteFile(fileInfo.FullName);
 
+            //Response.Clear();
+            //string filePath = Server.MapPath("~/Report/Excel_Reports/sample.xls");
+            //reportDocument.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.Excel, filePath);
+            //FileInfo fileInfo = new FileInfo(filePath);
+            //Response.AddHeader("Content-Disposition", "inline;filename=sample.xls");
+            //Response.ContentType = "application/vnd.ms-excel";
+            //Response.WriteFile(fileInfo.FullName);
+
             Stream stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
             FileStream fileout = File.Create(Server.MapPath("~/Report/PDF_Reports/sample.pdf"));
