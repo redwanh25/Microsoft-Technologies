@@ -5,11 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Repositories.Base
+namespace DAL_DataAccessLayer.Base
 {
-    public class Repository<T> where T : class
+    public abstract class Repository<T> where T : class
     {
-        CustomerDbContext db = new CustomerDbContext();
+        public CustomerDbContext db;
+
+        public Repository()
+        {
+            db = new CustomerDbContext();
+        }
+
         private DbSet<T> Table
         {
             get { return db.Set<T>(); }

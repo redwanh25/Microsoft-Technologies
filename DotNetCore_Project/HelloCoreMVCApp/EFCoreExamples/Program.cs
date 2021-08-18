@@ -1,8 +1,9 @@
 ﻿using Models;
-using Repositories;
+using DAL_DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BLL_BusinessLogicLayer;
 
 namespace EFCoreExamples
 {
@@ -32,8 +33,8 @@ namespace EFCoreExamples
 
             //product.Category = category;
 
-            CustomerRepository repo1 = new CustomerRepository();
-            Customer customer = repo1.GetById(2);
+            CustomerManager customerManager = new CustomerManager();
+            Customer customer = customerManager.GetById(2);
             customer.ContactNo = "01767409798";
             Console.WriteLine(customer.CustomerName);
             Console.WriteLine(customer.Address);
