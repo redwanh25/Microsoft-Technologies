@@ -1,4 +1,5 @@
 ﻿using BLL_BusinessLogicLayer;
+using BLL_BusinessLogicLayer.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System;
@@ -10,11 +11,13 @@ namespace HelloCoreMVCApp.Controllers
 {
     public class CustomerController : Controller
     {
-        private CustomerManager _customerManager;
-        public CustomerController()
+        private ICustomerManager _customerManager;
+
+        public CustomerController(ICustomerManager customerManager)
         {
-            _customerManager = new CustomerManager();
+            _customerManager = customerManager;
         }
+
         public IActionResult Index()
         {
             return View();

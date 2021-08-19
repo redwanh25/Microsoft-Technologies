@@ -1,4 +1,5 @@
-﻿using DatabaseContext;
+﻿using DAL_DataAccessLayer.Contracts;
+using DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace DAL_DataAccessLayer.Base
 {
-    public abstract class Repository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
         public CustomerDbContext db;
 

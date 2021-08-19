@@ -1,15 +1,17 @@
-﻿using DAL_DataAccessLayer.Base;
+﻿using BLL_BusinessLogicLayer.Contracts;
+using DAL_DataAccessLayer.Base;
+using DAL_DataAccessLayer.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BLL_BusinessLogicLayer.Base
 {
-    public abstract class Manager<T> where T : class
+    public abstract class Manager<T>: IManager<T> where T : class
     {
-        public Repository<T> _repository;
+        public IRepository<T> _repository;
 
-        public Manager(Repository<T> repository)
+        public Manager(IRepository<T> repository)
         {
             _repository = repository;
         }

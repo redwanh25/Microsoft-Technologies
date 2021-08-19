@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DAL_DataAccessLayer.Contracts;
 
 namespace DAL_DataAccessLayer
 {
-    public class CustomerRepository : Repository<Customer>
+    public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
         public override Customer GetById<Y>(Y id)
         {

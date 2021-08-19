@@ -6,13 +6,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DAL_DataAccessLayer.Contracts;
 
 namespace DAL_DataAccessLayer
 {
-    public class CategoryRepository : Repository<Category>
+    public class CategoryRepository : Repository<Category>, ICategoryRepository
     {
 
-        public Category GetCategoryById(int id)
+        public override Category GetById<Y>(Y id)
         {
             Category category = db.Categories.Find(id);
             return category;

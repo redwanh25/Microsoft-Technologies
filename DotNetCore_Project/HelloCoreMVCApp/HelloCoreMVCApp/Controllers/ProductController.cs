@@ -1,7 +1,5 @@
 ﻿using BLL_BusinessLogicLayer;
-using BLL_BusinessLogicLayer.Base;
 using BLL_BusinessLogicLayer.Contracts;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using System;
@@ -15,9 +13,9 @@ namespace HelloCoreMVCApp.Controllers
     {
         private IProductManager _productManager;
 
-        public ProductController()
+        public ProductController(IProductManager productManager)
         {
-            _productManager = new ProductManager();
+            _productManager = productManager;
         }
 
         public IActionResult Index()

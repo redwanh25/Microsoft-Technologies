@@ -1,5 +1,7 @@
 ﻿using BLL_BusinessLogicLayer.Base;
+using BLL_BusinessLogicLayer.Contracts;
 using DAL_DataAccessLayer;
+using DAL_DataAccessLayer.Contracts;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -7,11 +9,12 @@ using System.Text;
 
 namespace BLL_BusinessLogicLayer
 {
-    public class CustomerManager : Manager<Customer>
+    public class CustomerManager : Manager<Customer>, ICustomerManager
     {
-        public CustomerManager() : base(new CustomerRepository())
+        private ICustomerRepository _customerRepository;
+        public CustomerManager(ICustomerRepository customerRepository) : base(customerRepository)
         {
-            
+            _customerRepository = customerRepository;
         }
 
         //public override Customer GetById<Y>(Y id)

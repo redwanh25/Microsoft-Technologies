@@ -1,3 +1,7 @@
+using BLL_BusinessLogicLayer;
+using BLL_BusinessLogicLayer.Contracts;
+using DAL_DataAccessLayer;
+using DAL_DataAccessLayer.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +27,16 @@ namespace HelloCoreMVCApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //===========================================================================================
+            services.AddTransient<ICategoryManager, CategoryManager>();
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+            services.AddTransient<ICustomerManager, CustomerManager>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+
+            services.AddTransient<IProductManager, ProductManager>();
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

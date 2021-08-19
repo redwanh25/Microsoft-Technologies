@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using BLL_BusinessLogicLayer;
+using DAL_DataAccessLayer.Contracts;
 
 namespace EFCoreExamples
 {
@@ -33,22 +34,8 @@ namespace EFCoreExamples
 
             //product.Category = category;
 
-            CustomerManager customerManager = new CustomerManager();
-            Customer customer = customerManager.GetById(2);
-            customer.ContactNo = "01767409798";
-            Console.WriteLine(customer.CustomerName);
-            Console.WriteLine(customer.Address);
-
-            Console.WriteLine();
-
-            //ProductRepository repo = new ProductRepository();
-
-
-            //customer.Address = "437/3, Senpara Parbata, Mirpur-10";
-
-            //bool isSaved = repo.Add(customer);
-            //bool isSaved = repo.Update(customer);
-            //bool isSaved = repo.Delete(customer);
+            //IProductRepository productRepository = new ProductRepository();
+            //bool isSaved = productRepository.Add(customer);
             //if (isSaved)
             //{
             //    Console.WriteLine("Saved!");
@@ -56,9 +43,9 @@ namespace EFCoreExamples
 
             //===================================================================
 
-            CategoryRepository repo = new CategoryRepository();
-            List<Category> categories = repo.GetAll();
-            repo.LoadProduct(categories);
+            ICategoryRepository categoryRepository = new CategoryRepository();
+            List<Category> categories = categoryRepository.GetAll();
+            categoryRepository.LoadProduct(categories);
 
             if (categories != null && categories.Any())
             {

@@ -5,8 +5,7 @@ using System.Text;
 
 namespace BLL_BusinessLogicLayer.Contracts
 {
-    public interface IProductManager : IManager<Product>
+    public interface ICustomerManager : IManager<Customer>
     {
-        List<Product> GetByYear(int year);
     }
 }

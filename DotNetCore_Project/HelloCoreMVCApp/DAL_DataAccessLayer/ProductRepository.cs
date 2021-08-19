@@ -6,10 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using DAL_DataAccessLayer.Contracts;
 
 namespace DAL_DataAccessLayer
 {
-    public class ProductRepository : Repository<Product>
+    public class ProductRepository : Repository<Product>, IProductRepository
     {
 
     }
