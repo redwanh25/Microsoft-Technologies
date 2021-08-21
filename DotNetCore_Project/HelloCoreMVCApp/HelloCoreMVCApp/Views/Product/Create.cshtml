@@ -1,4 +1,5 @@
-﻿@model Models.Product
+﻿@using HelloCoreMVCApp.Models.ProductViewModel
+@model ProductCreateVM
 
 @{
     ViewData["Title"] = "Create";
@@ -34,7 +35,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="Model.CategoryItemList"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="Model.CategoryItemList">
+                    <option>Select...</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

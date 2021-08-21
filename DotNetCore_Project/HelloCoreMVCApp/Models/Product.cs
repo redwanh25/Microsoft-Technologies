@@ -19,16 +19,11 @@ namespace Models
         public double Price { get; set; }
         public string Description { get; set; }
         public bool IsActive { get; set; }
-
-        [Display(Name = "Category")]
         public int CategoryId { get; set; }
 
         //public List<Shop> Shops { get; set; }
         //public List<OrderDetail> OrderDetails { get; set; }
 
         public Category Category { get; set; }
-
-        [NotMapped]
-        public List<SelectListItem> CategoryItemList { get; set; }
     }
 }

@@ -1,5 +1,7 @@
-﻿using BLL_BusinessLogicLayer;
+﻿using AutoMapper;
+using BLL_BusinessLogicLayer;
 using BLL_BusinessLogicLayer.Contracts;
+using HelloCoreMVCApp.Models.ProductViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Models;
@@ -14,17 +16,19 @@ namespace HelloCoreMVCApp.Controllers
     {
         private IProductManager _productManager;
         private ICategoryManager _categoryManager;
-
-        public ProductController(IProductManager productManager, ICategoryManager categoryManager)
+        private IMapper _mapper;
+        public ProductController(IProductManager productManager, ICategoryManager categoryManager, IMapper mapper)
         {
             _productManager = productManager;
             _categoryManager = categoryManager;
+            _mapper = mapper;
         }
 
         public IActionResult Index()
         {
-            List<Product> listofProducts = _productManager.GetAll();
-            return View(listofProducts);
+            List<Product> products = _productManager.GetAll();
+            List<ProductListVM> productList = _mapper.Map<List<ProductListVM>>(products);
+            return View(productList);
         }
 
         public IActionResult Create()
@@ -35,17 +39,18 @@ namespace HelloCoreMVCApp.Controllers
                 Text = c.Name
             }).ToList();
 
-            var model = new Product();
+            ProductCreateVM model = new ProductCreateVM();
             model.CategoryItemList = categoryItemList;
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Create(Product product)
+        public IActionResult Create(ProductCreateVM model)
         {
             if (ModelState.IsValid)
             {
+                Product product = _mapper.Map<Product>(model);
                 bool isSaved = _productManager.Add(product);
                 if (isSaved)
                 {

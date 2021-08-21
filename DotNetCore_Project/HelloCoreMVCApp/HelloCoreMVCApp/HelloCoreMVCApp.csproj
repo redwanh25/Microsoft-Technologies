@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="microsoft.entityframeworkcore" Version="5.0.8" />
     <PackageReference Include="microsoft.entityframeworkcore.sqlserver" Version="5.0.8" />
     <PackageReference Include="microsoft.entityframeworkCore.tools" Version="5.0.8">
