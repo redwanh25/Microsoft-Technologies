@@ -33,7 +33,7 @@ namespace HelloCoreMVCApp.Controllers
 
         public IActionResult Create()
         {
-            List<SelectListItem> categoryItemList = _categoryManager.GetAll().Select(c => new SelectListItem
+            List<SelectListItem> categoryItemList = _categoryManager.GetAll().Select(c => new SelectListItem()
             {
                 Value = c.Id.ToString(),
                 Text = c.Name
