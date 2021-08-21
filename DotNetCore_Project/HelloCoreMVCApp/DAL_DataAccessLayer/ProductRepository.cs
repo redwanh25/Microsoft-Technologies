@@ -12,6 +12,9 @@ namespace DAL_DataAccessLayer
 {
     public class ProductRepository : Repository<Product>, IProductRepository
     {
-
+        public override List<Product> GetAll()
+        {
+            return db.Products.Include(c => c.Category).ToList();
+        }
     }
 }

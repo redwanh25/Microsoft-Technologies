@@ -10,7 +10,7 @@ namespace DAL_DataAccessLayer.Base
 {
     public abstract class Repository<T> : IRepository<T> where T : class
     {
-        public CustomerDbContext db;
+        protected CustomerDbContext db;
 
         public Repository()
         {
