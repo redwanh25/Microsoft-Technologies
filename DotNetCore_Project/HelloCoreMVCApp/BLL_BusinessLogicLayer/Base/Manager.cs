@@ -9,7 +9,7 @@ namespace BLL_BusinessLogicLayer.Base
 {
     public abstract class Manager<T>: IManager<T> where T : class
     {
-        public IRepository<T> _repository;
+        private IRepository<T> _repository;
 
         public Manager(IRepository<T> repository)
         {

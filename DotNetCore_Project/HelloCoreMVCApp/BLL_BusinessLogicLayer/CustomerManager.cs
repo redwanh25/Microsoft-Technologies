@@ -3,6 +3,7 @@ using BLL_BusinessLogicLayer.Contracts;
 using DAL_DataAccessLayer;
 using DAL_DataAccessLayer.Contracts;
 using Models;
+using Models.DatabaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,14 +30,19 @@ namespace BLL_BusinessLogicLayer
         {
             //Write Business Login Here
 
-            return _repository.Add(customer);
+            return _customerRepository.Add(customer);
         }
 
         public override bool Update(Customer customer)
         {
             //Write Business Login Here
 
-            return _repository.Update(customer);
+            return _customerRepository.Update(customer);
+        }
+
+        public List<VMCustomer> GetCustomerListFromView()
+        {
+            return _customerRepository.GetCustomerListFromView();
         }
     }
 }

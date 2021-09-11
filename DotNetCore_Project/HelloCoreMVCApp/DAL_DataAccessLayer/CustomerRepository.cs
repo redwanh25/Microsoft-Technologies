@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using DAL_DataAccessLayer.Contracts;
+using Models.DatabaseViewModel;
 
 namespace DAL_DataAccessLayer
 {
@@ -21,6 +22,11 @@ namespace DAL_DataAccessLayer
         {
             db.Entry(customer).State = EntityState.Added;
             return db.SaveChanges() > 0;
+        }
+
+        public List<VMCustomer> GetCustomerListFromView()
+        {
+            return db.VMCustomers.ToList();
         }
     }
 }

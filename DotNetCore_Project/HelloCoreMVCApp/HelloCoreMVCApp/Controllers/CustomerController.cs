@@ -2,6 +2,7 @@
 using BLL_BusinessLogicLayer.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Models;
+using Models.DatabaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,8 @@ namespace HelloCoreMVCApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<VMCustomer> list = _customerManager.GetCustomerListFromView();
+            return View(list);
         }
 
         public IActionResult Create(Customer customer)
