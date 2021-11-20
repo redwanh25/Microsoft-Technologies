@@ -18,12 +18,12 @@ namespace Programming.Delegate_Anonymous
             Delegate_Besic db = new Delegate_Besic();
 
             Hello hh = new Hello(db.print);     // aikhane method er nam argument hishe be dite hobe..
-      //    Hello hh = new Hello(db.pri);       // error hobe.
+          //Hello hh = new Hello(db.pri);       // error hobe.
             string res = hh(420);
             Console.WriteLine(res);
 
         }
-//delegate     string Hello(int aa);        delegate er khetre return type and parameter r jake point korbe tar
+        //delegate string Hello(int aa);        delegate er khetre return type and parameter r jake point korbe tar
         public string print(int a)      //  return type and parameter same hote hobe. noile point korte parbe na.
         {
             string str = a.ToString();

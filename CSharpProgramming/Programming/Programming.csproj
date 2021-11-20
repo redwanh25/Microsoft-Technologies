@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Programming.Object_Oriented.Others.Override</StartupObject>
+    <StartupObject>Programming.AsyncTaskAwait.AsyncTaskAwait_4</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -73,6 +73,9 @@
     <Compile Include="Array_All\Copy_CopyTo.cs" />
     <Compile Include="Array_All\ParamsArray.cs" />
     <Compile Include="Array_All\Reverse_Sort_IndexOf.cs" />
+    <Compile Include="AsyncTaskAwait\AsyncTaskAwait_2.cs" />
+    <Compile Include="AsyncTaskAwait\AsyncTaskAwait_3.cs" />
+    <Compile Include="AsyncTaskAwait\AsyncTaskAwait_4.cs" />
     <Compile Include="Collections_STL\Dictionary_D\ArrayToDictionary_ListToDictionary.cs" />
     <Compile Include="Collections_STL\Dictionary_D\Basic.cs" />
     <Compile Include="Collections_STL\Dictionary_D\ContainsKey_TryGetValue_Count_Remove_Clear.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Object_Oriented\Polymorphism\UpCasting.cs" />
     <Compile Include="Object_Oriented\Others\ReadonlyConst.cs" />
     <Compile Include="Object_Oriented\This_Keyword\ThisKeyword.cs" />
+    <Compile Include="AsyncTaskAwait\AsyncTaskAwait_1.cs" />
     <Compile Include="Others\DuplicateOperation_veryImportant.cs" />
     <Compile Include="Others\EOF.cs" />
     <Compile Include="Others\Fillup.cs" />
