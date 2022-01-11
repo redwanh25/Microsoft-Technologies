@@ -39,6 +39,15 @@ namespace HelloCoreMVCApp
             services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddAutoMapper(typeof(Startup));
+
+            //services.AddCors(option =>
+            //{
+            //    option.AddPolicy("AllowOrigin", policy =>
+            //    {
+            //        policy.AllowAnyHeader();
+            //        policy.AllowAnyOrigin();
+            //    });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,11 +61,11 @@ namespace HelloCoreMVCApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
             app.UseStaticFiles();
-
             app.UseRouting();
-
             app.UseAuthorization();
+            //app.UseCors("AllowOrigin");
 
             app.UseEndpoints(endpoints =>
             {
